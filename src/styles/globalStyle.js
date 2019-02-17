@@ -5,5 +5,7 @@ export default createGlobalStyle`
 
     body {
         font-family: 'Lato', sans-serif;
+
+        margin: 0px;
     }
 `;
