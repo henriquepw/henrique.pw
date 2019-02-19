@@ -9,8 +9,7 @@ export default () => (
             Henrique <span>Miranda</span>
         </h1>
         <h2>
-            Full Stack Web & Androd Developer and Design |{' '}
-            <span>enrque.ns@gmail.com</span>
+            Telematics student, Full Stack Developer <span>&</span> Designer
         </h2>
         <Divider />
         <p>
@@ -43,7 +42,7 @@ export default () => (
             </li>
             <li>
                 <a
-                    href='https://www.linkedin.com/in/henry_ns/'
+                    href='https://www.linkedin.com/in/henry-ns/'
                     target='_blank'
                     rel='noopener noreferrer'
                 >
@@ -61,9 +60,7 @@ export default () => (
             </li>
             <li>
                 <a
-                    href='enrque.ns@gmail.com'
-                    target='_blank'
-                    rel='noopener noreferrer'
+                    href='mailto:enrque.ns@gmail.com'
                 >
                     <Icon name='Email' />
                 </a>

@@ -17,6 +17,11 @@ const Section = styled.section`
         color: #af4448;
     }
 
+    h1, h2 {
+        font-family: Staatliches, cursive;
+        font-family: Patua One, cursive;
+    }
+
     h1 {
         font-size: 4em;
         margin: 0px;
@@ -24,7 +29,7 @@ const Section = styled.section`
     }
 
     h2 {
-        font-size: 1.8em;
+        font-size: 1.9em;
         margin: 0px;
     }
 

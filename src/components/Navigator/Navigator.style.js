@@ -10,11 +10,12 @@ export const Container = styled.nav`
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
 `;
 
 export const Img = styled.img`
     display: block;
-    margin: 120px auto 120px auto;
+    margin: 10% auto 10% auto;
     text-align: center;
 
     width: 10em;
