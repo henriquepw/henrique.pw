@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Media from 'styles/media';
+import Colors from 'styles/colors';
 
 export const Container = styled.nav`
-    background-color: #af4448;
+    background-color: ${Colors.primaryColor};
     position: fixed;
 
     width: 17em;
@@ -56,7 +57,7 @@ export const MenuItem = styled(Link)`
 
     padding-bottom: 15px;
 
-    color: #d4a5a6;
+    color: ${Colors.secondaryTextColor};
 
     transition: transform 0.3s;
     &:hover {

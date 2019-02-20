@@ -1,5 +1,6 @@
 import React from 'react';
-import { Section, Divider, Background } from './About.style';
+import { Section, Divider } from './About.style';
+import { Background } from 'styles/grid.js';
 
 import Icon from 'components/Icon/Icon';
 

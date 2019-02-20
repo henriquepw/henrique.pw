@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { Container } from 'styles/grid.js';
 import Media from 'styles/media';
+import Colors from 'styles/colors';
 
 const Section = styled(Container)`
     span {
-        color: #af4448;
+        color: ${Colors.primaryColor};
     }
 
     h1, h2 {
@@ -75,35 +76,11 @@ const Section = styled(Container)`
 `;
 
 const Divider = styled.div`
-    background-color: #af4448;
+    background-color: ${Colors.primaryColor};
     width: 58%;
     height: 5px;
 
     margin: 30px 0px 25px 0px;
 `;
 
-const Background = styled.div`
-    display: none;
-    visibility: hidden;
-
-    ${Media.desktop`
-        display: block;
-        position: fixed;
-        
-        background-image: url(${require('assets/photo.png')});
-        background-repeat: no-repeat;
-
-        opacity: 0.4;
-
-        left: 10vw;
-        top: 10vh;
-        width: 80vw;
-        height: 80vh;
-
-        visibility: visible;
-        margin: 30px;
-        z-index: -99;
-    `}
-`;
-
-export { Section, Divider, Background };
+export { Section, Divider };
