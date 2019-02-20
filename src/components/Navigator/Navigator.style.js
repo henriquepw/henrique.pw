@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Media from 'styles/media';
 
 export const Container = styled.nav`
     background-color: #af4448;
@@ -11,6 +12,11 @@ export const Container = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    ${Media.desktop` 
+        height: 4em;
+        width: 100%;
+    `}
 `;
 
 export const Img = styled.img`
@@ -22,6 +28,12 @@ export const Img = styled.img`
 
     border-radius: 50%;
     border: 10px solid rgba(255, 255, 255, 0.3);
+
+    ${Media.desktop` 
+        visibility: hidden;
+        margin: 3.5em;
+        border: 0px;
+    `}
 `;
 
 export const Menu = styled.ul`

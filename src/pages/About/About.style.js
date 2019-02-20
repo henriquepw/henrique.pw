@@ -1,36 +1,24 @@
 import styled from 'styled-components';
+import { Container } from 'styles/grid.js';
+import Media from 'styles/media';
 
-const Section = styled.section`
-    background-color: #fff;
-    width: 65em;
-    height: 100vh;
-
-    padding-left: 17em;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    color: #3d3d3d;
-
+const Section = styled(Container)`
     span {
         color: #af4448;
     }
 
-    h1, h2 {
-        font-family: Staatliches, cursive;
+    h1, h2 {s
         font-family: Patua One, cursive;
+        margin: 0px;
     }
 
     h1 {
         font-size: 4em;
-        margin: 0px;
         margin-top: 30px;
     }
 
     h2 {
         font-size: 1.9em;
-        margin: 0px;
     }
 
     p {
@@ -62,6 +50,28 @@ const Section = styled.section`
     a:hover img {
         transform: scale(1.2);
     }
+
+    ${Media.tablet` 
+        h1 { 
+            font-size: 3em;
+        }
+
+        h2 { 
+            font-size: 1.5em;
+            text-align: center;
+        }
+    `}
+    
+    ${Media.phone` 
+        h1 { 
+            font-size: 2.5em;
+        }
+
+        h2 { 
+            font-size: 1.2em;
+            text-align: center;
+        }
+    `}
 `;
 
 const Divider = styled.div`
