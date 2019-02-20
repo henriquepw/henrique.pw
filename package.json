@@ -62,7 +62,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "predeploy": "node scripts/build.js",
+    "predeploy": "npm rum build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -115,8 +115,8 @@
       "node"
     ],
     "watchPlugins": [
-      "E:\\GitHub\\my-portfolio\\node_modules\\jest-watch-typeahead\\filename.js",
-      "E:\\GitHub\\my-portfolio\\node_modules\\jest-watch-typeahead\\testname.js"
+      "E:\\GitHub\\henry-ns.github.io\\node_modules\\jest-watch-typeahead\\filename.js",
+      "E:\\GitHub\\henry-ns.github.io\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
   },
   "babel": {
