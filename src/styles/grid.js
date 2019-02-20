@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+
 import Media from './media';
-import Colors from 'styles/colors';
+import Colors from './colors';
 
 const Container = styled.section`
     width: 100%;
@@ -24,7 +25,7 @@ const Background = styled.div`
         display: block;
         position: fixed;
         
-        background-image: url(${require('assets/background2.png')});
+        background-image: url(${require('../assets/background2.png')});
         background-repeat: no-repeat;
         background-position: center;
         opacity: 0.4;

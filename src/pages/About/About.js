@@ -1,8 +1,9 @@
 import React from 'react';
-import { Section, Divider } from './About.style';
-import { Background } from 'styles/grid.js';
 
-import Icon from 'components/Icon/Icon';
+import { Section, Divider } from './About.style';
+import { Background } from '../../styles/grid.js';
+
+import Icon from '../../components/Icon/Icon';
 
 export default () => (
     <Section>

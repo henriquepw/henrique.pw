@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import Colors from 'styles/colors';
+import Colors from './styles/colors';
 
-import About from 'pages/About/About';
+import About from './pages/About/About';
 
 const H1 = styled.h1`
     color: ${Colors.primaryColor};

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import { Container, Img, Menu, MenuItem } from './Navigator.style';
-
-import photo from 'assets/photo.png';
+import photo from '../../assets/photo.png';
 
 class Navigator extends Component {
     render() {

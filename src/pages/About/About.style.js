@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { Container } from 'styles/grid.js';
-import Media from 'styles/media';
-import Colors from 'styles/colors';
+
+import Media from '../../styles/media';
+import Colors from '../../styles/colors';
+import { Container } from '../../styles/grid.js';
 
 const Section = styled(Container)`
     span {

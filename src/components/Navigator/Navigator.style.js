@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Media from 'styles/media';
-import Colors from 'styles/colors';
+
+import Media from '../../styles/media';
+import Colors from '../../styles/colors';
 
 export const Container = styled.nav`
     background-color: ${Colors.primaryColor};
