@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Media from './media';
 
 const Container = styled.section`
-    background-color: #fff;
     width: 65em;
     height: 100vh;
 

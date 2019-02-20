@@ -7,7 +7,7 @@ const Section = styled(Container)`
         color: #af4448;
     }
 
-    h1, h2 {s
+    h1, h2 {
         font-family: Patua One, cursive;
         margin: 0px;
     }
@@ -32,7 +32,7 @@ const Section = styled(Container)`
     }
 
     ul {
-        padding: 30px 0px;
+        padding: 0px 0px;
         display: flex;
     }
 
@@ -79,7 +79,31 @@ const Divider = styled.div`
     width: 58%;
     height: 5px;
 
-    margin: 30px 0px 30px 0px;
+    margin: 30px 0px 25px 0px;
 `;
 
-export { Section, Divider };
+const Background = styled.div`
+    display: none;
+    visibility: hidden;
+
+    ${Media.desktop`
+        display: block;
+        position: fixed;
+        
+        background-image: url(${require('assets/photo.png')});
+        background-repeat: no-repeat;
+
+        opacity: 0.4;
+
+        left: 10vw;
+        top: 10vh;
+        width: 80vw;
+        height: 80vh;
+
+        visibility: visible;
+        margin: 30px;
+        z-index: -99;
+    `}
+`;
+
+export { Section, Divider, Background };

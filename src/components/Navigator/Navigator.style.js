@@ -14,8 +14,8 @@ export const Container = styled.nav`
     justify-content: center;
 
     ${Media.desktop` 
-        height: 4em;
         width: 100%;
+        height: 4em;
     `}
 `;
 
@@ -59,7 +59,6 @@ export const MenuItem = styled(Link)`
     color: #d4a5a6;
 
     transition: transform 0.3s;
-
     &:hover {
         color: rgba(255, 255, 255, 0.8);
         transform: scale(1.08);
@@ -68,4 +67,10 @@ export const MenuItem = styled(Link)`
     &:focus {
         color: #fff;
     }
+
+    ${Media.desktop` 
+        visibility: hidden;
+        margin: 3.5em;
+        border: 0px;
+    `}
 `;

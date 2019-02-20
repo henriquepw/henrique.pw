@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SVG = styled.svg`
     transition: transform 0.3s;
 
-    path {
+    path, polygon {
         fill: #3d3d3d;
     }
 

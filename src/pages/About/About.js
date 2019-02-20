@@ -1,10 +1,11 @@
 import React from 'react';
-import { Section, Divider } from './About.style';
+import { Section, Divider, Background } from './About.style';
 
 import Icon from 'components/Icon/Icon';
 
 export default () => (
     <Section>
+        <Background />
         <h1>
             Henrique <span>Miranda</span>
         </h1>
@@ -12,6 +13,8 @@ export default () => (
             Telematics student, Full Stack Developer <span>&</span> Designer
         </h2>
         <Divider />
+        
+        {/*
         <p>
             Texto Texto Texto Texto Texto TextoTexto Texto Texto Texto Texto
             TextoTexto Texto Texto Texto Texto TextoTexto Texto Texto Texto
@@ -21,6 +24,8 @@ export default () => (
             Texto Texto Texto Texto TextoTexto Texto Texto Texto Texto
             TextoTexto Texto Texto Texto Texto Texto
         </p>
+        */}
+        
         <ul>
             <li>
                 <a
