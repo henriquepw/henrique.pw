@@ -11,10 +11,11 @@ class Navigator extends Component {
                 <Img src={photo} alt='Eu :)' />
 
                 <Menu>
-                    <MenuItem to='/'>Sobre</MenuItem>
-                    <MenuItem to='/experiencia'>Experiência</MenuItem>
-                    <MenuItem to='/Projetos'>Projetos</MenuItem>
-                    <MenuItem to='/contato'>Contato</MenuItem>
+                    <MenuItem to='/'>Home</MenuItem>
+                    <MenuItem to='/education'>Education</MenuItem>
+                    <MenuItem to='/experience'>Experience</MenuItem>
+                    <MenuItem to='/projects'>Projects</MenuItem>
+                    <MenuItem to='/resume'>Resume</MenuItem>
                 </Menu>
             </Container>
         );

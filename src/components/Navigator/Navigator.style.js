@@ -7,6 +7,9 @@ export const Container = styled.nav`
     background-color: ${Colors.primaryColor};
     position: fixed;
 
+    top: 0;
+    left: 0;
+    
     width: 17em;
     height: 100vh;
 
@@ -16,7 +19,7 @@ export const Container = styled.nav`
 
     ${Media.desktop` 
         width: 100%;
-        height: 4em;
+        height: 64px;
     `}
 `;
 

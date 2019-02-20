@@ -16,7 +16,7 @@ const keys = Object.keys(colors);
 const primarykey = keys[Math.floor(Math.random() * keys.length)];
 
 export default {
-    primaryColor: colors.deepPurple, //colors[primarykey],
+    primaryColor: /*colors.deepPurple,*/ colors[primarykey],
     primaryTextColor: '#3d3d3d',
     secondaryTextColor: 'rgba(255, 255, 255, 0.4)'
 };

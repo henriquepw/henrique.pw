@@ -1,22 +1,18 @@
 import styled from 'styled-components';
 import Media from './media';
+import Colors from 'styles/colors';
 
 const Container = styled.section`
-    width: 65em;
+    width: 100%;
     height: 100vh;
-
-    padding-left: 17em;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    color: #3d3d3d;
+    color: ${Colors.primaryTextColor};
 
-    ${Media.desktop` 
-        padding-left: 0;
-        align-items: center;
-    `}
+    align-items: center;
 `;
 
 const Background = styled.div`
@@ -28,13 +24,15 @@ const Background = styled.div`
         display: block;
         position: fixed;
         
-        background-image: url(${require('assets/background.png')});
+        background-image: url(${require('assets/background2.png')});
         background-repeat: no-repeat;
         background-position: center;
         opacity: 0.4;
 
         width: 90vw;
         height: 90vh;
+
+        margin: auto;
 
         z-index: -99;
     `}

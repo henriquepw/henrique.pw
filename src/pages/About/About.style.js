@@ -39,7 +39,9 @@ const Section = styled(Container)`
 
     li {
         list-style-type: none;
-        padding-right: 20px;
+        padding-right: 10px;
+        padding-left: 10px;
+
     }
 
     a img {

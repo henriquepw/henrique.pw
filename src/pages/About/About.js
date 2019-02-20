@@ -64,11 +64,11 @@ export default () => (
                     <Icon name='Instagram' />
                 </a>
             </li>
-            <li>
+            <li final={true} >
                 <a
                     href='mailto:enrque.ns@gmail.com'
                 >
-                    <Icon name='Email' />
+                    <Icon name='Email'/>
                 </a>
             </li>
         </ul>
