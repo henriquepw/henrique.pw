@@ -14,7 +14,7 @@ class Navigator extends Component {
                     <MenuItem to='/education'>Education</MenuItem>
                     <MenuItem to='/experience'>Experience</MenuItem>
                     <MenuItem to='/projects'>Projects</MenuItem>
-                    <MenuItem to='/resume'>Resume</MenuItem>
+                    <MenuItem to='/about'>About me</MenuItem>
                 </Menu>
             </Container>
         );

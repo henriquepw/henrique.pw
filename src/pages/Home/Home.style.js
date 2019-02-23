@@ -78,12 +78,4 @@ const Section = styled(Container)`
     `}
 `;
 
-const Divider = styled.div`
-    background-color: ${Colors.primaryColor};
-    width: 58%;
-    height: 5px;
-
-    margin: 30px 0px 25px 0px;
-`;
-
-export { Section, Divider };
+export { Section };

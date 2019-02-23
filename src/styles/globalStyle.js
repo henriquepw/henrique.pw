@@ -4,7 +4,7 @@ export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Lato|Oswald|Patua+One|Staatliches');
     
     body {
-        font-family: 'Lato', sans-serif;
+        font-family: Lato, sans-serif;
         margin: 0px;
     }
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Section, Divider } from './About.style';
+import { Section } from './Home.style';
+import { Divider } from '../../styles/shapes';
 import { Background } from '../../styles/grid.js';
 
 import Icon from '../../components/Icon/Icon';
@@ -15,19 +16,6 @@ export default () => (
             Telematics student, Full Stack Developer <span>&</span> Designer
         </h2>
         <Divider />
-        
-        {/*
-        <p>
-            Texto Texto Texto Texto Texto TextoTexto Texto Texto Texto Texto
-            TextoTexto Texto Texto Texto Texto TextoTexto Texto Texto Texto
-            Texto Texto Texto Texto Texto Texto Texto TextoTexto Texto Texto
-            Texto Texto TextoTexto Texto Texto Texto Texto TextoTexto Texto
-            Texto Texto Texto Texto Texto Texto Texto Texto Texto TextoTexto
-            Texto Texto Texto Texto TextoTexto Texto Texto Texto Texto
-            TextoTexto Texto Texto Texto Texto Texto
-        </p>
-        */}
-        
         <ul>
             <li>
                 <a
@@ -65,11 +53,9 @@ export default () => (
                     <Icon name='Instagram' />
                 </a>
             </li>
-            <li final={true} >
-                <a
-                    href='mailto:enrque.ns@gmail.com'
-                >
-                    <Icon name='Email'/>
+            <li final={true}>
+                <a href='mailto:enrque.ns@gmail.com'>
+                    <Icon name='Email' />
                 </a>
             </li>
         </ul>

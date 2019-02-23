@@ -16,6 +16,13 @@ const Container = styled.section`
     align-items: center;
 `;
 
+const Section = styled.section`
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+`;
+
 const Background = styled.div`
     display: none;
     visibility: hidden;
@@ -39,4 +46,4 @@ const Background = styled.div`
     `}
 `;
 
-export { Container, Background };
+export { Section, Container, Background };
