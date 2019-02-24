@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import Colors from './colors';
+import Media from './media';
 
 const Divider = styled.div`
     background-color: ${Colors.primaryColor};
@@ -8,12 +9,21 @@ const Divider = styled.div`
 
     margin: 30px 0px 25px 0px;
 
-    ${({ margin }) => margin && css`
-        margin: ${margin};
-    `}
+    ${({ margin }) =>
+        margin && css`
+            margin: ${margin};
+        `}
 
-    ${({ size }) => size && css`
-        width: ${size};
+    ${({ size }) =>
+        size && css`
+            width: ${size};
+        `}
+
+    ${Media.desktop`
+        ${({ dividerMedia }) =>
+            dividerMedia === 'hidden' && css`
+                display: none;
+        `}
     `}
 `;
 

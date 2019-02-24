@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
 import Colors from '../../styles/colors';
 
 export const SVG = styled.svg`
@@ -9,11 +8,18 @@ export const SVG = styled.svg`
         fill: ${Colors.primaryTextColor};
     }
 
-    &:hover {
-        transform: scale(1.2);
 
+    
+    &:hover {
         path, polygon {
             fill: ${Colors.primaryColor};
         }
     }
+
+    ${({ noHover }) =>
+        !noHover && css`
+            &:hover {
+                transform: scale(1.2);
+            }
+        `}
 `;

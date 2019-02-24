@@ -1,10 +1,11 @@
 import React from 'react';
 
+import Icon from '../../components/Icon/Icon';
+import Next from '../../components/Next/Next';
+
 import { Section } from './Home.style';
 import { Divider } from '../../styles/shapes';
 import { Background } from '../../styles/grid.js';
-
-import Icon from '../../components/Icon/Icon';
 
 export default () => (
     <Section>
@@ -17,15 +18,6 @@ export default () => (
         </h2>
         <Divider />
         <ul>
-            <li>
-                <a
-                    href='https://twitter.com/h3nry_ns'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    <Icon name='Twitter' />
-                </a>
-            </li>
             <li>
                 <a
                     href='https://github.com/henry-ns'
@@ -53,11 +45,21 @@ export default () => (
                     <Icon name='Instagram' />
                 </a>
             </li>
+            <li>
+                <a
+                    href='https://twitter.com/h3nry_ns'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <Icon name='Twitter' />
+                </a>
+            </li>
             <li final={true}>
                 <a href='mailto:enrque.ns@gmail.com'>
                     <Icon name='Email' />
                 </a>
             </li>
         </ul>
+        <Next to='/education'/>
     </Section>
 );

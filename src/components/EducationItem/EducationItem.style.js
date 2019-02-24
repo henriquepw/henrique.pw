@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import Colors from '../../styles/colors';
+import Media from '../../styles/media';
 
 const Box = styled.div`
     display: grid;
@@ -24,6 +25,7 @@ const Box = styled.div`
         grid-column: 2;
         color: ${Colors.primaryTextColor};
         font-weight: normal;
+        margin-bottom: 40px;
     }
 
     h3 {
@@ -35,7 +37,11 @@ const Box = styled.div`
         border-radius: 15px;
     }
 
-
+    ${Media.desktop`
+        h3 {
+            margin-left: 0;
+        }
+    `}
 `;
 
 const Div = styled.div`
@@ -56,10 +62,6 @@ const Card = styled.span`
 
     border-radius: 15px;
     box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.2);
-
-    ${({ init }) => init && css`
-        margin-bottom: 0;
-    `}
 
     &::before {
         content: '';

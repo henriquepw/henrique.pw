@@ -1,4 +1,5 @@
 import React from 'react';
+import Next from '../../components/Next/Next';
 import Header from '../../components/Header/Header';
 import EducationItem from '../../components/EducationItem/EducationItem';
 
@@ -7,10 +8,10 @@ import { Main } from './Education.style';
 
 export default () => (
     <Section height='100%'>
-        <Header title='Education' margin='0 0 50px 0'/>
+        <Header title='Education' margin='0 0 70px 0' dividerMedia='hidden'/>
 
         <Main>
-            <div/>
+            <div />
             <EducationItem
                 course='Technology in Telematics'
                 title='Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, IFPB-CG'
@@ -29,7 +30,9 @@ export default () => (
                 title='Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, IFPB-CG'
                 data='2014 - 2017'
             />
-            <div/>
+            <div />
         </Main>
+        
+        <Next to='/experience'/>
     </Section>
 );

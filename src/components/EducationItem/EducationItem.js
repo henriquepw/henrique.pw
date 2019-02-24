@@ -11,7 +11,7 @@ import {
 export default ({ title, data, course, init }) => (
     <Box>
         <h3>{data}</h3>
-        <Card init={init}>
+        <Card>
             <h1>{course}</h1>
             <h2>{title}</h2>
         </Card>

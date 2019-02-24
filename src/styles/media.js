@@ -15,6 +15,6 @@ export default Object.keys(windows).reduce(
                 ${css(...args)}
             }
         `
-    }),
+    }), 
     {}
 );

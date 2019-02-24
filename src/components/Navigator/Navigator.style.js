@@ -35,7 +35,7 @@ export const Img = styled.img`
     border: 10px solid rgba(255, 255, 255, 0.3);
 
     ${Media.desktop` 
-        visibility: hidden;
+        display: none;
         margin: 3.5em;
         border: 0px;
     `}
@@ -59,11 +59,13 @@ export const MenuItem = styled(Link)`
     font-weight: bold;
     text-align: center;
 
-    padding-bottom: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 
     color: ${Colors.secondaryTextColor};
-
     transition: transform 0.3s;
+    outline: none;
+
     &:hover {
         color: rgba(255, 255, 255, 0.8);
         transform: scale(1.08);

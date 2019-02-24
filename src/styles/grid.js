@@ -25,6 +25,13 @@ const Section = styled.section`
     ${({height}) => height && css`
         height: ${height};
     `}
+
+       
+    ${Media.desktop`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    `}
 `;
 
 const Background = styled.div`

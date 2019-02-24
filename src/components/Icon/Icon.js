@@ -59,6 +59,10 @@ const email = `M306,612c-28.152,0-55.284-3.672-81.396-11.016c-26.112-7.347-50.49
 		c-0.813,0-1.224,0.612-1.224,1.836c-0.408,0.408-0.204,1.02,0.609,1.833L459,397.188c0.816,0.816,1.428,1.227,1.836,1.227h1.224
 		c1.227-1.227,1.839-2.04,1.839-2.448V256.429C463.896,255.612,463.284,254.796,462.06,253.98z`;
 
+const next = `M183.189,111.816L74.892,3.555c-4.752-4.74-12.451-4.74-17.215,0c-4.752,4.74-4.752,12.439,0,17.179
+		l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261
+		C187.881,124.315,187.881,116.495,183.189,111.816z`;
+
 const instagram = () => (
     <Fragment>
         <path
@@ -87,6 +91,8 @@ const icon = name => {
             return twitter;
         case 'Linkedin':
             return linkedin;
+        case 'next':
+            return next;
         case 'Instagram':
             return instagram();
         default:
@@ -104,7 +110,9 @@ const viewBox = name => {
             return '0 0 512 512';
         case 'Instagram':
             return '0 0 49.652 49.652';
-		default:
+        case 'next':
+            return '0 0 240.823 240.823';
+        default:
             return '0 0 612 612';
     }
 };
@@ -113,8 +121,9 @@ const path = name => {
     return name === 'Instagram' ? icon(name) : <path d={icon(name)} />;
 };
 
-export default ({ name }) => (
-    <SVG
+export default ({ name, noHover}) => (
+	<SVG 
+		noHover={noHover}
         id='Github'
         width='3.5em'
         height='3.5em'
