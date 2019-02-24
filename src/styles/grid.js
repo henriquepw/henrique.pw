@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Media from './media';
 import Colors from './colors';
@@ -21,6 +21,10 @@ const Section = styled.section`
 
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+
+    ${({height}) => height && css`
+        height: ${height};
+    `}
 `;
 
 const Background = styled.div`

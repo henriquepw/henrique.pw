@@ -2,8 +2,8 @@ import { css } from 'styled-components';
 
 const windows = {
     phone: 470,
-    tablet: 768,
-    desktop: 1044,
+    tablet: 1044,
+    desktop: 1158,
     gient: 1170
 };
 
