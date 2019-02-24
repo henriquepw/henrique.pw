@@ -19,6 +19,8 @@ const Container = styled.section`
 const Section = styled.section`
     display: grid;
 
+    height: 100%;
+
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
 
@@ -57,4 +59,14 @@ const Background = styled.div`
     `}
 `;
 
-export { Section, Container, Background };
+const Building = styled.h1`
+    color: ${Colors.primaryColor};
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+export { Section, Container, Background, Building };
