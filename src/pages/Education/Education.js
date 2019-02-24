@@ -7,7 +7,7 @@ import { Main } from './Education.style';
 
 export default () => (
     <Section height='100%'>
-        <Header title='Education' />
+        <Header title='Education' margin='0 0 50px 0'/>
 
         <Main>
             <div/>
@@ -18,8 +18,14 @@ export default () => (
             />
 
             <EducationItem
-                init
                 course='Computer Technician'
+                title='Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, IFPB-CG'
+                data='2014 - 2017'
+            />
+
+            <EducationItem
+                init
+                course='high school'
                 title='Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, IFPB-CG'
                 data='2014 - 2017'
             />

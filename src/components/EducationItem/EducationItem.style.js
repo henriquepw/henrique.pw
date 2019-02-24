@@ -12,7 +12,7 @@ const Box = styled.div`
     h1, h2, h3 {
         display: flex;
         align-items: center;
-        margin: 0 30px 10px 30px;
+        margin: 0 30px 20px 30px;
     }
 
     h1 {
@@ -23,8 +23,7 @@ const Box = styled.div`
     h2 {
         grid-column: 2;
         color: ${Colors.primaryTextColor};
-        padding-bottom: 60px;
-        font-weight: regular;
+        font-weight: normal;
     }
 
     h3 {
@@ -36,9 +35,7 @@ const Box = styled.div`
         border-radius: 15px;
     }
 
-    ${({ init }) => init && css`
-        margin-bottom: 0;
-    `}
+
 `;
 
 const Div = styled.div`
@@ -54,11 +51,15 @@ const Card = styled.span`
     grid-row: 1 / span 2;
 
     padding-top: 20px;
-    margin-bottom: 50px;
-    margin-top: -5px;
+    margin-bottom: 70px;
+    margin-top: -18px;
 
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.2);
+
+    ${({ init }) => init && css`
+        margin-bottom: 0;
+    `}
 
     &::before {
         content: '';
@@ -67,7 +68,7 @@ const Card = styled.span`
         width: 0;
         height: 0;
 
-        margin-top: -5px;
+        margin-top: 8px;
 
         transform: rotate(45deg);
         

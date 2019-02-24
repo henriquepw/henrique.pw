@@ -2,9 +2,9 @@ import React from 'react';
 import { Divider } from '../../styles/shapes';
 import { Container } from './Header.style';
 
-export default ({ title }) => (
+export default ({ title, margin }) => (
     <Container>
         <h1>{title}</h1>
-        <Divider margin='0px' size='500px' />
+        <Divider margin={margin} size='500px' />
     </Container>
 );

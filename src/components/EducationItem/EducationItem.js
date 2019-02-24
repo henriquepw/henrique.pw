@@ -9,9 +9,9 @@ import {
 } from './EducationItem.style';
 
 export default ({ title, data, course, init }) => (
-    <Box init={init}>
+    <Box>
         <h3>{data}</h3>
-        <Card>
+        <Card init={init}>
             <h1>{course}</h1>
             <h2>{title}</h2>
         </Card>
