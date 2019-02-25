@@ -16,7 +16,7 @@ export default () => (
         <h2>
             Telematics student, Full Stack Developer <span>&</span> Designer
         </h2>
-        <Divider />
+        <Divider margin='20px 0px 20px 0px'/>
         <ul>
             <li>
                 <a

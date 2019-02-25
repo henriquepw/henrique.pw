@@ -7,7 +7,7 @@ const Divider = styled.div`
     width: 58%;
     height: 5px;
 
-    margin: 30px 0px 25px 0px;
+    margin: 25px 0px 25px 0px;
 
     ${({ margin }) =>
         margin && css`
@@ -24,6 +24,11 @@ const Divider = styled.div`
             dividerMedia === 'hidden' && css`
                 display: none;
         `}
+    `}
+
+    ${Media.phone`
+        height: 3px;
+        margin: 15px 0px 15px 0px;
     `}
 `;
 

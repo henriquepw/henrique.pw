@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 import Colors from '../../styles/colors';
+import Media from '../../styles/media';
 
 const Button = styled(Link)`
     display: flex;
@@ -14,9 +16,8 @@ const Button = styled(Link)`
 
     text-decoration: none;
 
-    transform: scale(1); 
     transition: 0.5s all ease;
-
+    
     label {
         white-space: nowrap;
         outline: none;
@@ -47,6 +48,24 @@ const Button = styled(Link)`
         }
     }
 
+    ${Media.tablet`
+        padding-left: 2px;
+        padding-bottom: 5px;
+
+        label {
+            transform: scale(0.8);
+            margin-right: -30px;
+
+        }
+
+        &:hover {
+            label {
+                margin-right: -10px;
+            }
+            
+            padding-right: 5px;
+        }
+    `}
 `;
 
 export { Button };

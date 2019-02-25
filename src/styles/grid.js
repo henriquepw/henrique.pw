@@ -45,6 +45,7 @@ const Background = styled.div`
         display: block;
         position: fixed;
         
+        top: 80px;
         background-image: url(${require('../assets/background2.png')});
         background-repeat: no-repeat;
         background-position: center;

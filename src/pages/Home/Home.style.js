@@ -16,46 +16,64 @@ const Section = styled(Container)`
 
     h1 {
         font-size: 4em;
-        margin-top: 30px;
+        padding-bottom: 10px;
+        letter-spacing: 5px;
+        animation: name 3s 1;
     }
 
     h2 {
         font-size: 1.9em;
-    }
-
-    p {
-        margin: 0px;
-        padding: 0px;
-    }
-
-    h1, h2, p, ul {
-        margin-left: 40px;
-        margin-right: 40px;
+        animation: description 3s 1;
     }
 
     ul {
         padding: 0px 0px;
         display: flex;
+        animation: icon 3s 1;
+        margin-top: 0;
     }
 
     li {
         list-style-type: none;
         padding-right: 10px;
         padding-left: 10px;
-
     }
 
-    a img {
-        transition: transform 0.3s;
-        border-radius: 50%;
-        width: 3.5em;
+    @keyframes description {
+        0% {
+            opacity: 0;
+        }
+        80% {
+            opacity: 0;
+        }
     }
 
-    a:hover img {
-        transform: scale(1.2);
+    @keyframes name {
+        0% {
+            margin-bottom: -50px;
+        }
+        30% {
+            letter-spacing: 15px;
+            margin-bottom: -50px;
+        }
+        80% {
+            letter-spacing: 5px;
+            margin-bottom: -50px;
+        }
     }
 
-    ${Media.tablet` 
+    @keyframes icon {
+        0% {
+            opacity: 0;
+            margin-top: -60px;
+        }
+        80% {
+            opacity: 0;
+            margin-top: -60px;
+        }
+    }
+
+    ${Media.tablet`
         h1 { 
             font-size: 3em;
         }
@@ -64,16 +82,45 @@ const Section = styled(Container)`
             font-size: 1.5em;
             text-align: center;
         }
+
+        @keyframes name {
+            0% {
+                margin-bottom: -50px;
+            }
+            30% {
+                letter-spacing: 8px;
+                margin-bottom: -50px;
+            }
+            80% {
+                letter-spacing: 2px;
+                margin-bottom: -50px;
+            }
+        }
     `}
-    
+
     ${Media.phone` 
         h1 { 
-            font-size: 2.5em;
+            letter-spacing: 2px;
+            font-size: 2em;
         }
 
         h2 { 
-            font-size: 1.2em;
+            font-size: 1em;
             text-align: center;
+        }
+
+        @keyframes name {
+            0% {
+                margin-bottom: -50px;
+            }
+            30% {
+                letter-spacing: 5px;
+                margin-bottom: -50px;
+            }
+            80% {
+                letter-spacing: 2px;
+                margin-bottom: -50px;
+            }
         }
     `}
 `;
