@@ -20,7 +20,6 @@ const Container = styled.nav`
 	justify-content: center;
 
 	${Media.desktop`
-		background: #fff;
 		width: 100vw;
 		height: 4.5em;
   		transition: .5s;
@@ -35,6 +34,19 @@ const Container = styled.nav`
 				height: 100vh;
 			`}
     `}
+
+	${Media.phone`
+		height: 3.5em;
+
+		${({ press }) =>
+			press &&
+			css`
+				background-color: ${Colors.primaryColor};
+				opacity: 0.99;
+				width: 100vw;
+				height: 100vh;
+			`}
+	`}
 `;
 
 const Img = styled.img`
@@ -109,8 +121,8 @@ const MenuButton = styled(Bars)`
 
 	cursor: pointer;
 
-	top: 10px;
-	right: 20px;
+	top: 18px;
+	right: 25px;
 	z-index: 99;
 
 	${({ press }) =>
@@ -118,6 +130,11 @@ const MenuButton = styled(Bars)`
 		css`
 			color: rgba(255, 255, 255, 0.6);
 		`}
+
+	${Media.phone`
+		top: 10px;
+		right: 20px;
+	`}
 `;
 
 export { Container, Img, Menu, MenuItem, MenuButton };

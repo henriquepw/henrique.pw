@@ -24,7 +24,7 @@ class Navigator extends Component {
 
 		return (
 			<Container press={!press}>
-				<MenuButton press={!press} size='2.2em' onClick={setPress} />
+				<MenuButton press={true} size='2.2em' onClick={setPress} />
 				<Img src={photo} title='Eu :)' />
 
 				<Menu press={!press}>
