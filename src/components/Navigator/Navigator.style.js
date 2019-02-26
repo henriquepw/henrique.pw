@@ -23,15 +23,16 @@ const Container = styled.nav`
 		background: #fff;
 		width: 100vw;
 		height: 4.5em;
+  		transition: .5s;
 		z-index: 98;
 
 		${({ press }) =>
 			press &&
 			css`
 				background-color: ${Colors.primaryColor};
-				opacity: .95;
-				width: 100%;
-				height: 100%;
+				opacity: 0.99;
+				width: 100vw;
+				height: 100vh;
 			`}
     `}
 `;
@@ -64,9 +65,11 @@ const Menu = styled.ul`
 
 	${Media.desktop`
 		visibility: hidden;
-		${({ press }) => press && css`
-			visibility: visible;
-		`}
+		${({ press }) =>
+			press &&
+			css`
+				visibility: visible;
+			`}
 	`}
 `;
 
