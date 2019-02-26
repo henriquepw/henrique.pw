@@ -15,12 +15,18 @@ const Container = styled.header`
 	}
 
 	${Media.desktop`
-        visibility: hidden;
-
         h1 {
-            position: absolute;
+			font-size: 2.2em;
+            position: fixed;
             z-index: 99;
             top: 0;
+			left: 10px;
+        }
+    `}
+
+	${Media.phone`
+        h1 {
+			font-size: 1.5em;
         }
     `}
 `;

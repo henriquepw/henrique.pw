@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Bars } from 'styled-icons/fa-solid/Bars';
 
 import Media from '../../styles/media';
 import Colors from '../../styles/colors';
 
-export const Container = styled.nav`
+const Container = styled.nav`
 	background-color: ${Colors.primaryColor};
 	position: fixed;
 
@@ -19,12 +20,23 @@ export const Container = styled.nav`
 	justify-content: center;
 
 	${Media.desktop`
-        width: 100%;
-        height: 64px;
+		background: #fff;
+		width: 100vw;
+		height: 4.5em;
+		z-index: 98;
+
+		${({ press }) =>
+			press &&
+			css`
+				background-color: ${Colors.primaryColor};
+				opacity: .95;
+				width: 100%;
+				height: 100%;
+			`}
     `}
 `;
 
-export const Img = styled.img`
+const Img = styled.img`
 	display: block;
 	margin: 10% auto 10% auto;
 	text-align: center;
@@ -41,19 +53,24 @@ export const Img = styled.img`
     `}
 `;
 
-export const Menu = styled.ul`
+const Menu = styled.ul`
 	display: flex;
 	flex-direction: column;
-
 	justify-content: center;
 
 	margin: 0px;
 	padding: 0px;
-
 	font-size: 2em;
+
+	${Media.desktop`
+		visibility: hidden;
+		${({ press }) => press && css`
+			visibility: visible;
+		`}
+	`}
 `;
 
-export const MenuItem = styled(Link)`
+const MenuItem = styled(Link)`
 	text-decoration: none;
 
 	font-weight: bold;
@@ -76,8 +93,28 @@ export const MenuItem = styled(Link)`
 	}
 
 	${Media.desktop`
-        visibility: hidden;
-        margin: 3.5em;
-        border: 0px;
+		color: rgba(255, 255, 255, 0.6);
+		margin: 10px;
+		border: 0px;
     `}
 `;
+
+const MenuButton = styled(Bars)`
+	display: absolute;
+	position: fixed;
+	color: ${Colors.primaryColor};
+
+	cursor: pointer;
+
+	top: 10px;
+	right: 20px;
+	z-index: 99;
+
+	${({ press }) =>
+		press &&
+		css`
+			color: rgba(255, 255, 255, 0.6);
+		`}
+`;
+
+export { Container, Img, Menu, MenuItem, MenuButton };

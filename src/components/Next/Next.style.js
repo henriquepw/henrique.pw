@@ -32,7 +32,6 @@ const Button = styled(Link)`
 
 	&:hover {
 		cursor: pointer;
-
 		label {
 			cursor: pointer;
 			margin-right: 0;
@@ -50,20 +49,17 @@ const Button = styled(Link)`
 	}
 
 	${Media.tablet`
-        padding-left: 2px;
-        padding-bottom: 5px;
+		padding: 5px;
 
         label {
             transform: scale(0.8);
             margin-right: -30px;
-
         }
 
         &:hover {
             label {
                 margin-right: -10px;
             }
-
             padding-right: 5px;
         }
     `}
