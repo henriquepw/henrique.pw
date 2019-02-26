@@ -5,50 +5,51 @@ import Colors from '../../styles/colors';
 import Media from '../../styles/media';
 
 const Button = styled(Link)`
-    display: flex;
-    position: fixed;
-    align-items: center;
+	display: flex;
+	position: fixed;
+	align-items: center;
 
-    bottom: 0;
-    right: 0;
-    padding: 20px;
-    outline: none;
+	bottom: 0;
+	right: 0;
+	padding: 20px;
+	outline: none;
 
-    text-decoration: none;
+	text-decoration: none;
 
-    transition: 0.5s all ease;
-    
-    label {
-        white-space: nowrap;
-        outline: none;
-        margin: 0;
-        margin-right: -20px;
-        
-        transition: 0.5s all ease;
+	transition: 0.5s all ease;
 
-        font-weight: bold;
-        color: ${Colors.primaryTextColor};
-    }
+	label {
+		white-space: nowrap;
+		outline: none;
+		margin: 0;
+		margin-right: -20px;
 
-    &:hover {
-        cursor: pointer;
+		transition: 0.5s all ease;
 
-        label {
-            cursor: pointer;
-            margin-right: 0;
-            color: ${Colors.primaryColor};
-        }
+		font-weight: bold;
+		color: ${Colors.primaryTextColor};
+	}
 
-        padding-right: 10px;
+	&:hover {
+		cursor: pointer;
 
-        svg {
-            path, polygon {
-                fill: ${Colors.primaryColor};
-            }
-        }
-    }
+		label {
+			cursor: pointer;
+			margin-right: 0;
+			color: ${Colors.primaryColor};
+		}
 
-    ${Media.tablet`
+		padding-right: 10px;
+
+		svg {
+			path,
+			polygon {
+				fill: ${Colors.primaryColor};
+			}
+		}
+	}
+
+	${Media.tablet`
         padding-left: 2px;
         padding-bottom: 5px;
 
@@ -62,7 +63,7 @@ const Button = styled(Link)`
             label {
                 margin-right: -10px;
             }
-            
+
             padding-right: 5px;
         }
     `}

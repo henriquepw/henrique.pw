@@ -10,20 +10,23 @@ const Divider = styled.div`
     margin: 25px 0px 25px 0px;
 
     ${({ margin }) =>
-        margin && css`
-            margin: ${margin};
-        `}
+		margin &&
+		css`
+			margin: ${margin};
+		`}
 
     ${({ size }) =>
-        size && css`
-            width: ${size};
-        `}
+		size &&
+		css`
+			width: ${size};
+		`}
 
     ${Media.desktop`
         ${({ dividerMedia }) =>
-            dividerMedia === 'hidden' && css`
-                display: none;
-        `}
+			dividerMedia === 'hidden' &&
+			css`
+				display: none;
+			`}
     `}
 
     ${Media.phone`

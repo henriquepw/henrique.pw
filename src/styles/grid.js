@@ -4,32 +4,33 @@ import Media from './media';
 import Colors from './colors';
 
 const Container = styled.section`
-    width: 100%;
-    height: 100vh;
+	width: 100%;
+	height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
-    color: ${Colors.primaryTextColor};
+	color: ${Colors.primaryTextColor};
 
-    align-items: center;
+	align-items: center;
 `;
 
 const Section = styled.section`
-    display: grid;
+	display: grid;
 
-    height: 100%;
+	height: 100%;
 
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
 
-    ${({height}) => height && css`
-        height: ${height};
-    `}
+	${({ height }) =>
+		height &&
+		css`
+			height: ${height};
+		`}
 
-       
-    ${Media.desktop`
+	${Media.desktop`
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,14 +38,14 @@ const Section = styled.section`
 `;
 
 const Background = styled.div`
-    display: none;
-    visibility: hidden;
+	display: none;
+	visibility: hidden;
 
-    ${Media.desktop`
+	${Media.desktop`
         visibility: visible;
         display: block;
         position: fixed;
-        
+
         top: 80px;
         background-image: url(${require('../assets/background2.png')});
         background-repeat: no-repeat;
@@ -61,13 +62,13 @@ const Background = styled.div`
 `;
 
 const Building = styled.h1`
-    color: ${Colors.primaryColor};
-    height: 100%;
+	color: ${Colors.primaryColor};
+	height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 `;
 
 export { Section, Container, Background, Building };

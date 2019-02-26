@@ -3,18 +3,18 @@ import Colors from '../../styles/colors';
 import Media from '../../styles/media';
 
 const Container = styled.header`
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    h1 {
-        font-family: Patua One, cursive;
-        color: ${Colors.primaryTextColor};
-        font-size: 3em;
-        margin: 15px;
-        margin-left: 30px;
-    }
+	h1 {
+		font-family: Patua One, cursive;
+		color: ${Colors.primaryTextColor};
+		font-size: 3em;
+		margin: 15px;
+		margin-left: 30px;
+	}
 
-    ${Media.desktop`
+	${Media.desktop`
         visibility: hidden;
 
         h1 {

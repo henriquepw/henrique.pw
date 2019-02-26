@@ -5,9 +5,9 @@ import Next from '../../components/Next/Next';
 import { Section, Building } from '../../styles/grid';
 
 export default () => (
-    <Section>
-        <Header title='About me :)' />
-        <Building>Building...</Building>
-        <Next to='/'/>
-    </Section>
+	<Section>
+		<Header title='About me :)' />
+		<Building>Building...</Building>
+		<Next to='/' />
+	</Section>
 );

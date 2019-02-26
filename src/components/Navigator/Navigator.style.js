@@ -5,36 +5,36 @@ import Media from '../../styles/media';
 import Colors from '../../styles/colors';
 
 export const Container = styled.nav`
-    background-color: ${Colors.primaryColor};
-    position: fixed;
+	background-color: ${Colors.primaryColor};
+	position: fixed;
 
-    top: 0;
-    left: 0;
-    
-    width: 17em;
-    height: 100vh;
+	top: 0;
+	left: 0;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	width: 17em;
+	height: 100vh;
 
-    ${Media.desktop` 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	${Media.desktop`
         width: 100%;
         height: 64px;
     `}
 `;
 
 export const Img = styled.img`
-    display: block;
-    margin: 10% auto 10% auto;
-    text-align: center;
+	display: block;
+	margin: 10% auto 10% auto;
+	text-align: center;
 
-    width: 10em;
+	width: 10em;
 
-    border-radius: 50%;
-    border: 10px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	border: 10px solid rgba(255, 255, 255, 0.3);
 
-    ${Media.desktop` 
+	${Media.desktop`
         display: none;
         margin: 3.5em;
         border: 0px;
@@ -42,40 +42,40 @@ export const Img = styled.img`
 `;
 
 export const Menu = styled.ul`
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    justify-content: center;
+	justify-content: center;
 
-    margin: 0px;
-    padding: 0px;
+	margin: 0px;
+	padding: 0px;
 
-    font-size: 2em;
+	font-size: 2em;
 `;
 
 export const MenuItem = styled(Link)`
-    text-decoration: none;
+	text-decoration: none;
 
-    font-weight: bold;
-    text-align: center;
+	font-weight: bold;
+	text-align: center;
 
-    padding-top: 8px;
-    padding-bottom: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 
-    color: ${Colors.secondaryTextColor};
-    transition: transform 0.3s;
-    outline: none;
+	color: ${Colors.secondaryTextColor};
+	transition: transform 0.3s;
+	outline: none;
 
-    &:hover {
-        color: rgba(255, 255, 255, 0.8);
-        transform: scale(1.08);
-    }
+	&:hover {
+		color: rgba(255, 255, 255, 0.8);
+		transform: scale(1.08);
+	}
 
-    &:focus {
-        color: #fff;
-    }
+	&:focus {
+		color: #fff;
+	}
 
-    ${Media.desktop` 
+	${Media.desktop`
         visibility: hidden;
         margin: 3.5em;
         border: 0px;

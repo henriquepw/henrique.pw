@@ -4,12 +4,10 @@ import Next from '../../components/Next/Next';
 
 import { Section, Building } from '../../styles/grid';
 
-
-
 export default () => (
-    <Section>
-        <Header title='Projects' />
-        <Building>Building...</Building>
-        <Next to='/about'/>
-    </Section>
+	<Section>
+		<Header title='Projects' />
+		<Building>Building...</Building>
+		<Next to='/about' />
+	</Section>
 );
