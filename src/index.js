@@ -6,7 +6,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 import App from './pages/App/App';
 
 ReactDOM.render(
-	<BrowserRouter>
+	<BrowserRouter basename={process.env.PUBLIC_URL}>
 		<App />
 	</BrowserRouter>,
 	document.getElementById('root')

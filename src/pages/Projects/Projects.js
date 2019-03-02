@@ -6,7 +6,7 @@ import { Section, Building } from '../../styles/grid';
 
 export default () => (
 	<Section>
-		<Header title='Projects' />
+		<Header title='Projects' margin='0 0 70px 0' dividerMedia='hidden' />
 		<Building>Building...</Building>
 		<Next to='/about' />
 	</Section>
