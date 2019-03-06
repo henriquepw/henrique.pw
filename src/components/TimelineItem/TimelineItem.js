@@ -6,14 +6,14 @@ import {
 	Timeline,
 	HalfMoon,
 	Circle
-} from './EducationItem.style';
+} from './TimelineItem.style.js';
 
-export default ({ title, data, course, init }) => (
+export default ({ title, date, subTitle, init }) => (
 	<Box>
-		<h3>{data}</h3>
-		<Card>
-			<h1>{course}</h1>
-			<h2>{title}</h2>
+		<h3>{date}</h3>
+		<Card init={init}>
+			<h1>{title}</h1>
+			<h2>{subTitle}</h2>
 		</Card>
 		<Div>
 			<HalfMoon init={init} />

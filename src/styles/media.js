@@ -4,7 +4,7 @@ const windows = {
 	phone: 639,
 	tablet: 1044,
 	desktop: 1158,
-	gient: 1170
+	gient: 1575
 };
 
 export default Object.keys(windows).reduce(

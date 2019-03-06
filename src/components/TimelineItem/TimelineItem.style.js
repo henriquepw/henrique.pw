@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components';
-import Colors from '../../styles/colors';
+import { primaryColor, primaryTextColor, cardview } from '../../styles/colors';
 import Media from '../../styles/media';
 
 const Box = styled.div`
 	display: grid;
-
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto 1fr;
 
@@ -25,17 +24,18 @@ const Box = styled.div`
 
 	h2 {
 		grid-column: 2;
-		color: ${Colors.primaryTextColor};
+		color: ${primaryTextColor};
 		font-weight: normal;
 		margin-bottom: 40px;
 	}
 
 	h3 {
-		color: ${Colors.primaryColor};
+		color: ${primaryColor};
+		background: ${cardview};
 		font-size: 1.4em;
 		padding: 5px 15px 5px 15px;
 		margin-bottom: 0px;
-		border: 3px solid ${Colors.primaruColor};
+		border: 3px solid ${primaryColor};
 		border-radius: 15px;
 	}
 
@@ -57,7 +57,9 @@ const Div = styled.div`
 const Card = styled.span`
 	grid-column: 2;
 	grid-row: 1 / span 2;
+	background: ${cardview};
 
+	max-height: 190px;
 	padding-top: 20px;
 	margin-bottom: 70px;
 	margin-top: -18px;
@@ -68,7 +70,7 @@ const Card = styled.span`
 	&::before {
 		content: '';
 		position: absolute;
-		background-color: #fff;
+		background-color: ${cardview};
 		width: 0;
 		height: 0;
 
@@ -80,17 +82,23 @@ const Card = styled.span`
 		transform-origin: 0 0;
 
 		border: 0.5em solid black;
-		border-color: transparent transparent #fff #fff;
+		border-color: transparent transparent ${cardview} ${cardview};
 
 		box-shadow: -3px 3px 3px 0 rgba(50, 50, 50, 0.05);
 	}
+
+	${({ init }) =>
+		init &&
+		css`
+			margin-bottom: 0;
+		`}
 `;
 
 const Timeline = styled.div`
 	${({ init }) =>
 		!init &&
 		css`
-			background-color: ${Colors.primaryColor};
+			background-color: ${primaryColor};
 			height: calc(50% - 36px);
 			width: 5px;
 			margin: auto;
@@ -102,7 +110,7 @@ const HalfMoon = styled.div`
 	${({ init }) =>
 		!init &&
 		css`
-			background: ${Colors.primaryColor};
+			background: ${primaryColor};
 			margin: auto;
 			height: 15px;
 			width: 30px;
@@ -133,7 +141,7 @@ const Circle = styled.div`
 			height: 18px;
 			width: 18px;
 
-			border: 5px solid ${Colors.primaryColor};
+			border: 5px solid ${primaryColor};
 			border-radius: 100%;
 		`}
 `;

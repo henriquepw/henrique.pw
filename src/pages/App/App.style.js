@@ -8,7 +8,7 @@ export const Container = styled.div`
 	height: 100vh;
 
 	${Media.desktop`
-        padding-top: 64px;
+        padding-top: 70px;
         padding-left: 0;
     `}
 `;

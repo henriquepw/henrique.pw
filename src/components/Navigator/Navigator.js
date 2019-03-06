@@ -17,7 +17,7 @@ class Navigator extends Component {
 		const values = [
 			['/', 'Home'],
 			['/education', 'Education'],
-			['/experience', 'Experience'],
+			//['/experience', 'Experience'],
 			['/projects', 'Projects'],
 			['/about', 'About me']
 		];

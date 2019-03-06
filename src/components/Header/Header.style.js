@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Colors from '../../styles/colors';
 import Media from '../../styles/media';
 
@@ -29,6 +29,12 @@ const Container = styled.header`
 			font-size: 1.5em;
         }
     `}
+
+	${({ center }) =>
+		center &&
+		css`
+			grid-column: 1 / span 3;
+		`}
 `;
 
 export { Container };

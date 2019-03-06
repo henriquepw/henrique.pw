@@ -18,7 +18,7 @@ const Container = styled.section`
 
 const Section = styled.section`
 	display: grid;
-
+	box-sizing: border-box;
 	height: 100%;
 
 	grid-template-columns: 1fr;
@@ -30,11 +30,25 @@ const Section = styled.section`
 			height: ${height};
 		`}
 
-	${Media.desktop`
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    `}
+	${({ center }) =>
+		center &&
+		css`
+			grid-template-columns: 1fr auto 1fr;
+		`}
+`;
+
+const Center = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+
+	${({ padding }) =>
+		padding &&
+		css`
+			padding: ${padding};
+		`}
 `;
 
 const Background = styled.div`
@@ -71,4 +85,4 @@ const Building = styled.h1`
 	align-items: center;
 `;
 
-export { Section, Container, Background, Building };
+export { Section, Container, Background, Building, Center };
