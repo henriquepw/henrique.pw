@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
 const windows = {
+	small: 480,
 	phone: 639,
 	tablet: 1044,
 	desktop: 1158,

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { cardview, primaryTextColor, primaryColor } from '../../styles/colors';
+import Media from '../../styles/media';
 
 const Card = styled.div`
 	background: ${cardview};
@@ -73,6 +74,30 @@ const Card = styled.div`
 			}
 		}
 	}
+
+	${Media.small`
+		width: 90vw;
+		height: auto;
+
+		p, h1 {
+			margin: 5px;
+			padding-left: 15px;
+		}
+
+		h1 {
+			margin-top: 20px;
+			font-size: 1.8em;
+		}
+
+		p {
+			font-size: 1.2em;
+			margin-bottom: 20px;
+		}
+
+		&::before {
+			height: auto;
+		}
+	`}
 `;
 
 export { Card };
