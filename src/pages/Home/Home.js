@@ -54,7 +54,7 @@ export default () => (
 					<Icon name='Twitter' />
 				</a>
 			</li>
-			<li final>
+			<li>
 				<a href='mailto:enrque.ns@gmail.com'>
 					<Icon name='Email' />
 				</a>

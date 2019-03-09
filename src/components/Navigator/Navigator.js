@@ -7,13 +7,21 @@ class Navigator extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			press: false
+			press: false,
+			active: `/${window.location.href.split('/')[4]}`
 		};
 	}
 
 	render() {
 		const press = !this.state.press;
-		const setPress = () => this.setState({ press });
+
+		const setPress = active => {
+			const state = { press };
+			if (active) state.active = active;
+			this.setState(state);
+		};
+
+		const { active } = this.state;
 		const values = [
 			['/', 'Home'],
 			['/education', 'Education'],
@@ -29,7 +37,12 @@ class Navigator extends Component {
 
 				<Menu press={!press}>
 					{values.map(item => (
-						<MenuItem to={item[0]} onClick={setPress}>
+						<MenuItem
+							key={item[1]}
+							to={item[0]}
+							onClick={() => setPress(item[0])}
+							active={active}
+						>
 							{item[1]}
 						</MenuItem>
 					))}

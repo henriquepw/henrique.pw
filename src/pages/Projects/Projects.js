@@ -13,34 +13,27 @@ export default () => (
 			<Grid>
 				<Project
 					title='Celebino'
-					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno.'
-					img='../../assets/background.png'
-					git='https://github.com/henry-ns/Celebino'
+					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno'
 				/>
 				<Project
-					title='Celebino'
-					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno.'
-					img='../../assets/background.png'
+					title='MD5 hash generator'
+					description='Gerador de hash MD5 feito em SystemVerilog'
 				/>
 				<Project
-					title='Celebino'
-					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno.'
-					img='../../assets/background.png'
+					title='Canary'
+					description='Monitoramento da qualidade do ar usando tecnologia da IoT'
 				/>
 				<Project
-					title='Celebino'
-					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno.'
-					img='../../assets/background.png'
+					title='Wildcard Mask Calculator'
+					description='Calculadora de mascara curinga para ACLs'
 				/>
 				<Project
-					title='Celebino'
-					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno.'
-					img='../../assets/background.png'
+					title='Uber-in-cg'
+					description='Análise estática do Uber em Campina Grande-PB'
 				/>
 				<Project
-					title='Celebino'
-					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno.'
-					img='../../assets/background.png'
+					title='Meu portfolio'
+					description='Esse site que você está :)'
 				/>
 			</Grid>
 		</Center>

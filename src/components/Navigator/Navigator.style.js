@@ -109,6 +109,12 @@ const MenuItem = styled(Link)`
 		color: #fff;
 	}
 
+	${({ to, active }) =>
+		to === active &&
+		css`
+			color: #fff;
+		`}
+
 	${Media.desktop`
 		color: rgba(255, 255, 255, 0.6);
 		margin: 10px;
