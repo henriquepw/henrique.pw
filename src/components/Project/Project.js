@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from './Project.style.js';
+import { Card } from './Project.style';
 
 export default props => (
 	<Card>

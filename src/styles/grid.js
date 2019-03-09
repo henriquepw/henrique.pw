@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import Media from './media';
-import Colors from './colors';
+import { primaryColor, primaryTextColor } from './colors';
 
 const Container = styled.section`
 	width: 100%;
@@ -11,7 +11,7 @@ const Container = styled.section`
 	flex-direction: column;
 	justify-content: center;
 
-	color: ${Colors.primaryTextColor};
+	color: ${primaryTextColor};
 
 	align-items: center;
 `;
@@ -76,7 +76,7 @@ const Background = styled.div`
 `;
 
 const Building = styled.h1`
-	color: ${Colors.primaryColor};
+	color: ${primaryColor};
 	height: 100%;
 
 	display: flex;

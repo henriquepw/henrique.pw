@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import Colors from '../../styles/colors';
+import { primaryTextColor, primaryColor } from '../../styles/colors';
 import Media from '../../styles/media';
 
 const Button = styled(Link)`
@@ -27,7 +27,7 @@ const Button = styled(Link)`
 		transition: 0.5s all ease;
 
 		font-weight: bold;
-		color: ${Colors.primaryTextColor};
+		color: ${primaryTextColor};
 	}
 
 	&:hover {
@@ -35,7 +35,7 @@ const Button = styled(Link)`
 		label {
 			cursor: pointer;
 			margin-right: 0;
-			color: ${Colors.primaryColor};
+			color: ${primaryColor};
 		}
 
 		padding-right: 10px;
@@ -43,7 +43,7 @@ const Button = styled(Link)`
 		svg {
 			path,
 			polygon {
-				fill: ${Colors.primaryColor};
+				fill: ${primaryColor};
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Colors from '../../styles/colors';
+import { primaryColor, primaryTextColor } from '../../styles/colors';
 import Media from '../../styles/media';
 
 export const SVG = styled.svg`
@@ -7,13 +7,13 @@ export const SVG = styled.svg`
 
 	path,
 	polygon {
-		fill: ${Colors.primaryTextColor};
+		fill: ${primaryTextColor};
 	}
 
 	&:hover {
 		path,
 		polygon {
-			fill: ${Colors.primaryColor};
+			fill: ${primaryColor};
 		}
 	}
 

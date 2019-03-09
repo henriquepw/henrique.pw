@@ -14,6 +14,9 @@ const Grid = styled.div`
 		grid-template-columns: 420px;
 	}
 
+	${Media.small`
+		grid-template-columns: auto;
+	`}
 `;
 
 export { Grid };

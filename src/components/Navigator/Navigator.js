@@ -17,14 +17,14 @@ class Navigator extends Component {
 		const values = [
 			['/', 'Home'],
 			['/education', 'Education'],
-			//['/experience', 'Experience'],
+			// ['/experience', 'Experience'],
 			['/projects', 'Projects'],
 			['/about', 'About me']
 		];
 
 		return (
 			<Container press={!press}>
-				<MenuButton press={true} size='2.2em' onClick={setPress} />
+				<MenuButton press size='2.2em' onClick={setPress} />
 				<Img src={photo} title='Eu :)' />
 
 				<Menu press={!press}>

@@ -17,6 +17,7 @@ const Card = styled.div`
 		margin: 10px;
 		padding-left: 30px;
 		color: ${primaryTextColor};
+		z-index: 1;
 	}
 
 	h1 {
@@ -24,12 +25,19 @@ const Card = styled.div`
 		font-weight: bold;
 		font-size: 2.5rem;
 		margin-top: 20px;
-		z-index: 1;
 	}
 
 	p {
 		opacity: 0.9;
 		font-size: 1.5rem;
+	}
+
+	a {
+		color: ${primaryTextColor};
+
+		&:hover {
+			color: ${primaryColor};
+		}
 	}
 
 	&::before {
@@ -77,7 +85,7 @@ const Card = styled.div`
 
 	${Media.small`
 		width: 90vw;
-		height: auto;
+		height: 180px;
 
 		p, h1 {
 			margin: 5px;
@@ -95,7 +103,25 @@ const Card = styled.div`
 		}
 
 		&::before {
-			height: auto;
+    		height: inherit;
+		}
+
+		&:hover {
+			::before {
+				margin-left: calc(90vw - 10px);
+			}
+
+			@keyframes slide-right {
+				0% {
+					width: 10px;
+					margin-left: 0;
+				}
+
+				50% {
+					width: 90vw;
+					margin-left: 0;
+				}
+			}
 		}
 	`}
 `;

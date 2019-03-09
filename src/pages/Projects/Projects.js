@@ -15,6 +15,7 @@ export default () => (
 					title='Celebino'
 					description='Monitoramento da água proveniente de ar-condicionados utilizando arduíno.'
 					img='../../assets/background.png'
+					git='https://github.com/henry-ns/Celebino'
 				/>
 				<Project
 					title='Celebino'

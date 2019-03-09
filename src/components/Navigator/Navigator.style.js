@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Bars } from 'styled-icons/fa-solid/Bars';
 
 import Media from '../../styles/media';
-import Colors from '../../styles/colors';
+import { primaryColor, secondaryTextColor } from '../../styles/colors';
 
 const Container = styled.nav`
-	background-color: ${Colors.primaryColor};
+	background-color: ${primaryColor};
 	position: fixed;
 
 	top: 0;
@@ -28,7 +28,7 @@ const Container = styled.nav`
 		${({ press }) =>
 			press &&
 			css`
-				background-color: ${Colors.primaryColor};
+				background-color: ${primaryColor};
 				opacity: 0.99;
 				width: 100vw;
 				height: 100vh;
@@ -41,7 +41,7 @@ const Container = styled.nav`
 		${({ press }) =>
 			press &&
 			css`
-				background-color: ${Colors.primaryColor};
+				background-color: ${primaryColor};
 				opacity: 0.99;
 				width: 100vw;
 				height: 100vh;
@@ -64,6 +64,8 @@ const Img = styled.img`
         margin: 3.5em;
         border: 0px;
     `}
+
+	box-sizing: content-box;
 `;
 
 const Menu = styled.ul`
@@ -94,7 +96,7 @@ const MenuItem = styled(Link)`
 	padding-top: 8px;
 	padding-bottom: 8px;
 
-	color: ${Colors.secondaryTextColor};
+	color: ${secondaryTextColor};
 	transition: transform 0.3s;
 	outline: none;
 
@@ -117,7 +119,7 @@ const MenuItem = styled(Link)`
 const MenuButton = styled(Bars)`
 	display: absolute;
 	position: fixed;
-	color: ${Colors.primaryColor};
+	color: ${primaryColor};
 
 	cursor: pointer;
 

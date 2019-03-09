@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 import Media from '../../styles/media';
-import Colors from '../../styles/colors';
-import { Container } from '../../styles/grid.js';
+import { primaryColor } from '../../styles/colors';
+import { Container } from '../../styles/grid';
 
 const Section = styled(Container)`
 	span {
-		color: ${Colors.primaryColor};
+		color: ${primaryColor};
 	}
 
 	h1,

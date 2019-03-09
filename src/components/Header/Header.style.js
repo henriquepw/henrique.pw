@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Colors from '../../styles/colors';
+import { primaryTextColor } from '../../styles/colors';
 import Media from '../../styles/media';
 
 const Container = styled.header`
@@ -8,7 +8,7 @@ const Container = styled.header`
 
 	h1 {
 		font-family: Patua One, cursive;
-		color: ${Colors.primaryTextColor};
+		color: ${primaryTextColor};
 		font-size: 3em;
 		margin: 15px;
 		margin-left: 30px;

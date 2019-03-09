@@ -15,14 +15,6 @@ const colors = {
 const keys = Object.keys(colors);
 const primarykey = keys[Math.floor(Math.random() * keys.length)];
 
-export default {
-	primaryColor: colors[primarykey],
-	primaryTextColor: '#3d3d3d',
-	secondaryTextColor: 'rgba(255, 255, 255, 0.4)',
-	cardview: '#f5f5f5',
-	cardviewDark: '#e9e9e9'
-};
-
 const primaryColor = colors[primarykey];
 const primaryTextColor = '#3d3d3d';
 const secondaryTextColor = 'rgba(255, 255, 255, 0.4)';

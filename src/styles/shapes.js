@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import Colors from './colors';
+import { primaryColor } from './colors';
 import Media from './media';
 
 const Divider = styled.div`
-    background-color: ${Colors.primaryColor};
+    background-color: ${primaryColor};
     width: 58%;
     height: 5px;
 

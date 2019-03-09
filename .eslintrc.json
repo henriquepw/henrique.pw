@@ -7,8 +7,8 @@
 	"extends": ["airbnb", "prettier", "prettier/react"],
 	"parser": "babel-eslint",
 	"globals": {
-		"Atomics": "readable",
-		"SharedArrayBuffer": "readable"
+		"Atomics": "writable",
+		"SharedArrayBuffer": "writable"
 	},
 	"parserOptions": {
 		"ecmaFeatures": {

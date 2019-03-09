@@ -5,7 +5,7 @@ import Next from '../../components/Next/Next';
 
 import { Section } from './Home.style';
 import { Divider } from '../../styles/shapes';
-import { Background } from '../../styles/grid.js';
+import { Background } from '../../styles/grid';
 
 export default () => (
 	<Section>
@@ -54,7 +54,7 @@ export default () => (
 					<Icon name='Twitter' />
 				</a>
 			</li>
-			<li final={true}>
+			<li final>
 				<a href='mailto:enrque.ns@gmail.com'>
 					<Icon name='Email' />
 				</a>
