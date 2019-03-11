@@ -1,16 +1,22 @@
 import styled from 'styled-components';
-import Media from '../../styles/media';
+import { primaryColor } from '../../styles/colors';
 
-const Main = styled.div`
+const Container = styled.div`
 	display: grid;
 	grid-template-columns: auto;
+	min-width: 1008.89px;
+	overflow: hidden;
+	position: relative;
 
-	height: 100%;
-	padding-left: 4%;
-
-	${Media.desktop`
-        padding-left: 0;
-    `}
+	&::after {
+		content: ' ';
+		position: absolute;
+		background-color: ${primaryColor};
+		width: 3px;
+		height: 100%;
+		top: 0;
+		left: 50%;
+	}
 `;
 
-export { Main };
+export { Container };

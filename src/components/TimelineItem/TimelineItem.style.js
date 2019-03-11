@@ -1,71 +1,110 @@
 import styled, { css } from 'styled-components';
-import { primaryColor, primaryTextColor, cardview } from '../../styles/colors';
+import {
+	primaryColor,
+	primaryTextColor,
+	cardview,
+	background
+} from '../../styles/colors';
 import Media from '../../styles/media';
 
-const Box = styled.div`
+const Content = styled.div`
 	display: grid;
-	grid-template-columns: auto 1fr;
-	grid-template-rows: auto 1fr;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	box-sizing: content-box;
 
-	max-width: 750px;
+	&:hover {
+		cursor: context-menu;
 
-	h1,
-	h2,
-	h3 {
-		display: flex;
-		align-items: center;
-		margin: 0 30px 20px 30px;
+		div h3 {
+			font-size: 4rem;
+
+			&::after {
+				background-color: ${background};
+				border-color: ${primaryColor};
+				margin-left: -210px;
+
+				${({ left }) =>
+					left &&
+					css`
+						margin-left: 40px;
+					`}
+			}
+		}
 	}
 
-	h1 {
-		font-weight: bold;
-		font-size: 1.8em;
-	}
+	margin-bottom: 50px;
+`;
 
-	h2 {
-		grid-column: 2;
-		color: ${primaryTextColor};
-		font-weight: normal;
-		margin-bottom: 40px;
-	}
+const Date = styled.div`
+	text-align: right;
+	margin-top: -50px;
 
 	h3 {
 		color: ${primaryColor};
-		background: ${cardview};
-		font-size: 1.4em;
-		padding: 5px 15px 5px 15px;
-		margin-bottom: 0px;
-		border: 3px solid ${primaryColor};
-		border-radius: 15px;
+		font-size: 3.5rem;
+		margin: 0;
+		margin-right: 50px;
+		transition: 1s;
+
+		&::after {
+			content: '';
+			position: absolute;
+			background-color: ${primaryColor};
+			width: 23px;
+			height: 23px;
+
+			margin-top: -10px;
+			margin-left: 40px;
+			box-sizing: border-box;
+			transition: 0.5s;
+
+			border: 3px solid ${background};
+			border-radius: 50%;
+			z-index: 1;
+		}
 	}
 
-	${Media.desktop`
-        h3 {
-            margin-left: 0;
-        }
-    `}
+	${({ left }) =>
+		left &&
+		css`
+			text-align: left;
+
+			h3 {
+				margin: 0;
+				margin-left: 50px;
+
+				&::after {
+					margin-left: -190px;
+				}
+			}
+		`}
 `;
 
-const Div = styled.div`
-	grid-row: 2;
-	grid-column: 1;
+const Card = styled.div`
+	background-color: ${cardview};
+	position: relative;
+	max-width: 450px;
+	min-width: 386.667px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 40px;
 
-	display: flex;
-	flex-direction: column;
-`;
+	h1,
+	h2 {
+		color: ${primaryTextColor};
+		padding-left: 30px;
+		padding-right: 30px;
+	}
 
-const Card = styled.span`
-	grid-column: 2;
-	grid-row: 1 / span 2;
-	background: ${cardview};
+	h1 {
+		font-size: 2rem;
+	}
 
-	max-height: 190px;
-	padding-top: 20px;
-	margin-bottom: 70px;
-	margin-top: -18px;
-
-	border-radius: 15px;
-	box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.2);
+	h2 {
+		font-size: 1.2rem;
+		padding-bottom: 20px;
+	}
 
 	&::before {
 		content: '';
@@ -74,76 +113,31 @@ const Card = styled.span`
 		width: 0;
 		height: 0;
 
-		margin-top: 8px;
+		margin-top: 30px;
 
 		transform: rotate(45deg);
 
 		box-sizing: border-box;
 		transform-origin: 0 0;
 
-		border: 0.5em solid black;
+		border: 0.6rem solid black;
 		border-color: transparent transparent ${cardview} ${cardview};
-
-		box-shadow: -3px 3px 3px 0 rgba(50, 50, 50, 0.05);
 	}
 
-	${({ init }) =>
-		init &&
+	${({ left }) =>
+		left &&
 		css`
-			margin-bottom: 0;
+			grid-column-start: 1;
+			grid-row-start: 1;
+
+			&::before {
+				transform: rotate(225deg);
+
+				right: 0;
+				margin-top: 60px;
+				margin-right: -20px;
+			}
 		`}
 `;
 
-const Timeline = styled.div`
-	${({ init }) =>
-		!init &&
-		css`
-			background-color: ${primaryColor};
-			height: calc(50% - 36px);
-			width: 5px;
-			margin: auto;
-			z-index: -1;
-		`}
-`;
-
-const HalfMoon = styled.div`
-	${({ init }) =>
-		!init &&
-		css`
-			background: ${primaryColor};
-			margin: auto;
-			height: 15px;
-			width: 30px;
-
-			${({ end }) =>
-				!end &&
-				css`
-					border-bottom-right-radius: 30px;
-					border-bottom-left-radius: 30px;
-				`}
-
-			${({ end }) =>
-				end &&
-				css`
-					border-top-right-radius: 30px;
-					border-top-left-radius: 30px;
-				`}
-		`}
-`;
-
-const Circle = styled.div`
-	${({ init }) =>
-		!init &&
-		css`
-			background: #fff;
-			margin: auto;
-
-			height: 18px;
-			width: 18px;
-
-			border: 5px solid ${primaryColor};
-			border-radius: 100%;
-		`}
-`;
-
-export { Box, Card, Div, Timeline, HalfMoon, Circle };
+export { Content, Card, Date };

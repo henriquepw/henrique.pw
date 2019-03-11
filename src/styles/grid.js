@@ -60,19 +60,25 @@ const Background = styled.div`
         display: block;
         position: fixed;
 
-        top: 80px;
+        top: 12vh;
+		left: 5vw;
         background-image: url(${require('../assets/background2.png')});
         background-repeat: no-repeat;
         background-position: center;
         opacity: 0.4;
 
         width: 90vw;
-        height: 90vh;
+        height: 80vh;
 
         margin: auto;
 
         z-index: -99;
     `}
+
+	${Media.phone`
+        top: 18vh;
+        height: 70vh;
+	`}
 `;
 
 const Building = styled.h1`

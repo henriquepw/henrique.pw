@@ -7,10 +7,12 @@ const Card = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 400px;
-	height: 200px;
+	height: 220px;
 
 	margin: 15px;
 	box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.2);
+
+	cursor: context-menu;
 
 	p,
 	h1 {
@@ -32,21 +34,13 @@ const Card = styled.div`
 		font-size: 1.5rem;
 	}
 
-	a {
-		color: ${primaryTextColor};
-
-		&:hover {
-			color: ${primaryColor};
-		}
-	}
-
 	&::before {
 		content: '';
 		background-color: ${primaryColor};
 		opacity: 0.7;
 		position: absolute;
 		width: 10px;
-		height: 200px;
+		height: 220px;
 		z-index: 0;
 		animation: slide-left 1.3s 1;
 	}

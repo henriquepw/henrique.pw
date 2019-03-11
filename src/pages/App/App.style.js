@@ -5,7 +5,7 @@ export const Container = styled.div`
 	padding-left: 17em;
 
 	width: auto;
-	height: 100vh;
+	height: auto;
 
 	${Media.desktop`
         padding-top: 70px;
