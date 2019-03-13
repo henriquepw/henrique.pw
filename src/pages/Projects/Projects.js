@@ -7,7 +7,7 @@ import { Section, Center } from '../../styles/grid';
 import { Grid } from './Projects.style';
 
 export default () => (
-	<Section>
+	<Section height='100vh'>
 		<Header title='Projects' dividerMedia='hidden' center />
 		<Center>
 			<Grid>
