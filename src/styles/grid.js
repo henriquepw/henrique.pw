@@ -50,6 +50,12 @@ const Center = styled.div`
 		css`
 			padding: ${padding};
 		`}
+
+	${({ direction }) =>
+		direction &&
+		css`
+			flex-direction: ${direction};
+		`}
 `;
 
 const Background = styled.div`

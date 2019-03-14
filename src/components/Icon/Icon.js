@@ -121,7 +121,12 @@ const path = name => {
 	return name === 'Instagram' ? icon(name) : <path d={icon(name)} />;
 };
 
-export default ({ name, noHover }) => (
+type IconProps = {
+	name: string,
+	noHover: string
+};
+
+export default ({ name, noHover }: IconProps) => (
 	<SVG
 		noHover={noHover}
 		id='Github'
