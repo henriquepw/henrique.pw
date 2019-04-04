@@ -7,16 +7,16 @@ class Navigator extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			press: false,
+			press: true,
 			active: `/${window.location.href.split('/')[4]}`
 		};
 	}
 
 	render() {
-		const press = !this.state.press;
+		const { press } = this.state;
 
 		const setPress = active => {
-			const state = { press };
+			const state = { press: !press };
 			if (active) state.active = active;
 			this.setState(state);
 		};

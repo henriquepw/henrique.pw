@@ -8,12 +8,23 @@ const Container = styled.div`
 	section {
 		background-color: ${primaryColor};
 		color: #fff;
-		padding-left: 40px;
-		padding-right: 40px;
-		padding-top: 40px;
+		padding: 35px 40px 0 40px;
+		position: relative;
 
 		h1 {
-			margin-top: 0;
+			margin: 0;
+			font-weight: bold;
+			font-size: 1.5rem;
+		}
+
+		p {
+			text-align: justify;
+			font-size: 1.05rem;
+			margin-top: 15px;
+		}
+
+		img {
+			height: 100%;
 		}
 	}
 

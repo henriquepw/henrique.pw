@@ -3,9 +3,13 @@ import Icon from '../Icon/Icon';
 
 import { Button } from './Next.style';
 
-export default ({ to }) => (
+type nextProps = {
+	to: string
+};
+
+export default ({ to }: nextProps) => (
 	<Button to={to}>
-		<label>{to.substr(1).toUpperCase()}</label>
+		<p>{to.substr(1).toUpperCase()}</p>
 		<Icon name='next' noHover />
 	</Button>
 );

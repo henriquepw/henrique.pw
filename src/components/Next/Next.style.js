@@ -18,7 +18,7 @@ const Button = styled(Link)`
 
 	transition: 0.5s all ease;
 
-	label {
+	p {
 		white-space: nowrap;
 		outline: none;
 		margin: 0;
@@ -32,7 +32,7 @@ const Button = styled(Link)`
 
 	&:hover {
 		cursor: pointer;
-		label {
+		p {
 			cursor: pointer;
 			margin-right: 0;
 			color: ${primaryColor};
@@ -51,13 +51,13 @@ const Button = styled(Link)`
 	${Media.tablet`
 		padding: 5px;
 
-        label {
+        p {
             transform: scale(0.8);
             margin-right: -30px;
         }
 
         &:hover {
-            label {
+            p {
                 margin-right: -10px;
             }
             padding-right: 5px;

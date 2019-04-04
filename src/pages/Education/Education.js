@@ -16,23 +16,23 @@ export default () => (
 				<TimelineItem
 					title='Technology in Telematics'
 					subTitle='Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, IFPB-CG'
-					init='2017'
-					final='2020'
+					init={2017}
+					final={2020}
 				/>
 
 				<TimelineItem
 					left
 					title='Computer Technician'
 					subTitle='Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, IFPB-CG'
-					init='2014'
-					final='2017'
+					init={2014}
+					final={2017}
 				/>
 
 				<TimelineItem
 					title='High School'
 					subTitle='Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, IFPB-CG'
-					init='2014'
-					final='2017'
+					init={2014}
+					final={2017}
 				/>
 				<div />
 			</Container>
