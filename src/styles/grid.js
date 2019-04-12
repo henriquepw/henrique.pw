@@ -98,4 +98,22 @@ const Building = styled.h1`
 	align-items: center;
 `;
 
-export { Section, Container, Background, Building, Center };
+const Warning = styled.p`
+	display: flex;
+	position: fixed;
+	justify-content: center;
+
+	max-width: 950px;
+	font-size: 2.5em;
+	top: 0;
+
+	font-weight: bold;
+	color: ${primaryColor};
+	text-align: justify;
+	z-index: -1;
+
+	border: 3px red solid;
+	padding: 20px;
+`;
+
+export { Section, Container, Background, Building, Center, Warning };

@@ -2,7 +2,7 @@
 	"name": "portifolio",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://henry-ns.github.io/",
+	"homepage": "https://henry-ns.github.io/portfolio/",
 	"dependencies": {
 		"react": "^16.8.2",
 		"react-dom": "^16.8.2",

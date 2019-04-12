@@ -5,10 +5,10 @@ import * as serviceWorker from './serviceWorker';
 import App from './pages/App/App';
 
 ReactDOM.render(
-	<BrowserRouter basename={`${process.env.PUBLIC_URL}/portfolio`}>
+	<BrowserRouter basename='/portfolio'>
 		<App />
 	</BrowserRouter>,
 	document.getElementById('root')
 );
 
-serviceWorker.unregister();
+serviceWorker.register();

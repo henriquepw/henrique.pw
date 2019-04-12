@@ -5,7 +5,7 @@ import Next from '../../components/Next/Next';
 
 import { Section } from './Home.style';
 import { Divider } from '../../styles/shapes';
-import { Background } from '../../styles/grid';
+import { Background, Warning } from '../../styles/grid';
 
 export default () => (
 	<Section>
@@ -60,6 +60,10 @@ export default () => (
 				</a>
 			</li>
 		</ul>
+		<Warning>
+			Em construção... A universidade está sugando meu tempo e a
+			telecomunicação não deixa eu programar :(
+		</Warning>
 		<Next to='/education' />
 	</Section>
 );
