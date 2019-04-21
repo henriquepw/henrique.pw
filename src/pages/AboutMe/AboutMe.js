@@ -26,7 +26,7 @@ export default () => (
 				<strike>escrevendo essa portifolio</strike>.
 			</P>
 			<P>
-				Bem, vou falar de algumas coisa que eu gosto para vocês me
+				Bem, vou falar de algumas coisa que eu gosto para você me
 				conhecerem melhor
 			</P>
 			<h1>Jogos \o/</h1>

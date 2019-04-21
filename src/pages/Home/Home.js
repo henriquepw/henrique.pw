@@ -61,8 +61,7 @@ export default () => (
 			</li>
 		</ul>
 		<Warning>
-			Em construção... A universidade está sugando meu tempo e a
-			telecomunicação não deixa eu programar :(
+			Em construção... A universidade está sugando meu tempo
 		</Warning>
 		<Next to='/education' />
 	</Section>
