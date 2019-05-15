@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Next from '../../components/Next/Next';
 import Games from '../../components/Games/Games';
+import Music from '../../components/Music/Music';
 
 import { Section, Center } from '../../styles/grid';
 import { P } from './AboutMe.style';
@@ -31,6 +32,9 @@ export default () => (
 			</P>
 			<h1>Jogos \o/</h1>
 			<Games />
+			<P />
+			<h1>Musicas \o/</h1>
+			<Music />
 			<P />
 		</Center>
 		<Next to='/' />
