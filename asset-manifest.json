@@ -1,16 +1,16 @@
 {
-  "main.js": "/portfolio/static/js/main.25cf2910.chunk.js",
-  "main.js.map": "/portfolio/static/js/main.25cf2910.chunk.js.map",
+  "main.js": "/portfolio/static/js/main.9d65f4f2.chunk.js",
+  "main.js.map": "/portfolio/static/js/main.9d65f4f2.chunk.js.map",
   "runtime~main.js": "/portfolio/static/js/runtime~main.53ebc025.js",
   "runtime~main.js.map": "/portfolio/static/js/runtime~main.53ebc025.js.map",
-  "static/js/2.265c0fe2.chunk.js": "/portfolio/static/js/2.265c0fe2.chunk.js",
-  "static/js/2.265c0fe2.chunk.js.map": "/portfolio/static/js/2.265c0fe2.chunk.js.map",
+  "static/js/2.bb125eb7.chunk.js": "/portfolio/static/js/2.bb125eb7.chunk.js",
+  "static/js/2.bb125eb7.chunk.js.map": "/portfolio/static/js/2.bb125eb7.chunk.js.map",
   "index.html": "/portfolio/index.html",
-  "precache-manifest.262c6a37c4dd939ac0363f3904840cc9.js": "/portfolio/precache-manifest.262c6a37c4dd939ac0363f3904840cc9.js",
+  "precache-manifest.ebfcb14835eb9fac986e9cc405dd5801.js": "/portfolio/precache-manifest.ebfcb14835eb9fac986e9cc405dd5801.js",
   "service-worker.js": "/portfolio/service-worker.js",
   "static/media/background2.png": "/portfolio/static/media/background2.8af9aef4.png",
   "static/media/factorio.jpg": "/portfolio/static/media/factorio.d2d18d5d.jpg",
-  "static/media/hollow-knight.jpg": "/portfolio/static/media/hollow-knight.292d04ec.jpg",
   "static/media/photo.png": "/portfolio/static/media/photo.e0eaa6fb.png",
+  "static/media/the-talos-principle.jpg": "/portfolio/static/media/the-talos-principle.09035236.jpg",
   "static/media/witcher.jpg": "/portfolio/static/media/witcher.ffa9151d.jpg"
 }
