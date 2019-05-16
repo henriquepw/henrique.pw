@@ -20,30 +20,36 @@ import sounds from '../../assets/musics/playlist.json';
 class Music extends Component {
 	constructor(props) {
 		super(props);
+		const music = new Audio(sounds[0].preview_url);
+		music.volume = 0.4;
+		music.loop = true;
+
 		this.state = {
 			play: false,
 			itens: sounds,
-			albumImg: sounds[0].album_url,
-			playing: 0
+			playing: 0,
+			music
 		};
+	}
 
-		this.music = new Audio(sounds[0].preview_url);
-		this.music.volume = 0.4;
-		this.music.loop = true;
+	componentWillUnmount() {
+		const { music } = this.state;
+		music.pause();
 	}
 
 	setPlaying = playing => {
-		this.music.src = sounds[playing].preview_url;
+		const { music } = this.state;
+		music.src = sounds[playing].preview_url;
+		music.play();
 		this.setState({ playing, play: true });
-		this.music.play();
 	};
 
 	setPlay = () => {
-		const { play } = this.state;
+		const { play, music } = this.state;
 		this.setState({ play: !play });
 
-		if (!play) this.music.play();
-		else this.music.pause();
+		if (!play) music.play();
+		else music.pause();
 	};
 
 	next = () => {
