@@ -11,13 +11,14 @@ const Container = styled.div`
 	display: flex;
 	justify-content: center;
 
-	img {
-		height: 300px;
-		width: 300px;
-
-		margin-left: 15%;
+	a {
 		margin-top: auto;
 		margin-bottom: auto;
+		margin-left: 15%;
+		img {
+			height: 300px;
+			width: 300px;
+		}
 	}
 `;
 
@@ -38,7 +39,7 @@ const Playlist = styled.div`
 
 	/* width */
 	::-webkit-scrollbar {
-		width: 5px;
+		width: 4px;
 	}
 
 	/* Track */
@@ -63,7 +64,7 @@ const Controllers = styled.div`
 	justify-content: center;
 
 	background-color: ${primaryColor};
-	box-shadow: 1px 1px 4px #999;
+
 	padding: 20px;
 
 	svg {

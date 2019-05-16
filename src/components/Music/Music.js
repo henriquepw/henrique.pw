@@ -82,7 +82,11 @@ class Music extends Component {
 								>
 									{item.name} - {item.artists}
 								</Title>
-								<a href={item.external_urls}>
+								<a
+									href={item.external_urls}
+									target='_blank'
+									rel='noopener noreferrer'
+								>
 									<Spotify size={20} />
 								</a>
 							</Preview>
@@ -90,7 +94,16 @@ class Music extends Component {
 					</Playlist>
 				</Box>
 
-				<img src={itens[playing].album_url} alt={itens[playing].name} />
+				<a
+					href={itens[playing].external_urls}
+					target='_blank'
+					rel='noopener noreferrer'
+				>
+					<img
+						src={itens[playing].album_url}
+						alt={itens[playing].name}
+					/>
+				</a>
 			</Container>
 		);
 	}
