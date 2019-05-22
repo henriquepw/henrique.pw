@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Icon from '../../components/Icon/Icon';
-import Next from '../../components/Next/Next';
+import Icon from '../../components/Icon';
+import Next from '../../components/Next';
 
 import { Section } from './Home.style';
 import { Divider } from '../../styles/shapes';

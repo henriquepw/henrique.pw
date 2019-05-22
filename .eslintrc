@@ -5,11 +5,11 @@
 		"es6": true
 	},
 	"extends": ["airbnb", "prettier", "prettier/react"],
-	"parser": "babel-eslint",
 	"globals": {
 		"Atomics": "writable",
 		"SharedArrayBuffer": "writable"
 	},
+	"parser": "babel-eslint",
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true,
@@ -20,19 +20,28 @@
 		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
-	"plugins": ["react", "jsx-a11y", "import", "prettier"],
+	"plugins": [
+		"jsx-a11y",
+		"html",
+		"import",
+		"prettier",
+		"react",
+		"react-hooks"
+	],
 	"rules": {
+		"global-require": "off",
+		"import/prefer-default-export": "off",
+		"jsx-quotes": ["error", "prefer-single"],
+		"no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+		"prettier/prettier": "error",
+		"quotes": ["error", "single"],
 		"react/jsx-filename-extension": [
 			"error",
 			{
 				"extensions": [".js", ".jsx"]
 			}
 		],
-		"global-require": "off",
-		"import/prefer-default-export": "off",
-		"no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
-		"prettier/prettier": "error",
-		"quotes": ["error", "single"],
-		"jsx-quotes": ["error", "prefer-single"]
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn"
 	}
 }

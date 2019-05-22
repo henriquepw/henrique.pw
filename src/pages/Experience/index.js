@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import Next from '../../components/Next/Next';
-import TimelineItem from '../../components/TimelineItem/TimelineItem';
+import Header from '../../components/Header';
+import Next from '../../components/Next';
+import TimelineItem from '../../components/TimelineItem';
 
 import { Section } from '../../styles/grid';
 import { Main } from './Experience.style';

@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import Next from '../../components/Next/Next';
-import Games from '../../components/Games/Games';
-import Music from '../../components/Music/Music';
+import Header from '../../components/Header';
+import Next from '../../components/Next';
+import Games from '../../components/Games';
+import Music from '../../components/Music';
 
 import { Section, Center } from '../../styles/grid';
 import { P } from './AboutMe.style';

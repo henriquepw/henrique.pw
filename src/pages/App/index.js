@@ -1,7 +1,7 @@
 import React from 'react';
 import Routes from '../../routes';
 
-import Navigator from '../../components/Navigator/Navigator';
+import Navigator from '../../components/Navigator';
 import GlobalStyle from '../../styles/globalStyle';
 import { Container } from './App.style';
 

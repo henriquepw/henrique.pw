@@ -1,7 +1,7 @@
 import React from 'react';
-import Next from '../../components/Next/Next';
-import Header from '../../components/Header/Header';
-import TimelineItem from '../../components/TimelineItem/TimelineItem';
+import Next from '../../components/Next';
+import Header from '../../components/Header';
+import TimelineItem from '../../components/TimelineItem';
 
 import { Section, Center } from '../../styles/grid';
 import { Container } from './Education.style';

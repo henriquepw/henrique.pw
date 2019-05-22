@@ -1,5 +1,5 @@
 import React from 'react';
-import GameItem from '../GameItem/GameItem';
+import GameItem from '../GameItem';
 import { Container } from './Games.style';
 
 export default () => (

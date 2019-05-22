@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import Next from '../../components/Next/Next';
-import Project from '../../components/Project/Project';
+import Header from '../../components/Header';
+import Next from '../../components/Next';
+import Project from '../../components/Project';
 
 import { Section, Center } from '../../styles/grid';
 import { Grid } from './Projects.style';

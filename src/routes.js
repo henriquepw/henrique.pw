@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from './pages/Home/Home';
-import AboutMe from './pages/AboutMe/AboutMe';
-import Education from './pages/Education/Education';
-import Experience from './pages/Experience/Experience';
-import Projects from './pages/Projects/Projects';
+import Home from './pages/Home';
+import AboutMe from './pages/AboutMe';
+import Education from './pages/Education';
+import Experience from './pages/Experience';
+import Projects from './pages/Projects';
 
 export default () => (
 	<Switch>
@@ -16,3 +16,25 @@ export default () => (
 		<Route path='/projects' component={Projects} />
 	</Switch>
 );
+
+/*
+export default () => (
+	<Switch>
+		<Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+		<Route path={`${process.env.PUBLIC_URL}/about`} component={AboutMe} />
+		<Route
+			path={`${process.env.PUBLIC_URL}/education`}
+			component={Education}
+		/>
+		<Route
+			path={`${process.env.PUBLIC_URL}/experience`}
+			component={Experience}
+		/>
+		<Route
+			path={`${process.env.PUBLIC_URL}/projects`}
+			component={Projects}
+		/>
+	</Switch>
+);
+
+*/
