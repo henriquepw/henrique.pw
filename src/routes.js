@@ -16,25 +16,3 @@ export default () => (
 		<Route path='/projects' component={Projects} />
 	</Switch>
 );
-
-/*
-export default () => (
-	<Switch>
-		<Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
-		<Route path={`${process.env.PUBLIC_URL}/about`} component={AboutMe} />
-		<Route
-			path={`${process.env.PUBLIC_URL}/education`}
-			component={Education}
-		/>
-		<Route
-			path={`${process.env.PUBLIC_URL}/experience`}
-			component={Experience}
-		/>
-		<Route
-			path={`${process.env.PUBLIC_URL}/projects`}
-			component={Projects}
-		/>
-	</Switch>
-);
-
-*/

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import App from './pages/App';
 
 ReactDOM.render(
-	<BrowserRouter basename={process.env.PUBLIC_URL}>
+	<Router>
 		<App />
-	</BrowserRouter>,
+	</Router>,
 	document.getElementById('root')
 );
