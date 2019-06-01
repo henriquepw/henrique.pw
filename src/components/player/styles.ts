@@ -67,32 +67,38 @@ const Controllers = styled.div`
 	background-color: ${primaryColor};
 
 	padding: 20px;
-`;
 
-const Button = styled.svg`
-	height: 45px;
-	border-radius: 50%;
+	span {
+		display: flex;
+		justify-content: center;
 
-	:hover {
-		color: ${backgroundDark};
-		cursor: pointer;
-	}
+		height: 45px;
+		width: 45px;
+		border-radius: 50%;
 
-	${({ cicle }: props) =>
-		cicle &&
-		css`
-			margin-left: 15px;
-			margin-right: 15px;
+		:hover {
+			cursor: pointer;
+			animation: expand 0.5s 1;
 
-			padding-left: 15px;
-			padding-right: 15px;
+			color: ${backgroundDark};
+			transform: scale(1.15);
 
-			border: 2px solid black;
-
-			:hover {
-				border-color: ${backgroundDark};
+			@keyframes expand {
+				0% {
+					color: ${backgroundDark};
+					transform: scale(1);
+				}
+				20%{
+					transform: scale(1);
+				}
 			}
-		`}
+		}
+
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+	}
 `;
 
 const Preview = styled.div`
@@ -103,15 +109,20 @@ const Preview = styled.div`
 
 	a {
 		text-decoration: none;
-		background-color: ${primaryTextColor};
-
-		&:hover {
-			color: ${primaryColor};
-		}
+		color: ${primaryTextColor};
 
 		svg {
 			height: 30px;
 			width: 30px;
+		}
+
+		&:hover {
+			color: ${primaryColor};
+
+			svg {
+				transition: 0.2s;
+				transform: scale(1.05);
+			}
 		}
 	}
 `;
@@ -124,6 +135,10 @@ const Title = styled.div`
 
 	:hover {
 		cursor: pointer;
+
+		transition: 0.2s;
+		transform: scale(1.05);
+		color: ${primaryColor};
 	}
 
 	${({ set }: props) =>
@@ -134,4 +149,4 @@ const Title = styled.div`
 		`}
 `;
 
-export { Container, Box, Button, Playlist, Controllers, Preview, Title };
+export { Container, Box, Playlist, Controllers, Preview, Title };

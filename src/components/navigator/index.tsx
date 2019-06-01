@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import photo from 'assets/photo.png';
 import Icon from '../Icon';
@@ -31,10 +31,6 @@ const Navigator: React.FC = () => {
 		if (active) setActive(active);
 		if (index !== undefined) handleNext(index);
 	};
-
-	useEffect(() => {
-		console.log('url mudou!!');
-	}, [window.location.href]);
 
 	return (
 		<>
