@@ -1,47 +1,51 @@
 {
-	"env": {
-		"browser": true,
-		"node": true,
-		"es6": true
-	},
-	"extends": ["airbnb", "prettier", "prettier/react"],
-	"globals": {
-		"Atomics": "writable",
-		"SharedArrayBuffer": "writable"
-	},
-	"parser": "babel-eslint",
-	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true,
-			"classes": true,
-			"impliedStrict": true,
-			"experimentalObjectRestSpread": true
-		},
-		"ecmaVersion": 2018,
-		"sourceType": "module"
-	},
-	"plugins": [
-		"jsx-a11y",
-		"html",
-		"import",
-		"prettier",
-		"react",
-		"react-hooks"
-	],
-	"rules": {
-		"global-require": "off",
-		"import/prefer-default-export": "off",
-		"jsx-quotes": ["error", "prefer-single"],
-		"no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
-		"prettier/prettier": "error",
-		"quotes": ["error", "single"],
-		"react/jsx-filename-extension": [
-			"error",
-			{
-				"extensions": [".js", ".jsx"]
-			}
-		],
-		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn"
-	}
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        "react-app",
+        "airbnb",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": ["jsx-a11y", "import", "prettier", "react"],
+    "rules": {
+        "import/prefer-default-export": "off",
+        "jsx-quotes": ["error", "prefer-single"],
+        "quotes": ["error", "single"],
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [".js", ".jsx", "tsx"]
+            }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "settings": {
+            "import/parsers": {
+                "@typescript-eslint/parser": [".ts", ".tsx"]
+            },
+            "import/resolver": {
+                "typescript": {
+                    "paths": ["src"]
+                }
+            }
+        },
+        "import/no-unresolved": 0,
+        "linebreak-style": 0,
+        "no-tabs": 0
+    }
 }
