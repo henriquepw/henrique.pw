@@ -5,8 +5,8 @@ import { HashRouter as Router } from 'react-router-dom';
 import App from './pages/app';
 
 ReactDOM.render(
-	<Router>
-		<App />
-	</Router>,
-	document.getElementById('root')
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root')
 );

@@ -3,14 +3,14 @@ import { primaryColor } from './colors';
 import Media from './media';
 
 interface props {
-	margin?: string;
-	size?: string;
+  margin?: string;
+  size?: string;
 
-	dividerMedia?: string;
-	direction?: string;
+  dividerMedia?: string;
+  direction?: string;
 
-	radius?: boolean;
-	radiusRight?: boolean;
+  radius?: boolean;
+  radiusRight?: boolean;
 }
 
 const Divider = styled.div`
@@ -21,36 +21,36 @@ const Divider = styled.div`
     margin: 25px 0px 25px 0px;
 
     ${({ margin }: props) =>
-		margin &&
-		css`
-			margin: ${margin};
-		`}
+      margin &&
+      css`
+        margin: ${margin};
+      `}
 
     ${({ size }: props) =>
-		size &&
-		css`
-			width: ${size};
-		`}
+      size &&
+      css`
+        width: ${size};
+      `}
 
 		${({ radius }: props) =>
-			radius &&
-			css`
-				border-radius: 20px;
-			`}
+      radius &&
+      css`
+        border-radius: 20px;
+      `}
 
 		${({ radiusRight }: props) =>
-			radiusRight &&
-			css`
-				border-bottom-right-radius: 20px;
-				border-top-right-radius: 20px;
-			`}
+      radiusRight &&
+      css`
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+      `}
 
 		${Media.desktop`
         ${({ dividerMedia }: props) =>
-			dividerMedia === 'hidden' &&
-			css`
-				display: none;
-			`}
+          dividerMedia === 'hidden' &&
+          css`
+            display: none;
+          `}
     `}
 
     ${Media.phone`

@@ -4,73 +4,73 @@ import Media from './media';
 import { primaryColor, primaryTextColor } from './colors';
 
 interface Props {
-	height?: string;
-	center?: boolean;
+  height?: string;
+  center?: boolean;
 
-	padding?: string;
-	direction?: string;
+  padding?: string;
+  direction?: string;
 }
 
 const Container = styled.section`
-	width: 100%;
-	height: 100vh;
+  width: 100%;
+  height: 100vh;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-	color: ${primaryTextColor};
+  color: ${primaryTextColor};
 
-	align-items: center;
+  align-items: center;
 `;
 
 const Section = styled.section`
-	display: grid;
-	box-sizing: border-box;
-	height: 100%;
+  display: grid;
+  box-sizing: border-box;
+  height: 100%;
 
-	grid-template-columns: 1fr;
-	grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
 
-	${({ height }: Props) =>
-		height &&
-		css`
-			height: ${height};
-		`}
+  ${({ height }: Props) =>
+    height &&
+    css`
+      height: ${height};
+    `}
 
-	${({ center }: Props) =>
-		center &&
-		css`
-			grid-template-columns: 1fr auto 1fr;
-		`}
+  ${({ center }: Props) =>
+    center &&
+    css`
+      grid-template-columns: 1fr auto 1fr;
+    `}
 `;
 
 const Center = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 
-	${({ padding }: Props) =>
-		padding &&
-		css`
-			padding: ${padding};
-		`}
+  ${({ padding }: Props) =>
+    padding &&
+    css`
+      padding: ${padding};
+    `}
 
-	${({ direction }: Props) =>
-		direction &&
-		css`
-			flex-direction: ${direction};
-		`}
+  ${({ direction }: Props) =>
+    direction &&
+    css`
+      flex-direction: ${direction};
+    `}
 `;
 
 const Background = styled.div`
-	display: none;
-	visibility: hidden;
+  display: none;
+  visibility: hidden;
 
-	${Media.desktop`
+  ${Media.desktop`
         visibility: visible;
         display: block;
         position: fixed;
@@ -90,38 +90,38 @@ const Background = styled.div`
         z-index: -99;
     `}
 
-	${Media.phone`
+  ${Media.phone`
         top: 18vh;
         height: 70vh;
 	`}
 `;
 
 const Building = styled.h1`
-	color: ${primaryColor};
-	height: 100%;
+  color: ${primaryColor};
+  height: 100%;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Warning = styled.p`
-	display: flex;
-	position: fixed;
-	justify-content: center;
+  display: flex;
+  position: fixed;
+  justify-content: center;
 
-	max-width: 950px;
-	font-size: 2.5em;
-	top: 0;
+  max-width: 950px;
+  font-size: 2.5em;
+  top: 0;
 
-	font-weight: bold;
-	color: ${primaryColor};
-	text-align: justify;
-	z-index: -1;
+  font-weight: bold;
+  color: ${primaryColor};
+  text-align: justify;
+  z-index: -1;
 
-	border: 3px red solid;
-	padding: 20px;
+  border: 3px red solid;
+  padding: 20px;
 `;
 
 export { Section, Container, Background, Building, Center, Warning };

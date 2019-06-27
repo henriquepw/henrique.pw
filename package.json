@@ -1,6 +1,6 @@
 {
-  "name": "portfolio-ts",
-  "homepage": "https://henry-ns.github.io/portfolio",
+	"name": "portfolio-ts",
+	"homepage": "https://henry-ns.github.io/portfolio",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -55,6 +55,7 @@
 		"eslint-plugin-jsx-a11y": "^6.2.1",
 		"eslint-plugin-prettier": "^3.1.0",
 		"eslint-plugin-react": "^7.13.0",
+		"eslint-plugin-react-hooks": "^1.6.0",
 		"gh-pages": "^2.0.1",
 		"prettier": "^1.17.1"
 	}
