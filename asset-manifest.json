@@ -1,16 +1,18 @@
 {
-  "main.js": "/portfolio/static/js/main.ee91ba94.chunk.js",
-  "main.js.map": "/portfolio/static/js/main.ee91ba94.chunk.js.map",
-  "runtime~main.js": "/portfolio/static/js/runtime~main.53ebc025.js",
-  "runtime~main.js.map": "/portfolio/static/js/runtime~main.53ebc025.js.map",
-  "static/js/2.cd6d2703.chunk.js": "/portfolio/static/js/2.cd6d2703.chunk.js",
-  "static/js/2.cd6d2703.chunk.js.map": "/portfolio/static/js/2.cd6d2703.chunk.js.map",
-  "index.html": "/portfolio/index.html",
-  "precache-manifest.ff1e638ad6b15aaffd679467edf86703.js": "/portfolio/precache-manifest.ff1e638ad6b15aaffd679467edf86703.js",
-  "service-worker.js": "/portfolio/service-worker.js",
-  "static/media/background2.png": "/portfolio/static/media/background2.8af9aef4.png",
-  "static/media/factorio.jpg": "/portfolio/static/media/factorio.d2d18d5d.jpg",
-  "static/media/photo.png": "/portfolio/static/media/photo.e0eaa6fb.png",
-  "static/media/the-talos-principle.jpg": "/portfolio/static/media/the-talos-principle.09035236.jpg",
-  "static/media/witcher.jpg": "/portfolio/static/media/witcher.ffa9151d.jpg"
+  "files": {
+    "main.js": "/portfolio/static/js/main.e7014b30.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.e7014b30.chunk.js.map",
+    "runtime~main.js": "/portfolio/static/js/runtime~main.f308c8e6.js",
+    "runtime~main.js.map": "/portfolio/static/js/runtime~main.f308c8e6.js.map",
+    "static/js/2.f933cad5.chunk.js": "/portfolio/static/js/2.f933cad5.chunk.js",
+    "static/js/2.f933cad5.chunk.js.map": "/portfolio/static/js/2.f933cad5.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.1c05c833ba6908f2e275800d68172205.js": "/portfolio/precache-manifest.1c05c833ba6908f2e275800d68172205.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/media/background2.png": "/portfolio/static/media/background2.8af9aef4.png",
+    "static/media/factorio.jpg": "/portfolio/static/media/factorio.d2d18d5d.jpg",
+    "static/media/photo.png": "/portfolio/static/media/photo.e0eaa6fb.png",
+    "static/media/the-talos-principle.jpg": "/portfolio/static/media/the-talos-principle.09035236.jpg",
+    "static/media/witcher.jpg": "/portfolio/static/media/witcher.ffa9151d.jpg"
+  }
 }
