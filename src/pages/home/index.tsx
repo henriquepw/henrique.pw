@@ -60,7 +60,7 @@ export default () => (
 			</li>
 		</ul>
 		<Warning>
-			Em construção... A universidade está sugando meu tempo
+			Em construção...
 		</Warning>
 	</Section>
 );
