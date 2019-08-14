@@ -1,7 +1,14 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import Menu from '~/components/Menu';
+import GlobalStyles from './styles/global';
 
 export default function app() {
-  return <div />;
+  return (
+    <>
+      <GlobalStyles />
+      <Menu />
+      <div />
+    </>
+  );
 }
