@@ -12,6 +12,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
+  position: fixed;
+
   width: 250px;
   height: 100%;
   background: ${backgroundColor};
