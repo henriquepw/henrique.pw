@@ -1,19 +1,33 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import photo from '~/assets/images/photo.png';
-import { Container } from './styles';
+import { Container, Profile } from './styles';
 
-export default function Menu() {
+export default function Header() {
+  const pages = ['Home', 'Education', 'Projects', 'About'];
+
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "profile.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Container>
-      <div>
-        <img src={photo} alt="Henrique Miranda" />
-      </div>
+      <Profile fluid={data.placeholderImage.childImageSharp.fluid} />
+
       <ul>
-        <li>Home</li>
-        <li>Education</li>
-        <li>Projects</li>
-        <li>About me</li>
+        {pages.map(name => (
+          <li>
+            <a href={`#${name.toLowerCase()}`}>{name}</a>
+          </li>
+        ))}
       </ul>
     </Container>
   );

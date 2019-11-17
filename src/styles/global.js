@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { backgroundColor, primaryTextColor } from './colors';
+import { primaryColor } from './colors';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Patua+One|Raleway:300,400,700&display=swap');
@@ -8,35 +8,25 @@ export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-
-    &:focus {
-      outline: 0;
-    }
   }
 
   html, body, #root {
-    width: 100%;
     height: 100%;
-
-    font-family: Raleway, Lato, sans-serif;
-    font-size: 14px;
+    width: 100%;
   }
 
   body {
-    -webkit-font-smoothing: antialiased;
-	  -moz-osx-font-smoothing: grayscale;
-
-    background: ${backgroundColor};
-    color: ${primaryTextColor};
+    background-color: ${primaryColor.bg};
+    font: 16px 'Raleway', sans-serif;
   }
 
   a {
+    color: ${primaryColor.text};
     text-decoration: none;
   }
 
-  ul {
-    list-style: none;
+  a:focus {
+    outline: 2px solid ${primaryColor.active};
+    outline-offset: 2px;
   }
 `;

@@ -1,11 +1,12 @@
-export const primaryColor = '#D9435F';
+const primaryColor = {
+  bg: '#F2F1F0',
+  text: '#4F5159',
+  active: '#D9435F',
+};
 
-export const backgroundColor = '#F2F1F0';
+const secundaryColor = {
+  bg: '#F9F9F9',
+  text: '#FFFFFF',
+};
 
-export const backgroundLightColor = '#F9F9F9';
-
-export const cardColor = '#FFFFFF';
-
-export const primaryTextColor = opacity => `rgba(79,81,89, ${opacity || 1})`;
-
-export const secundaryTextColor = '#333333';
+export { primaryColor, secundaryColor };
