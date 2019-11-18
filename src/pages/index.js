@@ -5,7 +5,7 @@ import SEO from '~/components/seo';
 import Home from '~/components/Home';
 
 import GlobalStyle from '~/styles/global';
-import { Container, Content } from './styles';
+import { Container, Content } from '~/styles';
 
 function IndexPage() {
   return (
