@@ -1,5 +1,7 @@
 {
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "eol": "lf"
+  "endOfLine": "lf",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5"
 }

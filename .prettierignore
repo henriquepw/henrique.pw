@@ -1,3 +1,5 @@
-node_modules
-
-*.md
+.cache
+package.json
+package-lock.json
+yarn.lock
+public
