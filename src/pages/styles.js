@@ -4,8 +4,14 @@ export const Container = styled.div`
   display: flex;
 `;
 
-export const Content = styled.div`
+export const Content = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 1;
   width: 100%;
-  margin: 0 auto;
   max-width: 980px;
+
+  margin: 0 auto;
 `;

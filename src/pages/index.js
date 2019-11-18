@@ -1,7 +1,8 @@
 import React from 'react';
 
 import SEO from '~/components/seo';
-import Menu from '~/components/Menu';
+// import Menu from '~/components/Menu';
+import Home from '~/components/Home';
 
 import GlobalStyle from '~/styles/global';
 import { Container, Content } from './styles';
@@ -11,9 +12,9 @@ function IndexPage() {
     <Container>
       <SEO title="Home" />
       <GlobalStyle />
-      <Menu />
+      {/* <Menu /> */}
       <Content>
-        <h1>Hello</h1>
+        <Home />
       </Content>
     </Container>
   );

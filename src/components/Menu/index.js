@@ -8,7 +8,7 @@ export default function Header() {
 
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "profile.png" }) {
+      placeholderImage: file(relativePath: { eq: "profile.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
