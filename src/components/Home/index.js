@@ -13,8 +13,8 @@ import { Container } from './styles';
 const icons = [
   ['https://github.com/henry-ns', <FiGithub />],
   ['https://www.linkedin.com/in/henry-ns/', <FiLinkedin />],
-  ['https://instagram.com/h3nry.ns', <FiInstagram />],
-  ['https://twitter.com/h3nry_ns', <FiTwitter />],
+  ['https://instagram.com/_henry_ns', <FiInstagram />],
+  ['https://twitter.com/_henry_ns', <FiTwitter />],
   ['mailto:enrque.ns@gmail.com', <FiMail />],
 ];
 

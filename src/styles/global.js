@@ -3,8 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 import { primaryColor } from './colors';
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Patua+One|Raleway:300,400,700&display=swap');
-
   * {
     margin: 0;
     padding: 0;

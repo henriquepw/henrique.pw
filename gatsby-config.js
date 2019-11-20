@@ -36,5 +36,12 @@ module.exports = {
         '~': path.join(__dirname, 'src'),
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: ['Patua One', 'Raleway:300,400,700'],
+        display: 'swap',
+      },
+    },
   ],
 };
