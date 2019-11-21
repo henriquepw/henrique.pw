@@ -1,10 +1,10 @@
-const path = require('path');
+const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
     title: `Portfolio`,
     description: `My portfolio`,
-    author: `@Henrique`,
+    author: `Henrique M. Miranda`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,18 +20,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `My portfilio`,
+        short_name: `portfilio`,
         start_url: `/`,
         background_color: `#F2F1F0`,
-        theme_color: `#F2F1F0`,
+        theme_color: `#4F5159`,
         display: `minimal-ui`,
         icon: `src/assets/man.png`, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-styled-components',
+    `gatsby-plugin-styled-components`,
     {
-      resolve: 'gatsby-plugin-root-import',
+      resolve: `gatsby-plugin-root-import`,
       options: {
         '~': path.join(__dirname, 'src'),
       },
@@ -39,8 +39,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: ['Patua One', 'Raleway:300,400,700'],
-        display: 'swap',
+        fonts: [`Patua One`, `Raleway:300,400,700`],
+        display: `swap`,
       },
     },
   ],

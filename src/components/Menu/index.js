@@ -6,9 +6,9 @@ import { Container, Profile } from './styles';
 export default function Header() {
   const pages = ['Home', 'Education', 'Projects', 'About'];
 
-  const data = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "profile.jpg" }) {
+      image: file(relativePath: { eq: "profile.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -20,11 +20,11 @@ export default function Header() {
 
   return (
     <Container>
-      <Profile fluid={data.placeholderImage.childImageSharp.fluid} />
+      <Profile fluid={image.childImageSharp.fluid} />
 
       <ul>
         {pages.map(name => (
-          <li>
+          <li key={name}>
             <a href={`#${name.toLowerCase()}`}>{name}</a>
           </li>
         ))}

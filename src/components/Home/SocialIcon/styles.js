@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+import Media from '~/styles/media';
 import { primaryColor } from '~/styles/colors';
 
 export const Container = styled.a`
+  transition: 0.3s;
   padding: 0 20px;
 
   svg {
@@ -20,4 +22,36 @@ export const Container = styled.a`
   svg:active {
     transform: scale(1.1);
   }
+
+  ${Media.bigPhone`
+    padding: 0 15px;
+
+    svg {
+      transform: scale(0.9);
+    }
+
+    svg:hover {
+      transform: scale(1.15);
+    }
+
+    svg:active {
+      transform: scale(1);
+    }
+  `}
+
+  ${Media.phone`
+    padding: 0px 10px;
+
+    svg {
+      transform: scale(0.75);
+    }
+
+    svg:hover {
+      transform: scale(1.00);
+    }
+
+    svg:active {
+      transform: scale(0.85);
+    }
+  `}
 `;

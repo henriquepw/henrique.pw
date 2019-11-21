@@ -31,11 +31,9 @@ export default function Home() {
       <div />
 
       <ul>
-        {icons.map((item, index) => (
-          <li>
-            <SocialIcon link={item[0]} key={String(index)}>
-              {item[1]}
-            </SocialIcon>
+        {icons.map(item => (
+          <li key={item[0]}>
+            <SocialIcon link={item[0]}>{item[1]}</SocialIcon>
           </li>
         ))}
       </ul>
