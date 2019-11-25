@@ -23,6 +23,13 @@ export const Container = styled.a`
     transform: scale(1.1);
   }
 
+  &:focus {
+    svg {
+      outline: 3px solid ${primaryColor.active};
+      outline-offset: 3px;
+    }
+  }
+
   ${Media.bigPhone`
     padding: 0 15px;
 

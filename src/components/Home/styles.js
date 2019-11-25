@@ -25,10 +25,12 @@ const icon = keyframes`
   0% {
     opacity: 0;
     margin-top: -60px;
+    z-index: -1;
   }
   80% {
     opacity: 0;
     margin-top: -60px;
+    z-index: -1;
   }
 `;
 

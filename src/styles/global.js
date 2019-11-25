@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { primaryColor } from './colors';
+import { primaryColor, secundaryColor } from './colors';
 
 export default createGlobalStyle`
   * {
@@ -8,6 +8,17 @@ export default createGlobalStyle`
     padding: 0;
     outline: none;
     box-sizing: border-box;
+
+    &::selection {
+      background-color: ${primaryColor.active};
+      color: ${secundaryColor.text};
+    }
+  }
+
+  body.using-mouse {
+    * {
+      outline: none !important;
+    }
   }
 
   html, body, #root {
