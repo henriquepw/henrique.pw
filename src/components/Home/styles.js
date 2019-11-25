@@ -14,7 +14,7 @@ function h1Animation(spacing = 15, margin = -50) {
         margin-bottom: ${margin}px;
       }
       80% {
-        letter-spacing: ${spacing / 3}px;
+        letter-spacing: ${spacing / 4}px;
         margin-bottom: ${margin}px;
       }
     }
@@ -65,9 +65,8 @@ export const Container = styled.section`
   }
 
   h1 {
-    font-family: Patua One, cursive;
     font-size: 3em;
-    letter-spacing: 7px;
+    letter-spacing: 6px;
     padding-bottom: 10px;
     animation: name 3s 1;
   }
@@ -108,7 +107,7 @@ export const Container = styled.section`
       font-size: 1.4em;
     }
 
-    ${h1Animation(10)}
+    ${h1Animation(12)}
   `}
 
   ${Media.bigPhone`
