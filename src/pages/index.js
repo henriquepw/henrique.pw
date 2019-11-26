@@ -3,33 +3,29 @@ import React, { useEffect } from 'react';
 import SEO from '~/components/seo';
 // import Menu from '~/components/Menu';
 import Home from '~/components/Home';
+import Layout from '~/components/Layout';
 
-import GlobalStyle from '~/styles/global';
-import { Container, Content } from '~/styles';
+import { Content } from '~/styles';
 
 function IndexPage() {
   useEffect(() => {
-    function addClass() {
-      document.body.classList.add('using-mouse');
-    }
+    window.addEventListener('keydown', () =>
+      document.body.classList.remove('using-mouse')
+    );
 
-    function removeClass() {
-      document.body.classList.remove('using-mouse');
-    }
-
-    window.addEventListener('keydown', removeClass);
-    window.addEventListener('mousedown', addClass);
+    window.addEventListener('mousedown', () =>
+      document.body.classList.add('using-mouse')
+    );
   }, []);
 
   return (
-    <Container>
+    <Layout>
       <SEO title="Home" />
-      <GlobalStyle />
       {/* <Menu /> */}
       <Content>
         <Home />
       </Content>
-    </Container>
+    </Layout>
   );
 }
 
