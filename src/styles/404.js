@@ -4,10 +4,10 @@ import { Link } from 'gatsby';
 import Layout from '~/components/Layout';
 import { primaryColor, secundaryColor } from '~/styles/colors';
 
-const animationSlider = init => keyframes`
+const animationSlider = (x = '0', y = '0') => keyframes`
   0% {
     opacity: 0;
-    transform: translateY(${init}em);
+    transform: translate(${x}, ${y});
   }
 `;
 
@@ -21,11 +21,14 @@ export const Container = styled(Layout)`
 
   h1,
   h2,
-  h3 {
+  h3,
+  span,
+  strong {
     font-weight: 300;
   }
 
   main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +42,7 @@ export const Container = styled(Layout)`
     h1 {
       font-size: 20em;
       color: ${primaryColor.active};
-      animation: _404 1.5s 1 ease-out;
+      animation: _404 1.2s 1 ease-out;
 
       letter-spacing: 10px;
       user-select: none;
@@ -51,16 +54,18 @@ export const Container = styled(Layout)`
 
     h2 {
       font-size: 2em;
-      margin-top: -2em;
-      margin-left: 2.5em;
-      animation: ${animationSlider(1.5)} 1.5s 1 ease-out;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-38%, -65%);
+      animation: ${animationSlider('-34.5%', '120%')} 1.5s 1 ease-out;
     }
   }
 
   h3 {
     font-size: 3.2em;
     margin-bottom: 7em;
-    animation: ${animationSlider(-0.5)} 1.5s 1 ease-out;
+    animation: ${animationSlider('-0.5em')} 1.3s 1 ease-out;
   }
 
   @keyframes _404 {
@@ -79,7 +84,7 @@ export const Button = styled(Link)`
   margin-top: 3em;
   padding: 15px 30px;
   transition: 0.2s;
-  animation: ${animationSlider(2)} 1.5s 1 ease-out;
+  animation: ${animationSlider('2em')} 1.3s 1 ease-out;
 
   &:hover,
   &:focus {
