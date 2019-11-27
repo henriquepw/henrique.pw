@@ -2,12 +2,16 @@ import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 
 import Layout from '~/components/Layout';
+import Media from '~/styles/media';
 import { primaryColor, secundaryColor } from '~/styles/colors';
 
-const animationSlider = (x = '0', y = '0') => keyframes`
+const slider = (x = '0', y = '0') => keyframes`
   0% {
     opacity: 0;
     transform: translate(${x}, ${y});
+  }
+  50% {
+    opacity: 0.3;
   }
 `;
 
@@ -22,9 +26,9 @@ export const Container = styled(Layout)`
   h1,
   h2,
   h3,
-  span,
-  strong {
+  span {
     font-weight: 300;
+    transition: 0.2s;
   }
 
   main {
@@ -42,7 +46,7 @@ export const Container = styled(Layout)`
     h1 {
       font-size: 20em;
       color: ${primaryColor.active};
-      animation: _404 1.2s 1 ease-out;
+      animation: _404 1.1s 1 ease-out;
 
       letter-spacing: 10px;
       user-select: none;
@@ -53,19 +57,19 @@ export const Container = styled(Layout)`
     }
 
     h2 {
-      font-size: 2em;
       position: absolute;
-      bottom: 0;
+      font-size: 2em;
       left: 50%;
+      bottom: 0;
       transform: translate(-38%, -65%);
-      animation: ${animationSlider('-34.5%', '120%')} 1.5s 1 ease-out;
+      animation: ${slider('-34.5%', '120%')} 1.3s 1 ease-out;
     }
   }
 
   h3 {
     font-size: 3.2em;
     margin-bottom: 7em;
-    animation: ${animationSlider('-0.5em')} 1.3s 1 ease-out;
+    animation: ${slider('-0.5em')} 1.3s 1 ease-out;
   }
 
   @keyframes _404 {
@@ -74,17 +78,75 @@ export const Container = styled(Layout)`
       letter-spacing: 0.5em;
     }
   }
+
+  ${Media.tablet`
+    h3 {
+      font-size: 2.4em;
+      margin-bottom: 5.25em;
+    }
+
+    main {
+      h1 {
+        font-size: 15em;
+      }
+
+      h2 {
+        font-size: 1.45em;
+      }
+    }
+  `}
+
+  ${Media.phone`
+    h3 {
+      font-size: 2.1em;
+    }
+
+    main {
+      h1 {
+        font-size: 12em;
+      }
+
+      h2 {
+        font-size: 1.2em;
+      }
+    }
+
+    @keyframes _404 {
+      0% {
+        opacity: 0;
+        letter-spacing: 0.3em;
+      }
+    }
+  `}
+
+  ${Media.phone`
+    h3 {
+      font-size: 2em;
+    }
+
+    main {
+      h1 {
+        font-size: 11em;
+      }
+
+      h2 {
+        font-size: 1.05em;
+        transform: translate(-38%, -75%);
+      }
+    }
+  `}
 `;
 
 export const Button = styled(Link)`
   border: 1px solid ${primaryColor.active};
   border-radius: 30px;
+  user-select: none;
   font-size: 1.2em;
 
   margin-top: 3em;
   padding: 15px 30px;
   transition: 0.2s;
-  animation: ${animationSlider('2em')} 1.3s 1 ease-out;
+  animation: ${slider('2em')} 1.3s 1 ease-out;
 
   &:hover,
   &:focus {
@@ -97,4 +159,18 @@ export const Button = styled(Link)`
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 2px -1px ${primaryColor.text};
   }
+
+  ${Media.tablet`
+    font-size: 1em;
+    padding: 10px 20px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 2px 2px 10px -2px ${primaryColor.text};
+    }
+
+    &:active {
+      box-shadow: 2px 2px 2px -2px ${primaryColor.text};
+    }
+  `}
 `;

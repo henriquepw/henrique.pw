@@ -9,7 +9,7 @@ export default function NotFound() {
         <h1>
           40<span>4</span>
         </h1>
-        <h2>Page not found</h2>
+        <h2>Página não encontrada</h2>
       </main>
       <Button to="/">Go back Home</Button>
     </Container>
