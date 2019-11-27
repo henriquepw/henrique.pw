@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 
-import SEO from '~/components/seo';
 // import Menu from '~/components/Menu';
 import Home from '~/components/Home';
 import Layout from '~/components/Layout';
@@ -19,8 +18,7 @@ function IndexPage() {
   }, []);
 
   return (
-    <Layout>
-      <SEO title="Home" />
+    <Layout title="Home">
       {/* <Menu /> */}
       <Content>
         <Home />

@@ -1,8 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 
 import Layout from '~/components/Layout';
 import { primaryColor, secundaryColor } from '~/styles/colors';
+
+const animationSlider = init => keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(${init}em);
+  }
+`;
 
 export const Container = styled(Layout)`
   flex-direction: column;
@@ -32,7 +39,7 @@ export const Container = styled(Layout)`
     h1 {
       font-size: 20em;
       color: ${primaryColor.active};
-      animation: _404 1.5s 1 ease-in-out;
+      animation: _404 1.5s 1 ease-out;
 
       letter-spacing: 10px;
       user-select: none;
@@ -44,28 +51,22 @@ export const Container = styled(Layout)`
 
     h2 {
       font-size: 2em;
-      margin-top: -2.1em;
+      margin-top: -2em;
       margin-left: 2.5em;
-      animation: not-found 1.5s 1 ease-in-out;
+      animation: ${animationSlider(1.5)} 1.5s 1 ease-out;
     }
   }
 
   h3 {
     font-size: 3.2em;
     margin-bottom: 7em;
+    animation: ${animationSlider(-0.5)} 1.5s 1 ease-out;
   }
 
   @keyframes _404 {
     0% {
       opacity: 0;
-      letter-spacing: 0.8em;
-    }
-  }
-
-  @keyframes not-found {
-    0% {
-      opacity: 0;
-      margin-top: 1em;
+      letter-spacing: 0.5em;
     }
   }
 `;
@@ -78,9 +79,11 @@ export const Button = styled(Link)`
   margin-top: 3em;
   padding: 15px 30px;
   transition: 0.2s;
+  animation: ${animationSlider(2)} 1.5s 1 ease-out;
 
-  &:hover {
-    box-shadow: 2px 2px 20px -1px ${primaryColor.text};
+  &:hover,
+  &:focus {
+    box-shadow: 3px 3px 15px -1px ${primaryColor.text};
     background-color: ${primaryColor.active};
     color: ${secundaryColor.text};
   }
