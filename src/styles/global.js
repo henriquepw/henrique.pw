@@ -21,7 +21,7 @@ export default createGlobalStyle`
     }
   }
 
-  html, body, #root {
+  html, body, #___gatsby, #gatsby-focus-wrapper {
     height: 100%;
     width: 100%;
   }
@@ -30,6 +30,10 @@ export default createGlobalStyle`
     background-color: ${primaryColor.bg};
     font: 16px 'Raleway', sans-serif;
     color: ${primaryColor.text};
+
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
 
   a {
