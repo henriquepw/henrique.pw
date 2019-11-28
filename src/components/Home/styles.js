@@ -75,7 +75,7 @@ export const Container = styled.section`
 
   h2 {
     font-size: 1.5em;
-    font-weight: normal;
+    font-weight: 300;
     animation: ${description} 3s 1;
   }
 

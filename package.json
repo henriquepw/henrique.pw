@@ -8,9 +8,9 @@
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.31",
-    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^2.2.27",
     "gatsby-plugin-offline": "^3.0.19",
+    "gatsby-plugin-preload-fonts": "^1.0.18",
     "gatsby-plugin-react-helmet": "^3.1.14",
     "gatsby-plugin-sharp": "^2.2.37",
     "gatsby-plugin-styled-components": "^3.1.13",
@@ -21,7 +21,8 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "typeface-raleway": "^0.0.75"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
@@ -44,6 +45,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "preload-fonts": "gatsby-preload-fonts",
     "start": "npm run develop",
     "serve": "gatsby serve -H 0.0.0.0",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

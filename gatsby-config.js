@@ -30,17 +30,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
         '~': path.join(__dirname, 'src'),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Raleway:300,400,700`],
-        display: `swap`,
       },
     },
   ],

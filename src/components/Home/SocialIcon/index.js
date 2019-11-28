@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-function SocialIcon({ link, children }) {
+function SocialIcon({ link, children, title }) {
   return (
-    <Container href={link} target="_blank" rel="noopener noreferrer">
+    <Container
+      href={link}
+      title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
     </Container>
   );
@@ -13,6 +18,7 @@ function SocialIcon({ link, children }) {
 
 SocialIcon.propTypes = {
   link: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
