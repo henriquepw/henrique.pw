@@ -1,5 +1,7 @@
 import styled, { keyframes, css } from 'styled-components';
 
+import Profile from '~/components/Profile';
+
 import Media from '~/styles/media';
 import { primaryColor } from '~/styles/colors';
 
@@ -43,6 +45,37 @@ const description = keyframes`
   }
 `;
 
+export const ProfileImg = styled(Profile)`
+  border: 10px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  width: 160px;
+  height: 160px;
+
+  display: none;
+
+  ${Media.hd`
+    display: block;
+    animation: showup 3s ease-out;
+  `}
+
+  ${Media.bigPhone`
+    width: 140px;
+    height: 140px;
+  `}
+
+  @keyframes showup {
+    0%,
+    70% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
@@ -67,16 +100,16 @@ export const Container = styled.section`
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 3rem;
     letter-spacing: 6px;
-    padding-bottom: 10px;
-    animation: name 3s 1;
+    padding-bottom: 16px;
+    animation: name 2.5s 1;
   }
 
   h2 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 300;
-    animation: ${description} 3s 1;
+    animation: ${description} 2.5s 1;
   }
 
   ul {
@@ -84,29 +117,18 @@ export const Container = styled.section`
     justify-content: center;
     align-items: center;
 
-    animation: ${icon} 3s 1;
-  }
-
-  div {
-    background-color: ${primaryColor.active};
-    height: 1px;
-    width: 100%;
-    max-width: 650px;
-
-    margin: 20px 0;
-
-    border-radius: 1px;
+    animation: ${icon} 2.5s 1;
   }
 
   ${h1Animation(15)}
 
   ${Media.smallTablet`
     h1 {
-      font-size: 2.8em;
+      font-size: 2.8rem;
     }
 
     h2 {
-      font-size: 1.4em;
+      font-size: 1.4rem;
     }
 
     ${h1Animation(12)}
@@ -114,47 +136,59 @@ export const Container = styled.section`
 
   ${Media.bigPhone`
     h1 {
-      font-size: 2.5em;
+      font-size: 2.6rem;
+      padding-bottom: 8px;
     }
 
     h2 {
-      font-size: 1.3em;
+      font-size: 1.35rem;
     }
 
-    ${h1Animation(9)}
+    ${h1Animation(9, -32)}
   `}
 
   ${Media.phone`
     h1 {
       letter-spacing: 2px;
-      font-size: 2em;
+      font-size: 2.1rem;
     }
 
     h2 {
-      font-size: 1em;
+      font-size: 1.15rem;
     }
 
     h1, h2, ul {
       animation-duration: 2.7s;
     }
 
-    div {
-      margin: 15px 0;
-    }
-
-    ${h1Animation(6.5, -40)}
+    ${h1Animation(6.5)}
   `}
 
   ${Media.smallPhone`
     h1 {
       letter-spacing: 2px;
-      font-size: 1.8em;
+      font-size: 1.8rem;
     }
 
     h2 {
-      font-size: 0.9em;
+      font-size: 0.9rem;
     }
 
-    ${h1Animation(5, -40)}
+    ${h1Animation(5, -22)}
+  `}
+`;
+
+export const Divider = styled.div`
+  background-color: ${primaryColor.active};
+  height: 1.01px;
+  width: 95%;
+  max-width: 606px;
+
+  margin: 16px 0px;
+
+  border-radius: 1px;
+
+  ${Media.bigPhone`
+    margin: 16px 0;
   `}
 `;

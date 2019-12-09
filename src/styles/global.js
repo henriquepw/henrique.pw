@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 import { primaryColor, secundaryColor } from './colors';
+import Media from './media';
 
 export default createGlobalStyle`
   * {
@@ -26,9 +27,10 @@ export default createGlobalStyle`
     width: 100%;
   }
 
-  body {
+  html, body {
     background-color: ${primaryColor.bg};
     font: 16px 'Raleway', sans-serif;
+    font-weight: 300;
     color: ${primaryColor.text};
 
     text-rendering: optimizeLegibility;
@@ -45,10 +47,9 @@ export default createGlobalStyle`
     list-style-type: none;
   }
 
+  ${Media.bigPhone`
+    html, body {
+      font-size: 14px;
+    }
+  `}
 `;
-/**
-   *  a:focus {
-    outline: 2px solid ${primaryColor.active};
-    outline-offset: 2px;
-  }
-   */

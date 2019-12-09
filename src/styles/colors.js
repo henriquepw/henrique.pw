@@ -1,5 +1,5 @@
 const primaryColor = {
-  bg: '#F2F1F0',
+  bg: '#F3F3F3',
   text: '#4F5159',
   active: '#D9435F',
 };

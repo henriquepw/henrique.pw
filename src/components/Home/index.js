@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fi';
 
 import SocialIcon from './SocialIcon';
-import { Container } from './styles';
+import { Container, ProfileImg, Divider } from './styles';
 
 const icons = [
   ['https://github.com/henry-ns', 'Meu perfil do github', <FiGithub />],
@@ -29,6 +29,7 @@ const icons = [
 export default function Home() {
   return (
     <Container>
+      <ProfileImg />
       <h1>
         Henrique <strong>Miranda</strong>
       </h1>
@@ -36,7 +37,7 @@ export default function Home() {
         Telematics student, Full Stack Developer <strong>&</strong> Designer
       </h2>
 
-      <div />
+      <Divider />
 
       <ul>
         {icons.map(item => (

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-// import Menu from '~/components/Menu';
+import Menu from '~/components/Menu';
 import Home from '~/components/Home';
 import Layout from '~/components/Layout';
 
@@ -19,7 +19,7 @@ function IndexPage() {
 
   return (
     <Layout title="Home">
-      {/* <Menu /> */}
+      <Menu />
       <Content>
         <Home />
       </Content>

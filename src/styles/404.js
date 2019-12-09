@@ -141,10 +141,10 @@ export const Button = styled(Link)`
   border: 1px solid ${primaryColor.active};
   border-radius: 30px;
   user-select: none;
-  font-size: 1.2em;
+  font-size: 1.125rem;
 
-  margin-top: 3em;
-  padding: 15px 30px;
+  margin-top: 88px;
+  padding: 16px 32px;
   transition: 0.2s;
   animation: ${slider('2em')} 1.3s 1 ease-out;
 
@@ -162,7 +162,6 @@ export const Button = styled(Link)`
 
   ${Media.tablet`
     font-size: 1em;
-    padding: 10px 20px;
 
     &:hover,
     &:focus {
