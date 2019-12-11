@@ -7,6 +7,7 @@ export const Content = styled.main`
 
   flex: 1;
   width: 100%;
+  height: 100%;
   max-width: 980px;
 
   margin: 0 auto;

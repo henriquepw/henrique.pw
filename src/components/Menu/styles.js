@@ -38,6 +38,7 @@ export const MenuItem = styled.li`
     selected &&
     css`
       opacity: 1;
+      font-weight: 400;
       transform: scale(1.05);
     `}
 
@@ -111,6 +112,11 @@ export const Container = styled.nav`
       top: 32px;
       right: 32px;
       transition: 1s;
+
+      &:hover {
+        transition: 0.1s;
+        color: ${primaryColor.active};
+      }
     }
 
     ul {
@@ -124,7 +130,33 @@ export const Container = styled.nav`
         width: 100%;
 
         svg {
+          transition: 1s;
+          // transform: rotate(360deg);
           color: ${secundaryColor.text};
+
+          line {
+            transition: 0.5s;
+          }
+
+          line:nth-child(1) {
+            opacity: 0;
+          }
+
+          line:nth-child(2) {
+            transform: rotateZ(45deg) translate(1.5px, -2px);
+            transform-origin: top left;
+            transform-box: fill-box;
+          }
+
+          line:nth-child(3) {
+            transform: rotateZ(-45deg) translate(2px, 2px);
+            transform-origin: bottom left;
+            transform-box: fill-box;
+          }
+
+          &:hover {
+            color: ${secundaryColor.text};
+          }
         }
 
         ul {

@@ -24,13 +24,14 @@ module.exports = {
         short_name: `portfilio`,
         start_url: `/`,
         background_color: `#F2F1F0`,
-        theme_color: `#4F5159`,
+        theme_color: `#634D90`,
         display: `minimal-ui`,
         icon: `src/assets/man.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-preload-fonts`,
+    `gatsby-plugin-polished`,
     {
       resolve: `gatsby-plugin-root-import`,
       options: {

@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
+import { opacify } from 'polished';
 
 import Profile from '~/components/Profile';
 
@@ -46,8 +47,9 @@ const description = keyframes`
 `;
 
 export const ProfileImg = styled(Profile)`
-  border: 10px solid rgba(0, 0, 0, 0.2);
+  border: 10px solid ${opacify(-0.5, primaryColor.active)};
   box-sizing: border-box;
+  margin-top: -40px;
   margin-bottom: 40px;
   width: 160px;
   height: 160px;
@@ -82,7 +84,7 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
 
-  height: 100vh;
+  height: 100%;
   width: 100%;
 
   padding-left: 20px;

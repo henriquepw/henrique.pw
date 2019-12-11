@@ -6,7 +6,7 @@ import { Container, MenuItem, ProfileImg } from './styles';
 const pages = ['Home', 'Education', 'Projects', 'About'];
 
 export default function Header() {
-  const [selected, setSelected] = useState('home');
+  const [selected, setSelected] = useState('Home');
   const [pressed, setPressed] = useState(false);
 
   useEffect(() => {
