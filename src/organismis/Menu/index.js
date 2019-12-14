@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { FiMenu } from 'react-icons/fi';
 
 import { Container, MenuItem, ProfileImg } from './styles';
 
 const pages = ['Home', 'Education', 'Projects', 'About'];
 
-export default function Header() {
+function Menu({ setTitle }) {
   const [selected, setSelected] = useState('Home');
   const [pressed, setPressed] = useState(false);
 
@@ -14,6 +15,11 @@ export default function Header() {
 
     if (page) setSelected(`${page[0].toUpperCase()}${page.slice(1)}`);
   }, []);
+
+  useEffect(() => {
+    setTitle(selected);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected]);
 
   function handlerSelected(name) {
     setSelected(name);
@@ -39,3 +45,9 @@ export default function Header() {
     </Container>
   );
 }
+
+Menu.propTypes = {
+  setTitle: PropTypes.func.isRequired,
+};
+
+export default Menu;

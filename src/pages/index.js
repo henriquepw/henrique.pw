@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Menu from '~/components/Menu';
-import Home from '~/components/Home';
-import Layout from '~/components/Layout';
+import Menu from '~/organismis/Menu';
+import Home from '~/organismis/Home';
+import Education from '~/organismis/Education';
+import Projects from '~/organismis/Projects';
+import About from '~/organismis/About';
+
+import Layout from '~/templates/Layout';
 
 import { Content } from '~/styles';
 
 function IndexPage() {
+  const [title, setTitle] = useState('Home');
+
   useEffect(() => {
     window.addEventListener('keydown', () =>
       document.body.classList.remove('using-mouse')
@@ -18,10 +24,13 @@ function IndexPage() {
   }, []);
 
   return (
-    <Layout title="Home">
-      <Menu />
+    <Layout title={title}>
+      <Menu setTitle={setTitle} />
       <Content>
         <Home />
+        <Education />
+        <Projects />
+        <About />
       </Content>
     </Layout>
   );

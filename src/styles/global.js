@@ -16,10 +16,8 @@ export default createGlobalStyle`
     }
   }
 
-  body.using-mouse {
-    * {
-      outline: none !important;
-    }
+  html {
+    scroll-behavior: smooth;
   }
 
   html, body, #___gatsby, #gatsby-focus-wrapper {
@@ -28,14 +26,29 @@ export default createGlobalStyle`
   }
 
   html, body {
-    background-color: ${primaryColor.bg};
     font: 16px 'Raleway', sans-serif;
     font-weight: 300;
+
+    background-color: ${primaryColor.bg};
     color: ${primaryColor.text};
 
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+  }
+
+  body.using-mouse {
+    * {
+      outline: none !important;
+    }
+  }
+
+  #gatsby-focus-wrapper {
+    padding-left: 256px;
+
+    ${Media.hd`
+      padding-left: 0px;
+    `}
   }
 
   a {

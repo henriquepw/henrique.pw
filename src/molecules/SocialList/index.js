@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   FiGithub,
   FiLinkedin,
@@ -7,8 +8,8 @@ import {
   FiMail,
 } from 'react-icons/fi';
 
-import SocialIcon from './SocialIcon';
-import { Container, Box, ProfileImg, Divider } from './styles';
+import { Container } from './styles';
+import SocialIcon from '~/atoms/SocialIcon';
 
 const icons = [
   ['https://github.com/henry-ns', 'Meu perfil do github', <FiGithub />],
@@ -26,26 +27,18 @@ const icons = [
   ['mailto:enrque.ns@gmail.com', 'Meu e-mail para contatos', <FiMail />],
 ];
 
-export default function Home() {
+function SocialList() {
   return (
     <Container>
-      <ProfileImg />
-      <h1>
-        Henrique <strong>Miranda</strong>
-      </h1>
-      <h2>
-        Telematics student, Full Stack Developer <strong>&</strong> Designer
-      </h2>
-      <Divider />
-      <ul>
-        {icons.map(item => (
-          <li key={item[0]}>
-            <SocialIcon link={item[0]} title={item[1]}>
-              {item[2]}
-            </SocialIcon>
-          </li>
-        ))}
-      </ul>
+      {icons.map(item => (
+        <li key={item[0]}>
+          <SocialIcon link={item[0]} title={item[1]}>
+            {item[2]}
+          </SocialIcon>
+        </li>
+      ))}
     </Container>
   );
 }
+
+export default SocialList;

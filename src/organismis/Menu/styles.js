@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import Profile from '~/components/Profile';
+import Profile from '~/atoms/Profile';
 
 import Media from '~/styles/media';
 import { primaryColor, secundaryColor } from '~/styles/colors';
@@ -56,7 +56,12 @@ export const Container = styled.nav`
   justify-content: center;
   z-index: 5;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+
   width: 256px;
+  height: 100%;
   background-color: ${primaryColor.active};
   text-align: center;
   animation: slide-to-right 2s 1 ease-out;
@@ -97,11 +102,11 @@ export const Container = styled.nav`
   }
 
   ${Media.hd`
-    position: fixed;
     top: 0;
+    left: auto;
     right: 0;
+
     width: 0;
-    height: 100%;
     transition: 1s ease;
 
     svg {

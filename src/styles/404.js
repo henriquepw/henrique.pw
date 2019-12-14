@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 
-import Layout from '~/components/Layout';
+import Layout from '~/templates/Layout';
 import Media from '~/styles/media';
 import { primaryColor, secundaryColor } from '~/styles/colors';
 

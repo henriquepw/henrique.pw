@@ -1,0 +1,19 @@
+import styled from 'styled-components';
+import { secundaryColor } from '~/styles/colors';
+
+export default styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  &:nth-child(even) {
+    background-color: ${secundaryColor.bg};
+  }
+`;

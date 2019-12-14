@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SEO from '~/components/seo';
+import SEO from '~/atoms/Seo';
 
 import GlobalStyle from '~/styles/global';
 import { Container } from './styles';

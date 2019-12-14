@@ -1,10 +1,11 @@
 import styled, { keyframes, css } from 'styled-components';
 import { opacify } from 'polished';
 
-import Profile from '~/components/Profile';
+import Profile from '~/atoms/Profile';
 
 import Media from '~/styles/media';
 import { primaryColor } from '~/styles/colors';
+import Section from '~/styles/Section';
 
 function h1Animation(spacing = 15, margin = -50) {
   return css`
@@ -78,17 +79,8 @@ export const ProfileImg = styled(Profile)`
   }
 `;
 
-export const Container = styled.section`
-  display: flex;
-  flex-direction: column;
+export const Container = styled(Section)`
   justify-content: center;
-  align-items: center;
-
-  height: 100%;
-  width: 100%;
-
-  padding-left: 20px;
-  padding-right: 20px;
 
   strong {
     display: inline;
