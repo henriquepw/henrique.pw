@@ -7,11 +7,12 @@ import Media from './media';
 export default createGlobalStyle`
   ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-thumb {
     background: ${opacify(-0.2, primaryColor.active)};
-    border-radius: 5px;
+    border-radius: 4px;
     transition: 0.2s;
 
     &:hover {
@@ -54,6 +55,8 @@ export default createGlobalStyle`
   }
 
   #gatsby-focus-wrapper {
+    min-height: 100vh;
+
     padding-left: 256px;
 
     ${Media.hd`

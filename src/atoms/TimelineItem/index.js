@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Dot } from './styles';
+import { Container } from './styles';
 
 function TimelineItem({ year, title, description }) {
   return (
     <Container>
       <h2>{year}</h2>
-      <Dot />
+      <span />
       <div>
         <h1>{title}</h1>
         <p>{description}</p>

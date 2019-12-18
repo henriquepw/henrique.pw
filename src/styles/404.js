@@ -20,7 +20,7 @@ export const Container = styled(Layout)`
   justify-content: center;
   align-items: center;
 
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
 
   h1,
