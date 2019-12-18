@@ -5,6 +5,7 @@ import Home from '~/organismis/Home';
 import Education from '~/organismis/Education';
 import Projects from '~/organismis/Projects';
 import About from '~/organismis/About';
+import Footer from '~/organismis/Footer';
 
 import Layout from '~/templates/Layout';
 
@@ -31,6 +32,7 @@ function IndexPage() {
         <Education />
         <Projects />
         <About />
+        <Footer />
       </Content>
     </Layout>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   FiGithub,
@@ -11,34 +12,65 @@ import {
 import { Container } from './styles';
 import SocialIcon from '~/atoms/SocialIcon';
 
-const icons = [
-  ['https://github.com/henry-ns', 'Meu perfil do github', <FiGithub />],
-  [
-    'https://www.linkedin.com/in/henry-ns/',
-    'Meu perfil do linkedin',
-    <FiLinkedin />,
-  ],
-  [
-    'https://instagram.com/_henry_ns',
-    'Meu perfil do instagram',
-    <FiInstagram />,
-  ],
-  ['https://twitter.com/_henry_ns', 'Meu perfil do twitter', <FiTwitter />],
-  ['mailto:enrque.ns@gmail.com', 'Meu e-mail para contatos', <FiMail />],
+const data = [
+  {
+    name: 'github',
+    link: 'https://github.com/henry-ns',
+    description: 'Meu perfil do github',
+    component: <FiGithub />,
+  },
+  {
+    name: 'linkedin',
+    link: 'https://www.linkedin.com/in/henry-ns/',
+    description: 'Meu perfil do linkedin',
+    component: <FiLinkedin />,
+  },
+  {
+    name: 'instagram',
+    link: 'https://instagram.com/_henry_n',
+    description: 'Meu perfil do instagram',
+    component: <FiInstagram />,
+  },
+  {
+    name: 'twitter',
+    link: 'https://twitter.com/_henry_ns',
+    description: 'Meu perfil do twitter',
+    component: <FiTwitter />,
+  },
+  {
+    name: 'email',
+    link: 'mailto:enrque.ns@gmail.com',
+    description: 'Meu e-mail para contatos',
+    component: <FiMail />,
+  },
 ];
 
-function SocialList() {
+function SocialList({ excluded }) {
   return (
     <Container>
-      {icons.map(item => (
-        <li key={item[0]}>
-          <SocialIcon link={item[0]} title={item[1]}>
-            {item[2]}
-          </SocialIcon>
-        </li>
-      ))}
+      {data.map(item => {
+        const isExluded = excluded.includes(item.name);
+
+        return (
+          !isExluded && (
+            <li key={item.link}>
+              <SocialIcon link={item.link} title={item.description}>
+                {item.component}
+              </SocialIcon>
+            </li>
+          )
+        );
+      })}
     </Container>
   );
 }
+
+SocialList.propTypes = {
+  excluded: PropTypes.arrayOf(PropTypes.string),
+};
+
+SocialList.defaultProps = {
+  excluded: [],
+};
 
 export default SocialList;
