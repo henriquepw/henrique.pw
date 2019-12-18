@@ -1,9 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
+import { opacify } from 'polished';
 
 import { primaryColor, secundaryColor } from './colors';
 import Media from './media';
 
 export default createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${opacify(-0.2, primaryColor.active)};
+    border-radius: 5px;
+    transition: 0.2s;
+
+    &:hover {
+      background: ${primaryColor.active};
+    }
+  }
+
   * {
     margin: 0;
     padding: 0;

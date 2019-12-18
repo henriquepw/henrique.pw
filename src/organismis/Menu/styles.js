@@ -114,8 +114,8 @@ export const Container = styled.nav`
       position: absolute;
       cursor: pointer;
 
-      top: 32px;
-      right: 32px;
+      top: 20px;
+      right: 20px;
       transition: 1s;
 
       &:hover {
