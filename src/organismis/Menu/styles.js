@@ -65,6 +65,7 @@ export const Container = styled.nav`
   background-color: ${primaryColor.active};
   text-align: center;
   animation: slide-to-right 2s 1 ease-out;
+  pointer-events: all;
 
   svg {
     display: none;
@@ -108,6 +109,7 @@ export const Container = styled.nav`
 
     width: 0;
     transition: 1s ease;
+    pointer-events: none;
 
     svg {
       display: block;
