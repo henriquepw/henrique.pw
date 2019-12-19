@@ -65,7 +65,6 @@ export const Container = styled.nav`
   background-color: ${primaryColor.active};
   text-align: center;
   animation: slide-to-right 2s 1 ease-out;
-  pointer-events: all;
 
   svg {
     display: none;
@@ -73,6 +72,11 @@ export const Container = styled.nav`
 
   *::selection {
     background-color: ${primaryColor.text};
+  }
+
+  ul,
+  img {
+    pointer-events: all;
   }
 
   ul {
@@ -109,7 +113,6 @@ export const Container = styled.nav`
 
     width: 0;
     transition: 1s ease;
-    pointer-events: none;
 
     svg {
       display: block;
@@ -124,6 +127,11 @@ export const Container = styled.nav`
         transition: 0.1s;
         color: ${primaryColor.active};
       }
+    }
+
+    ul,
+    img {
+      pointer-events: none;
     }
 
     ul {
@@ -169,6 +177,7 @@ export const Container = styled.nav`
         ul {
           opacity: 1;
           animation: showup-2 1.5s 1 ease-out;
+          pointer-events: all;
         }
 
         @keyframes showup-2 {
