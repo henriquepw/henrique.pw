@@ -17,6 +17,10 @@ export const Container = styled.li`
 
   margin: 0px 289px 64px 0px;
 
+  *::selection {
+    background-color: ${primaryColor.text};
+  }
+
   &:last-child {
     margin-bottom: 0px;
   }
@@ -36,6 +40,12 @@ export const Container = styled.li`
       grid-row: 1;
 
       transform: translateX(-289px);
+    }
+  }
+
+  &:hover {
+    div:first-child {
+      box-shadow: 0px 2px 20px 10px rgba(0, 0, 0, 0.25);
     }
   }
 
@@ -119,6 +129,7 @@ export const Image = styled(Img)`
   grid-row: 1;
   grid-column: 2;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
 
   ${Media.tablet`
     grid-column: 1;

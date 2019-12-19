@@ -12,16 +12,16 @@ function About() {
     <Container id="about">
       <PageTitle title="About" />
       <p>
-        Eu me chamo Henrique, você deve ter visto o meu nome na tela principal,
-        eu sou de uma cidadezinha que ninguém conhece chamado Montadas, do
-        interior da Paraíba no Brasil e desde pequeno que eu gosto de
-        tecnologia, comecei a programar quando entrei no ensino médio, com meu
-        14 anos sem saber onde estava se metendo, mas acabei gostando e aqui
-        estou escrevendo essa portifolio.
+        My name is Henrique, you must have seen my name on the main screen, I'm
+        from a little town that nobody knows called Montadas, from the
+        countryside of Paraíba in Brazil and since I was a little techie, I
+        started programming when I entered high school , with my 14 years old
+        not knowing where I was getting in, but I ended up liking it and here I
+        am writing this.
       </p>
       <p>
-        Bem, vou falar de algumas coisa que eu gosto para você me conhecerem
-        melhor.
+        Well, I'll talk about some things that I like for you to get to know me
+        better.
       </p>
 
       <SubTitle>Games</SubTitle>

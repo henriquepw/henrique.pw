@@ -1,7 +1,7 @@
 const primaryColor = {
   bg: '#F3F3F3',
   text: '#4F5159',
-  active: '#634D90', // '#D9435F',
+  active: '#634D90',
 };
 
 const secundaryColor = {
