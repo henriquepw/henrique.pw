@@ -5,6 +5,7 @@ import {
   FiInstagram,
   FiTwitter,
   FiMail,
+  FiChevronDown,
 } from 'react-icons/fi';
 
 import SocialIcon from '~/atoms/SocialIcon';
@@ -46,6 +47,11 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      <a href="#education">
+        <FiChevronDown size={80} />
+        <FiChevronDown size={80} />
+        <FiChevronDown size={80} />
+      </a>
     </Container>
   );
 }

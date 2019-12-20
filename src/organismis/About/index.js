@@ -20,8 +20,8 @@ function About() {
         am writing this.
       </p>
       <p>
-        Well, I'll talk about some things that I like for you to get to know me
-        better.
+        Well, I&apos;ll talk about some things that I like for you to get to
+        know me better.
       </p>
 
       <SubTitle>Games</SubTitle>

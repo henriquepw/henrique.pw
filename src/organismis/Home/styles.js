@@ -47,6 +47,27 @@ const description = keyframes`
   }
 `;
 
+const poin = keyframes`
+  0%, 50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+`;
+
+const groupArrow = (from, to) => keyframes`
+  from {
+    transform: translateY(${from});
+  }
+  to {
+    transform: translateY(${to});
+  }
+`;
+
 export const ProfileImg = styled(Profile)`
   border: 10px solid ${opacify(-0.5, primaryColor.active)};
   box-sizing: border-box;
@@ -114,6 +135,66 @@ export const Container = styled(Section)`
     animation: ${icon} 2.5s 1;
   }
 
+  > a {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+
+
+    bottom: 0;
+    left: 50%;
+    width: 80px;
+
+    transform: translateX(-50%);
+
+    svg {
+      transition: all 0.4s ease;
+    }
+
+    svg:nth-child(1) {
+      opacity: 0.5;
+      stroke-width: 0.9;
+
+      margin-bottom: -68px;
+      animation: ${poin} 2.1s infinite ease-out;
+      animation-delay: 0.2s;
+    }
+
+    svg:nth-child(2) {
+      opacity: 0.75;
+      stroke-width: 0.9;
+
+      margin-bottom: -68px;
+      animation: ${poin} 2.1s infinite ease-out;
+      animation-delay: 0.1s;
+    }
+
+    svg:nth-child(3) {
+      stroke-width: 1;
+
+      animation: ${poin} 2.1s infinite ease-out;
+    }
+
+    &:hover {
+      color: ${primaryColor.active};
+
+      svg:nth-child(1) {
+        transform: translateY(24px);
+        animation: ${groupArrow('0px', '24px')} 1s 1 ease;
+      }
+
+      svg:nth-child(2) {
+        transform: translateY(12px);
+        animation: ${groupArrow('0px', '12px')} 1s 1 ease;
+      }
+
+      svg:nth-child(3) {
+        transform: translateY(0px);
+        animation-name: initial;
+      }
+    }
+  }
+
   ${h1Animation(15)}
 
   ${Media.smallTablet`
@@ -129,6 +210,11 @@ export const Container = styled(Section)`
   `}
 
   ${Media.bigPhone`
+    > a,
+    > a svg {
+      width: 60px;
+    }
+
     h1 {
       font-size: 2.6rem;
       padding-bottom: 8px;
