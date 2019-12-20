@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import {
   FiGithub,
   FiLinkedin,
@@ -9,8 +7,11 @@ import {
   FiMail,
 } from 'react-icons/fi';
 
-import { Container } from './styles';
+import PropTypes from 'prop-types';
+
 import SocialIcon from '~/atoms/SocialIcon';
+
+import { Container } from './styles';
 
 const data = [
   {

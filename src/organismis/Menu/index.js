@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { FiMenu } from 'react-icons/fi';
+
+import PropTypes from 'prop-types';
 
 import { Container, MenuItem, ProfileImg } from './styles';
 

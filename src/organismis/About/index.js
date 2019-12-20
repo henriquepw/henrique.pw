@@ -12,8 +12,8 @@ function About() {
     <Container id="about">
       <PageTitle title="About" />
       <p>
-        My name is Henrique, you must have seen my name on the main screen, I'm
-        from a little town that nobody knows called Montadas, from the
+        My name is Henrique, you must have seen my name on the main screen,
+        I&apos;m from a little town that nobody knows called Montadas, from the
         countryside of Paraíba in Brazil and since I was a little techie, I
         started programming when I entered high school , with my 14 years old
         not knowing where I was getting in, but I ended up liking it and here I

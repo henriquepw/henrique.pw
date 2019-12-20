@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import Menu from '~/organismis/Menu';
-import Home from '~/organismis/Home';
-import Education from '~/organismis/Education';
-import Projects from '~/organismis/Projects';
 import About from '~/organismis/About';
+import Education from '~/organismis/Education';
 import Footer from '~/organismis/Footer';
+import Home from '~/organismis/Home';
+import Menu from '~/organismis/Menu';
+import Projects from '~/organismis/Projects';
 
 import Layout from '~/templates/Layout';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { primaryColor, secundaryColor } from '~/styles/colors';
 
+import { primaryColor, secundaryColor } from '~/styles/colors';
 import Media, { widht } from '~/styles/media';
 
 export const Container = styled.li`

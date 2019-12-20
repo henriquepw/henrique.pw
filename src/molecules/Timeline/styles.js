@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { primaryColor } from '~/styles/colors';
 
 export const Container = styled.ol`

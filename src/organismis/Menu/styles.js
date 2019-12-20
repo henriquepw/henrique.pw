@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 
 import Profile from '~/atoms/Profile';
 
-import Media from '~/styles/media';
 import { primaryColor, secundaryColor } from '~/styles/colors';
+import Media from '~/styles/media';
 
 export const ProfileImg = styled(Profile)`
   border: 10px solid rgba(255, 255, 255, 0.2);

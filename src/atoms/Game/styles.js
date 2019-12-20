@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+
 import Img from 'gatsby-image';
 
-import Media from '~/styles/media';
 import { primaryColor, secundaryColor } from '~/styles/colors';
+import Media from '~/styles/media';
 
 export const Container = styled.li`
   display: grid;

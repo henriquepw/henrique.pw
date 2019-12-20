@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fi';
 
 import SocialIcon from '~/atoms/SocialIcon';
+
 import { Container, ProfileImg, Divider } from './styles';
 
 const icons = [

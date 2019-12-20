@@ -1,9 +1,11 @@
 import styled, { keyframes } from 'styled-components';
+
 import { Link } from 'gatsby';
 
 import Layout from '~/templates/Layout';
-import Media from '~/styles/media';
+
 import { primaryColor, secundaryColor } from '~/styles/colors';
+import Media from '~/styles/media';
 
 const slider = (x = '0', y = '0') => keyframes`
   0% {

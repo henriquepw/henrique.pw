@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import Media from '~/styles/media';
 import { primaryColor } from '~/styles/colors';
+import Media from '~/styles/media';
 
 export const Container = styled.a`
   transition: 0.3s;

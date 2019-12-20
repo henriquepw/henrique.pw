@@ -1,10 +1,11 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
 import SEO from '~/atoms/Seo';
 
-import GlobalStyle from '~/styles/global';
 import { Container } from './styles';
+import GlobalStyle from '~/styles/global';
 
 function Layout({ children, className, title }) {
   return (

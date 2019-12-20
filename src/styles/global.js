@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+
 import { opacify } from 'polished';
 
 import { primaryColor, secundaryColor } from './colors';

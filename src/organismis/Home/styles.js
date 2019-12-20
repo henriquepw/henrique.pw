@@ -1,10 +1,11 @@
 import styled, { keyframes, css } from 'styled-components';
+
 import { opacify } from 'polished';
 
 import Profile from '~/atoms/Profile';
 
-import Media from '~/styles/media';
 import { primaryColor } from '~/styles/colors';
+import Media from '~/styles/media';
 import Section from '~/styles/Section';
 
 function h1Animation(spacing = 15, margin = -50) {
@@ -171,7 +172,6 @@ export const Container = styled(Section)`
 
     svg:nth-child(3) {
       stroke-width: 1;
-
       animation: ${poin} 2.1s infinite ease-out;
     }
 
@@ -180,12 +180,12 @@ export const Container = styled(Section)`
 
       svg:nth-child(1) {
         transform: translateY(24px);
-        animation: ${groupArrow('0px', '24px')} 1s 1 ease;
+        animation: ${groupArrow('0px', '24px')} 0.4s 1 ease;
       }
 
       svg:nth-child(2) {
         transform: translateY(12px);
-        animation: ${groupArrow('0px', '12px')} 1s 1 ease;
+        animation: ${groupArrow('0px', '12px')} 0.4s 1 ease;
       }
 
       svg:nth-child(3) {
