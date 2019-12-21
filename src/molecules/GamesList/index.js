@@ -56,6 +56,7 @@ function GamesList() {
     <ol>
       {games.map(item => (
         <Game
+          key={item.name}
           name={item.name}
           description={item.description}
           fluid={item.fluid}

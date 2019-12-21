@@ -7,8 +7,8 @@ import Media from './media';
 
 export default createGlobalStyle`
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -36,6 +36,7 @@ export default createGlobalStyle`
   html {
     scroll-behavior: smooth;
   }
+
 
   html, body {
     font: 16px 'Raleway', sans-serif;
@@ -65,7 +66,16 @@ export default createGlobalStyle`
     `}
   }
 
-  a {
+  button {
+    font: 16px 'Raleway', sans-serif;
+    font-weight: 300;
+
+    background: transparent;
+    border: none;
+  }
+
+  a,
+  button {
     color: ${primaryColor.text};
     text-decoration: none;
   }

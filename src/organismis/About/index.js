@@ -4,6 +4,7 @@ import PageTitle from '~/atoms/PageTitle';
 import SubTitle from '~/atoms/SubTitle';
 
 import GamesList from '~/molecules/GamesList';
+import Player from '~/molecules/Player';
 
 import { Container } from './styles';
 
@@ -28,6 +29,7 @@ function About() {
       <GamesList />
 
       <SubTitle>Musics</SubTitle>
+      <Player />
     </Container>
   );
 }

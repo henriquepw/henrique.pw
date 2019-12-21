@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { FluidObject } from 'gatsby-image';
 import PropTypes from 'prop-types';
 
 import { Container, Image, Description } from './styles';
@@ -19,7 +20,7 @@ function Game({ name, description, fluid }) {
 Game.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  fluid: PropTypes.any.isRequired,
+  fluid: PropTypes.shape(FluidObject).isRequired,
 };
 
 export default Game;
