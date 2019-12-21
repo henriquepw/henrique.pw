@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable jsx-a11y/media-has-caption */
+import React, { useState, useEffect, useRef } from 'react';
 import { FaSpotify } from 'react-icons/fa';
 import { FiPlay, FiPause, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
@@ -9,22 +10,25 @@ import { Container, Music } from './styles';
 function Player() {
   const [play, setPlay] = useState(false);
   const [currentMusic, setCurrentMusic] = useState(0);
-  const [music] = useState(new Audio(playlist[0].preview_url));
+  const music = useRef({ current: null });
 
   useEffect(() => {
-    music.volume = 0.5;
-  }, [music.volume]);
+    console.log(music);
+    if (music.current && music.current.volume) {
+      music.current.volume = 0.5;
+    }
+  }, []);
 
   function togglePlay(value = !play) {
     setPlay(value);
 
-    if (value) music.play();
-    else music.pause();
+    if (value) music.current.play();
+    else music.current.pause();
   }
 
   function handlePlaying(index) {
     if (index !== currentMusic) {
-      music.src = playlist[index].preview_url;
+      music.current.src = playlist[index].preview_url;
 
       setCurrentMusic(index);
       togglePlay(true);
@@ -84,6 +88,7 @@ function Player() {
           alt={playlist[currentMusic].artists}
         />
       </a>
+      <audio ref={music} />
     </Container>
   );
 }
