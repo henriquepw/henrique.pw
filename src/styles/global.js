@@ -37,7 +37,6 @@ export default createGlobalStyle`
     scroll-behavior: smooth;
   }
 
-
   html, body {
     font: 16px 'Raleway', sans-serif;
     font-weight: 300;

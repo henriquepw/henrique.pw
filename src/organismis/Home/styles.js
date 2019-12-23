@@ -6,7 +6,7 @@ import Profile from '~/atoms/Profile';
 
 import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
-import Section from '~/styles/Section';
+import Section from '~/styles/section';
 
 function h1Animation(spacing = 15, margin = -50) {
   return css`

@@ -1,13 +1,12 @@
 const path = require(`path`);
 
+const siteMetadata = require('./config/metadata');
+
 module.exports = {
-  siteMetadata: {
-    title: `Portfolio`,
-    description: `My portfolio`,
-    author: `Henrique M. Miranda`,
-  },
+  siteMetadata,
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,14 +28,34 @@ module.exports = {
         icon: `src/assets/man.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: [`**/styles.js`],
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-polished`,
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#634D90`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-154984485-1',
+      },
+    },
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
         '~': path.join(__dirname, 'src'),
       },
     },
+    // `gatsby-plugin-offline`,
   ],
 };

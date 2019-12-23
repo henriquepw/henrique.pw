@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Button } from '~/styles/404';
+import { Container, Button } from './styles';
 
 export default function NotFound() {
   return (
