@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { FaSpotify } from 'react-icons/fa';
 import { FiPlay, FiPause, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+
+import PropTypes from 'prop-types';
 
 import playlist from '~/assets/playlist.json';
 
@@ -9,8 +11,13 @@ import { Container, Music } from './styles';
 
 function Player() {
   const [play, setPlay] = useState(false);
-  const [currentMusic, setCurrentMusic] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(-1); // -1 = none selected
+
   const music = useRef({ current: null });
+
+  const currentMusic = useMemo(() => (currentIndex === -1 ? 0 : currentIndex), [
+    currentIndex,
+  ]);
 
   useEffect(() => {
     if (music.current && music.current.volume) {
@@ -26,10 +33,10 @@ function Player() {
   }
 
   function handlePlaying(index) {
-    if (index !== currentMusic) {
+    if (index !== currentIndex) {
       music.current.src = playlist[index].preview_url;
 
-      setCurrentMusic(index);
+      setCurrentIndex(index);
       togglePlay(true);
     } else {
       togglePlay();
@@ -37,14 +44,40 @@ function Player() {
   }
 
   function handleNext() {
-    const next = currentMusic + 1;
+    const next = currentIndex + 1;
     handlePlaying(next >= playlist.length ? 0 : next);
   }
 
   function handlePrevious() {
-    const previous = currentMusic - 1;
+    const previous = currentIndex - 1;
     handlePlaying(previous < 0 ? playlist.length - 1 : previous);
   }
+
+  function Button({ item, index, selected }) {
+    const buttonRef = useRef(null);
+
+    useEffect(() => {
+      if (buttonRef && buttonRef.current && selected) {
+        buttonRef.current.focus();
+      }
+    }, [selected]);
+
+    return (
+      <button
+        type="button"
+        onClick={() => handlePlaying(index)}
+        ref={buttonRef}
+      >
+        {item.name} - {item.artists}
+      </button>
+    );
+  }
+
+  Button.propTypes = {
+    item: PropTypes.objectOf(PropTypes.string).isRequired,
+    selected: PropTypes.bool.isRequired,
+    index: PropTypes.number.isRequired,
+  };
 
   return (
     <Container>
@@ -61,10 +94,12 @@ function Player() {
 
         <ol>
           {playlist.map((item, index) => (
-            <Music key={item.preview_url} selected={index === currentMusic}>
-              <button type="button" onClick={() => handlePlaying(index)}>
-                {item.name} - {item.artists}
-              </button>
+            <Music key={item.preview_url} selected={index === currentIndex}>
+              <Button
+                item={item}
+                index={index}
+                selected={index === currentIndex}
+              />
               <a
                 href={item.external_urls}
                 target="_blank"
