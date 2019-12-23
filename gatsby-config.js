@@ -6,7 +6,6 @@ module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -14,8 +13,11 @@ module.exports = {
         path: `${__dirname}/src/assets`,
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
