@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { opacify } from 'polished';
 
 import { primaryColor, secundaryColor } from '~/styles/colors';
+import Media from '~/styles/media';
 
 export const Container = styled.section`
   display: flex;
@@ -63,6 +64,30 @@ export const Container = styled.section`
       transform: scale(1.05);
     }
   }
+
+  ${Media.bigPhone`
+    width: auto;
+    position: relative;
+
+    div {
+      max-width: 320px;
+      margin: 0px auto;
+
+      header {
+        padding-left: 56px;
+      }
+    }
+
+    > a {
+      position: absolute;
+
+      top: 8px;
+      left: 8px;
+
+      width: 56px;
+      height: 56px;
+    }
+  `}
 `;
 
 export const Music = styled.li`

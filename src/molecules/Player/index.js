@@ -13,11 +13,10 @@ function Player() {
   const music = useRef({ current: null });
 
   useEffect(() => {
-    console.log(music);
     if (music.current && music.current.volume) {
       music.current.volume = 0.5;
     }
-  }, []);
+  }, [music]);
 
   function togglePlay(value = !play) {
     setPlay(value);
