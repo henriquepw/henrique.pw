@@ -6,9 +6,9 @@ import Timeline from '~/molecules/Timeline';
 
 import { Container } from './styles';
 
-function Education() {
+function Education({ forwardRef }) {
   return (
-    <Container id="education">
+    <Container id="education" ref={forwardRef}>
       <PageTitle title="Education" />
       <Timeline />
     </Container>

@@ -28,9 +28,9 @@ const icons = [
   ['mailto:enrque.ns@gmail.com', 'Meu e-mail para contatos', <FiMail />],
 ];
 
-export default function Home() {
+export default function Home({ forwardRef }) {
   return (
-    <Container id="home">
+    <Container id="home" ref={forwardRef}>
       <ProfileImg />
       <h1>
         Henrique <strong>Miranda</strong>

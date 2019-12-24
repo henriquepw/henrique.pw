@@ -8,9 +8,9 @@ import Player from '~/molecules/Player';
 
 import { Container } from './styles';
 
-function About() {
+function About({ forwardRef }) {
   return (
-    <Container id="about">
+    <Container id="about" ref={forwardRef}>
       <PageTitle title="About" />
       <p>
         My name is Henrique, you must have seen my name on the main screen,

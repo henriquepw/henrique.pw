@@ -4,9 +4,9 @@ import PageTitle from '~/atoms/PageTitle';
 
 import { Container } from './styles';
 
-function Projects() {
+function Projects({ forwardRef }) {
   return (
-    <Container id="projects">
+    <Container id="projects" ref={forwardRef}>
       <PageTitle title="Projects" />
     </Container>
   );
