@@ -112,20 +112,26 @@ export const Container = styled.nav`
     right: 0;
 
     width: 0;
-    transition: 1s ease;
+    transition: 1s ease-in-out;
 
     svg {
       display: block;
       position: absolute;
-      cursor: pointer;
 
       top: 20px;
       right: 20px;
-      transition: 1s;
+
+      transition: 1s ease-in-out;
+      cursor: pointer;
+
+      line {
+        transition: 0.5s ease-out;
+      }
 
       &:hover {
-        transition: 0.1s;
-        color: ${primaryColor.active};
+        line {
+          color: ${primaryColor.active};
+        }
       }
     }
 
@@ -145,32 +151,33 @@ export const Container = styled.nav`
         width: 100%;
 
         svg {
-          transition: 1s;
-          // transform: rotate(360deg);
-          color: ${secundaryColor.text};
+          transform: rotate(360deg);
 
           line {
-            transition: 0.5s;
+            color: ${secundaryColor.text};
+          }
+
+          &:hover {
+            line {
+              color: ${secundaryColor.text};
+            }
           }
 
           line:nth-child(1) {
             opacity: 0;
           }
 
-          line:nth-child(2) {
-            transform: rotateZ(45deg) translate(1.5px, -2px);
-            transform-origin: top left;
+          line:not(:nth-child(1)) {
+            transform-origin: center;
             transform-box: fill-box;
+          }
+
+          line:nth-child(2) {
+            transform: translateY(6px) rotateZ(-45deg);
           }
 
           line:nth-child(3) {
-            transform: rotateZ(-45deg) translate(2px, 2px);
-            transform-origin: bottom left;
-            transform-box: fill-box;
-          }
-
-          &:hover {
-            color: ${secundaryColor.text};
+            transform: translateY(-6px) rotateZ(45deg);
           }
         }
 
@@ -178,6 +185,10 @@ export const Container = styled.nav`
           opacity: 1;
           animation: showup-2 1.5s 1 ease-out;
           pointer-events: all;
+
+          * {
+            color: ${secundaryColor.text};
+          }
         }
 
         @keyframes showup-2 {
@@ -186,7 +197,7 @@ export const Container = styled.nav`
             opacity: 0;
             transform: translateY(30px);
           }
-          to {
+          100% {
             opacity: 1;
           }
         }
