@@ -66,12 +66,12 @@ function SocialList({ excluded }) {
   );
 }
 
-SocialList.propTypes = {
-  excluded: PropTypes.arrayOf(PropTypes.string),
-};
-
 SocialList.defaultProps = {
   excluded: [],
+};
+
+SocialList.propTypes = {
+  excluded: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default SocialList;

@@ -12,7 +12,7 @@ const item = {
 
 const data = [1, 2, 3, 4, 5, 6];
 
-export default function Timeline() {
+function Timeline() {
   return (
     <Container>
       {data.map(elem => (
@@ -26,3 +26,5 @@ export default function Timeline() {
     </Container>
   );
 }
+
+export default Timeline;

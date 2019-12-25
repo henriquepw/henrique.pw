@@ -1,27 +1,28 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+
+import Menu from '~/molecules/Menu';
 
 import About from '~/organismis/About';
 import Education from '~/organismis/Education';
 import Footer from '~/organismis/Footer';
 import Home from '~/organismis/Home';
-import Menu from '~/organismis/Menu';
 import Projects from '~/organismis/Projects';
 
 import Layout from '~/templates/Layout';
 
+import SectionsContext from '~/context/sectionsContext';
+
 import { Content } from '~/styles';
 
 function IndexPage() {
-  const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
-
-  const [title, setTitle] = useState('Home');
   const [nextSection, setNextSection] = useState(1);
+  const { selected, setSelectedByIndex } = useContext(SectionsContext);
+  const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   useEffect(() => {
     function handleScroll(e) {
       const { scrollY, innerHeight } = window;
       const positionBottom = scrollY + innerHeight * 0.5;
-      const { log } = console;
 
       if (e.deltaY > 0) {
         // scroll down
@@ -31,8 +32,7 @@ function IndexPage() {
             positionBottom > refs[nextSection].current.offsetTop
           ) {
             setNextSection(nextSection + 1);
-            // set selected section
-            // window.scrollTo(0, refs[nextSection].current.offsetTop);
+            setSelectedByIndex(nextSection);
           }
         }
       } else {
@@ -45,8 +45,7 @@ function IndexPage() {
             positionBottom < refs[currentSection].current.offsetTop
           ) {
             setNextSection(nextSection - 1);
-            // set selected section
-            // window.scrollTo(0, refs[currentSection - 1].current.offsetTop);
+            setSelectedByIndex(currentSection - 1);
           }
         }
       }
@@ -73,11 +72,11 @@ function IndexPage() {
 
       window.removeEventListener('wheel', handleScroll);
     };
-  }, [nextSection, refs]);
+  }, [nextSection, refs, setSelectedByIndex]);
 
   return (
-    <Layout title={title}>
-      <Menu setTitle={setTitle} />
+    <Layout title={selected}>
+      <Menu />
       <Content>
         <Home forwardRef={refs[0]} />
         <Education forwardRef={refs[1]} />

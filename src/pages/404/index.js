@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Button } from './styles';
 
-export default function NotFound() {
+function NotFound() {
   return (
     <Container title="Not found">
       <h3>Oops!!</h3>
@@ -16,3 +16,5 @@ export default function NotFound() {
     </Container>
   );
 }
+
+export default NotFound;

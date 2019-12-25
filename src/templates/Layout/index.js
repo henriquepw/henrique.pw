@@ -17,14 +17,15 @@ function Layout({ children, className, title }) {
   );
 }
 
+Layout.defaultProps = {
+  className: '',
+  title: 'Home',
+};
+
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  title: PropTypes.string.isRequired,
-};
-
-Layout.defaultProps = {
-  className: '',
+  title: PropTypes.string,
 };
 
 export default Layout;

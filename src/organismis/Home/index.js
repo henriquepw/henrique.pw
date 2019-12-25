@@ -28,7 +28,7 @@ const icons = [
   ['mailto:enrque.ns@gmail.com', 'Meu e-mail para contatos', <FiMail />],
 ];
 
-export default function Home({ forwardRef }) {
+function Home({ forwardRef }) {
   return (
     <Container id="home" ref={forwardRef}>
       <ProfileImg />
@@ -56,3 +56,5 @@ export default function Home({ forwardRef }) {
     </Container>
   );
 }
+
+export default Home;

@@ -4,7 +4,7 @@ import SocialList from '~/molecules/SocialList';
 
 import { Container } from './styles';
 
-export default function footer() {
+function Footer() {
   return (
     <Container>
       <SocialList excluded={['email']} />
@@ -20,3 +20,5 @@ export default function footer() {
     </Container>
   );
 }
+
+export default Footer;

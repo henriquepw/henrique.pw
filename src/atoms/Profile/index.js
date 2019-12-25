@@ -23,12 +23,12 @@ function Profile({ className }) {
   );
 }
 
-Profile.propTypes = {
-  className: PropTypes.string,
-};
-
 Profile.defaultProps = {
   className: '',
+};
+
+Profile.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Profile;

@@ -48,6 +48,7 @@ module.exports = {
           '/^~/molecules/',
           '/^~/organismis/',
           '/^~/templates/',
+          '/^~/context/',
           ['parent', 'sibling', 'index'],
           '/^~/assets/',
           '/^(~/|./)styles/',
