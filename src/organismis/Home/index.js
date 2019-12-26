@@ -8,6 +8,8 @@ import {
   FiChevronDown,
 } from 'react-icons/fi';
 
+import PropTypes from 'prop-types';
+
 import SocialIcon from '~/atoms/SocialIcon';
 
 import { Container, ProfileImg, Divider } from './styles';
@@ -56,5 +58,10 @@ function Home({ forwardRef }) {
     </Container>
   );
 }
+
+Home.propTypes = {
+  forwardRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    .isRequired,
+};
 
 export default Home;

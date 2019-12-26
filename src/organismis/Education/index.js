@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import PageTitle from '~/atoms/PageTitle';
 
 import Timeline from '~/molecules/Timeline';
@@ -14,5 +16,10 @@ function Education({ forwardRef }) {
     </Container>
   );
 }
+
+Education.propTypes = {
+  forwardRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    .isRequired,
+};
 
 export default Education;

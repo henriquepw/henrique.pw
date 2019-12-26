@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import PageTitle from '~/atoms/PageTitle';
 import SubTitle from '~/atoms/SubTitle';
 
@@ -33,5 +35,10 @@ function About({ forwardRef }) {
     </Container>
   );
 }
+
+About.propTypes = {
+  forwardRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    .isRequired,
+};
 
 export default About;
