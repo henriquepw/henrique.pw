@@ -56,7 +56,7 @@ export default createGlobalStyle`
   }
 
   #gatsby-focus-wrapper {
-    min-height: 100vh;
+    min-height: 100%;
 
     padding-left: 256px;
 

@@ -48,7 +48,7 @@ function Home({ forwardRef }) {
           </li>
         ))}
       </ul>
-      <a href="#education">
+      <a href="#education" alt="next section: education">
         <FiChevronDown size={80} />
         <FiChevronDown size={80} />
         <FiChevronDown size={80} />

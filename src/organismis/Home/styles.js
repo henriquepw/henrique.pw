@@ -48,6 +48,17 @@ const description = keyframes`
   }
 `;
 
+const showArrows = keyframes`
+  0%,
+  70% {
+    opacity: 0;
+    transform: translate(-50%, -30px);
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 const poin = keyframes`
   0%, 50% {
     transform: translateY(0px);
@@ -147,6 +158,7 @@ export const Container = styled(Section)`
     width: 80px;
 
     transform: translateX(-50%);
+    animation: ${showArrows} 3s ease-out;
 
     svg {
       transition: all 0.4s ease;

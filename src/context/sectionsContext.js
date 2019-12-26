@@ -14,14 +14,27 @@ function SectionsProvider({ children }) {
         window.location.origin
       }#${selected.toLowerCase()}`;
     } else {
-      const page = window.location.href.split('#')[1];
-      const newSelected = page
-        ? `${page[0].toUpperCase()}${page.slice(1)}`
-        : 'Home';
+      const { pathname } = window.location;
 
-      setSelectedByName(newSelected);
+      if (pathname === '/') {
+        const { hash } = window.location;
+
+        if (hash) {
+          const isSection = sections.filter(
+            name => name.toLowerCase() === hash.slice(1)
+          )[0];
+
+          const newSelected = isSection
+            ? `${hash[1].toUpperCase()}${hash.slice(2)}`
+            : sections[0];
+
+          setSelectedByName(newSelected);
+        } else {
+          setSelectedByName('Home');
+        }
+      }
     }
-  }, [selected]);
+  }, [sections, selected]);
 
   function setSelectedByIndex(index) {
     if (sections[index]) {
