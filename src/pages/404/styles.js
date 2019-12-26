@@ -22,7 +22,7 @@ export const Container = styled(Layout)`
   justify-content: center;
   align-items: center;
 
-  min-height: 100vh;
+  min-height: ${({ height }) => (height ? `${height}px` : '100%')};
   width: 100%;
 
   h1,

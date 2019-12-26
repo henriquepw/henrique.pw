@@ -51,28 +51,30 @@ function IndexPage() {
       }
     }
 
-    window.addEventListener('keydown', () =>
-      document.body.classList.remove('using-mouse')
-    );
-
-    window.addEventListener('mousedown', () =>
-      document.body.classList.add('using-mouse')
-    );
-
     window.addEventListener('wheel', handleScroll);
 
     return () => {
-      window.removeEventListener('keydown', () =>
-        document.body.classList.remove('using-mouse')
-      );
-
-      window.removeEventListener('mousedown', () =>
-        document.body.classList.add('using-mouse')
-      );
-
       window.removeEventListener('wheel', handleScroll);
     };
   }, [nextSection, refs, setSelectedByIndex]);
+
+  useEffect(() => {
+    function addUsingMouse() {
+      document.body.classList.add('using-mouse');
+    }
+
+    function removeUsingMouse() {
+      document.body.classList.remove('using-mouse');
+    }
+
+    window.addEventListener('keydown', removeUsingMouse);
+    window.addEventListener('mousedown', addUsingMouse);
+
+    return () => {
+      window.removeEventListener('keydown', removeUsingMouse);
+      window.removeEventListener('mousedown', addUsingMouse);
+    };
+  }, []);
 
   return (
     <Layout title={selected}>

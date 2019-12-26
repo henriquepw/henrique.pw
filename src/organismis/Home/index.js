@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FiGithub,
   FiLinkedin,
@@ -31,8 +31,22 @@ const icons = [
 ];
 
 function Home({ forwardRef }) {
+  const [height, setHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    function setCurrentHeight() {
+      setHeight(window.innerHeight);
+    }
+
+    window.addEventListener('resize', setCurrentHeight);
+
+    return () => {
+      window.removeEventListener('resize', setCurrentHeight);
+    };
+  }, [height]);
+
   return (
-    <Container id="home" ref={forwardRef}>
+    <Container id="home" ref={forwardRef} height={height}>
       <ProfileImg />
       <h1>
         Henrique <strong>Miranda</strong>
