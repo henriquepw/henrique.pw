@@ -74,8 +74,9 @@ function Home({ forwardRef }) {
 }
 
 Home.propTypes = {
-  forwardRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-    .isRequired,
+  forwardRef: PropTypes.shape({
+    current: PropTypes.object,
+  }).isRequired,
 };
 
 export default Home;

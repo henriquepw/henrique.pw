@@ -114,7 +114,8 @@ export const ProfileImg = styled(Profile)`
 
 export const Container = styled(Section)`
   justify-content: center;
-  height: ${({ height }) => `${height}px` || 'auto'};
+
+  min-height: ${({ height }) => (height ? `${height}px` : '100vh')};
 
   strong {
     display: inline;

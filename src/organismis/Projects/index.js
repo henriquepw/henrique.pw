@@ -15,8 +15,9 @@ function Projects({ forwardRef }) {
 }
 
 Projects.propTypes = {
-  forwardRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-    .isRequired,
+  forwardRef: PropTypes.shape({
+    current: PropTypes.object,
+  }).isRequired,
 };
 
 export default Projects;
