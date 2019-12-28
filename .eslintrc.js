@@ -52,7 +52,7 @@ module.exports = {
           '/^~/templates/',
           '/^~/context/',
           ['parent', 'sibling', 'index'],
-          '/^~/assets/',
+          '/^~/(assets|res)/',
           '/^(~/|./)styles/',
         ],
         alphabetize: { order: 'asc', ignoreCase: true },

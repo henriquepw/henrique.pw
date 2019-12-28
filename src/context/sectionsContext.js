@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const SectionsContext = createContext();
 
 function SectionsProvider({ children }) {
-  const sections = ['Home', 'Education', 'Projects', 'About'];
+  const sections = ['Home', 'Education', /* 'Projects', */ 'About'];
   const [selected, setSelectedByName] = useState(null);
 
   useEffect(() => {

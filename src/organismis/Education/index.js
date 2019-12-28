@@ -6,13 +6,15 @@ import PageTitle from '~/atoms/PageTitle';
 
 import Timeline from '~/molecules/Timeline';
 
+import data from '~/res/education.json';
+
 import { Container } from './styles';
 
 function Education({ forwardRef }) {
   return (
     <Container id="education" ref={forwardRef}>
       <PageTitle title="Education" />
-      <Timeline />
+      <Timeline data={data} />
     </Container>
   );
 }

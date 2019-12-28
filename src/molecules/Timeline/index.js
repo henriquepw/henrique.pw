@@ -1,23 +1,17 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import TimelineItem from '~/atoms/TimelineItem';
 
 import { Container } from './styles';
 
-const item = {
-  year: 2019,
-  title: 'Olympic Project',
-  description: 'Finding Talent in Computing Through Olympics',
-};
-
-const data = [1, 2, 3, 4, 5, 6];
-
-function Timeline() {
+function Timeline({ data }) {
   return (
     <Container>
-      {data.map(elem => (
+      {data.map(item => (
         <TimelineItem
-          key={`${elem}_${item.title}`}
+          key={`${item.year}_${item.title}`}
           year={item.year}
           title={item.title}
           description={item.description}
@@ -26,5 +20,15 @@ function Timeline() {
     </Container>
   );
 }
+
+Timeline.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      year: PropTypes.number,
+      title: PropTypes.string,
+      description: PropTypes.string,
+    })
+  ).isRequired,
+};
 
 export default Timeline;

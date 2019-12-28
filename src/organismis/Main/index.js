@@ -6,7 +6,7 @@ import About from '~/organismis/About';
 import Education from '~/organismis/Education';
 import Footer from '~/organismis/Footer';
 import Home from '~/organismis/Home';
-import Projects from '~/organismis/Projects';
+// import Projects from '~/organismis/Projects';
 
 import Layout from '~/templates/Layout';
 
@@ -78,7 +78,7 @@ function Main() {
       <Content>
         <Home forwardRef={refs[0]} />
         <Education forwardRef={refs[1]} />
-        <Projects forwardRef={refs[2]} />
+        {/* <Projects forwardRef={refs[2]} /> */}
         <About forwardRef={refs[3]} />
         <Footer />
       </Content>
