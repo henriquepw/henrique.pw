@@ -4,7 +4,7 @@ import { Container, Button } from './styles';
 
 function NotFound() {
   return (
-    <Container title="Not found">
+    <Container title="Not found | ">
       <h3>Oops!!</h3>
       <main>
         <h1>

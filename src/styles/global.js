@@ -7,13 +7,13 @@ import Media from './media';
 
 export default createGlobalStyle`
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
 
   ::-webkit-scrollbar-thumb {
     background: ${opacify(-0.2, primaryColor.active)};
-    border-radius: 4px;
+    border-radius: 2.5px;
     transition: 0.2s;
 
     &:hover {
