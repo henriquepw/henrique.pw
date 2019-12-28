@@ -17,7 +17,7 @@ import { Content } from '~/styles';
 function Main() {
   const [nextSection, setNextSection] = useState(1);
   const { selected, setSelectedByIndex } = useContext(SectionsContext);
-  const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const refs = [useRef(null), useRef(null), useRef(null) /* , useRef(null) */];
 
   useEffect(() => {
     function handleScroll(e) {
@@ -79,7 +79,7 @@ function Main() {
         <Home forwardRef={refs[0]} />
         <Education forwardRef={refs[1]} />
         {/* <Projects forwardRef={refs[2]} /> */}
-        <About forwardRef={refs[3]} />
+        <About forwardRef={refs[2]} />
         <Footer />
       </Content>
     </Layout>

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import Profile from '~/atoms/Profile';
 
 import { primaryColor, secundaryColor } from '~/styles/colors';
-import Media from '~/styles/media';
+import Media, { widht } from '~/styles/media';
 
 export const ProfileImg = styled(Profile)`
   border: 10px solid rgba(255, 255, 255, 0.2);
@@ -64,10 +64,10 @@ export const Container = styled.nav`
   height: 100%;
   background-color: ${primaryColor.active};
   text-align: center;
-  animation: slide-to-right 2s 1 ease-out;
 
   svg {
     display: none;
+    stroke-width: 1;
   }
 
   *::selection {
@@ -88,13 +88,6 @@ export const Container = styled.nav`
     margin-top: 32px;
   }
 
-  @keyframes slide-to-right {
-    0%,
-    60% {
-      transform: translateX(-100%);
-    }
-  }
-
   @keyframes showup {
     0%,
     70% {
@@ -103,6 +96,17 @@ export const Container = styled.nav`
     }
     100% {
       opacity: 1;
+    }
+  }
+
+  @media (min-height: ${widht.hd}px) {
+    animation: slide-to-right 2s 1 ease-out;
+  }
+
+  @keyframes slide-to-right {
+    0%,
+    60% {
+      transform: translateX(-100%);
     }
   }
 
@@ -148,10 +152,10 @@ export const Container = styled.nav`
     ${({ pressed }) =>
       pressed &&
       css`
-        width: 100%;
+        width: 40%;
 
         svg {
-          transform: rotate(360deg);
+          transform: rotate(180deg);
 
           line {
             color: ${secundaryColor.text};
@@ -201,6 +205,14 @@ export const Container = styled.nav`
             opacity: 1;
           }
         }
+      `}
+  `}
+
+  ${Media.smallTablet`
+    ${({ pressed }) =>
+      pressed &&
+      css`
+        width: 100%;
       `}
   `}
 `;

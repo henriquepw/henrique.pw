@@ -21,13 +21,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `My portfilio`,
-        short_name: `portfilio`,
+        name: `Henrique Miranda`,
+        short_name: `Henrique`,
         start_url: `/`,
         background_color: `#F2F1F0`,
         theme_color: `#634D90`,
         display: `minimal-ui`,
-        icon: `src/assets/icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/icon.png`,
       },
     },
     {
