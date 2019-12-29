@@ -42,4 +42,4 @@ About.propTypes = {
   }).isRequired,
 };
 
-export default About;
+export default React.memo(About);

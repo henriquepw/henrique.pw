@@ -25,4 +25,4 @@ Education.propTypes = {
   }).isRequired,
 };
 
-export default Education;
+export default React.memo(Education);

@@ -79,4 +79,4 @@ Home.propTypes = {
   }).isRequired,
 };
 
-export default Home;
+export default React.memo(Home);

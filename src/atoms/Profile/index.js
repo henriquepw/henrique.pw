@@ -31,4 +31,4 @@ Profile.propTypes = {
   className: PropTypes.string,
 };
 
-export default Profile;
+export default React.memo(Profile);

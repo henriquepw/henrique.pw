@@ -5,7 +5,7 @@ import { FiPlay, FiPause, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import PropTypes from 'prop-types';
 
-import playlist from '~/assets/playlist.json';
+import playlist from '~/res/playlist.json';
 
 import { Container, Music } from './styles';
 
@@ -23,7 +23,7 @@ function Player() {
     if (music.current && music.current.volume) {
       music.current.volume = 0.5;
     }
-  }, [music]);
+  }, []);
 
   function togglePlay(value = !play) {
     setPlay(value);

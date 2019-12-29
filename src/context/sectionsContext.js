@@ -1,14 +1,22 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useState,
+  /* useEffect, */ useMemo,
+} from 'react';
 
 import PropTypes from 'prop-types';
 
 const SectionsContext = createContext();
 
 function SectionsProvider({ children }) {
-  const sections = ['Home', 'Education', /* 'Projects', */ 'About'];
+  const sections = useMemo(
+    () => ['Home', 'Education', /* 'Projects', */ 'About'],
+    []
+  );
+
   const [selected, setSelectedByName] = useState(null);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (selected) {
       window.location.href = `${
         window.location.origin
@@ -34,7 +42,7 @@ function SectionsProvider({ children }) {
         }
       }
     }
-  }, [sections, selected]);
+  }, [sections, selected]); */
 
   function setSelectedByIndex(index) {
     if (sections[index]) {
