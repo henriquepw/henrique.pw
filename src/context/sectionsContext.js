@@ -8,13 +8,13 @@ import PropTypes from 'prop-types';
 
 const SectionsContext = createContext();
 
-function SectionsProvider({ children }) {
+export function SectionsProvider({ children }) {
   const sections = useMemo(
     () => ['Home', 'Education', /* 'Projects', */ 'About'],
     []
   );
 
-  const [selected, setSelectedByName] = useState(null);
+  const [selected, setSelectedByName] = useState('Home');
 
   /* useEffect(() => {
     if (selected) {
@@ -63,5 +63,4 @@ SectionsProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { SectionsProvider };
 export default SectionsContext;

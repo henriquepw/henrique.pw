@@ -19,7 +19,7 @@ function Layout({ children, className, title }) {
 
 Layout.defaultProps = {
   className: '',
-  title: 'Home',
+  title: 'Home | ',
 };
 
 Layout.propTypes = {
