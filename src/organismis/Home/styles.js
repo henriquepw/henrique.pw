@@ -164,11 +164,11 @@ export const Container = styled(Section)`
 
     svg {
       transition: all 0.4s ease;
+      stroke-width: 0.8;
     }
 
     svg:nth-child(1) {
       opacity: 0.5;
-      stroke-width: 0.9;
 
       margin-bottom: -68px;
       animation: ${poin} 2.1s infinite ease-out;
@@ -176,8 +176,7 @@ export const Container = styled(Section)`
     }
 
     svg:nth-child(2) {
-      opacity: 0.75;
-      stroke-width: 0.9;
+      opacity: 0.70;
 
       margin-bottom: -68px;
       animation: ${poin} 2.1s infinite ease-out;
@@ -185,7 +184,6 @@ export const Container = styled(Section)`
     }
 
     svg:nth-child(3) {
-      stroke-width: 1;
       animation: ${poin} 2.1s infinite ease-out;
     }
 

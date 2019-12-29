@@ -26,7 +26,12 @@ function Menu() {
             selected={selected === name}
             onClick={() => handlerSelected(name)}
           >
-            <a href={`#${name.toLowerCase()}`}>{name}</a>
+            <a
+              href={`#${name.toLowerCase()}`}
+              alt={`Go to the ${name.toLowerCase()} section`}
+            >
+              {name}
+            </a>
           </MenuItem>
         ))}
       </ul>

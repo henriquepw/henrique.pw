@@ -64,7 +64,7 @@ function Home({ forwardRef }) {
           </li>
         ))}
       </ul>
-      <a href="#education" alt="next section: education">
+      <a href="#education" alt="next section" aria-label="next section">
         <FiChevronDown size={80} />
         <FiChevronDown size={80} />
         <FiChevronDown size={80} />

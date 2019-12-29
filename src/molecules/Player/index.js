@@ -104,6 +104,7 @@ function Player() {
                 href={item.external_urls}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`go to ${item.name} music on Spotify`}
               >
                 <FaSpotify size={25} />
               </a>
@@ -116,6 +117,7 @@ function Player() {
         href={playlist[currentMusic].external_urls}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="External link to the music on Spotify"
       >
         <img
           src={playlist[currentMusic].album_url}
