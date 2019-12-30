@@ -1,15 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const icon = keyframes`
-  0% {
-    opacity: 0;
-    margin-top: -60px;
-    z-index: -1;
-  }
+  0%,
   80% {
     opacity: 0;
-    margin-top: -60px;
     z-index: -1;
+    transform: translateY(-60px);
   }
 `;
 
@@ -18,5 +14,9 @@ export const Container = styled.ul`
   justify-content: center;
   align-items: center;
 
-  animation: ${icon} 2.5s 1;
+  ${props =>
+    props.isAnimated &&
+    css`
+      animation: ${icon} 2.5s 1 ease-out;
+    `}
 `;

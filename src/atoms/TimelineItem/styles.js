@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { primaryColor, secundaryColor } from '~/styles/colors';
-import Media, { widht } from '~/styles/media';
+import Media, { width } from '~/styles/media';
 
 export const Container = styled.li`
   display: grid;
@@ -88,7 +88,7 @@ export const Container = styled.li`
     }
   `}
 
-  @media (min-width: ${widht.tablet + 1}px) {
+  @media (min-width: ${width.tablet + 1}px) {
     span {
       display: block;
       position: relative;

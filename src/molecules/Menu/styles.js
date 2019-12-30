@@ -1,18 +1,43 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import Profile from '~/atoms/Profile';
 
 import { primaryColor, secundaryColor } from '~/styles/colors';
-import Media, { widht } from '~/styles/media';
+import Media, { width } from '~/styles/media';
 
+/**
+ * Animations
+ */
+const showUp = (invisibleTo = 70) => keyframes`
+  0%,
+  ${invisibleTo}% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const slideToRight = keyframes`
+  0%,
+  60% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`;
+
+/**
+ * Components styles
+ */
 export const ProfileImg = styled(Profile)`
   border: 10px solid rgba(255, 255, 255, 0.2);
-  animation: showup 3s 1;
+  animation: ${showUp()} 3s 1 ease;
 
   ${Media.hd`
-    position: absolute !important;
-    animation: none;
-    opacity: 0;
+    display: none;
   `}
 `;
 
@@ -52,26 +77,27 @@ export const MenuItem = styled.li`
 export const Container = styled.nav`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+
   z-index: 5;
 
-  position: fixed;
   top: 0;
   left: 0;
+  position: fixed;
 
   width: 256px;
   height: 100%;
   background-color: ${primaryColor.active};
-  text-align: center;
+
+  *::selection {
+    background-color: ${primaryColor.text};
+  }
 
   svg {
     display: none;
     stroke-width: 1;
-  }
-
-  *::selection {
-    background-color: ${primaryColor.text};
   }
 
   ul,
@@ -81,39 +107,21 @@ export const Container = styled.nav`
 
   ul {
     margin: 96px 0;
-    animation: showup 3s 1;
+    animation: ${showUp()} 3s 1;
   }
 
   li + li {
     margin-top: 32px;
   }
 
-  @keyframes showup {
-    0%,
-    70% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @media (min-height: ${widht.hd}px) {
-    animation: slide-to-right 2s 1 ease-out;
-  }
-
-  @keyframes slide-to-right {
-    0%,
-    60% {
-      transform: translateX(-100%);
-    }
+  @media (min-width: ${width.hd}px) {
+    animation: ${slideToRight} 2s 1 ease-out;
   }
 
   ${Media.hd`
     top: 0;
-    left: auto;
     right: 0;
+    left: auto;
 
     width: 0;
     transition: 1s ease-in-out;
@@ -187,22 +195,11 @@ export const Container = styled.nav`
 
         ul {
           opacity: 1;
-          animation: showup-2 1.5s 1 ease-out;
+          animation: ${showUp(60)} 1.5s 1 ease-out;
           pointer-events: all;
 
           * {
             color: ${secundaryColor.text};
-          }
-        }
-
-        @keyframes showup-2 {
-          0%,
-          60% {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          100% {
-            opacity: 1;
           }
         }
       `}

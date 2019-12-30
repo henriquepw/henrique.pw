@@ -7,7 +7,7 @@ import { Container } from './styles';
 function Footer() {
   return (
     <Container>
-      <SocialList excluded={['email']} />
+      <SocialList excluded={['email']} isAnimated={false} />
       <p>
         <a
           href="mailto:enrque.ns@gmail.com"

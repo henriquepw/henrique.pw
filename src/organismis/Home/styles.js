@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import { opacify } from 'polished';
 
@@ -8,41 +8,36 @@ import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 import Section from '~/styles/section';
 
-function h1Animation(spacing = 15, margin = -50) {
-  return css`
-    @keyframes name {
-      0% {
-        margin-bottom: ${margin}px;
-      }
-      30% {
-        letter-spacing: ${spacing}px;
-        margin-bottom: ${margin}px;
-      }
-      80% {
-        letter-spacing: ${spacing / 4}px;
-        margin-bottom: ${margin}px;
-      }
+/**
+ * Animations
+ */
+const h1Animation = (spacing = 15, margin = 50) => css`
+  @keyframes name {
+    0% {
+      transform: translateY(${margin}px);
     }
-  `;
-}
+    30% {
+      letter-spacing: ${spacing}px;
+      transform: translateY(${margin}px);
+    }
+    80% {
+      letter-spacing: ${spacing / 4}px;
+      transform: translateY(${margin}px);
+    }
+  }
+`;
 
 const icon = keyframes`
-  0% {
-    opacity: 0;
-    margin-top: -60px;
-    z-index: -1;
-  }
+  0%,
   80% {
     opacity: 0;
-    margin-top: -60px;
     z-index: -1;
+    transform: translateY(-60px);
   }
 `;
 
 const description = keyframes`
-  0% {
-    opacity: 0;
-  }
+  0%,
   80% {
     opacity: 0;
   }
@@ -54,13 +49,14 @@ const showArrows = keyframes`
     opacity: 0;
     transform: translate(-50%, -30px);
   }
-  to {
+  100% {
     opacity: 1;
   }
 `;
 
 const poin = keyframes`
-  0%, 50% {
+  0%,
+  50% {
     transform: translateY(0px);
   }
   75% {
@@ -80,6 +76,20 @@ const groupArrow = (from, to) => keyframes`
   }
 `;
 
+const showUp = keyframes`
+  0%,
+  70% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+/**
+ * Components styles
+ */
 export const ProfileImg = styled(Profile)`
   border: 10px solid ${opacify(-0.5, primaryColor.active)};
   box-sizing: border-box;
@@ -92,24 +102,13 @@ export const ProfileImg = styled(Profile)`
 
   ${Media.hd`
     display: block;
-    animation: showup 3s ease-out;
+    animation: ${showUp} 3s ease-out;
   `}
 
   ${Media.bigPhone`
     width: 140px;
     height: 140px;
   `}
-
-  @keyframes showup {
-    0%,
-    70% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-    }
-  }
 `;
 
 export const Container = styled(Section)`
@@ -141,13 +140,13 @@ export const Container = styled(Section)`
     animation: ${description} 2.5s 1;
   }
 
-  ul {
+  /* ul {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    animation: ${icon} 2.5s 1;
-  }
+    animation: ${icon} 2.5s 1 ease-out;
+  } */
 
   > a {
     display: flex;
@@ -236,7 +235,7 @@ export const Container = styled(Section)`
       font-size: 1.35rem;
     }
 
-    ${h1Animation(9, -32)}
+    ${h1Animation(9, 32)}
   `}
 
   ${Media.phone`
@@ -253,7 +252,7 @@ export const Container = styled(Section)`
       animation-duration: 2.7s;
     }
 
-    ${h1Animation(6.5)}
+    ${h1Animation(6.5, 40)}
   `}
 
   ${Media.smallPhone`
@@ -266,7 +265,7 @@ export const Container = styled(Section)`
       font-size: 0.9rem;
     }
 
-    ${h1Animation(5, -22)}
+    ${h1Animation(5, 22)}
   `}
 `;
 

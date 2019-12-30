@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 import PageTitle from '~/atoms/PageTitle';
 
-import { Container } from './styles';
+import Section from '~/styles/section';
 
 function Projects({ forwardRef }) {
   return (
-    <Container id="projects" ref={forwardRef}>
+    <Section id="projects" ref={forwardRef}>
       <PageTitle title="Projects" />
-    </Container>
+    </Section>
   );
 }
 

@@ -14,7 +14,7 @@ import Layout from '~/templates/Layout';
 
 import SectionsContext from '~/context/sectionsContext';
 
-import { Content } from '~/styles';
+import { Content } from './styles';
 
 function Main() {
   const { selected } = useContext(SectionsContext);

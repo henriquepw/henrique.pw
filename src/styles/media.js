@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export const widht = {
+export const width = {
   smallPhone: 400,
   phone: 500,
   bigPhone: 620,
@@ -10,11 +10,11 @@ export const widht = {
   hd: 1366,
 };
 
-export default Object.keys(widht).reduce(
+export default Object.keys(width).reduce(
   (media, _size) => ({
     ...media,
     [_size]: (...args) => css`
-      @media (max-width: ${widht[_size]}px) {
+      @media (max-width: ${width[_size]}px) {
         ${css(...args)};
       }
     `,

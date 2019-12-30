@@ -8,14 +8,14 @@ import Timeline from '~/molecules/Timeline';
 
 import data from '~/res/education.json';
 
-import { Container } from './styles';
+import Section from '~/styles/section';
 
 function Education({ forwardRef }) {
   return (
-    <Container id="education" ref={forwardRef}>
+    <Section id="education" ref={forwardRef}>
       <PageTitle title="Education" />
       <Timeline data={data} />
-    </Container>
+    </Section>
   );
 }
 

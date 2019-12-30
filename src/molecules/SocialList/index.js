@@ -46,9 +46,9 @@ const data = [
   },
 ];
 
-function SocialList({ excluded }) {
+function SocialList({ excluded, isAnimated }) {
   return (
-    <Container>
+    <Container isAnimated={isAnimated}>
       {data.map(item => {
         const isExluded = excluded.includes(item.name);
 
@@ -68,10 +68,12 @@ function SocialList({ excluded }) {
 
 SocialList.defaultProps = {
   excluded: [],
+  isAnimated: true,
 };
 
 SocialList.propTypes = {
   excluded: PropTypes.arrayOf(PropTypes.string),
+  isAnimated: PropTypes.bool,
 };
 
 export default SocialList;
