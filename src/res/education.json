@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2020,
+    "title": "Software Developer",
+    "description": "Developer currently at IFPB-CG Assert lab"
+  },
+  {
+    "year": 2020,
+    "title": "Technology in Telematics",
+    "description": "Graduation in progress at the Federal Institution on Education, Science and Technology of Paraíba, IFPB-CG"
+  },
+  {
+    "year": 2019,
+    "title": "Olympic Project",
+    "description": "Instructor in this project. The project aimed at finding Talent in Computing Through Olympics"
+  },
+  {
+    "year": 2019,
+    "title": "Monitor",
+    "description": "Monitor in Object Oriented Programming for the technical course throughout the school year"
+  },
+  {
+    "year": 2016,
+    "title": "Computer Technician",
+    "description": "Completion at the Federal Institution on Education, Science and Technology of Paraíba, IFPB-CG"
+  },
+  {
+    "year": 2016,
+    "title": "Project of Excellence in Microelectronics",
+    "description": "Aimed at training in concepts of microelectronics. Held at IFPB-CG in partnership with Sony and FUNETEC-PB"
+  }
+]

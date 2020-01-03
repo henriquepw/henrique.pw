@@ -1,30 +1,10 @@
-import React, { useEffect } from 'react';
+import Loadable from 'react-loadable';
 
-// import Menu from '~/components/Menu';
-import Home from '~/components/Home';
-import Layout from '~/components/Layout';
+import Loading from '~/atoms/Loading';
 
-import { Content } from '~/styles';
+const LoadableMain = Loadable({
+  loader: () => import('../organismis/Main'),
+  loading: Loading,
+});
 
-function IndexPage() {
-  useEffect(() => {
-    window.addEventListener('keydown', () =>
-      document.body.classList.remove('using-mouse')
-    );
-
-    window.addEventListener('mousedown', () =>
-      document.body.classList.add('using-mouse')
-    );
-  }, []);
-
-  return (
-    <Layout title="Home">
-      {/* <Menu /> */}
-      <Content>
-        <Home />
-      </Content>
-    </Layout>
-  );
-}
-
-export default IndexPage;
+export default LoadableMain;

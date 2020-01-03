@@ -8,14 +8,23 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2018,
     sourceType: 'module',
+    allowImportExportEverywhere: true,
   },
-  plugins: ['react', 'jsx-a11y', 'import', 'react-hooks', 'prettier'],
+  plugins: [
+    'react',
+    'jsx-a11y',
+    'import',
+    'react-hooks',
+    'prettier',
+    'import-helpers',
+  ],
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
@@ -30,12 +39,29 @@ module.exports = {
     'no-console': ['error', { allow: ['tron'] }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        groups: [
+          '/^(react|styled-components)/',
+          'module',
+          '/^~/atoms/',
+          '/^~/molecules/',
+          '/^~/organismis/',
+          '/^~/templates/',
+          '/^~/context/',
+          ['parent', 'sibling', 'index'],
+          '/^~/(assets|res)/',
+          '/^(~/|./)styles/',
+        ],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
+    ],
   },
   settings: {
-    "import/resolver": {
-      "alias": [
-        ['~', './src']
-      ],
+    'import/resolver': {
+      alias: [['~', './src']],
     },
   },
 };
