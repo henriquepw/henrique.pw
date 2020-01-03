@@ -34,9 +34,19 @@ function Home({ forwardRef }) {
       <Divider />
       <SocialList />
       <a href="#education" alt="next section" aria-label="next section">
-        <FiChevronDown size={80} />
-        <FiChevronDown size={80} />
-        <FiChevronDown size={80} />
+        <svg
+          stroke="currentColor"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          height="70"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polyline points="6 4 12 10 18 4" />
+          <polyline points="6 9 12 15 18 9" />
+          <polyline points="6 14 12 20 18 14" />
+        </svg>
       </a>
     </Container>
   );

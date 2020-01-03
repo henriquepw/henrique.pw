@@ -60,7 +60,7 @@ const poin = keyframes`
     transform: translateY(0px);
   }
   75% {
-    transform: translateY(10px);
+    transform: translateY(5px);
   }
   100% {
     transform: translateY(0px);
@@ -140,68 +140,61 @@ export const Container = styled(Section)`
     animation: ${description} 2.5s 1;
   }
 
-  /* ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    animation: ${icon} 2.5s 1 ease-out;
-  } */
-
   > a {
     display: flex;
     flex-direction: column;
     position: absolute;
 
 
-    bottom: 0;
+    bottom: 8px;
     left: 50%;
-    width: 80px;
+    width: 60px;
 
     transform: translateX(-50%);
     animation: ${showArrows} 3s ease-out;
 
+    &:focus {
+      outline: 3px solid ${primaryColor.active};
+      outline-offset: 3px;
+    }
+
     svg {
       transition: all 0.4s ease;
       stroke-width: 0.8;
-    }
 
-    svg:nth-child(1) {
-      opacity: 0.5;
+      polyline {
+        animation: ${poin} 2.1s infinite ease-out;
 
-      margin-bottom: -68px;
-      animation: ${poin} 2.1s infinite ease-out;
-      animation-delay: 0.2s;
-    }
+        &:nth-child(1) {
+          opacity: 0.5;
+          animation-delay: 0.2s;
+        }
 
-    svg:nth-child(2) {
-      opacity: 0.70;
-
-      margin-bottom: -68px;
-      animation: ${poin} 2.1s infinite ease-out;
-      animation-delay: 0.1s;
-    }
-
-    svg:nth-child(3) {
-      animation: ${poin} 2.1s infinite ease-out;
+        &:nth-child(2) {
+          opacity: 0.7;
+          animation-delay: 0.1s;
+        }
+      }
     }
 
     &:hover {
       color: ${primaryColor.active};
 
-      svg:nth-child(1) {
-        transform: translateY(24px);
-        animation: ${groupArrow('0px', '24px')} 0.4s 1 ease;
-      }
+      svg polyline {
+        &:nth-child(1) {
+          transform: translateY(10px);
+          animation: ${groupArrow('0px', '10px')} 0.4s 1 ease;
+        }
 
-      svg:nth-child(2) {
-        transform: translateY(12px);
-        animation: ${groupArrow('0px', '12px')} 0.4s 1 ease;
-      }
+        &:nth-child(2) {
+          transform: translateY(5px);
+          animation: ${groupArrow('0px', '5px')} 0.4s 1 ease;
+        }
 
-      svg:nth-child(3) {
-        transform: translateY(0px);
-        animation-name: initial;
+        &:nth-child(3) {
+          transform: translateY(0px);
+          animation-name: initial;
+        }
       }
     }
   }
@@ -248,7 +241,9 @@ export const Container = styled(Section)`
       font-size: 1.15rem;
     }
 
-    h1, h2, ul {
+    h1,
+    h2,
+    ul {
       animation-duration: 2.7s;
     }
 
@@ -271,15 +266,15 @@ export const Container = styled(Section)`
 
 export const Divider = styled.div`
   background-color: ${primaryColor.active};
+
   height: 1.01px;
   width: 95%;
   max-width: 606px;
 
   margin: 16px 0px;
-
   border-radius: 1px;
 
   ${Media.bigPhone`
-    margin: 16px 0;
+    margin: 8px 0;
   `}
 `;

@@ -39,6 +39,11 @@ export const Container = styled.footer`
         transition: width 0.3s ease-out;
       }
 
+      &:focus {
+        outline: 3px solid ${primaryColor.active};
+        outline-offset: 4px;
+      }
+
       &:hover {
         color: ${primaryColor.active};
 
