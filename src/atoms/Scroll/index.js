@@ -14,7 +14,6 @@ function Scroll({ refs }) {
 
   useEffect(() => {
     function handleScroll() {
-      const { log } = console;
       const screenPosition = window.innerHeight * 0.4; // 40% of the height window
       const { scrollTop } = document.documentElement;
 
@@ -26,7 +25,6 @@ function Scroll({ refs }) {
           ].current.getBoundingClientRect().top;
 
           if (nextSection < refs.length && sectionPosition < screenPosition) {
-            log(nextSection + 1);
             setNextSection(nextSection + 1);
             setSelectedByIndex(nextSection);
           }
@@ -40,7 +38,6 @@ function Scroll({ refs }) {
 
         if (refs[currentSection - 1] && refs[currentSection - 1].current) {
           if (currentSection > 0 && screenPosition < sectionPosition) {
-            log(nextSection - 1);
             setNextSection(nextSection - 1);
             setSelectedByIndex(currentSection - 1);
           }

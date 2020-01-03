@@ -44,7 +44,7 @@ export const Container = styled.section`
       height: 100%;
       max-height: 312px;
 
-      padding: 18px;
+      padding: 0px 8px;
       overflow-y: scroll;
     }
   }
@@ -62,6 +62,11 @@ export const Container = styled.section`
     &:hover {
       box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.25);
       transform: scale(1.05);
+    }
+
+    &:focus {
+      outline: 3px solid ${primaryColor.active};
+      outline-offset: 8px;
     }
   }
 
@@ -96,11 +101,10 @@ export const Music = styled.li`
   justify-content: space-between;
 
   padding: 16px 0px;
+  margin: 0px 8px;
+
   white-space: nowrap;
-
   transition: 0.4s ease;
-
-  overflow-x: hidden;
 
   button {
     overflow: hidden;
@@ -111,23 +115,30 @@ export const Music = styled.li`
     &:hover {
       color: ${primaryColor.active};
     }
-  }
 
-  svg {
-    transition: 0.3s ease;
-
-    &:hover {
-      color: ${primaryColor.active};
-      transform: scale(1.1);
+    &:focus {
+      outline: 3px solid ${primaryColor.active};
+      outline-offset: 3px;
     }
   }
 
-  &:first-child {
-    padding-top: 0px;
-  }
+  a {
+    display: flex;
+    border-radius: 50%;
 
-  &:last-child {
-    padding-bottom: 0px;
+    svg {
+      transition: 0.3s ease;
+    }
+
+    &:hover svg {
+      color: ${primaryColor.active};
+      transform: scale(1.1);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px ${primaryColor.bg}, 0 0 0 4px ${primaryColor.active};
+      color: ${primaryColor.active};
+    }
   }
 
   &:not(:last-child) {

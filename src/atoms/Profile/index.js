@@ -9,8 +9,8 @@ function Profile({ className }) {
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "profile.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 300, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -18,9 +18,7 @@ function Profile({ className }) {
     }
   `);
 
-  return (
-    <Container className={className} fluid={image.childImageSharp.fluid} />
-  );
+  return <Container className={className} fluid={image.sharp.fluid} />;
 }
 
 Profile.defaultProps = {
