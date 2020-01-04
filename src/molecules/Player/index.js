@@ -5,7 +5,7 @@ import { FiPlay, FiPause, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import PropTypes from 'prop-types';
 
-import playlist from '~/res/playlist.json';
+import playlist from '~/assets/data/playlist.json';
 
 import { Container, Music } from './styles';
 

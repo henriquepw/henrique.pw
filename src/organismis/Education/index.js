@@ -6,7 +6,7 @@ import PageTitle from '~/atoms/PageTitle';
 
 import Timeline from '~/molecules/Timeline';
 
-import data from '~/res/education.json';
+import data from '~/assets/data/education.json';
 
 import Section from '~/styles/section';
 
