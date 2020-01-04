@@ -2,7 +2,7 @@
   <img alt="Gatsby" src="./src/assets/icon.png" width="60"/>
 </p>
 <h1 align="center">
-  My portifolio :)
+  My portfolio :)
 </h1>
 
 <p align="center">
