@@ -12,10 +12,7 @@ function Scroll({ refs, pageHeight }) {
     function navCheck(entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const { id } = entry.target;
-          const formattedId = `${id[0].toUpperCase()}${id.slice(1)}`;
-
-          setSelectedByName(formattedId);
+          setSelectedByName(entry.target.id);
         }
       });
     }

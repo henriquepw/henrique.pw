@@ -56,6 +56,7 @@ export const MenuItem = styled.li`
 
   a {
     font-size: 1.5rem;
+    text-transform: capitalize;
     color: ${secundaryColor.text};
   }
 

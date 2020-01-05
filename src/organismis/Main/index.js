@@ -52,7 +52,7 @@ function Main() {
   }, []);
 
   return (
-    <Layout title={`${selected} | `}>
+    <Layout title={`${selected.replace(/\b\w/g, l => l.toUpperCase())} | `}>
       <Scroll refs={sections} pageHeight={pageHeight} />
       <Menu />
       <Content>

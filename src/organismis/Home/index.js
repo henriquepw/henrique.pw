@@ -7,6 +7,11 @@ import SocialList from '~/molecules/SocialList';
 import { Container, ProfileImg, Divider } from './styles';
 
 function Home({ forwardRef, pageHeight }) {
+  function handleNextSection(e) {
+    e.preventDefault();
+    document.getElementById('education').scrollIntoView();
+  }
+
   return (
     <Container id="home" ref={forwardRef} height={pageHeight}>
       <ProfileImg />
@@ -18,7 +23,12 @@ function Home({ forwardRef, pageHeight }) {
       </h2>
       <Divider />
       <SocialList />
-      <a href="#education" alt="next section" aria-label="next section">
+      <a
+        href="#education"
+        alt="next section"
+        aria-label="next section"
+        onClick={handleNextSection}
+      >
         <svg
           stroke="currentColor"
           fill="none"

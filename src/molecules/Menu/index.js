@@ -9,9 +9,13 @@ function Menu() {
   const [pressed, setPressed] = useState(false);
   const { sections, selected, setSelectedByName } = useContext(SectionsContext);
 
-  function handlerSelected(name) {
+  function handlerSelected(event, name) {
+    event.preventDefault();
+
     setSelectedByName(name);
     setPressed(!pressed);
+
+    document.getElementById(name).scrollIntoView();
   }
 
   return (
@@ -21,14 +25,11 @@ function Menu() {
 
       <ul>
         {sections.map(name => (
-          <MenuItem
-            key={name}
-            selected={selected === name}
-            onClick={() => handlerSelected(name)}
-          >
+          <MenuItem key={name} selected={selected === name}>
             <a
-              href={`#${name.toLowerCase()}`}
-              alt={`Go to the ${name.toLowerCase()} section`}
+              href={`#${name}`}
+              alt={`Go to the ${name} section`}
+              onClick={e => handlerSelected(e, name)}
             >
               {name}
             </a>
