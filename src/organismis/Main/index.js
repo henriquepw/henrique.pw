@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef /* , useState */ } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 import Scroll from '~/atoms/Scroll';
 
@@ -17,8 +17,21 @@ import SectionsContext from '~/context/sectionsContext';
 import { Content } from './styles';
 
 function Main() {
+  const [pageHeight, setPageHeight] = useState(window.innerHeight);
+  const sections = [useRef(null), useRef(null), useRef(null)];
   const { selected } = useContext(SectionsContext);
-  const refs = [useRef(null), useRef(null), useRef(null) /* , useRef(null) */];
+
+  useEffect(() => {
+    function setCurrentHeight() {
+      setPageHeight(window.innerHeight);
+    }
+
+    window.addEventListener('resize', setCurrentHeight);
+
+    return () => {
+      window.removeEventListener('resize', setCurrentHeight);
+    };
+  }, [setPageHeight]);
 
   useEffect(() => {
     function addUsingMouse() {
@@ -40,13 +53,13 @@ function Main() {
 
   return (
     <Layout title={`${selected} | `}>
-      <Scroll refs={refs} />
+      <Scroll refs={sections} pageHeight={pageHeight} />
       <Menu />
       <Content>
-        <Home forwardRef={refs[0]} />
-        <Education forwardRef={refs[1]} />
-        {/* <Projects forwardRef={refs[2]} /> */}
-        <About forwardRef={refs[2]} />
+        <Home forwardRef={sections[0]} pageHeight={pageHeight} />
+        <Education forwardRef={sections[1]} />
+        {/* <Projects forwardRef={sections[2]} /> */}
+        <About forwardRef={sections[2]} />
         <Footer />
       </Content>
     </Layout>

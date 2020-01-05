@@ -1,67 +1,50 @@
-import React, { useContext, useEffect, /* useRef, */ useState } from 'react';
+import React, { useContext, useEffect /* , useRef */ } from 'react';
 
 import PropTypes from 'prop-types';
 
 import SectionsContext from '~/context/sectionsContext';
 
-function Scroll({ refs }) {
-  const { setSelectedByIndex } = useContext(SectionsContext);
-
-  const [nextSection, setNextSection] = useState(1);
-  const [position, setPosition] = useState(document.documentElement.scrollTop);
-
+function Scroll({ refs, pageHeight }) {
+  const { selected, setSelectedByName } = useContext(SectionsContext);
   // const renders = useRef(0);
 
   useEffect(() => {
-    function handleScroll() {
-      const screenPosition = window.innerHeight * 0.4; // 40% of the height window
-      const { scrollTop } = document.documentElement;
+    function navCheck(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const { id } = entry.target;
+          const formattedId = `${id[0].toUpperCase()}${id.slice(1)}`;
 
-      if (scrollTop > position) {
-        // scroll down
-        if (refs[nextSection] && refs[nextSection].current) {
-          const sectionPosition = refs[
-            nextSection
-          ].current.getBoundingClientRect().top;
-
-          if (nextSection < refs.length && sectionPosition < screenPosition) {
-            setNextSection(nextSection + 1);
-            setSelectedByIndex(nextSection);
-          }
+          setSelectedByName(formattedId);
         }
-      } else {
-        // scroll up
-        const currentSection = nextSection - 1;
-        const sectionPosition = refs[
-          currentSection
-        ].current.getBoundingClientRect().top;
-
-        if (refs[currentSection - 1] && refs[currentSection - 1].current) {
-          if (currentSection > 0 && screenPosition < sectionPosition) {
-            setNextSection(nextSection - 1);
-            setSelectedByIndex(currentSection - 1);
-          }
-        }
-      }
-
-      setPosition(scrollTop);
+      });
     }
 
-    window.addEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(navCheck, {
+      rootMargin: `-${pageHeight * 0.4 - 1}px 0px -${pageHeight * 0.6}px 0px`,
+    });
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [nextSection, position, refs, setSelectedByIndex]);
+    const isExist = refs.reduce(
+      (prev, ref) => prev && !!ref && !!ref.current,
+      true
+    );
+
+    if (isExist) {
+      refs.forEach(ref => observer.observe(ref.current));
+    }
+
+    return () => observer.disconnect();
+  }, [pageHeight, refs, selected, setSelectedByName]);
 
   return (
-    <span style={{ position: 'absolute' }}>
-      {/* `${selected} ${renders.current++}` */}
+    <span style={{ position: 'fixed', zIndex: -999 }}>
+      {/* {renders.current++} */}
     </span>
   );
 }
 
 Scroll.propTypes = {
+  pageHeight: PropTypes.number.isRequired,
   refs: PropTypes.arrayOf(
     PropTypes.shape({
       current: PropTypes.object,
