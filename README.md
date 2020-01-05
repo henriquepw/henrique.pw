@@ -31,34 +31,36 @@ My site that a little about me, my background, my projects, what I like, etc. Th
 ## 🧐 What's inside?
 
 ### Technologies I used
-  - [Gatsby](https://www.gatsbyjs.org/)
-  - [ReactJS](https://reactjs.org/)
+- [Gatsby](https://www.gatsbyjs.org/)
+- [ReactJS](https://reactjs.org/)
+
+### Linter tools
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
 ### Packages
-  - [React Helmet Async](https://github.com/staylor/react-helmet-async)
-  - [React Icons](https://react-icons.netlify.com/#/)
-  - [React Loadable](https://github.com/jamiebuilds/react-loadable)
-  - [Styled Compoments](https://www.styled-components.com/)
-  - [Polished](https://polished.js.org/)
-  - [Typeface Raleway](https://www.npmjs.com/package/typeface-raleway)
-  - [Eslint](https://eslint.org/)
-  - [Prettier](https://prettier.io/)
+- [React Helmet Async](https://github.com/staylor/react-helmet-async)
+- [React Icons](https://react-icons.netlify.com/#/)
+- [React Loadable](https://github.com/jamiebuilds/react-loadable)
+- [Styled Compoments](https://www.styled-components.com/)
+- [Polished](https://polished.js.org/)
+- [Typeface Raleway](https://www.npmjs.com/package/typeface-raleway)
 
 ### Gatsby plugins
-  - [Google analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
-  - [Manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/)
-  - [Netlify](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/)
-  - [Netlify cache](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cache/)
-  - [Offline](https://www.gatsbyjs.org/packages/gatsby-plugin-offline/)
-  - [Page Creator](https://www.gatsbyjs.org/packages/gatsby-plugin-page-creator/)
-  - [Polished](https://www.gatsbyjs.org/packages/gatsby-plugin-polished/)
-  - [Preload Fonts](https://www.gatsbyjs.org/packages/gatsby-plugin-preload-fonts/)
-  - [React Helmet Async](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/)
-  - [Sharp](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/)
-  - [Sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)
-  - [Styled Components](https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/)
+- [Google analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
+- [Manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/)
+- [Netlify](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/)
+- [Netlify cache](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cache/)
+- [Offline](https://www.gatsbyjs.org/packages/gatsby-plugin-offline/)
+- [Page Creator](https://www.gatsbyjs.org/packages/gatsby-plugin-page-creator/)
+- [Polished](https://www.gatsbyjs.org/packages/gatsby-plugin-polished/)
+- [Preload Fonts](https://www.gatsbyjs.org/packages/gatsby-plugin-preload-fonts/)
+- [React Helmet Async](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/)
+- [Sharp](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/)
+- [Sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)
+- [Styled Components](https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/)
 
-A quick look at the top-level directories inside the `./src`.
+### A quick look at the top-level directories inside the `./src`.
 
     ./src
      ├── assets
