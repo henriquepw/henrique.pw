@@ -1,5 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 
+import { lighten } from 'polished';
+
 import Profile from '~/atoms/Profile';
 
 import { primaryColor, secundaryColor } from '~/styles/colors';
@@ -33,8 +35,12 @@ const slideToRight = keyframes`
  * Components styles
  */
 export const ProfileImg = styled(Profile)`
-  border: 10px solid rgba(255, 255, 255, 0.2);
+  border: 10px solid ${lighten(0.12, primaryColor.active)};
   animation: ${showUp()} 3s 1 ease;
+
+  &::after {
+    border: 1px solid ${lighten(0.12, primaryColor.active)};
+  }
 
   ${Media.hd`
     display: none;

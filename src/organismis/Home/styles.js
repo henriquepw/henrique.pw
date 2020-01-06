@@ -91,7 +91,6 @@ const showUp = keyframes`
  * Components styles
  */
 export const ProfileImg = styled(Profile)`
-  border: 10px solid ${opacify(-0.5, primaryColor.active)};
   box-sizing: border-box;
   margin-top: -40px;
   margin-bottom: 40px;
