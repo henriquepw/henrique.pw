@@ -17,31 +17,31 @@ const data = [
   {
     name: 'github',
     link: 'https://github.com/henry-ns',
-    description: 'Meu perfil do github',
+    description: 'My github profile',
     component: <FiGithub />,
   },
   {
     name: 'linkedin',
     link: 'https://www.linkedin.com/in/henry-ns/',
-    description: 'Meu perfil do linkedin',
+    description: 'My linkedin profile',
     component: <FiLinkedin />,
   },
   {
     name: 'instagram',
     link: 'https://instagram.com/_henry_n',
-    description: 'Meu perfil do instagram',
+    description: 'My instagram profile',
     component: <FiInstagram />,
   },
   {
     name: 'twitter',
     link: 'https://twitter.com/_henry_ns',
-    description: 'Meu perfil do twitter',
+    description: 'My twitter profile',
     component: <FiTwitter />,
   },
   {
     name: 'email',
     link: 'mailto:enrque.ns@gmail.com',
-    description: 'Meu e-mail para contatos',
+    description: 'My email for contacts',
     component: <FiMail />,
   },
 ];
