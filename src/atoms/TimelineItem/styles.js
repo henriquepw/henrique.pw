@@ -75,7 +75,7 @@ export const Container = styled.li`
       letter-spacing: 8px;
       font-weight: 400;
 
-      margin: 0 0 -16px 0;
+      margin: 0 0 -16px 6px;
       z-index: 1;
     }
 

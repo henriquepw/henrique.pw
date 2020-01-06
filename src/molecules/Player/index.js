@@ -115,7 +115,6 @@ function Player() {
 
       <a
         href={playlist[currentMusic].external_urls}
-        id="album"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="External link to the music on Spotify"
