@@ -56,10 +56,10 @@ function Main() {
       <Scroll refs={sections} pageHeight={pageHeight} />
       <Menu />
       <Content>
-        <Home forwardRef={sections[0]} pageHeight={pageHeight} />
-        <Education forwardRef={sections[1]} />
+        <Home ref={sections[0]} pageHeight={pageHeight} />
+        <Education ref={sections[1]} />
         {/* <Projects forwardRef={sections[2]} /> */}
-        <About forwardRef={sections[2]} />
+        <About ref={sections[2]} />
         <Footer />
       </Content>
     </Layout>

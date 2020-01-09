@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, forwardRef } from 'react';
 
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ import { Container, ProfileImg, Divider } from './styles';
 
 const threshold = Array.from(new Array(50), (_, index) => (index + 1) / 50);
 
-function Home({ forwardRef, pageHeight }) {
+const Home = forwardRef(({ pageHeight }, ref) => {
   const opacity = useMotionValue(1);
   const contentY = useTransform(opacity, value => -((1 / value - 1) * 80));
 
@@ -27,15 +27,15 @@ function Home({ forwardRef, pageHeight }) {
       threshold,
     });
 
-    if (forwardRef.current) {
-      observer.observe(forwardRef.current);
+    if (ref.current) {
+      observer.observe(ref.current);
     }
 
     return () => observer.disconnect();
-  }, [forwardRef, opacity, pageHeight, contentY]);
+  }, [opacity, pageHeight, contentY, ref]);
 
   return (
-    <Container id="home" ref={forwardRef} /*  height={pageHeight} */>
+    <Container id="home" ref={ref} /*  height={pageHeight} */>
       <motion.div style={{ opacity, y: contentY, width: '100%' }}>
         <ProfileImg />
         <h1>
@@ -69,13 +69,10 @@ function Home({ forwardRef, pageHeight }) {
       </a>
     </Container>
   );
-}
+});
 
 Home.propTypes = {
   pageHeight: PropTypes.number.isRequired,
-  forwardRef: PropTypes.shape({
-    current: PropTypes.object,
-  }).isRequired,
 };
 
 export default React.memo(Home);
