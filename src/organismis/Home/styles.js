@@ -262,7 +262,7 @@ export const Divider = styled.div`
   width: 95%;
   max-width: 606px;
 
-  margin: 16px 0px;
+  margin: 16px auto;
   border-radius: 1px;
 
   ${Media.bigPhone`
