@@ -18,7 +18,7 @@ function Scroll({ refs, pageHeight }) {
     }
 
     const observer = new IntersectionObserver(navCheck, {
-      rootMargin: `-${pageHeight * 0.4 - 1}px 0px -${pageHeight * 0.6}px 0px`,
+      rootMargin: `-${pageHeight * 0.5 - 1}px 0px -${pageHeight * 0.5}px 0px`,
     });
 
     const isExist = refs.reduce(

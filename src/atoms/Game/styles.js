@@ -45,11 +45,11 @@ export const Container = styled.li`
   }
 
   /* Modify later */
-  &:hover {
+  /* &:hover {
     div:first-child {
       box-shadow: 0px 2px 20px 10px rgba(0, 0, 0, 0.25);
     }
-  }
+  } */
 
   ${Media.tablet`
     grid-template-columns: auto;

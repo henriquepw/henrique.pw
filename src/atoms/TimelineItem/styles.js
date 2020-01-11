@@ -9,6 +9,7 @@ export const Container = styled.li`
 
   margin-bottom: 64px;
   transition: 0.3s;
+  overflow: hidden;
 
   h2 {
     font-size: 2.5rem;
@@ -49,6 +50,7 @@ export const Container = styled.li`
 
   &:hover {
     cursor: default;
+    overflow: visible;
 
     h2 {
       transform: translateY(-4px) scale(1.2);

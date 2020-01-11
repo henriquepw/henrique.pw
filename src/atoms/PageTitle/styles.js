@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+import { motion } from 'framer-motion';
+
 import { primaryColor } from '~/styles/colors';
 
-export const Container = styled.h1`
+export const Container = styled(motion.h1)`
   position: relative;
   font-size: 2.25rem;
   font-weight: 400;

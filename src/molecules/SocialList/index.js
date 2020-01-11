@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   FiGithub,
   FiLinkedin,
@@ -28,7 +28,7 @@ const data = [
   },
   {
     name: 'instagram',
-    link: 'https://instagram.com/_henry_n',
+    link: 'https://instagram.com/_henry_ns',
     description: 'My instagram profile',
     component: <FiInstagram />,
   },
@@ -47,19 +47,20 @@ const data = [
 ];
 
 function SocialList({ excluded, isAnimated }) {
+  const dataFiltered = useMemo(
+    () => data.filter(item => !excluded.includes(item.name)),
+    [excluded]
+  );
+
   return (
     <Container isAnimated={isAnimated}>
-      {data.map(item => {
-        const isExluded = excluded.includes(item.name);
-
+      {dataFiltered.map(item => {
         return (
-          !isExluded && (
-            <li key={item.link}>
-              <SocialIcon link={item.link} title={item.description}>
-                {item.component}
-              </SocialIcon>
-            </li>
-          )
+          <li key={item.link}>
+            <SocialIcon link={item.link} alt={item.description}>
+              {item.component}
+            </SocialIcon>
+          </li>
         );
       })}
     </Container>

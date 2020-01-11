@@ -4,22 +4,24 @@ import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 export const Container = styled.a`
+  display: block;
   transition: 0.3s;
   padding: 0 20px;
 
   svg {
     transition: transform 0.2s;
+    stroke-width: 1.4;
     cursor: pointer;
     height: 30px;
     width: 30px;
   }
 
-  svg:hover {
+  &:hover {
     color: ${primaryColor.active};
     transform: scale(1.25);
   }
 
-  svg:active {
+  &:active {
     transform: scale(1.1);
   }
 
