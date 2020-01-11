@@ -77,6 +77,7 @@ export default createGlobalStyle`
   button {
     color: ${primaryColor.text};
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   li {

@@ -1,12 +1,13 @@
-import React, { useContext, useEffect /* , useRef */ } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
 import SectionsContext from '~/context/sectionsContext';
 
-function Scroll({ refs, pageHeight }) {
-  const { selected, setSelectedByName } = useContext(SectionsContext);
-  // const renders = useRef(0);
+function Scroll({ refs }) {
+  const { selected, setSelectedByName, pageHeight } = useContext(
+    SectionsContext
+  );
 
   useEffect(() => {
     function navCheck(entries) {
@@ -18,13 +19,12 @@ function Scroll({ refs, pageHeight }) {
     }
 
     const observer = new IntersectionObserver(navCheck, {
-      rootMargin: `-${pageHeight * 0.5 - 1}px 0px -${pageHeight * 0.5}px 0px`,
+      rootMargin: `${-(pageHeight * 0.6 - 1)}px 0px ${-(
+        pageHeight * 0.4
+      )}px 0px`,
     });
 
-    const isExist = refs.reduce(
-      (prev, ref) => prev && !!ref && !!ref.current,
-      true
-    );
+    const isExist = refs.reduce((prev, ref) => prev && !!ref.current, true);
 
     if (isExist) {
       refs.forEach(ref => observer.observe(ref.current));
@@ -33,15 +33,11 @@ function Scroll({ refs, pageHeight }) {
     return () => observer.disconnect();
   }, [pageHeight, refs, selected, setSelectedByName]);
 
-  return (
-    <span style={{ position: 'fixed', zIndex: -999 }}>
-      {/* {renders.current++} */}
-    </span>
-  );
+  return <span style={{ position: 'fixed', zIndex: -999 }} />;
 }
 
 Scroll.propTypes = {
-  pageHeight: PropTypes.number.isRequired,
+  // pageHeight: PropTypes.number.isRequired,
   refs: PropTypes.arrayOf(
     PropTypes.shape({
       current: PropTypes.object,

@@ -34,7 +34,7 @@ function TimelineItem({ year, title, description }) {
     }
 
     const observer = new IntersectionObserver(onVisible, {
-      rootMargin: '0px 0px -10% 0px',
+      rootMargin: '10% 0px -5% 0px',
       threshold: 1,
     });
 

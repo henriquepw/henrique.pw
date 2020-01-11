@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { useAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
+
+import SectionsContext from '~/context/sectionsContext';
 
 import { Container } from './styles';
 
@@ -20,28 +22,15 @@ const variants = {
 };
 
 function PageTitle({ title }) {
+  const { selected } = useContext(SectionsContext);
   const controls = useAnimation();
-  const ref = useRef();
 
   useEffect(() => {
-    function onVisible([{ isIntersecting }]) {
-      controls.start(isIntersecting ? 'visible' : 'hidden');
-    }
-
-    const observer = new IntersectionObserver(onVisible, {
-      rootMargin: '0px 0px -10% 0px',
-      threshold: 1,
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [controls]);
+    controls.start(selected === title.toLowerCase() ? 'visible' : 'hidden');
+  }, [controls, selected, title]);
 
   return (
-    <Container animate={controls} variants={variants} ref={ref}>
+    <Container animate={controls} variants={variants}>
       {title}
     </Container>
   );

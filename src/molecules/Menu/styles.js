@@ -105,6 +105,7 @@ export const Container = styled.nav`
   svg {
     display: none;
     stroke-width: 1;
+    -webkit-tap-highlight-color: transparent;
   }
 
   ul,
