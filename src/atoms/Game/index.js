@@ -35,7 +35,7 @@ function Game({ name, description, fluid }) {
     }
 
     const observer = new IntersectionObserver(onVisible, {
-      rootMargin: `0px 0px -40% 0px`,
+      rootMargin: `0px 0px -30% 0px`,
     });
 
     if (ref.current) {

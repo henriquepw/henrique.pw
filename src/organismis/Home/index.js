@@ -1,7 +1,6 @@
 import React, { useContext, forwardRef } from 'react';
 
 import { motion, useTransform } from 'framer-motion';
-import PropTypes from 'prop-types';
 
 import SocialList from '~/molecules/SocialList';
 
@@ -9,8 +8,8 @@ import SectionsContext from '~/context/sectionsContext';
 
 import { Container, ProfileImg, Divider } from './styles';
 
-const Home = forwardRef(({ pageHeight }, ref) => {
-  const { scrollY } = useContext(SectionsContext);
+const Home = forwardRef((_, ref) => {
+  const { scrollY, pageHeight } = useContext(SectionsContext);
 
   const opacity = useTransform(scrollY, [0, pageHeight], [1, 0]);
   const y = useTransform(scrollY, [0, 1], [0, -0.2], {
@@ -58,9 +57,5 @@ const Home = forwardRef(({ pageHeight }, ref) => {
     </Container>
   );
 });
-
-Home.propTypes = {
-  pageHeight: PropTypes.number.isRequired,
-};
 
 export default React.memo(Home);

@@ -25,6 +25,7 @@ function Player() {
   }, [music]);
 
   function togglePlay(value = !play) {
+    if (currentIndex === -1) setCurrentIndex(0);
     setPlay(value);
 
     if (value) music.play();
@@ -73,7 +74,7 @@ function Player() {
 
         <ol>
           {playlist.map((item, index) => (
-            <Music key={item.preview_url} selected={index === currentMusic}>
+            <Music key={item.preview_url} selected={index === currentIndex}>
               <SpotifyButton
                 item={item}
                 selected={index === currentIndex}
