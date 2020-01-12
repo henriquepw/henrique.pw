@@ -8,36 +8,42 @@ import SectionsContext from '~/context/sectionsContext';
 import { Container } from './styles';
 
 const variants = {
-  visible: {
+  visible: delay => ({
     y: 0,
     opacity: 1,
     transition: {
       duration: 0.5,
+      delay,
     },
-  },
+  }),
   hidden: {
     y: 30,
     opacity: 0,
   },
 };
 
-function PageTitle({ title }) {
+function Title({ children, animateDelay }) {
   const { selected } = useContext(SectionsContext);
   const controls = useAnimation();
 
   useEffect(() => {
-    controls.start(selected === title.toLowerCase() ? 'visible' : 'hidden');
-  }, [controls, selected, title]);
+    controls.start(selected === children.toLowerCase() ? 'visible' : 'hidden');
+  }, [controls, selected, children]);
 
   return (
-    <Container animate={controls} variants={variants}>
-      {title}
+    <Container custom={animateDelay} animate={controls} variants={variants}>
+      {children}
     </Container>
   );
 }
 
-PageTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+Title.defaultProps = {
+  animateDelay: 0.2,
 };
 
-export default PageTitle;
+Title.propTypes = {
+  children: PropTypes.string.isRequired,
+  animateDelay: PropTypes.number,
+};
+
+export default Title;

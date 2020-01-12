@@ -24,13 +24,19 @@ export const Container = styled.section`
     background-color: ${primaryColor.active};
     color: ${secundaryColor.text};
 
-    svg {
-      stroke-width: 1;
-      cursor: pointer;
-    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    svg:nth-child(2) {
-      margin: auto 16px;
+      svg {
+        stroke-width: 1;
+        cursor: pointer;
+      }
+
+      &:nth-child(2) {
+        margin: auto 16px;
+      }
     }
   }
 

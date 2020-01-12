@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import PageTitle from '~/atoms/PageTitle';
+import Title from '~/atoms/Title';
 
 import Timeline from '~/molecules/Timeline';
 
@@ -10,7 +10,7 @@ import Section from '~/styles/section';
 
 const Education = forwardRef((_, ref) => (
   <Section id="education" ref={ref}>
-    <PageTitle title="Education" />
+    <Title animateDelay={0}>Education</Title>
     <Timeline data={data} />
   </Section>
 ));

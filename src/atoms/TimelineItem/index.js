@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Container } from './styles';
 
 const variants = {
-  visible: (delay = 0) => ({
+  visible: (delay = 0.2) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -14,12 +14,12 @@ const variants = {
       delay,
     },
   }),
-  hidden: (delay = 0) => ({
+  hidden: delay => ({
     y: 30,
     opacity: 0,
     transition: {
       duration: 0.5,
-      delay: delay ? 0 : 0.2,
+      delay: delay ? 0.2 : 0.4,
     },
   }),
 };
@@ -53,7 +53,7 @@ function TimelineItem({ year, title, description }) {
         <motion.h1 animate={controls} variants={variants}>
           {title}
         </motion.h1>
-        <motion.p custom={0.2} animate={controls} variants={variants}>
+        <motion.p custom={0.4} animate={controls} variants={variants}>
           {description}
         </motion.p>
       </div>

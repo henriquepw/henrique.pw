@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-  useLayoutEffect,
-} from 'react';
+import React, { useContext, useEffect, useRef, useLayoutEffect } from 'react';
 
 import Scroll from '~/atoms/Scroll';
 
@@ -23,8 +17,8 @@ import SectionsContext from '~/context/sectionsContext';
 import { Content } from './styles';
 
 function Main() {
-  const sections = [useRef(null), useRef(null), useRef(null)];
   const { selected, pageHeight, setPageHeight } = useContext(SectionsContext);
+  const sections = [useRef(null), useRef(null), useRef(null)];
 
   useLayoutEffect(() => {
     setPageHeight(window.innerHeight);

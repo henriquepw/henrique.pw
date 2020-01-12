@@ -19,8 +19,8 @@ function Scroll({ refs }) {
     }
 
     const observer = new IntersectionObserver(navCheck, {
-      rootMargin: `${-(pageHeight * 0.6 - 1)}px 0px ${-(
-        pageHeight * 0.4
+      rootMargin: `${-(pageHeight * 0.65 - 1)}px 0px ${-(
+        pageHeight * 0.35
       )}px 0px`,
     });
 

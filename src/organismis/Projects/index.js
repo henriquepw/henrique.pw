@@ -2,14 +2,14 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import PageTitle from '~/atoms/PageTitle';
+import Title from '~/atoms/Title';
 
 import Section from '~/styles/section';
 
 function Projects({ forwardRef }) {
   return (
     <Section id="projects" ref={forwardRef}>
-      <PageTitle title="Projects" />
+      <Title>Projects</Title>
     </Section>
   );
 }
