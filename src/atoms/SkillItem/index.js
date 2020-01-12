@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 const textAnimetion = {
@@ -11,6 +11,7 @@ const textAnimetion = {
   },
   hover: {
     opacity: 1,
+    filter: 'none',
     x: '-50%',
     y: 0,
   },
@@ -25,23 +26,33 @@ const imageAnimetion = {
   },
 };
 
-function SkillItem({ description, src }) {
-  const controls = useAnimation();
-
+function SkillItem({
+  description,
+  isEnabled,
+  src,
+  onTap,
+  onHoverEnd,
+  onHoverStart,
+}) {
   return (
     <motion.li
       key={description}
-      onHoverStart={() => controls.start('hover')}
-      onHoverEnd={() => controls.start('initial')}
+      onTapStart={onTap}
+      onHoverStart={onHoverStart}
+      onHoverEnd={onHoverEnd}
     >
       <motion.img
         initial="initial"
-        animate={controls}
+        animate={isEnabled ? 'hover' : 'initial'}
         variants={imageAnimetion}
         src={src}
         alt={description}
       />
-      <motion.p initial="initial" animate={controls} variants={textAnimetion}>
+      <motion.p
+        initial="initial"
+        animate={isEnabled ? 'hover' : 'initial'}
+        variants={textAnimetion}
+      >
         {description}
       </motion.p>
     </motion.li>
@@ -50,7 +61,11 @@ function SkillItem({ description, src }) {
 
 SkillItem.propTypes = {
   description: PropTypes.string.isRequired,
+  isEnabled: PropTypes.bool.isRequired,
   src: PropTypes.node.isRequired,
+  onTap: PropTypes.func.isRequired,
+  onHoverEnd: PropTypes.func.isRequired,
+  onHoverStart: PropTypes.func.isRequired,
 };
 
 export default SkillItem;

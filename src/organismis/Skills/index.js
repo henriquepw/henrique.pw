@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 
 import SkillItem from '~/atoms/SkillItem';
 import Title from '~/atoms/Title';
@@ -73,27 +73,49 @@ const others = [
 ];
 
 const Skills = forwardRef((_, ref) => {
+  const [selected, setSelected] = useState(-1);
+
+  function handleTap(index) {
+    setSelected(selected === index ? -1 : index);
+  }
+
+  function onHoverStart(index) {
+    setSelected(index);
+  }
+
+  function onHoverEnd() {
+    setSelected(-1);
+  }
+
   return (
     <Container id="skills" ref={ref}>
       <Title>Skills</Title>
       <div>
         <SubTitle>My Focus</SubTitle>
         <ul>
-          {focus.map(item => (
+          {focus.map((item, index) => (
             <SkillItem
-              key={item.description}
               src={item.icon}
+              key={item.description}
               description={item.description}
+              isEnabled={index === selected}
+              onTap={() => handleTap(index)}
+              onHoverStart={() => onHoverStart(index)}
+              onHoverEnd={onHoverEnd}
             />
           ))}
         </ul>
         <SubTitle>I&apos;ve made cool things with</SubTitle>
         <ul>
-          {others.map(item => (
+          {others.map((item, index) => (
             <SkillItem
-              key={item.description}
               src={item.icon}
+              key={item.description}
               description={item.description}
+              isEnabled={index + focus.length === selected}
+              onTap={() => handleTap(index + focus.length)}
+              onHoverStart={() => onHoverStart(index + focus.length)}
+              onHoverEnd={onHoverEnd}
             />
           ))}
         </ul>

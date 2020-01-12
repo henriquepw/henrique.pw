@@ -30,8 +30,9 @@ export const Container = styled.section`
       justify-content: space-between;
 
       svg {
-        stroke-width: 1;
         cursor: pointer;
+        stroke-width: 1;
+        -webkit-tap-highlight-color: transparent;
       }
 
       &:nth-child(2) {

@@ -18,7 +18,7 @@ import SectionsContext from '~/context/sectionsContext';
 import { Content } from './styles';
 
 function Main() {
-  const { selected, pageHeight, setPageHeight } = useContext(SectionsContext);
+  const { selected, setPageHeight } = useContext(SectionsContext);
   const sections = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   useLayoutEffect(() => {
@@ -33,7 +33,7 @@ function Main() {
     return () => {
       window.removeEventListener('resize', setCurrentHeight);
     };
-  }, [pageHeight, setPageHeight]);
+  }, [setPageHeight]);
 
   useEffect(() => {
     function addUsingMouse() {
