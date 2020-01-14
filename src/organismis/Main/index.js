@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useLayoutEffect } from 'react';
 
 import Scroll from '~/atoms/Scroll';
 
@@ -9,6 +9,7 @@ import Education from '~/organismis/Education';
 import Footer from '~/organismis/Footer';
 import Home from '~/organismis/Home';
 // import Projects from '~/organismis/Projects';
+import Skills from '~/organismis/Skills';
 
 import Layout from '~/templates/Layout';
 
@@ -17,11 +18,12 @@ import SectionsContext from '~/context/sectionsContext';
 import { Content } from './styles';
 
 function Main() {
-  const [pageHeight, setPageHeight] = useState(window.innerHeight);
-  const sections = [useRef(null), useRef(null), useRef(null)];
-  const { selected } = useContext(SectionsContext);
+  const { selected, setPageHeight } = useContext(SectionsContext);
+  const sections = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setPageHeight(window.innerHeight);
+
     function setCurrentHeight() {
       setPageHeight(window.innerHeight);
     }
@@ -53,13 +55,14 @@ function Main() {
 
   return (
     <Layout title={`${selected.replace(/\b\w/g, l => l.toUpperCase())} | `}>
-      <Scroll refs={sections} pageHeight={pageHeight} />
+      <Scroll refs={sections} />
       <Menu />
       <Content>
-        <Home forwardRef={sections[0]} pageHeight={pageHeight} />
-        <Education forwardRef={sections[1]} />
-        {/* <Projects forwardRef={sections[2]} /> */}
-        <About forwardRef={sections[2]} />
+        <Home ref={sections[0]} />
+        <Education ref={sections[1]} />
+        <Skills ref={sections[2]} />
+        {/* <Projects forwardRef={sections[3]} /> */}
+        <About ref={sections[3]} />
         <Footer />
       </Content>
     </Layout>

@@ -1,28 +1,39 @@
-import React from 'react';
+import React, { useContext, forwardRef } from 'react';
 
-import PropTypes from 'prop-types';
+import { motion, useTransform } from 'framer-motion';
 
 import SocialList from '~/molecules/SocialList';
 
+import SectionsContext from '~/context/sectionsContext';
+
 import { Container, ProfileImg, Divider } from './styles';
 
-function Home({ forwardRef, pageHeight }) {
+const Home = forwardRef((_, ref) => {
+  const { scrollY, pageHeight } = useContext(SectionsContext);
+
+  const opacity = useTransform(scrollY, [0, pageHeight], [1, 0]);
+  const y = useTransform(scrollY, [0, 1], [0, -0.2], {
+    clamp: false,
+  });
+
   function handleNextSection(e) {
     e.preventDefault();
     document.getElementById('education').scrollIntoView();
   }
 
   return (
-    <Container id="home" ref={forwardRef} height={pageHeight}>
-      <ProfileImg />
-      <h1>
-        Henrique <strong>Miranda</strong>
-      </h1>
-      <h2>
-        Telematics student, Full Stack Developer <strong>&</strong> Designer
-      </h2>
-      <Divider />
-      <SocialList />
+    <Container id="home" ref={ref}>
+      <motion.div style={{ opacity, y, width: '100%' }}>
+        <ProfileImg />
+        <h1>
+          Henrique <strong>Miranda</strong>
+        </h1>
+        <h2>
+          Telematics student, Full Stack Developer <strong>&</strong> Designer
+        </h2>
+        <Divider />
+        <SocialList />
+      </motion.div>
       <a
         href="#education"
         alt="next section"
@@ -30,9 +41,9 @@ function Home({ forwardRef, pageHeight }) {
         onClick={handleNextSection}
       >
         <svg
-          stroke="currentColor"
           fill="none"
           viewBox="0 0 24 24"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           height="70"
@@ -45,13 +56,6 @@ function Home({ forwardRef, pageHeight }) {
       </a>
     </Container>
   );
-}
-
-Home.propTypes = {
-  pageHeight: PropTypes.number.isRequired,
-  forwardRef: PropTypes.shape({
-    current: PropTypes.object,
-  }).isRequired,
-};
+});
 
 export default React.memo(Home);

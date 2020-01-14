@@ -7,9 +7,10 @@ export const Container = styled(Section)`
     text-align: left;
     line-height: 1.5rem;
     letter-spacing: 0.03rem;
+    font-size: 1.2rem;
 
     width: 100%;
-    max-width: 980px;
+    max-width: 880px;
   }
 
   p + p {

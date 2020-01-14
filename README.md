@@ -30,7 +30,7 @@ My site that a little about me, my background, my projects, what I like, etc. Th
 
 ## 🧐 What's inside?
 
-### Technologies I used
+### Technologies
 - [Gatsby](https://www.gatsbyjs.org/)
 - [ReactJS](https://reactjs.org/)
 
@@ -39,6 +39,7 @@ My site that a little about me, my background, my projects, what I like, etc. Th
 - [Prettier](https://prettier.io/)
 
 ### Packages
+- [Framer Motion](https://www.framer.com/api/motion)
 - [React Helmet Async](https://github.com/staylor/react-helmet-async)
 - [React Icons](https://react-icons.netlify.com/#/)
 - [React Loadable](https://github.com/jamiebuilds/react-loadable)

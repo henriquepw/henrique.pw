@@ -1,7 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import { opacify } from 'polished';
-
 import Profile from '~/atoms/Profile';
 
 import { primaryColor } from '~/styles/colors';
@@ -24,15 +22,6 @@ const h1Animation = (spacing = 15, margin = 50) => css`
       letter-spacing: ${spacing / 4}px;
       transform: translateY(${margin}px);
     }
-  }
-`;
-
-const icon = keyframes`
-  0%,
-  80% {
-    opacity: 0;
-    z-index: -1;
-    transform: translateY(-60px);
   }
 `;
 
@@ -91,12 +80,11 @@ const showUp = keyframes`
  * Components styles
  */
 export const ProfileImg = styled(Profile)`
-  box-sizing: border-box;
-  margin-top: -40px;
-  margin-bottom: 40px;
   width: 160px;
   height: 160px;
 
+  margin: -40px auto 40px auto;
+  box-sizing: border-box;
   display: none;
 
   ${Media.hd`
@@ -112,7 +100,6 @@ export const ProfileImg = styled(Profile)`
 
 export const Container = styled(Section)`
   justify-content: center;
-
   min-height: ${({ height }) => (height ? `${height}px` : '100vh')};
 
   strong {
@@ -143,7 +130,6 @@ export const Container = styled(Section)`
     display: flex;
     flex-direction: column;
     position: absolute;
-
 
     bottom: 8px;
     left: 50%;
@@ -213,6 +199,12 @@ export const Container = styled(Section)`
   `}
 
   ${Media.bigPhone`
+    min-height: 95vh;
+
+    > a {
+      transform: translate(-50%, -30%);
+    }
+
     > a,
     > a svg {
       width: 60px;
@@ -270,7 +262,7 @@ export const Divider = styled.div`
   width: 95%;
   max-width: 606px;
 
-  margin: 16px 0px;
+  margin: 16px auto;
   border-radius: 1px;
 
   ${Media.bigPhone`

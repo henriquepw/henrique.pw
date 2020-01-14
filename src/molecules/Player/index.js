@@ -1,40 +1,40 @@
-/* eslint-disable jsx-a11y/media-has-caption */
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { FaSpotify } from 'react-icons/fa';
 import { FiPlay, FiPause, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-import PropTypes from 'prop-types';
+import PlayerButton from '~/atoms/PlayerButton';
+import SpotifyButton from '~/atoms/SpotifyButton';
 
 import playlist from '~/assets/data/playlist.json';
 
 import { Container, Music } from './styles';
 
 function Player() {
+  const [music] = useState(new Audio(playlist[0].preview_url));
   const [play, setPlay] = useState(false);
+
   const [currentIndex, setCurrentIndex] = useState(-1); // -1 = none selected
-
-  const music = useRef({ current: null });
-
   const currentMusic = useMemo(() => (currentIndex === -1 ? 0 : currentIndex), [
     currentIndex,
   ]);
 
   useEffect(() => {
-    if (music.current && music.current.volume) {
-      music.current.volume = 0.5;
+    if (music && music.volume) {
+      music.volume = 0.35;
     }
-  }, []);
+  }, [music]);
 
   function togglePlay(value = !play) {
+    if (currentIndex === -1) setCurrentIndex(0);
     setPlay(value);
 
-    if (value) music.current.play();
-    else music.current.pause();
+    if (value) music.play();
+    else music.pause();
   }
 
   function handlePlaying(index) {
     if (index !== currentIndex) {
-      music.current.src = playlist[index].preview_url;
+      music.src = playlist[index].preview_url;
 
       setCurrentIndex(index);
       togglePlay(true);
@@ -53,57 +53,37 @@ function Player() {
     handlePlaying(previous < 0 ? playlist.length - 1 : previous);
   }
 
-  function Button({ item, index, selected }) {
-    const buttonRef = useRef(null);
-
-    useEffect(() => {
-      if (buttonRef && buttonRef.current && selected) {
-        buttonRef.current.focus();
-      }
-    }, [selected]);
-
-    return (
-      <button
-        type="button"
-        onClick={() => handlePlaying(index)}
-        ref={buttonRef}
-      >
-        {item.name} - {item.artists}
-      </button>
-    );
-  }
-
-  Button.propTypes = {
-    item: PropTypes.objectOf(PropTypes.string).isRequired,
-    selected: PropTypes.bool.isRequired,
-    index: PropTypes.number.isRequired,
-  };
-
   return (
     <Container>
       <div>
         <header>
-          <FiChevronLeft size={32} onClick={handlePrevious} />
-          {play ? (
-            <FiPause size={40} onClick={() => togglePlay()} />
-          ) : (
-            <FiPlay size={40} onClick={() => togglePlay()} />
-          )}
-          <FiChevronRight size={32} onClick={handleNext} />
+          <PlayerButton>
+            <FiChevronLeft size={32} onClick={handlePrevious} />
+          </PlayerButton>
+          <PlayerButton>
+            {play ? (
+              <FiPause size={40} onClick={() => togglePlay()} />
+            ) : (
+              <FiPlay size={40} onClick={() => togglePlay()} />
+            )}
+          </PlayerButton>
+          <PlayerButton>
+            <FiChevronRight size={32} onClick={handleNext} />
+          </PlayerButton>
         </header>
 
         <ol>
           {playlist.map((item, index) => (
             <Music key={item.preview_url} selected={index === currentIndex}>
-              <Button
+              <SpotifyButton
                 item={item}
-                index={index}
                 selected={index === currentIndex}
+                onClick={() => handlePlaying(index)}
               />
               <a
-                href={item.external_urls}
                 target="_blank"
                 rel="noopener noreferrer"
+                href={item.external_urls}
                 aria-label={`go to ${item.name} music on Spotify`}
               >
                 <FaSpotify size={25} />
@@ -124,7 +104,6 @@ function Player() {
           alt={playlist[currentMusic].artists}
         />
       </a>
-      <audio ref={music} />
     </Container>
   );
 }
