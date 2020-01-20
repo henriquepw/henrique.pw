@@ -58,8 +58,6 @@ export default createGlobalStyle`
   #gatsby-focus-wrapper {
     min-height: 100%;
 
-    padding-left: 256px;
-
     ${Media.hd`
       padding-left: 0px;
     `}

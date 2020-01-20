@@ -85,12 +85,9 @@ export const ProfileImg = styled(Profile)`
 
   margin: -40px auto 40px auto;
   box-sizing: border-box;
-  display: none;
 
-  ${Media.hd`
-    display: block;
-    animation: ${showUp} 3s ease-out;
-  `}
+  display: block;
+  animation: ${showUp} 3s ease-out;
 
   ${Media.bigPhone`
     width: 140px;
