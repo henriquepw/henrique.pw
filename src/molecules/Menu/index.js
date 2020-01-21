@@ -68,7 +68,7 @@ const textAnimation = {
 function Menu() {
   const controlAnimation = useAnimation();
 
-  const [pressed, setPressed] = useState(true);
+  const [pressed, setPressed] = useState(false);
   const { sections, selected, setSelectedByName } = useContext(SectionsContext);
 
   useEffect(() => {
