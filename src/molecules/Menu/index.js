@@ -43,8 +43,8 @@ const itemAnimation = {
     opacity: 1,
     transition: {
       type: 'spring',
-      y: { stiffness: 1000, velocity: -100 },
       when: 'afterChildren',
+      y: { stiffness: 1000, velocity: -100 },
     },
   },
   hover: {
@@ -53,16 +53,6 @@ const itemAnimation = {
   tap: {
     scale: 0.95,
   },
-};
-
-const textAnimation = {
-  hover: {
-    opacity: 1,
-  },
-  show: selected => ({
-    opacity: selected ? 1 : 0.7,
-    scale: selected ? 1.05 : 1,
-  }),
 };
 
 function Menu() {
@@ -106,8 +96,6 @@ function Menu() {
               href={`#${name}`}
               alt={`Go to the ${name} section`}
               onClick={e => handlerSelected(e, name)}
-              custom={selected === name}
-              variants={textAnimation}
             >
               {name}
             </motion.a>

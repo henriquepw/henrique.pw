@@ -100,8 +100,6 @@ export const Container = styled.nav`
 `;
 
 export const MenuItem = styled(motion.li)`
-  opacity: 0.7;
-
   & + & {
     margin-top: 32px;
   }
@@ -111,18 +109,21 @@ export const MenuItem = styled(motion.li)`
   }
 
   a {
-    font-size: 1.75rem;
+    display: block;
     text-transform: capitalize;
     color: ${secundaryColor.text};
-  }
 
-  ${({ selected }) =>
-    selected &&
-    css`
-      opacity: 1;
-      font-weight: 400;
-      transform: scale(1.05);
-    `}
+    font-size: 1.75rem;
+    opacity: 0.7;
+
+    ${({ selected }) =>
+      selected &&
+      css`
+        opacity: 1;
+        font-weight: 400;
+        transform: scale(1.05);
+      `}
+  }
 
   ${Media.hd`
     a {

@@ -77,17 +77,19 @@ const others = [
 ];
 
 const listAnimaton = {
-  hidden: (delay = 0) => ({
+  hidden: (delay = 0.4) => ({
     y: 50,
     opacity: 0,
     transition: {
+      duration: 0.5,
       delay,
     },
   }),
-  initial: (delay = 0) => ({
+  initial: (delay = 0.4) => ({
     y: 0,
     opacity: 1,
     transition: {
+      duration: 0.5,
       delay,
     },
   }),
@@ -135,7 +137,7 @@ const Skills = forwardRef((_, ref) => {
         </motion.ul>
         <SubTitle>I&apos;ve made cool things with</SubTitle>
         <motion.ul
-          custom={0.2}
+          custom={0.6}
           variants={listAnimaton}
           animate={controlAnimaton}
         >
