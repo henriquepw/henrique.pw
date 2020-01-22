@@ -8,7 +8,7 @@ import About from '~/organismis/About';
 import Education from '~/organismis/Education';
 import Footer from '~/organismis/Footer';
 import Home from '~/organismis/Home';
-// import Projects from '~/organismis/Projects';
+import Projects from '~/organismis/Projects';
 import Skills from '~/organismis/Skills';
 
 import Layout from '~/templates/Layout';
@@ -19,7 +19,13 @@ import { Content } from './styles';
 
 function Main() {
   const { selected, setPageHeight } = useContext(SectionsContext);
-  const sections = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const sections = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
 
   useLayoutEffect(() => {
     setPageHeight(window.innerHeight);
@@ -61,8 +67,8 @@ function Main() {
         <Home ref={sections[0]} />
         <Education ref={sections[1]} />
         <Skills ref={sections[2]} />
-        {/* <Projects forwardRef={sections[3]} /> */}
-        <About ref={sections[3]} />
+        <Projects forwardRef={sections[3]} />
+        <About ref={sections[4]} />
         <Footer />
       </Content>
     </Layout>

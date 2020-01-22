@@ -45,7 +45,8 @@ export const Container = styled.section`
     width: 100%;
     max-width: 288px;
     margin-right: 32px;
-    background-color: ${primaryColor.bg};
+    background-color: ${secundaryColor.bg};
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.02);
 
     ol {
       height: 100%;

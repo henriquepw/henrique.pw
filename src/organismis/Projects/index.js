@@ -4,13 +4,27 @@ import PropTypes from 'prop-types';
 
 import Title from '~/atoms/Title';
 
-import Section from '~/styles/section';
+import Project from '~/molecules/Project';
+
+import { Container } from './styles';
+
+const data = [1, 2, 3, 4];
 
 function Projects({ forwardRef }) {
   return (
-    <Section id="projects" ref={forwardRef}>
+    <Container id="projects" ref={forwardRef}>
       <Title>Projects</Title>
-    </Section>
+      <ul>
+        {data.map(item => (
+          <Project
+            key={item}
+            title="Meetapp"
+            description="App agregador de eventos para desenvolvedores"
+            tags={['ReactJS', 'React Native', 'Node.js']}
+          />
+        ))}
+      </ul>
+    </Container>
   );
 }
 
