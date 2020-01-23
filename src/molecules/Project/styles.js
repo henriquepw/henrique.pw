@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { primaryColor } from '~/styles/colors';
+import Media from '~/styles/media';
 
 export const Container = styled.li`
   background-color: #fff;
@@ -9,7 +10,7 @@ export const Container = styled.li`
   height: 100%;
 
   max-width: 325px;
-  max-height: 154px;
+  height: 160px;
 
   border-left: 2px solid ${primaryColor.active};
   border-right: 2px solid ${primaryColor.active};
@@ -21,31 +22,43 @@ export const Container = styled.li`
   position: relative;
   cursor: pointer;
 
-  h1,
-  ul {
-    text-transform: capitalize;
-  }
-
-  h1 {
-    font-weight: 400;
-    font-size: 1.5rem;
-
-    margin: 16px 0;
-  }
-
-  p {
-    margin: 0 24px;
-    transition: 0.3s ease;
-  }
-
-  ul {
+  a {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
 
-    margin: 24px 24px 16px 24px;
-    color: ${primaryColor.active};
-    font-size: 0.875rem;
+    height: 100%;
+
+    h1,
+    ul {
+      text-transform: capitalize;
+    }
+
+    h1 {
+      font-weight: 400;
+      font-size: 1.5rem;
+
+      margin: 16px 0;
+    }
+
+    p {
+      margin: auto 24px;
+      transition: 0.3s ease;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin: 16px 24px;
+      color: ${primaryColor.active};
+      font-size: 0.875rem;
+
+      li + li {
+        margin-left: 8px;
+      }
+    }
   }
 
   span {
@@ -119,4 +132,20 @@ export const Container = styled.li`
       opacity: 0.1;
     }
   }
+
+  ${Media.bigPhone`
+    a {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.15rem;
+      }
+
+      ul {
+        font-size: 1rem;
+      }
+    }
+  `}
 `;
