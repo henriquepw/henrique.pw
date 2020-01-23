@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
-import SectionsContext from '~/context/sectionsContext';
+import SectionsContext from '~/context/SectionsContext';
 
 function Scroll({ refs }) {
   const { selected, setSelectedByName, pageHeight } = useContext(

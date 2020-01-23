@@ -4,7 +4,7 @@ import { motion, useTransform } from 'framer-motion';
 
 import SocialList from '~/molecules/SocialList';
 
-import SectionsContext from '~/context/sectionsContext';
+import SectionsContext from '~/context/SectionsContext';
 
 import { Container, ProfileImg, Divider } from './styles';
 

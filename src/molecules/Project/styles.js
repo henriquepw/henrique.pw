@@ -15,11 +15,16 @@ export const Container = styled.li`
   border-right: 2px solid ${primaryColor.active};
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
 
-  /* overflow: hidden; */
+  overflow: hidden;
   text-align: center;
   transition: 0.3s ease;
   position: relative;
   cursor: pointer;
+
+  h1,
+  ul {
+    text-transform: capitalize;
+  }
 
   h1 {
     font-weight: 400;
@@ -29,6 +34,7 @@ export const Container = styled.li`
   }
 
   p {
+    margin: 0 24px;
     transition: 0.3s ease;
   }
 
@@ -37,11 +43,12 @@ export const Container = styled.li`
     align-items: center;
     justify-content: space-between;
 
-    margin: 24px 36px 16px 36px;
+    margin: 24px 24px 16px 24px;
     color: ${primaryColor.active};
+    font-size: 0.875rem;
   }
 
-  button {
+  span {
     position: absolute;
     color: ${primaryColor.active};
 
@@ -90,8 +97,9 @@ export const Container = styled.li`
       transform: translateY(-30px) translateZ(0);
     }
 
-    button {
+    span {
       transform: translate(-50%, -50%);
+      user-select: auto;
       pointer-events: all;
       opacity: 1;
     }
@@ -99,6 +107,7 @@ export const Container = styled.li`
     &::after {
       content: '';
       position: absolute;
+      pointer-events: none;
 
       top: 0;
       left: 0;

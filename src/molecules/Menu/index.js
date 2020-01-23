@@ -3,7 +3,7 @@ import { FiMenu } from 'react-icons/fi';
 
 import { motion, useAnimation } from 'framer-motion';
 
-import SectionsContext from '~/context/sectionsContext';
+import SectionsContext from '~/context/SectionsContext';
 
 import { Container, MenuItem } from './styles';
 

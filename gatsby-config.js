@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require(`path`);
 
 const siteMetadata = require('./config/metadata');
@@ -40,12 +42,12 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-polished`,
-    {
+    /* {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: `#634D90`,
       },
-    },
+    }, */
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

@@ -13,7 +13,7 @@ import Skills from '~/organismis/Skills';
 
 import Layout from '~/templates/Layout';
 
-import SectionsContext from '~/context/sectionsContext';
+import SectionsContext from '~/context/SectionsContext';
 
 import { Content } from './styles';
 
@@ -67,7 +67,7 @@ function Main() {
         <Home ref={sections[0]} />
         <Education ref={sections[1]} />
         <Skills ref={sections[2]} />
-        <Projects forwardRef={sections[3]} />
+        <Projects ref={sections[3]} />
         <About ref={sections[4]} />
         <Footer />
       </Content>
