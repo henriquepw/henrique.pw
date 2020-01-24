@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
+import { motion } from 'framer-motion';
+
 import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
-export const Container = styled.li`
+export const Container = styled(motion.li)`
   background-color: #fff;
 
   width: 100%;

@@ -1,12 +1,15 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef, useContext, useEffect } from 'react';
 import { Query } from 'react-apollo';
 import { FaGithub } from 'react-icons/fa';
 
+import { motion, useAnimation } from 'framer-motion';
 import gql from 'graphql-tag';
 
 import Title from '~/atoms/Title';
 
 import Project from '~/molecules/Project';
+
+import SectionsContext from '~/context/SectionsContext';
 
 import { Container } from './styles';
 
@@ -46,12 +49,38 @@ const QUERY = gql`
     }
   }
 `;
+const listAnimaton = {
+  hidden: (delay = 0.4) => ({
+    opacity: 0,
+    transition: {
+      when: 'afterChildren',
+      staggerChildren: 0.05,
+      delay,
+    },
+  }),
+  initial: (delay = 0.4) => ({
+    opacity: 1,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.05,
+      delay,
+    },
+  }),
+};
 
 const Projects = forwardRef((_, ref) => {
+  const { selected } = useContext(SectionsContext);
+
+  const controlAnimaton = useAnimation();
+
+  useEffect(() => {
+    controlAnimaton.start(selected === 'projects' ? 'initial' : 'hidden');
+  }, [controlAnimaton, selected]);
+
   return (
     <Container id="projects" ref={ref}>
       <Title>Projects</Title>
-      <ul>
+      <motion.ul variants={listAnimaton} animate={controlAnimaton}>
         <Query query={QUERY} variables={{}}>
           {({ data, loading }) => {
             if (loading) return <span>Loading...</span>;
@@ -66,7 +95,7 @@ const Projects = forwardRef((_, ref) => {
             return repos.map(repo => <Project key={repo.id} data={repo} />);
           }}
         </Query>
-      </ul>
+      </motion.ul>
       <a
         href="https://github.com/henry-ns"
         rel="noopener noreferrer"
