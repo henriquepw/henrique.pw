@@ -5,19 +5,16 @@ import PropsTypes from 'prop-types';
 import { Container } from './styles';
 
 const Project = ({ data }) => {
-  const tags = data.repositoryTopics.nodes.map(item =>
-    item.topic.name.replace('-', ' ')
+  const tags = data.topics.nodes.map(item =>
+    item.topic.name.replace(/-/g, ' ')
   );
+
+  const name = data.name.replace(/-/g, ' ');
 
   return (
     <Container>
-      <a
-        href={data.url}
-        alt={data.name}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <h1>{data.name}</h1>
+      <a href={data.url} alt={name} target="_blank" rel="noopener noreferrer">
+        <h1>{name}</h1>
         <p>{data.description}</p>
         <ul>
           {tags.map(tech => (
@@ -35,7 +32,7 @@ Project.propTypes = {
     url: PropsTypes.string,
     name: PropsTypes.string,
     description: PropsTypes.string,
-    repositoryTopics: PropsTypes.object,
+    topics: PropsTypes.object,
   }),
 };
 

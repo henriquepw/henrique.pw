@@ -4,7 +4,8 @@ import { Link } from 'gatsby';
 
 import Layout from '~/templates/Layout';
 
-import { primaryColor, secundaryColor } from '~/styles/colors';
+import button from '~/styles/button';
+import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 const slider = (x = '0', y = '0') => keyframes`
@@ -146,38 +147,5 @@ export const Container = styled(Layout)`
 `;
 
 export const Button = styled(Link)`
-  border: 1px solid ${primaryColor.active};
-  border-radius: 30px;
-  user-select: none;
-  font-size: 1.125rem;
-
-  margin-top: 88px;
-  padding: 16px 32px;
-  transition: 0.2s;
-  animation: ${slider('2em')} 1.3s 1 ease-out;
-
-  &:hover,
-  &:focus {
-    box-shadow: 3px 3px 15px -1px ${primaryColor.text};
-    background-color: ${primaryColor.active};
-    color: ${secundaryColor.text};
-  }
-
-  &:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 2px -1px ${primaryColor.text};
-  }
-
-  ${Media.tablet`
-    font-size: 1em;
-
-    &:hover,
-    &:focus {
-      box-shadow: 2px 2px 10px -2px ${primaryColor.text};
-    }
-
-    &:active {
-      box-shadow: 2px 2px 2px -2px ${primaryColor.text};
-    }
-  `}
+  ${button}
 `;

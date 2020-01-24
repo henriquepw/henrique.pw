@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import button from '~/styles/button';
 import Media from '~/styles/media';
 import Section from '~/styles/section';
 
@@ -42,4 +43,21 @@ export const Container = styled(Section)`
       gap: 48px;
     }
   `}
+
+  > a {
+    ${button}
+
+    display: flex;
+    align-items: center;
+
+    margin: auto 0 80px;
+    padding: 12px 24px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+
+      margin-left: 8px;
+    }
+  }
 `;
