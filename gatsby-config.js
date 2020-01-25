@@ -53,16 +53,11 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-polished`,
-    /* {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        color: `#634D90`,
-      },
-    }, */
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-154984485-1',
+        trackingId: process.env.GOOGLE_ANALYTICS,
+        head: true,
       },
     },
     {

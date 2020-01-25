@@ -10,7 +10,7 @@ function Profile({ className }) {
     query {
       image: file(relativePath: { eq: "profile.jpg" }) {
         sharp: childImageSharp {
-          fluid(maxWidth: 300, quality: 100) {
+          fluid(maxWidth: 140, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
