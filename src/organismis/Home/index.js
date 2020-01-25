@@ -2,11 +2,13 @@ import React, { useContext, forwardRef } from 'react';
 
 import { motion, useTransform } from 'framer-motion';
 
+import Profile from '~/atoms/Profile';
+
 import SocialList from '~/molecules/SocialList';
 
 import SectionsContext from '~/context/SectionsContext';
 
-import { Container, ProfileImg, Divider } from './styles';
+import { Container, Divider } from './styles';
 
 const Home = forwardRef((_, ref) => {
   const { scrollY, pageHeight } = useContext(SectionsContext);
@@ -24,7 +26,7 @@ const Home = forwardRef((_, ref) => {
   return (
     <Container id="home" ref={ref}>
       <motion.div style={{ opacity, y, width: '100%' }}>
-        <ProfileImg />
+        <Profile />
         <h1>
           Henrique <strong>Miranda</strong>
         </h1>

@@ -1,7 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import Profile from '~/atoms/Profile';
-
 import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 import Section from '~/styles/section';
@@ -65,35 +63,9 @@ const groupArrow = (from, to) => keyframes`
   }
 `;
 
-const showUp = keyframes`
-  0%,
-  70% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
 /**
  * Components styles
  */
-export const ProfileImg = styled(Profile)`
-  width: 160px;
-  height: 160px;
-
-  margin: -40px auto 40px auto;
-  box-sizing: border-box;
-
-  display: block;
-  animation: ${showUp} 3s ease-out;
-
-  ${Media.bigPhone`
-    width: 140px;
-    height: 140px;
-  `}
-`;
 
 export const Container = styled(Section)`
   justify-content: center;
