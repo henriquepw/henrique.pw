@@ -1,13 +1,69 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 
-import SectionsContext from '~/context/sectionsContext';
+import { motion, useAnimation } from 'framer-motion';
 
-import { Container, MenuItem, ProfileImg } from './styles';
+import SectionsContext from '~/context/SectionsContext';
+
+import { Container, MenuItem } from './styles';
+
+const listAnimation = {
+  hidden: {
+    x: '100%',
+    transition: {
+      type: 'spring',
+      damping: 15,
+      when: 'afterChildren',
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+  show: {
+    x: 0,
+    transition: {
+      type: 'tween',
+      duration: 0.6,
+      ease: 'easeOut',
+      when: 'beforeChildren',
+      staggerChildren: 0.07,
+    },
+  },
+};
+
+const itemAnimation = {
+  hidden: {
+    y: 40,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      when: 'afterChildren',
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  hover: {
+    scale: 1.15,
+  },
+  tap: {
+    scale: 0.95,
+  },
+};
 
 function Menu() {
+  const controlAnimation = useAnimation();
+
   const [pressed, setPressed] = useState(false);
   const { sections, selected, setSelectedByName } = useContext(SectionsContext);
+
+  useEffect(() => {
+    controlAnimation.start(pressed ? 'show' : 'hidden');
+  }, [controlAnimation, pressed]);
 
   function handlerSelected(event, name) {
     event.preventDefault();
@@ -21,21 +77,31 @@ function Menu() {
   return (
     <Container pressed={pressed}>
       <FiMenu size={40} onClick={() => setPressed(!pressed)} />
-      <ProfileImg />
 
-      <ul>
+      <motion.ul
+        initial="hidden"
+        variants={listAnimation}
+        animate={controlAnimation}
+      >
         {sections.map(name => (
-          <MenuItem key={name} selected={selected === name}>
-            <a
+          <MenuItem
+            key={name}
+            initial="hidden"
+            whileHover="hover"
+            whileTap="tap"
+            variants={itemAnimation}
+            selected={selected === name}
+          >
+            <motion.a
               href={`#${name}`}
               alt={`Go to the ${name} section`}
               onClick={e => handlerSelected(e, name)}
             >
               {name}
-            </a>
+            </motion.a>
           </MenuItem>
         ))}
-      </ul>
+      </motion.ul>
     </Container>
   );
 }

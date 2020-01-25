@@ -29,8 +29,12 @@ export const Container = styled(Section)`
         width: 72px;
         position: relative;
         margin: 16px 0;
+        backface-visibility: hidden;
 
         img {
+          width: 100%;
+          height: 100%;
+
           filter: grayscale(100%) opacity(80%);
           transition: filter 0.3s ease-out;
           z-index: 1;

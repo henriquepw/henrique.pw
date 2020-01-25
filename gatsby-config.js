@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require(`path`);
 
 const siteMetadata = require('./config/metadata');
@@ -31,6 +33,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `${__dirname}/src/pages`,
@@ -40,12 +53,12 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-polished`,
-    {
+    /* {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: `#634D90`,
       },
-    },
+    }, */
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

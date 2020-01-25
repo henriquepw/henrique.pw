@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { useAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-import SectionsContext from '~/context/sectionsContext';
+import SectionsContext from '~/context/SectionsContext';
 
 import { Container } from './styles';
 

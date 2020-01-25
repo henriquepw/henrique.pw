@@ -24,8 +24,8 @@ function Player() {
     }
   }, [music]);
 
-  function togglePlay(value = !play) {
-    if (currentIndex === -1) setCurrentIndex(0);
+  function togglePlay(value = !play, index = currentIndex) {
+    if (index === -1) setCurrentIndex(0);
     setPlay(value);
 
     if (value) music.play();
@@ -37,7 +37,7 @@ function Player() {
       music.src = playlist[index].preview_url;
 
       setCurrentIndex(index);
-      togglePlay(true);
+      togglePlay(true, index);
     } else {
       togglePlay();
     }

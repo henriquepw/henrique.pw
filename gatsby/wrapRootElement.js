@@ -1,13 +1,17 @@
 import React from 'react';
+import { ApolloProvider } from 'react-apollo';
 import { HelmetProvider } from 'react-helmet-async';
 
 import PropTypes from 'prop-types';
 
-import { SectionsProvider } from '../src/context/sectionsContext';
+import { client } from '../src/context/ApolloContext';
+import { SectionsProvider } from '../src/context/SectionsContext';
 
 export const wrapRootElement = ({ element }) => (
   <HelmetProvider>
-    <SectionsProvider>{element}</SectionsProvider>
+    <SectionsProvider>
+      <ApolloProvider client={client}>{element}</ApolloProvider>
+    </SectionsProvider>
   </HelmetProvider>
 );
 

@@ -1,7 +1,11 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useContext, useEffect } from 'react';
+
+import { motion, useAnimation } from 'framer-motion';
 
 import SkillItem from '~/atoms/SkillItem';
 import Title from '~/atoms/Title';
+
+import SectionsContext from '~/context/SectionsContext';
 
 import arduinoIcon from '~/assets/svgs/arduino.svg';
 import cIcon from '~/assets/svgs/c.svg';
@@ -72,19 +76,45 @@ const others = [
   },
 ];
 
+const listAnimaton = {
+  hidden: (delay = 0.4) => ({
+    y: 50,
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      delay,
+    },
+  }),
+  initial: (delay = 0.4) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay,
+    },
+  }),
+};
+
 const Skills = forwardRef((_, ref) => {
-  const [selected, setSelected] = useState(-1);
+  const { selected } = useContext(SectionsContext);
+  const [inFocus, setInFocus] = useState(-1);
+
+  const controlAnimaton = useAnimation();
+
+  useEffect(() => {
+    controlAnimaton.start(selected === 'skills' ? 'initial' : 'hidden');
+  }, [controlAnimaton, selected]);
 
   function handleTap(index) {
-    setSelected(selected === index ? -1 : index);
+    setInFocus(inFocus === index ? -1 : index);
   }
 
   function onHoverStart(index) {
-    setSelected(index);
+    setInFocus(index);
   }
 
   function onHoverEnd() {
-    setSelected(-1);
+    setInFocus(-1);
   }
 
   return (
@@ -92,33 +122,37 @@ const Skills = forwardRef((_, ref) => {
       <Title>Skills</Title>
       <div>
         <SubTitle>My Focus</SubTitle>
-        <ul>
+        <motion.ul variants={listAnimaton} animate={controlAnimaton}>
           {focus.map((item, index) => (
             <SkillItem
               src={item.icon}
               key={item.description}
               description={item.description}
-              isEnabled={index === selected}
+              isEnabled={index === inFocus}
               onTap={() => handleTap(index)}
               onHoverStart={() => onHoverStart(index)}
               onHoverEnd={onHoverEnd}
             />
           ))}
-        </ul>
+        </motion.ul>
         <SubTitle>I&apos;ve made cool things with</SubTitle>
-        <ul>
+        <motion.ul
+          custom={0.6}
+          variants={listAnimaton}
+          animate={controlAnimaton}
+        >
           {others.map((item, index) => (
             <SkillItem
               src={item.icon}
               key={item.description}
               description={item.description}
-              isEnabled={index + focus.length === selected}
+              isEnabled={index + focus.length === inFocus}
               onTap={() => handleTap(index + focus.length)}
               onHoverStart={() => onHoverStart(index + focus.length)}
               onHoverEnd={onHoverEnd}
             />
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </Container>
   );
