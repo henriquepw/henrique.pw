@@ -18,7 +18,6 @@ export const Container = styled(motion.li)`
   border-right: 2px solid ${primaryColor.active};
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
 
-  overflow: hidden;
   text-align: center;
   transition: 0.3s ease;
   position: relative;
@@ -28,6 +27,7 @@ export const Container = styled(motion.li)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 
     height: 100%;
 
@@ -133,6 +133,11 @@ export const Container = styled(motion.li)`
       background-color: ${primaryColor.text};
       opacity: 0.1;
     }
+  }
+
+  a:focus {
+    outline: 4px solid ${primaryColor.active};
+    outline-offset: 8px;
   }
 
   ${Media.bigPhone`

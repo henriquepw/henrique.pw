@@ -9,22 +9,22 @@ function GamesList() {
     query {
       gris: file(relativePath: { eq: "games/gris.jpg" }) {
         sharp: childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+          fluid(maxHeight: 200, maxWidth: 417, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       factorio: file(relativePath: { eq: "games/factorio.jpg" }) {
         sharp: childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+          fluid(maxHeight: 200, maxWidth: 417, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       talos: file(relativePath: { eq: "games/the-talos-principle.jpg" }) {
         sharp: childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+          fluid(maxHeight: 200, maxWidth: 417, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
