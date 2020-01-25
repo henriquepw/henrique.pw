@@ -50,22 +50,18 @@ const QUERY = gql`
   }
 `;
 const listAnimaton = {
-  hidden: (delay = 0.4) => ({
-    opacity: 0,
+  hidden: {
     transition: {
       when: 'afterChildren',
       staggerChildren: 0.05,
-      delay,
     },
-  }),
-  initial: (delay = 0.4) => ({
-    opacity: 1,
+  },
+  initial: {
     transition: {
       when: 'beforeChildren',
       staggerChildren: 0.05,
-      delay,
     },
-  }),
+  },
 };
 
 const Projects = forwardRef((_, ref) => {
