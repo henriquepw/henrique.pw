@@ -37,7 +37,6 @@ function Scroll({ refs }) {
 }
 
 Scroll.propTypes = {
-  // pageHeight: PropTypes.number.isRequired,
   refs: PropTypes.arrayOf(
     PropTypes.shape({
       current: PropTypes.object,

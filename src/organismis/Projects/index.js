@@ -59,7 +59,7 @@ const listAnimaton = {
   initial: {
     transition: {
       when: 'beforeChildren',
-      staggerChildren: 0.05,
+      staggerChildren: 0.1,
     },
   },
 };

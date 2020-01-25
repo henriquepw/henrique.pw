@@ -59,7 +59,9 @@ function Menu() {
   const controlAnimation = useAnimation();
 
   const [pressed, setPressed] = useState(false);
-  const { sections, selected, setSelectedByName } = useContext(SectionsContext);
+  const { sections /* selected,  setSelectedByName */ } = useContext(
+    SectionsContext
+  );
 
   useEffect(() => {
     controlAnimation.start(pressed ? 'show' : 'hidden');
@@ -68,15 +70,19 @@ function Menu() {
   function handlerSelected(event, name) {
     event.preventDefault();
 
-    setSelectedByName(name);
+    // setSelectedByName(name);
     setPressed(!pressed);
 
     document.getElementById(name).scrollIntoView();
   }
 
+  function handleBurgerClick() {
+    setPressed(!pressed);
+  }
+
   return (
     <Container pressed={pressed}>
-      <FiMenu size={40} onClick={() => setPressed(!pressed)} />
+      <FiMenu size={40} onClick={handleBurgerClick} />
 
       <motion.ul
         initial="hidden"
@@ -90,7 +96,7 @@ function Menu() {
             whileHover="hover"
             whileTap="tap"
             variants={itemAnimation}
-            selected={selected === name}
+            // selected={selected === name}
           >
             <motion.a
               href={`#${name}`}
