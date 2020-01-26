@@ -106,14 +106,13 @@ export const Description = styled.div`
 
   h1 {
     font-size: 1.5rem;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   p {
     width: 100%;
     max-width: 285px;
 
-    font-weight: 400;
     line-height: 1.25rem;
     letter-spacing: 0.03rem;
   }

@@ -87,6 +87,10 @@ export const Container = styled(Section)`
     letter-spacing: 6px;
     padding-bottom: 16px;
     animation: name 2.5s 1;
+
+    strong {
+      font-weight: 700;
+    }
   }
 
   h2 {
