@@ -9,8 +9,8 @@
   <a href="https://github.com/henry-ns/portfolio/graphs/commit-activity" alt="Maintenance">
     <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://henriquemiranda.netlify.com" alt="Website henriquemiranda.netlify.com">
-    <img src="https://img.shields.io/website-up-down-green-red/https/henriquemiranda.netlify.com" />
+  <a href="https://thehenry.dev" alt="Website thehenry.dev">
+    <img src="https://img.shields.io/website-up-down-green-red/https/thehenry.dev" />
   </a>
   <a href="./LICENSE" alt="License: MIT">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
