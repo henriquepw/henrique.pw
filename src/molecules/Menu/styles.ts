@@ -5,7 +5,15 @@ import { motion } from 'framer-motion';
 import { primaryColor, secundaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
-export const Container = styled.nav`
+interface ContainerProps {
+  pressed?: boolean;
+}
+
+interface MenuItemProps {
+  selected?: boolean;
+}
+
+export const Container = styled.nav<ContainerProps>`
   z-index: 5;
 
   top: 0;
@@ -99,7 +107,7 @@ export const Container = styled.nav`
     `}
 `;
 
-export const MenuItem = styled(motion.li)`
+export const MenuItem = styled(motion.li)<MenuItemProps>`
   & + & {
     margin-top: 32px;
   }

@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 
 import { motion, useAnimation } from 'framer-motion';
 
-import SectionsContext from '~/context/SectionsContext';
+import { sections } from '~/context/SectionsContext';
 
 import { Container, MenuItem } from './styles';
 
@@ -59,21 +59,22 @@ function Menu() {
   const controlAnimation = useAnimation();
 
   const [pressed, setPressed] = useState(false);
-  const { sections /* selected,  setSelectedByName */ } = useContext(
-    SectionsContext
-  );
+  /* selected,  setSelectedByName */
 
   useEffect(() => {
     controlAnimation.start(pressed ? 'show' : 'hidden');
   }, [controlAnimation, pressed]);
 
-  function handlerSelected(event, name) {
+  function handlerSelected(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    name: string
+  ) {
     event.preventDefault();
 
     // setSelectedByName(name);
     setPressed(!pressed);
 
-    document.getElementById(name).scrollIntoView();
+    return document.getElementById(name)?.scrollIntoView();
   }
 
   function handleBurgerClick() {
@@ -89,7 +90,7 @@ function Menu() {
         variants={listAnimation}
         animate={controlAnimation}
       >
-        {sections.map(name => (
+        {sections.map((name: string) => (
           <MenuItem
             key={name}
             initial="hidden"
@@ -98,11 +99,7 @@ function Menu() {
             variants={itemAnimation}
             // selected={selected === name}
           >
-            <motion.a
-              href={`#${name}`}
-              alt={`Go to the ${name} section`}
-              onClick={e => handlerSelected(e, name)}
-            >
+            <motion.a href={`#${name}`} onClick={e => handlerSelected(e, name)}>
               {name}
             </motion.a>
           </MenuItem>

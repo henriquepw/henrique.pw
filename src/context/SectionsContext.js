@@ -4,7 +4,7 @@ import { useViewportScroll } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 const SectionsContext = createContext();
-const sections = ['home', 'education', 'skills', 'projects', 'about'];
+export const sections = ['home', 'education', 'skills', 'projects', 'about'];
 
 export function SectionsProvider({ children }) {
   const [selected, setSelectedByName] = useState('home');
@@ -15,8 +15,8 @@ export function SectionsProvider({ children }) {
     <SectionsContext.Provider
       value={{
         scrollY,
-        sections,
         selected,
+        sections,
         setSelectedByName,
         setPageHeight,
         pageHeight,

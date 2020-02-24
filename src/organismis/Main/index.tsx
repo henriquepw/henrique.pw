@@ -60,7 +60,9 @@ function Main() {
   }, []);
 
   return (
-    <Layout title={`${selected.replace(/\b\w/g, l => l.toUpperCase())} | `}>
+    <Layout
+      title={`${selected.replace(/\b\w/g, (l: string) => l.toUpperCase())} | `}
+    >
       <Scroll refs={sections} />
       <Menu />
       <Content>
