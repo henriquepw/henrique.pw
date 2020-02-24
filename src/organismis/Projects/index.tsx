@@ -1,7 +1,12 @@
-import React, { forwardRef, useContext, useEffect } from 'react';
-import { Query } from 'react-apollo';
+import React, {
+  forwardRef,
+  useContext,
+  useEffect,
+  ForwardRefRenderFunction,
+} from 'react';
 import { FaGithub } from 'react-icons/fa';
 
+import { useQuery } from '@apollo/react-hooks';
 import { motion, useAnimation } from 'framer-motion';
 import gql from 'graphql-tag';
 
@@ -49,6 +54,7 @@ const QUERY = gql`
     }
   }
 `;
+
 const listAnimaton = {
   hidden: {
     transition: {
@@ -64,8 +70,34 @@ const listAnimaton = {
   },
 };
 
-const Projects = forwardRef((_, ref) => {
+type Repository = {
+  id: string;
+  url: string;
+  name: string;
+  description: string;
+  topics: {
+    nodes: {
+      topic: {
+        name: string;
+      };
+    };
+  };
+};
+
+interface QueryData {
+  viewer: {
+    repos: {
+      nodes: Repository[];
+    };
+    repo1: Repository;
+    repo2: Repository;
+    repo3: Repository;
+  };
+}
+
+const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
   const { selected } = useContext(SectionsContext);
+  const { data, loading } = useQuery<QueryData, {}>(QUERY);
 
   const controlAnimaton = useAnimation();
 
@@ -77,20 +109,18 @@ const Projects = forwardRef((_, ref) => {
     <Container id="projects" ref={ref}>
       <Title>Projects</Title>
       <motion.ul variants={listAnimaton} animate={controlAnimaton}>
-        <Query query={QUERY} variables={{}}>
-          {({ data, loading }) => {
-            if (loading) return <span>Loading...</span>;
+        {(() => {
+          if (loading) return <span>Loading...</span>;
 
-            const repos = [
-              ...data.viewer.repos.nodes,
-              data.viewer.repo1,
-              data.viewer.repo2,
-              data.viewer.repo3,
-            ];
+          const repos = [
+            ...data!.viewer.repos.nodes,
+            data!.viewer.repo1,
+            data!.viewer.repo2,
+            data!.viewer.repo3,
+          ];
 
-            return repos.map(repo => <Project key={repo.id} data={repo} />);
-          }}
-        </Query>
+          return repos.map(repo => <Project key={repo.id} data={repo} />);
+        })()}
       </motion.ul>
       <a
         href="https://github.com/henry-ns"
@@ -101,6 +131,6 @@ const Projects = forwardRef((_, ref) => {
       </a>
     </Container>
   );
-});
+};
 
-export default React.memo(Projects);
+export default React.memo(forwardRef(Projects));

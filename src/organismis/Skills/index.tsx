@@ -1,4 +1,10 @@
-import React, { forwardRef, useState, useContext, useEffect } from 'react';
+import React, {
+  forwardRef,
+  useState,
+  useContext,
+  useEffect,
+  ForwardRefRenderFunction,
+} from 'react';
 
 import { motion, useAnimation } from 'framer-motion';
 
@@ -95,7 +101,7 @@ const listAnimaton = {
   }),
 };
 
-const Skills = forwardRef((_, ref) => {
+const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
   const { selected } = useContext(SectionsContext);
   const [inFocus, setInFocus] = useState(-1);
 
@@ -105,11 +111,11 @@ const Skills = forwardRef((_, ref) => {
     controlAnimaton.start(selected === 'skills' ? 'initial' : 'hidden');
   }, [controlAnimaton, selected]);
 
-  function handleTap(index) {
+  function handleTap(index: number) {
     setInFocus(inFocus === index ? -1 : index);
   }
 
-  function onHoverStart(index) {
+  function onHoverStart(index: number) {
     setInFocus(index);
   }
 
@@ -156,6 +162,6 @@ const Skills = forwardRef((_, ref) => {
       </div>
     </Container>
   );
-});
+};
 
-export default Skills;
+export default forwardRef(Skills);

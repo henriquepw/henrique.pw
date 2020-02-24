@@ -1,7 +1,6 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef, RefObject, useEffect } from 'react';
 
 import { motion, useAnimation } from 'framer-motion';
-// import PropTypes from 'prop-types';
 
 import SubTitle from '~/atoms/SubTitle';
 import Title from '~/atoms/Title';
@@ -30,20 +29,22 @@ const variants = {
   }),
 };
 
-const About = forwardRef((_, ref) => {
+const About = forwardRef<HTMLElement>((_: {}, ref) => {
   const controls = useAnimation();
 
   useEffect(() => {
-    function onVisible([{ isIntersecting }]) {
+    function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {
       controls.start(isIntersecting ? 'visible' : 'hidden');
     }
 
     const observer = new IntersectionObserver(onVisible, {
-      rootMargin: `0px 0px -50% 0px`,
+      rootMargin: '0px 0px -50% 0px',
     });
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const { current } = ref as RefObject<HTMLElement>;
+
+    if (current) {
+      observer.observe(current);
     }
 
     return () => observer.disconnect();

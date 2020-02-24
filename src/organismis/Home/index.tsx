@@ -10,7 +10,7 @@ import SectionsContext from '~/context/SectionsContext';
 
 import { Container, Divider } from './styles';
 
-const Home = forwardRef((_, ref) => {
+const Home = forwardRef<HTMLElement>((_, ref) => {
   const { scrollY, pageHeight } = useContext(SectionsContext);
 
   const opacity = useTransform(scrollY, [0, pageHeight], [1, 0]);
@@ -18,9 +18,12 @@ const Home = forwardRef((_, ref) => {
     clamp: false,
   });
 
-  function handleNextSection(e) {
+  function handleNextSection(
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) {
     e.preventDefault();
-    document.getElementById('education').scrollIntoView();
+
+    return document.getElementById('education')?.scrollIntoView();
   }
 
   return (
@@ -38,7 +41,6 @@ const Home = forwardRef((_, ref) => {
       </motion.div>
       <a
         href="#education"
-        alt="next section"
         aria-label="next section"
         onClick={handleNextSection}
       >

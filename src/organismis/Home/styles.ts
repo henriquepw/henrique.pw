@@ -54,7 +54,7 @@ const poin = keyframes`
   }
 `;
 
-const groupArrow = (from, to) => keyframes`
+const groupArrow = (from: string, to: string) => keyframes`
   from {
     transform: translateY(${from});
   }
@@ -67,7 +67,11 @@ const groupArrow = (from, to) => keyframes`
  * Components styles
  */
 
-export const Container = styled(Section)`
+interface ContainerProps {
+  height?: number;
+}
+
+export const Container = styled(Section)<ContainerProps>`
   justify-content: center;
   min-height: ${({ height }) => (height ? `${height}px` : '100vh')};
 
