@@ -1,39 +1,39 @@
 require('dotenv').config();
 
-const path = require(`path`);
+const path = require('path');
 
 const siteMetadata = require('./config/metadata');
 
 module.exports = {
   siteMetadata,
   plugins: [
-    `gatsby-plugin-react-helmet-async`,
+    'gatsby-plugin-react-helmet-async',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/assets`,
       },
     },
-    `gatsby-plugin-sitemap`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-netlify`,
-    `gatsby-plugin-netlify-cache`,
+    'gatsby-plugin-sitemap',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-netlify-cache',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Henrique Miranda`,
-        short_name: `Henrique`,
-        start_url: `/`,
-        background_color: `#F2F1F0`,
-        theme_color: `#634D90`,
-        display: `minimal-ui`,
-        icon: `src/assets/icon.png`,
+        name: 'Henrique Miranda',
+        short_name: 'Henrique',
+        start_url: '/',
+        background_color: '#F2F1F0',
+        theme_color: '#634D90',
+        display: 'minimal-ui',
+        icon: 'src/assets/icon.png',
       },
     },
     {
-      resolve: `gatsby-source-graphql`,
+      resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'GitHub',
         fieldName: 'github',
@@ -44,28 +44,35 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-page-creator`,
+      resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/src/pages`,
-        ignore: [`**/styles.js`],
+        ignore: ['**/styles.js'],
       },
     },
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-preload-fonts`,
-    `gatsby-plugin-polished`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-typescript',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
-        head: true,
+        isTSX: true,
+        allExtensions: true,
       },
     },
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-preload-fonts',
+    'gatsby-plugin-polished',
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     trackingId: process.env.GOOGLE_ANALYTICS,
+    //     head: true,
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-root-import`,
+      resolve: 'gatsby-plugin-root-import',
       options: {
         '~': path.join(__dirname, 'src'),
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 };
