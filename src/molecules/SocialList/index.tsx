@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, FC } from 'react';
 import {
   FiGithub,
   FiLinkedin,
@@ -6,8 +6,6 @@ import {
   FiTwitter,
   FiMail,
 } from 'react-icons/fi';
-
-import PropTypes from 'prop-types';
 
 import SocialIcon from '~/atoms/SocialIcon';
 
@@ -46,7 +44,12 @@ const data = [
   },
 ];
 
-function SocialList({ excluded, isAnimated }) {
+interface Props {
+  isAnimated?: boolean;
+  excluded: string[];
+}
+
+const SocialList: FC<Props> = ({ excluded, isAnimated }) => {
   const dataFiltered = useMemo(
     () => data.filter(item => !excluded.includes(item.name)),
     [excluded]
@@ -54,27 +57,20 @@ function SocialList({ excluded, isAnimated }) {
 
   return (
     <Container isAnimated={isAnimated}>
-      {dataFiltered.map(item => {
-        return (
-          <li key={item.link}>
-            <SocialIcon link={item.link} alt={item.description}>
-              {item.component}
-            </SocialIcon>
-          </li>
-        );
-      })}
+      {dataFiltered.map(item => (
+        <li key={item.link}>
+          <SocialIcon link={item.link} alt={item.description}>
+            {item.component}
+          </SocialIcon>
+        </li>
+      ))}
     </Container>
   );
-}
+};
 
 SocialList.defaultProps = {
   excluded: [],
   isAnimated: true,
-};
-
-SocialList.propTypes = {
-  excluded: PropTypes.arrayOf(PropTypes.string),
-  isAnimated: PropTypes.bool,
 };
 
 export default SocialList;

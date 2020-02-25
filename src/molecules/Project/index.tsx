@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import PropsTypes from 'prop-types';
 
@@ -17,7 +17,22 @@ const ProjectAnimation = {
   },
 };
 
-const Project = ({ data }) => {
+interface Props {
+  data: {
+    url: string;
+    name: string;
+    description: string;
+    topics: {
+      nodes: {
+        topic: {
+          name: string;
+        };
+      }[];
+    };
+  };
+}
+
+const Project: FC<Props> = ({ data }) => {
   const tags = data.topics.nodes.map(item =>
     item.topic.name.replace(/-/g, ' ')
   );
@@ -26,7 +41,7 @@ const Project = ({ data }) => {
 
   return (
     <Container variants={ProjectAnimation}>
-      <a href={data.url} alt={name} target="_blank" rel="noopener noreferrer">
+      <a href={data.url} target="_blank" rel="noopener noreferrer">
         <h1>{name}</h1>
         <p>{data.description}</p>
         <ul>
@@ -38,19 +53,6 @@ const Project = ({ data }) => {
       </a>
     </Container>
   );
-};
-
-Project.propTypes = {
-  data: PropsTypes.shape({
-    url: PropsTypes.string,
-    name: PropsTypes.string,
-    description: PropsTypes.string,
-    topics: PropsTypes.object,
-  }),
-};
-
-Project.defaultProps = {
-  data: {},
 };
 
 export default Project;

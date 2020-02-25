@@ -5,6 +5,10 @@ import { opacify } from 'polished';
 import { primaryColor, secundaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
+interface MusicProps {
+  selected?: boolean;
+}
+
 export const Container = styled.section`
   display: flex;
   align-items: center;
@@ -103,7 +107,7 @@ export const Container = styled.section`
   `}
 `;
 
-export const Music = styled.li`
+export const Music = styled.li<MusicProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;

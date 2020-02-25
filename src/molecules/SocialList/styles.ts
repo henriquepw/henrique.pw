@@ -9,7 +9,11 @@ const icon = keyframes`
   }
 `;
 
-export const Container = styled.ul`
+interface Props {
+  isAnimated?: boolean;
+}
+
+export const Container = styled.ul<Props>`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -32,7 +32,7 @@ function Player() {
     else music.pause();
   }
 
-  function handlePlaying(index) {
+  function handlePlaying(index: number) {
     if (index !== currentIndex) {
       music.src = playlist[index].preview_url;
 

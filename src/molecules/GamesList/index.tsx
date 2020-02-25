@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, FC } from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Game from '~/atoms/Game';
 
-function GamesList() {
+const GamesList: FC = () => {
   const { gris, factorio, talos } = useStaticQuery(graphql`
     query {
       gris: file(relativePath: { eq: "games/gris.jpg" }) {
@@ -67,6 +67,6 @@ function GamesList() {
       ))}
     </ol>
   );
-}
+};
 
 export default GamesList;
