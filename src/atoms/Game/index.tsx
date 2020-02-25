@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, FC } from 'react';
 
 import { useAnimation, motion } from 'framer-motion';
 import { FluidObject } from 'gatsby-image';
-import PropTypes from 'prop-types';
 
 import { Container, Image, Description } from './styles';
 
@@ -25,17 +24,23 @@ const variants = {
   }),
 };
 
-function Game({ name, description, fluid }) {
+interface Props {
+  name: string;
+  description: string;
+  fluid: FluidObject;
+}
+
+const Game: FC<Props> = ({ name, description, fluid }) => {
   const controls = useAnimation();
-  const ref = useRef();
+  const ref = useRef<HTMLElement>();
 
   useEffect(() => {
-    function onVisible([{ isIntersecting }]) {
+    function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {
       controls.start(isIntersecting ? 'visible' : 'hidden');
     }
 
     const observer = new IntersectionObserver(onVisible, {
-      rootMargin: `0px 0px -30% 0px`,
+      rootMargin: '0px 0px -30% 0px',
     });
 
     if (ref.current) {
@@ -58,12 +63,6 @@ function Game({ name, description, fluid }) {
       </Description>
     </Container>
   );
-}
-
-Game.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  fluid: PropTypes.shape(FluidObject).isRequired,
 };
 
 export default Game;

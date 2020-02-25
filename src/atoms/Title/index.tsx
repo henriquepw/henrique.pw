@@ -1,14 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, FC } from 'react';
 
 import { useAnimation } from 'framer-motion';
-import PropTypes from 'prop-types';
 
 import SectionsContext from '~/context/SectionsContext';
 
 import { Container } from './styles';
 
 const variants = {
-  visible: delay => ({
+  visible: (delay: number) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -22,7 +21,12 @@ const variants = {
   },
 };
 
-function Title({ children, animateDelay }) {
+interface Props {
+  animateDelay?: number;
+  children: string;
+}
+
+const Title: FC<Props> = ({ children, animateDelay }) => {
   const { selected } = useContext(SectionsContext);
   const controls = useAnimation();
 
@@ -35,15 +39,10 @@ function Title({ children, animateDelay }) {
       {children}
     </Container>
   );
-}
+};
 
 Title.defaultProps = {
   animateDelay: 0.2,
-};
-
-Title.propTypes = {
-  children: PropTypes.string.isRequired,
-  animateDelay: PropTypes.number,
 };
 
 export default Title;

@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 
-import PropsTypes from 'prop-types';
-
 import { Container } from './styles';
 
 const ProjectAnimation = {

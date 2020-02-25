@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, FC } from 'react';
 
 import { motion, useAnimation } from 'framer-motion';
-import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
@@ -14,7 +13,7 @@ const variants = {
       delay,
     },
   }),
-  hidden: delay => ({
+  hidden: (delay: number) => ({
     y: 30,
     opacity: 0,
     transition: {
@@ -24,12 +23,18 @@ const variants = {
   }),
 };
 
-function TimelineItem({ year, title, description }) {
+interface Props {
+  year: number;
+  title: string;
+  description: string;
+}
+
+const TimelineItem: FC<Props> = ({ year, title, description }) => {
   const controls = useAnimation();
-  const ref = useRef();
+  const ref = useRef<HTMLElement>();
 
   useEffect(() => {
-    function onVisible([{ isIntersecting }]) {
+    function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {
       controls.start(isIntersecting ? 'visible' : 'hidden');
     }
 
@@ -59,12 +64,6 @@ function TimelineItem({ year, title, description }) {
       </div>
     </Container>
   );
-}
-
-TimelineItem.propTypes = {
-  year: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
 };
 
 export default TimelineItem;

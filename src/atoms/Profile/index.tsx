@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-function Profile({ className }) {
+interface Props {
+  className?: string;
+}
+
+const Profile: FC<Props> = ({ className }) => {
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "profile.jpg" }) {
@@ -19,14 +22,10 @@ function Profile({ className }) {
   `);
 
   return <Container className={className} fluid={image.sharp.fluid} />;
-}
+};
 
 Profile.defaultProps = {
   className: '',
-};
-
-Profile.propTypes = {
-  className: PropTypes.string,
 };
 
 export default Profile;
