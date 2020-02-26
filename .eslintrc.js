@@ -3,42 +3,69 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
+  extends: [
+    'react-app',
+    'airbnb',
+    'plugin:react/recommended',
+    'prettier/react',
+    'prettier/@typescript-eslint',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2018,
     sourceType: 'module',
+    project: './tsconfig.json',
     allowImportExportEverywhere: true,
   },
   plugins: [
     'react',
-    'jsx-a11y',
-    'import',
     'react-hooks',
     'prettier',
+    '@typescript-eslint',
     'import-helpers',
   ],
   rules: {
-    'prettier/prettier': 'error',
     camelcase: 'off',
+    'object-curly-newline': 'off',
+    'comma-dangle': 'off',
+    'arrow-parens': 'off',
+    'prettier/prettier': 'error',
     'global-require': 'off',
+    'react/prop-types': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
-    'no-console': ['error', { allow: ['tron'] }],
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
-    'react/jsx-one-expression-per-line': 'off',
+    'function-paren-newline': 'off', // temporary
+    'implicit-arrow-linebreak': 'off', // temporary
+    indent: 'off', // temporary
+    'operator-linebreak': 'off', // temporary
+    'react/jsx-filename-extension': [
+      'error',
+      {
+        extensions: ['.tsx'],
+      },
+    ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'import/prefer-default-export': 'off',
-    'import/no-extraneous-dependencies': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-member-accessibility': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'import-helpers/order-imports': [
       'warn',
       {
@@ -60,8 +87,16 @@ module.exports = {
     ],
   },
   settings: {
+    'import/extensions': ['js', 'jsx', '.ts', '.tsx'],
     'import/resolver': {
-      alias: [['~', './src']],
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+      alias: {
+        map: [['~', './src']],
+        extensions: ['.js', '.ts', '.tsx', '.d.ts', '.json'],
+      },
+    },
+    'import/resolver': {
+      typescript: {},
     },
   },
 };
