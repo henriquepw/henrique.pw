@@ -9,8 +9,4 @@ export const Content = styled.main`
   width: 100%;
   height: 100%;
   margin: 0 auto;
-
-  section {
-    height: 100vh;
-  }
 `;
