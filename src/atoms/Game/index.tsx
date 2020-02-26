@@ -32,7 +32,7 @@ interface Props {
 
 const Game: FC<Props> = ({ name, description, fluid }) => {
   const controls = useAnimation();
-  const ref = useRef<HTMLElement>();
+  const ref = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {

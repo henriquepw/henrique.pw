@@ -9,16 +9,16 @@ interface Props {
 }
 
 const SpotifyButton: FC<Props> = ({ item, selected, onClick }) => {
-  const buttonRef = useRef<HTMLElement>();
+  const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (buttonRef.current && selected) {
-      buttonRef.current.focus();
+    if (ref.current && selected) {
+      ref.current.focus();
     }
   }, [selected]);
 
   return (
-    <button type="button" onClick={onClick} ref={buttonRef}>
+    <button type="button" onClick={onClick} ref={ref}>
       {item.name} - {item.artists}
     </button>
   );

@@ -31,7 +31,7 @@ interface Props {
 
 const TimelineItem: FC<Props> = ({ year, title, description }) => {
   const controls = useAnimation();
-  const ref = useRef<HTMLElement>();
+  const ref = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {
