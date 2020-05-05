@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Icon" src="./src/assets/icon.png" width="60"/>
+  <img alt="Icon" src="./src/assets/icon.png" width="120"/>
 </p>
 <h1 align="center">
   My portfolio :)
@@ -7,38 +7,94 @@
 
 <p align="center">
   <a href="https://github.com/henry-ns/portfolio/graphs/commit-activity" alt="Maintenance">
-    <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+    <img src="https://img.shields.io/badge/Maintained%3F-yes-blue.svg" />
   </a>
-  <a href="https://thehenry.dev" alt="Website thehenry.dev">
-    <img src="https://img.shields.io/website-up-down-green-red/https/thehenry.dev" />
+  <a href="https://<link>" alt="Website <link>">
+    <img src="https://img.shields.io/website-up-down-blue-red/https/thehenry.dev" />
   </a>
+
+  <!-- License -->
   <a href="./LICENSE" alt="License: MIT">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
   </a>
+
+  <!-- codefactor -->
   <a href="https://www.codefactor.io/repository/github/henry-ns/portfolio" alt="CodeFactor">
     <img src="https://www.codefactor.io/repository/github/henry-ns/portfolio/badge" />
   </a>
-  <a href="https://app.netlify.com/sites/henriquemiranda/deploys" alt="Netlify Status">
+
+  <!-- if your app is a website deployed on Netlify -->
+  <a href="https://app.netlify.com/sites/<name>/deploys" alt="Netlify Status">
     <img src="https://api.netlify.com/api/v1/badges/73b460d0-9e11-4829-bb83-9752d12634b5/deploy-status" />
   </a>
+
+  <br/>
+
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/henry-ns/portfolio?color=blue">
+
+  <!-- version -->
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/henry-ns/portfolio">
+
+  <!-- GitHub repo size -->
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/henry-ns/portfolio">
+
+  <!-- Social -->
+  <a href="https://github.com/henry-ns/portfolio/stargazers">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/henry-ns/portfolio?style=social">
+  </a>
+
+  <!-- more badges here -> https://shields.io/ -->
 </p>
 
-> under construction...
+<!-- summary -->
+<p align="center">
+  <a href="#clipboard-description">Description</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-whats-inside">What's inside?</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
+
 
 ## :clipboard: Description
 My site that a little about me, my background, my projects, what I like, etc. This was my first project made using [Gatsby](https://www.gatsbyjs.org/) and [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/).
 
+
+## :rocket: Getting Started
+
+1. Download the repository
+
+  - Using Git
+```shell
+  git clone https://github.com/henry-ns/portfolio.git
+```
+  - Using Github CLI
+```shell
+  gh repo clone henry-ns/portfolio
+```
+> :bulb: or whichever way you prefer
+
+2. Installation
+
+Inside the repo folder, run `yarn` or `npm install` command to install the dependencies.
+
+3. Execution
+
+run `yarn start` or `npm start` command to start a local server and get a test! :rocket:
+
+> :bulb: If you use another package manager, run the reference commands for install the dependencies and execute the start script on package.json
+
 ## 🧐 What's inside?
 
-### Technologies
+### :building_construction: Technologies
 - [Gatsby](https://www.gatsbyjs.org/)
 - [ReactJS](https://reactjs.org/)
 
-### Linter tools
+### :lipstick: Linter tools
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
+- [EditorConfig](https://editorconfig.org/)
 
-### Packages
+### :package: Packages
 - [Framer Motion](https://www.framer.com/api/motion)
 - [React Helmet Async](https://github.com/staylor/react-helmet-async)
 - [React Icons](https://react-icons.netlify.com/#/)
@@ -47,7 +103,7 @@ My site that a little about me, my background, my projects, what I like, etc. Th
 - [Polished](https://polished.js.org/)
 - [Typeface Raleway](https://www.npmjs.com/package/typeface-raleway)
 
-### Gatsby plugins
+### :card_file_box: Gatsby plugins
 - [Google analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
 - [Manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/)
 - [Netlify](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/)
@@ -88,3 +144,12 @@ My site that a little about me, my background, my projects, what I like, etc. Th
 7.  **`styles`**: global styles.
 
 8.  **`templates`**: consist mostly of groups of organisms stitched together to form pages.
+
+
+## :memo: License
+
+This project is under the MIT license. See the file [LICENSE](./LICENSE) for more details.
+
+---
+
+Build with 💙 By [Henrique Miranda](http://thehenry.dev/)
