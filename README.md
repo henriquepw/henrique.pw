@@ -7,15 +7,15 @@
 
 <p align="center">
   <a href="https://github.com/henry-ns/portfolio/graphs/commit-activity" alt="Maintenance">
-    <img src="https://img.shields.io/badge/Maintained%3F-yes-blue.svg" />
+    <img src="https://img.shields.io/badge/Maintained%3F-yes-1EAE72.svg" />
   </a>
   <a href="https://<link>" alt="Website <link>">
-    <img src="https://img.shields.io/website-up-down-blue-red/https/thehenry.dev" />
+    <img src="https://img.shields.io/website-up-down-1EAE72-red/https/thehenry.dev" />
   </a>
 
   <!-- License -->
   <a href="./LICENSE" alt="License: MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
+    <img src="https://img.shields.io/badge/License-MIT-1EAE72.svg" />
   </a>
 
   <!-- codefactor -->
