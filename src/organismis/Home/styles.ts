@@ -1,4 +1,9 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, {
+  css,
+  keyframes,
+  FlattenSimpleInterpolation,
+  Keyframes,
+} from 'styled-components';
 
 import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
@@ -7,7 +12,10 @@ import Section from '~/styles/section';
 /**
  * Animations
  */
-const h1Animation = (spacing = 15, margin = 50) => css`
+const h1Animation = (
+  spacing = 15,
+  margin = 50,
+): FlattenSimpleInterpolation => css`
   @keyframes name {
     0% {
       transform: translateY(${margin}px);
@@ -54,7 +62,7 @@ const poin = keyframes`
   }
 `;
 
-const groupArrow = (from: string, to: string) => keyframes`
+const groupArrow = (from: string, to: string): Keyframes => keyframes`
   from {
     transform: translateY(${from});
   }

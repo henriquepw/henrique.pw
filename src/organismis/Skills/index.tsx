@@ -111,15 +111,15 @@ const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
     controlAnimaton.start(selected === 'skills' ? 'initial' : 'hidden');
   }, [controlAnimaton, selected]);
 
-  function handleTap(index: number) {
+  function handleTap(index: number): void {
     setInFocus(inFocus === index ? -1 : index);
   }
 
-  function onHoverStart(index: number) {
+  function onHoverStart(index: number): void {
     setInFocus(index);
   }
 
-  function onHoverEnd() {
+  function onHoverEnd(): void {
     setInFocus(-1);
   }
 

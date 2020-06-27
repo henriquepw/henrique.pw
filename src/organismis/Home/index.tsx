@@ -19,9 +19,9 @@ const Home = forwardRef<HTMLElement>((_, ref) => {
   });
 
   function handleNextSection(
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) {
-    e.preventDefault();
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ): void {
+    event.preventDefault();
 
     return document.getElementById('education')?.scrollIntoView();
   }
@@ -31,10 +31,13 @@ const Home = forwardRef<HTMLElement>((_, ref) => {
       <motion.div style={{ opacity, y, width: '100%' }}>
         <Profile />
         <h1>
-          Henrique <strong>Miranda</strong>
+          {'Henrique '}
+          <strong>Miranda</strong>
         </h1>
         <h2>
-          Telematics student, Full Stack Developer <strong>&</strong> Designer
+          {'Telematics student, Full Stack Developer '}
+          <strong>&</strong>
+          {' Designer'}
         </h2>
         <Divider />
         <SocialList />

@@ -29,11 +29,13 @@ const variants = {
   }),
 };
 
-const About = forwardRef<HTMLElement>((_: {}, ref) => {
+const About = forwardRef<HTMLElement>((_, ref) => {
   const controls = useAnimation();
 
   useEffect(() => {
-    function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {
+    function onVisible([
+      { isIntersecting },
+    ]: IntersectionObserverEntry[]): void {
       controls.start(isIntersecting ? 'visible' : 'hidden');
     }
 

@@ -17,7 +17,7 @@ import SectionsContext from '~/context/SectionsContext';
 
 import { Content } from './styles';
 
-function Main() {
+const Main: React.FC = () => {
   const { selected, setPageHeight } = useContext(SectionsContext);
   const sections = [
     useRef(null),
@@ -30,7 +30,7 @@ function Main() {
   useLayoutEffect(() => {
     setPageHeight(window.innerHeight);
 
-    function setCurrentHeight() {
+    function setCurrentHeight(): void {
       setPageHeight(window.innerHeight);
     }
 
@@ -42,11 +42,11 @@ function Main() {
   }, [setPageHeight]);
 
   useEffect(() => {
-    function addUsingMouse() {
+    function addUsingMouse(): void {
       document.body.classList.add('using-mouse');
     }
 
-    function removeUsingMouse() {
+    function removeUsingMouse(): void {
       document.body.classList.remove('using-mouse');
     }
 
@@ -75,6 +75,6 @@ function Main() {
       </Content>
     </Layout>
   );
-}
+};
 
 export default Main;

@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import SocialList from '~/molecules/SocialList';
 
 import { Container } from './styles';
 
-const Footer: FC = () => (
+const Footer: React.FC = () => (
   <Container>
     <SocialList excluded={['email']} isAnimated={false} />
     <p>

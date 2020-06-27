@@ -113,13 +113,15 @@ const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
           if (loading) return <span>Loading...</span>;
 
           const repos = [
-            ...data!.viewer.repos.nodes,
-            data!.viewer.repo1,
-            data!.viewer.repo2,
-            data!.viewer.repo3,
+            ...data?.viewer.repos.nodes,
+            data?.viewer.repo1,
+            data?.viewer.repo2,
+            data?.viewer.repo3,
           ];
 
-          return repos.map(repo => <Project key={repo.id} data={repo} />);
+          return repos.map(
+            (repo) => repo && <Project key={repo.id} data={repo} />,
+          );
         })()}
       </motion.ul>
       <a
@@ -127,7 +129,8 @@ const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
         rel="noopener noreferrer"
         target="_blank"
       >
-        See more on <FaGithub />
+        {'See more on '}
+        <FaGithub />
       </a>
     </Container>
   );
