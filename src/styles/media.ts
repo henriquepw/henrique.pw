@@ -27,13 +27,13 @@ export const width: Width = {
 };
 
 export default Object.keys(width).reduce(
-  (media: Media, _size: string) => ({
+  (media: Media, size: string) => ({
     ...media,
-    [_size]: (...args) => css`
-      @media (max-width: ${width[_size]}px) {
+    [size]: (...args) => css`
+      @media (max-width: ${width[size]}px) {
         ${css(...args)};
       }
     `,
   }),
-  {}
+  {},
 );

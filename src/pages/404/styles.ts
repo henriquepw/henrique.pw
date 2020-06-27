@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, Keyframes } from 'styled-components';
 
 import { Link } from 'gatsby';
 
@@ -8,7 +8,7 @@ import button from '~/styles/button';
 import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
-const slider = (x = '0', y = '0') => keyframes`
+const slider = (x = '0', y = '0'): Keyframes => keyframes`
   0% {
     opacity: 0;
     transform: translate(${x}, ${y});

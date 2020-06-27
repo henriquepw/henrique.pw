@@ -1,9 +1,9 @@
-import { css, keyframes } from 'styled-components';
+import { css, keyframes, Keyframes } from 'styled-components';
 
 import { primaryColor, secundaryColor } from './colors';
 import Media from './media';
 
-const slider = (x = '0', y = '0') => keyframes`
+const slider = (x = '0', y = '0'): Keyframes => keyframes`
   0% {
     opacity: 0;
     transform: translate(${x}, ${y});

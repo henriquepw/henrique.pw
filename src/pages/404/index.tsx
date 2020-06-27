@@ -7,7 +7,8 @@ const NotFound: FC = () => (
     <h3>Oops!!</h3>
     <main>
       <h1>
-        40<span>4</span>
+        40
+        <span>4</span>
       </h1>
       <h2>Página não encontrada</h2>
     </main>
