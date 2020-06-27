@@ -1,9 +1,9 @@
 import Loadable from 'react-loadable';
 
-import Loading from '~/atoms/Loading';
+import Loading from '~/components/atoms/Loading';
 
 const LoadableMain = Loadable({
-  loader: () => import('../organismis/Main'),
+  loader: () => import('../components/organisms/Main'),
   loading: Loading,
 });
 

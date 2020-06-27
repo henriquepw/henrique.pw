@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '~/atoms/Seo';
+import SEO from '~/components/atoms/Seo';
 
 import { Container } from './styles';
 import GlobalStyle from '~/styles/global';

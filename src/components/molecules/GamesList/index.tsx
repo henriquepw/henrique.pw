@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Game from '~/atoms/Game';
+import Game from '~/components/atoms/Game';
 
 const GamesList: React.FC = () => {
   const { gris, factorio, talos } = useStaticQuery(graphql`

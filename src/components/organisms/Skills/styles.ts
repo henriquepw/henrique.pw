@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import SubT from '~/atoms/SubTitle';
+import SubT from '~/components/atoms/SubTitle';
 
 import { primaryColor } from '~/styles/colors';
 import Media, { width } from '~/styles/media';

@@ -7,7 +7,7 @@ import {
   FiMail,
 } from 'react-icons/fi';
 
-import SocialIcon from '~/atoms/SocialIcon';
+import SocialIcon from '~/components/atoms/SocialIcon';
 
 import { Container } from './styles';
 

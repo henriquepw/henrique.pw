@@ -2,9 +2,9 @@ import React, { useContext, forwardRef } from 'react';
 
 import { motion, useTransform } from 'framer-motion';
 
-import Profile from '~/atoms/Profile';
+import Profile from '~/components/atoms/Profile';
 
-import SocialList from '~/molecules/SocialList';
+import SocialList from '~/components/molecules/SocialList';
 
 import SectionsContext from '~/context/SectionsContext';
 

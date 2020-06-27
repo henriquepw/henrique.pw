@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SocialList from '~/molecules/SocialList';
+import SocialList from '~/components/molecules/SocialList';
 
 import { Container } from './styles';
 

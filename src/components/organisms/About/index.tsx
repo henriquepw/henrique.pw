@@ -2,11 +2,11 @@ import React, { forwardRef, RefObject, useEffect } from 'react';
 
 import { motion, useAnimation } from 'framer-motion';
 
-import SubTitle from '~/atoms/SubTitle';
-import Title from '~/atoms/Title';
+import SubTitle from '~/components/atoms/SubTitle';
+import Title from '~/components/atoms/Title';
 
-import GamesList from '~/molecules/GamesList';
-import Player from '~/molecules/Player';
+import GamesList from '~/components/molecules/GamesList';
+import Player from '~/components/molecules/Player';
 
 import { Container } from './styles';
 

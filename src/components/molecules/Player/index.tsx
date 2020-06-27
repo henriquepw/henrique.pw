@@ -2,8 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { FaSpotify } from 'react-icons/fa';
 import { FiPlay, FiPause, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-import PlayerButton from '~/atoms/PlayerButton';
-import SpotifyButton from '~/atoms/SpotifyButton';
+import PlayerButton from '~/components/atoms/PlayerButton';
+import SpotifyButton from '~/components/atoms/SpotifyButton';
 
 import playlist from '~/assets/data/playlist.json';
 

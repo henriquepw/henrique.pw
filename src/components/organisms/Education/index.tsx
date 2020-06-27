@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 
-import Title from '~/atoms/Title';
+import Title from '~/components/atoms/Title';
 
-import Timeline from '~/molecules/Timeline';
+import Timeline from '~/components/molecules/Timeline';
 
 import data from '~/assets/data/education.json';
 

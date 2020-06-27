@@ -8,8 +8,8 @@ import React, {
 
 import { motion, useAnimation } from 'framer-motion';
 
-import SkillItem from '~/atoms/SkillItem';
-import Title from '~/atoms/Title';
+import SkillItem from '~/components/atoms/SkillItem';
+import Title from '~/components/atoms/Title';
 
 import SectionsContext from '~/context/SectionsContext';
 

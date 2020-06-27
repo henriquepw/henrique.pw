@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useRef, useLayoutEffect } from 'react';
 
-import Scroll from '~/atoms/Scroll';
+import Scroll from '~/components/atoms/Scroll';
 
-import Menu from '~/molecules/Menu';
+import Menu from '~/components/molecules/Menu';
 
-import About from '~/organismis/About';
-import Education from '~/organismis/Education';
-import Footer from '~/organismis/Footer';
-import Home from '~/organismis/Home';
-import Projects from '~/organismis/Projects';
-import Skills from '~/organismis/Skills';
+import About from '~/components/organisms/About';
+import Education from '~/components/organisms/Education';
+import Footer from '~/components/organisms/Footer';
+import Home from '~/components/organisms/Home';
+import Projects from '~/components/organisms/Projects';
+import Skills from '~/components/organisms/Skills';
 
-import Layout from '~/templates/Layout';
+import Layout from '~/components/templates/Layout';
 
 import SectionsContext from '~/context/SectionsContext';
 

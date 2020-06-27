@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TimelineItem from '~/atoms/TimelineItem';
+import TimelineItem from '~/components/atoms/TimelineItem';
 
 import { Container } from './styles';
 

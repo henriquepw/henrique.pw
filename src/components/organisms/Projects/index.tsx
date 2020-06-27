@@ -10,9 +10,9 @@ import { useQuery } from '@apollo/react-hooks';
 import { motion, useAnimation } from 'framer-motion';
 import gql from 'graphql-tag';
 
-import Title from '~/atoms/Title';
+import Title from '~/components/atoms/Title';
 
-import Project from '~/molecules/Project';
+import Project from '~/components/molecules/Project';
 
 import SectionsContext from '~/context/SectionsContext';
 
