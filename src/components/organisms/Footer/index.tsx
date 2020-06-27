@@ -9,11 +9,11 @@ const Footer: React.FC = () => (
     <SocialList excluded={['email']} isAnimated={false} />
     <p>
       <a
-        href="mailto:enrque.ns@gmail.com"
+        href="mailto:hey@thehenry.dev"
         target="_blank"
         rel="noopener noreferrer"
       >
-        enrque.ns@gmail.com
+        hey@thehenry.dev
       </a>
     </p>
   </Container>

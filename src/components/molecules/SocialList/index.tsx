@@ -38,7 +38,7 @@ const data = [
   },
   {
     name: 'email',
-    link: 'mailto:enrque.ns@gmail.com',
+    link: 'mailto:hey@thehenry.dev',
     description: 'My email for contacts',
     component: <FiMail />,
   },
