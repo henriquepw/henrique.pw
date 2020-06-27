@@ -18,7 +18,7 @@ export const Container = styled.ul<Props>`
   justify-content: center;
   align-items: center;
 
-  ${props =>
+  ${(props) =>
     props.isAnimated &&
     css`
       animation: ${icon} 2.5s 1 ease-out;

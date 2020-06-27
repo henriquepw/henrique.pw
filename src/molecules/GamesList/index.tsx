@@ -1,10 +1,10 @@
-import React, { useMemo, FC } from 'react';
+import React, { useMemo } from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Game from '~/atoms/Game';
 
-const GamesList: FC = () => {
+const GamesList: React.FC = () => {
   const { gris, factorio, talos } = useStaticQuery(graphql`
     query {
       gris: file(relativePath: { eq: "games/gris.jpg" }) {
@@ -52,12 +52,12 @@ const GamesList: FC = () => {
           'A philosophical puzzle game in a metaphysics parable about the intelligence and meaning on an inevitably doomed world.',
       },
     ],
-    [factorio.sharp.fluid, gris.sharp.fluid, talos.sharp.fluid]
+    [factorio.sharp.fluid, gris.sharp.fluid, talos.sharp.fluid],
   );
 
   return (
     <ol>
-      {games.map(item => (
+      {games.map((item) => (
         <Game
           key={item.name}
           name={item.name}

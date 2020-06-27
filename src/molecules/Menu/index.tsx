@@ -55,7 +55,7 @@ const itemAnimation = {
   },
 };
 
-function Menu() {
+const Menu: React.FC = () => {
   const controlAnimation = useAnimation();
 
   const [pressed, setPressed] = useState(false);
@@ -67,8 +67,8 @@ function Menu() {
 
   function handlerSelected(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    name: string
-  ) {
+    name: string,
+  ): void {
     event.preventDefault();
 
     // setSelectedByName(name);
@@ -77,7 +77,7 @@ function Menu() {
     return document.getElementById(name)?.scrollIntoView();
   }
 
-  function handleBurgerClick() {
+  function handleBurgerClick(): void {
     setPressed(!pressed);
   }
 
@@ -99,7 +99,10 @@ function Menu() {
             variants={itemAnimation}
             // selected={selected === name}
           >
-            <motion.a href={`#${name}`} onClick={e => handlerSelected(e, name)}>
+            <motion.a
+              href={`#${name}`}
+              onClick={(e) => handlerSelected(e, name)}
+            >
               {name}
             </motion.a>
           </MenuItem>
@@ -107,6 +110,6 @@ function Menu() {
       </motion.ul>
     </Container>
   );
-}
+};
 
 export default React.memo(Menu);

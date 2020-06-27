@@ -9,7 +9,7 @@ import playlist from '~/assets/data/playlist.json';
 
 import { Container, Music } from './styles';
 
-function Player() {
+const Player: React.FC = () => {
   const [music] = useState(new Audio(playlist[0].preview_url));
   const [play, setPlay] = useState(false);
 
@@ -24,7 +24,7 @@ function Player() {
     }
   }, [music]);
 
-  function togglePlay(value = !play, index = currentIndex) {
+  function togglePlay(value = !play, index = currentIndex): void {
     if (index === -1) setCurrentIndex(0);
     setPlay(value);
 
@@ -32,7 +32,7 @@ function Player() {
     else music.pause();
   }
 
-  function handlePlaying(index: number) {
+  function handlePlaying(index: number): void {
     if (index !== currentIndex) {
       music.src = playlist[index].preview_url;
 
@@ -43,12 +43,12 @@ function Player() {
     }
   }
 
-  function handleNext() {
+  function handleNext(): void {
     const next = currentIndex + 1;
     handlePlaying(next >= playlist.length ? 0 : next);
   }
 
-  function handlePrevious() {
+  function handlePrevious(): void {
     const previous = currentIndex - 1;
     handlePlaying(previous < 0 ? playlist.length - 1 : previous);
   }
@@ -106,6 +106,6 @@ function Player() {
       </a>
     </Container>
   );
-}
+};
 
 export default Player;

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Container } from './styles';
 
@@ -30,9 +30,9 @@ interface Props {
   };
 }
 
-const Project: FC<Props> = ({ data }) => {
-  const tags = data.topics.nodes.map(item =>
-    item.topic.name.replace(/-/g, ' ')
+const Project: React.FC<Props> = ({ data }) => {
+  const tags = data.topics.nodes.map((item) =>
+    item.topic.name.replace(/-/g, ' '),
   );
 
   const name = data.name.replace(/-/g, ' ');
@@ -43,7 +43,7 @@ const Project: FC<Props> = ({ data }) => {
         <h1>{name}</h1>
         <p>{data.description}</p>
         <ul>
-          {tags.map(tech => (
+          {tags.map((tech) => (
             <li key={tech}>{tech}</li>
           ))}
         </ul>
