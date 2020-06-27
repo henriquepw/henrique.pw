@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import SEO from '~/atoms/Seo';
 
@@ -10,17 +10,16 @@ interface Props {
   className?: string;
 }
 
-const Layout: FC<Props> = ({ children, className, title }) => (
+const Layout: React.FC<Props> = ({
+  children,
+  className,
+  title = 'Home | ',
+}) => (
   <Container className={className}>
     <GlobalStyle />
     <SEO title={title} />
     {children}
   </Container>
 );
-
-Layout.defaultProps = {
-  className: '',
-  title: 'Home | ',
-};
 
 export default Layout;
