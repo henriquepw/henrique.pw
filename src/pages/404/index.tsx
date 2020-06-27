@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Container, Button } from './styles';
 
-const NotFound: FC = () => (
+const NotFound: React.FC = () => (
   <Container title="Not found | ">
     <h3>Oops!!</h3>
     <main>
