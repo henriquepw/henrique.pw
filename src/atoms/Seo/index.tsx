@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 import { useStaticQuery, graphql } from 'gatsby';
@@ -10,7 +10,12 @@ interface Props {
   meta?: [];
 }
 
-const SEO: FC<Props> = ({ description, lang, meta, title }) => {
+const SEO: React.FC<Props> = ({
+  description,
+  lang = 'en',
+  meta = [],
+  title = 'Home | ',
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -22,7 +27,7 @@ const SEO: FC<Props> = ({ description, lang, meta, title }) => {
           }
         }
       }
-    `
+    `,
   );
 
   const metaDescription = description || site.siteMetadata.description;
@@ -70,13 +75,6 @@ const SEO: FC<Props> = ({ description, lang, meta, title }) => {
       ].concat(meta ?? [])}
     />
   );
-};
-
-SEO.defaultProps = {
-  description: '',
-  lang: 'en',
-  meta: [],
-  title: 'Home | ',
 };
 
 export default SEO;

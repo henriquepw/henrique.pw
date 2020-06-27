@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, FC } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { useAnimation } from 'framer-motion';
 
@@ -26,7 +26,7 @@ interface Props {
   children: string;
 }
 
-const Title: FC<Props> = ({ children, animateDelay }) => {
+const Title: React.FC<Props> = ({ children, animateDelay }) => {
   const { selected } = useContext(SectionsContext);
   const controls = useAnimation();
 

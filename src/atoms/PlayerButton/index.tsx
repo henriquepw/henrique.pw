@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -11,7 +11,7 @@ const variants = {
   },
 };
 
-const PlayerButton: FC = ({ children }) => (
+const PlayerButton: React.FC = ({ children }) => (
   <motion.span variants={variants} whileHover="hover" whileTap="tap">
     {children}
   </motion.span>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -34,7 +34,7 @@ interface Props {
   onHoverStart: () => void;
 }
 
-const SkillItem: FC<Props> = ({
+const SkillItem: React.FC<Props> = ({
   description,
   isEnabled,
   src,

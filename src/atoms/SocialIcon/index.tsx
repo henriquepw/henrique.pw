@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Container } from './styles';
 
@@ -7,7 +7,7 @@ interface Props {
   alt: string;
 }
 
-const SocialIcon: FC<Props> = ({ link, children, alt }) => (
+const SocialIcon: React.FC<Props> = ({ link, children, alt }) => (
   <Container
     href={link}
     aria-label={alt}

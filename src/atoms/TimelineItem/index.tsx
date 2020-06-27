@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, FC } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { motion, useAnimation } from 'framer-motion';
 
@@ -29,12 +29,14 @@ interface Props {
   description: string;
 }
 
-const TimelineItem: FC<Props> = ({ year, title, description }) => {
+const TimelineItem: React.FC<Props> = ({ year, title, description }) => {
   const controls = useAnimation();
   const ref = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
-    function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {
+    function onVisible([
+      { isIntersecting },
+    ]: IntersectionObserverEntry[]): void {
       controls.start(isIntersecting ? 'visible' : 'hidden');
     }
 

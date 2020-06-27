@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, FC } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface Props {
   onClick: () => void;
@@ -8,7 +8,7 @@ interface Props {
   };
 }
 
-const SpotifyButton: FC<Props> = ({ item, selected, onClick }) => {
+const SpotifyButton: React.FC<Props> = ({ item, selected, onClick }) => {
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const SpotifyButton: FC<Props> = ({ item, selected, onClick }) => {
 
   return (
     <button type="button" onClick={onClick} ref={ref}>
-      {item.name} - {item.artists}
+      {`${item.name} - ${item.artists}`}
     </button>
   );
 };

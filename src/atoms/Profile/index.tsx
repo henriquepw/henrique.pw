@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -8,7 +8,7 @@ interface Props {
   className?: string;
 }
 
-const Profile: FC<Props> = ({ className }) => {
+const Profile: React.FC<Props> = ({ className }) => {
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "profile.jpg" }) {

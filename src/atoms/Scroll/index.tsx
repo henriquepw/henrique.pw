@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, FC } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import SectionsContext from '~/context/SectionsContext';
 
@@ -6,14 +6,14 @@ interface Props {
   refs: React.RefObject<HTMLElement>[];
 }
 
-const Scroll: FC<Props> = ({ refs }) => {
+const Scroll: React.FC<Props> = ({ refs }) => {
   const { selected, setSelectedByName, pageHeight } = useContext(
-    SectionsContext
+    SectionsContext,
   );
 
   useEffect(() => {
-    function navCheck(entries: IntersectionObserverEntry[]) {
-      entries.forEach(entry => {
+    function navCheck(entries: IntersectionObserverEntry[]): void {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setSelectedByName(entry.target.id);
         }
@@ -29,7 +29,7 @@ const Scroll: FC<Props> = ({ refs }) => {
     const isExist = refs.reduce((prev, ref) => prev && !!ref.current, true);
 
     if (isExist) {
-      refs.forEach(ref => observer.observe(ref.current!));
+      refs.forEach((ref) => ref.current && observer.observe(ref.current));
     }
 
     return () => observer.disconnect();

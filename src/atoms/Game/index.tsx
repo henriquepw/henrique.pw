@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, FC } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { useAnimation, motion } from 'framer-motion';
 import { FluidObject } from 'gatsby-image';
@@ -30,12 +30,14 @@ interface Props {
   fluid: FluidObject;
 }
 
-const Game: FC<Props> = ({ name, description, fluid }) => {
+const Game: React.FC<Props> = ({ name, description, fluid }) => {
   const controls = useAnimation();
   const ref = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
-    function onVisible([{ isIntersecting }]: IntersectionObserverEntry[]) {
+    function onVisible([
+      { isIntersecting },
+    ]: IntersectionObserverEntry[]): void {
       controls.start(isIntersecting ? 'visible' : 'hidden');
     }
 

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Container } from './styles';
 
@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-const SubTitle: FC<Props> = ({ children, className }) => (
+const SubTitle: React.FC<Props> = ({ children, className }) => (
   <Container className={className}>{children}</Container>
 );
 
