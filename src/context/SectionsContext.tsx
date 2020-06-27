@@ -1,5 +1,4 @@
 import React, {
-  FC,
   Dispatch,
   SetStateAction,
   createContext,
@@ -9,7 +8,7 @@ import React, {
 import { useViewportScroll, MotionValue } from 'framer-motion';
 
 export interface SectionProps {
-  scrollY?: MotionValue<number>;
+  scrollY: MotionValue<number>;
   selected: string;
   pageHeight: number;
   setSelectedByName: Dispatch<SetStateAction<string>>;
@@ -18,14 +17,9 @@ export interface SectionProps {
 
 export const sections = ['home', 'education', 'skills', 'projects', 'about'];
 
-const SectionsContext = createContext<SectionProps>({
-  pageHeight: 0,
-  selected: 'home',
-  setSelectedByName: () => {},
-  setPageHeight: () => {},
-});
+const SectionsContext = createContext<SectionProps>({} as SectionProps);
 
-const SectionsProvider: FC = ({ children }) => {
+const SectionsProvider: React.FC = ({ children }) => {
   const [selected, setSelectedByName] = useState('home');
   const [pageHeight, setPageHeight] = useState(0);
   const { scrollY } = useViewportScroll();
