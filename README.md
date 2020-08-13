@@ -96,7 +96,7 @@ run `yarn start` or `npm start` command to start a local server and get a test! 
 
 ### :package: Packages
 - [Framer Motion](https://www.framer.com/api/motion)
-- [React Helmet Async](https://github.com/staylor/react-helmet-async)
+- [React Helmet](https://github.com/nfl/react-helmet)
 - [React Icons](https://react-icons.netlify.com/#/)
 - [React Loadable](https://github.com/jamiebuilds/react-loadable)
 - [Styled Compoments](https://www.styled-components.com/)

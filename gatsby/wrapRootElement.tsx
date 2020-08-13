@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { HelmetProvider } from 'react-helmet-async';
 
 import { ApolloProvider } from '@apollo/client';
 
@@ -11,9 +10,7 @@ interface WrapRootProps {
 }
 
 export const wrapRootElement: FC<WrapRootProps> = ({ element }) => (
-  <HelmetProvider>
-    <SectionsProvider>
-      <ApolloProvider client={client}>{element}</ApolloProvider>
-    </SectionsProvider>
-  </HelmetProvider>
+  <SectionsProvider>
+    <ApolloProvider client={client}>{element}</ApolloProvider>
+  </SectionsProvider>
 );
