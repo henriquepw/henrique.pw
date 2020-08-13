@@ -1,14 +1,22 @@
 import {
   css,
   CSSObject,
-  FlattenSimpleInterpolation,
-  SimpleInterpolation,
+  InterpolationFunction,
+  Interpolation,
+  ThemedStyledProps,
+  FlattenInterpolation,
+  DefaultTheme,
 } from 'styled-components';
 
 type MediaFn = (
-  first: TemplateStringsArray | CSSObject,
-  ...interpolations: SimpleInterpolation[]
-) => FlattenSimpleInterpolation;
+  first:
+    | TemplateStringsArray
+    | CSSObject
+    | InterpolationFunction<ThemedStyledProps<unknown, DefaultTheme>>,
+  ...interpolations: Array<
+    Interpolation<ThemedStyledProps<unknown, DefaultTheme>>
+  >
+) => FlattenInterpolation<ThemedStyledProps<unknown, DefaultTheme>>;
 
 interface ObjectOf<T> {
   [key: string]: T;
