@@ -2,8 +2,8 @@
   "name": "portfolio",
   "private": true,
   "description": "my portfolio site",
-  "version": "0.1.0",
-  "author": "Henrique Miranda <enrque.ns@gmail.com>",
+  "version": "1.1.0",
+  "author": "Henrique Miranda <hey@thehenry.dev>",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "apollo-boost": "^0.4.9",
