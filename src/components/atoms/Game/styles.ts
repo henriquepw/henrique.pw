@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import Img from 'gatsby-image';
 
-import { primaryColor, secundaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 export const Container = styled.li`
@@ -10,8 +9,8 @@ export const Container = styled.li`
   grid-template-columns: 1fr 128px;
 
   position: relative;
-  background-color: ${primaryColor.active};
-  color: ${secundaryColor.text};
+  background-color: ${({ theme }) => theme.primary.active};
+  color: ${({ theme }) => theme.secondary.text};
 
   width: 480px;
   height: 280px;
@@ -19,7 +18,7 @@ export const Container = styled.li`
   margin: 0px 289px 64px 0px;
 
   *::selection {
-    background-color: ${primaryColor.text};
+    background-color: ${({ theme }) => theme.primary.text};
   }
 
   &:last-child {

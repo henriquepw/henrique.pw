@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 import { opacify } from 'polished';
 
-import { primaryColor, secundaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 interface MusicProps {
@@ -25,8 +24,8 @@ export const Container = styled.section`
 
     height: 72px;
 
-    background-color: ${primaryColor.active};
-    color: ${secundaryColor.text};
+    background-color: ${({ theme }) => theme.primary.active};
+    color: ${({ theme }) => theme.secondary.text};
 
     span {
       display: flex;
@@ -49,7 +48,7 @@ export const Container = styled.section`
     width: 100%;
     max-width: 288px;
     margin-right: 32px;
-    background-color: ${secundaryColor.bg};
+    background-color: ${({ theme }) => theme.secondary.background};
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.02);
 
     ol {
@@ -77,7 +76,7 @@ export const Container = styled.section`
     }
 
     &:focus {
-      outline: 3px solid ${primaryColor.active};
+      outline: 3px solid ${({ theme }) => theme.primary.active};
       outline-offset: 8px;
     }
   }
@@ -125,11 +124,11 @@ export const Music = styled.li<MusicProps>`
     cursor: pointer;
 
     &:hover {
-      color: ${primaryColor.active};
+      color: ${({ theme }) => theme.primary.active};
     }
 
     &:focus {
-      outline: 3px solid ${primaryColor.active};
+      outline: 3px solid ${({ theme }) => theme.primary.active};
       outline-offset: 3px;
     }
   }
@@ -143,25 +142,27 @@ export const Music = styled.li<MusicProps>`
     }
 
     &:hover svg {
-      color: ${primaryColor.active};
+      color: ${({ theme }) => theme.primary.active};
       transform: scale(1.1);
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px ${primaryColor.bg}, 0 0 0 4px ${primaryColor.active};
-      color: ${primaryColor.active};
+      color: ${({ theme }) => theme.primary.active};
+
+      box-shadow: 0 0 0 2px ${({ theme }) => theme.primary.background},
+        0 0 0 4px ${({ theme }) => theme.primary.active};
     }
   }
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${opacify(-0.5, primaryColor.text)};
+    border-bottom: 1px solid ${({ theme }) => opacify(-0.5, theme.primary.text)};
   }
 
   ${({ selected }) =>
     selected &&
     css`
       button {
-        color: ${primaryColor.active};
+        color: ${({ theme }) => theme.primary.active};
         font-weight: 600;
       }
     `}

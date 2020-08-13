@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import SubT from '~/components/atoms/SubTitle';
 
-import { primaryColor } from '~/styles/colors';
 import Media, { width } from '~/styles/media';
 import Section from '~/styles/section';
 
@@ -52,7 +51,7 @@ export const Container = styled(Section)`
         }
 
         &:hover {
-          color: ${primaryColor.active};
+          color: ${({ theme }) => theme.primary.active};
 
           img {
             filter: none;

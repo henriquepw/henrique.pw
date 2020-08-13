@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { primaryColor, secundaryColor } from '~/styles/colors';
 import Media, { width } from '~/styles/media';
 
 export const Container = styled.li`
@@ -18,7 +17,7 @@ export const Container = styled.li`
 
     margin: 8px 0px auto;
 
-    color: ${primaryColor.active};
+    color: ${({ theme }) => theme.primary.active};
     text-align: right;
   }
 
@@ -27,13 +26,13 @@ export const Container = styled.li`
   }
 
   div {
-    background-color: ${secundaryColor.text};
+    background-color: ${({ theme }) => theme.secondary.text};
     position: relative;
 
     max-width: 360px;
 
-    border-right: 2px solid ${primaryColor.active};
-    border-left: 2px solid ${primaryColor.active};
+    border-right: 2px solid ${({ theme }) => theme.primary.active};
+    border-left: 2px solid ${({ theme }) => theme.primary.active};
 
     padding: 16px;
     transition: 0.2s ease;
@@ -57,8 +56,8 @@ export const Container = styled.li`
     }
 
     div {
-      border-left: 4px solid ${primaryColor.active};
-      border-right: 4px solid ${primaryColor.active};
+      border-left: 4px solid ${({ theme }) => theme.primary.active};
+      border-right: 4px solid ${({ theme }) => theme.primary.active};
 
       box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
 
@@ -106,8 +105,8 @@ export const Container = styled.li`
       margin: calc(32px - 5px) 56px 0px;
 
       border-radius: 50%;
-      border: 2px solid ${primaryColor.active};
-      background-color: ${primaryColor.active};
+      border: 2px solid ${({ theme }) => theme.primary.active};
+      background-color: ${({ theme }) => theme.primary.active};
     }
 
     div {
@@ -120,7 +119,7 @@ export const Container = styled.li`
 
         border-top: 16px solid transparent;
         border-bottom: 16px solid transparent;
-        border-right: 16px solid ${secundaryColor.text};
+        border-right: 16px solid ${({ theme }) => theme.secondary.text};
       }
 
     }
@@ -131,8 +130,8 @@ export const Container = styled.li`
       }
 
       span {
-        background-color: ${secundaryColor.bg};
-        border: 2px solid ${primaryColor.active};
+        background-color: ${({ theme }) => theme.secondary.background};
+        border: 2px solid ${({ theme }) => theme.primary.active};
         transform: scale(1.5);
       }
     }
@@ -176,7 +175,7 @@ export const Container = styled.li`
           right: -16px;
 
           border-right: none;
-          border-left: 16px solid ${secundaryColor.text};
+          border-left: 16px solid ${({ theme }) => theme.secondary.text};
         }
       }
     }

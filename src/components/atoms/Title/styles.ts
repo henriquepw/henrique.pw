@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 import { motion } from 'framer-motion';
 
-import { primaryColor } from '~/styles/colors';
-
 export const Container = styled(motion.h1)`
   position: relative;
   font-size: 2.25rem;
@@ -24,6 +22,6 @@ export const Container = styled(motion.h1)`
     width: 50%;
 
     border-radius: 1px;
-    background-color: ${primaryColor.active};
+    background-color: ${({ theme }) => theme.primary.active};
   }
 `;

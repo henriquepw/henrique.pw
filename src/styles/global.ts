@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 import { opacify } from 'polished';
 
-import { primaryColor, secundaryColor } from './colors';
 import Media from './media';
 
 export default createGlobalStyle`
@@ -12,12 +11,12 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${opacify(-0.2, primaryColor.active)};
+    background: ${({ theme }) => opacify(-0.2, theme.primary.active)};
     border-radius: 2.5px;
     transition: 0.2s;
 
     &:hover {
-      background: ${primaryColor.active};
+      background: ${({ theme }) => theme.primary.active};
     }
   }
 
@@ -28,8 +27,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
 
     &::selection {
-      background-color: ${primaryColor.active};
-      color: ${secundaryColor.text};
+      background-color: ${({ theme }) => theme.primary.active};
+      color: ${({ theme }) => theme.secondary.text};
     }
   }
 
@@ -41,8 +40,8 @@ export default createGlobalStyle`
     font: 16px 'Raleway', sans-serif;
     font-weight: 300;
 
-    background-color: ${primaryColor.bg};
-    color: ${primaryColor.text};
+    background-color: ${({ theme }) => theme.primary.background};
+    color: ${({ theme }) => theme.primary.text};
 
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
@@ -73,7 +72,7 @@ export default createGlobalStyle`
 
   a,
   button {
-    color: ${primaryColor.text};
+    color: ${({ theme }) => theme.primary.text};
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
   }

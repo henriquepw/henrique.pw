@@ -13,10 +13,19 @@ import { Container, Divider } from './styles';
 const Home = forwardRef<HTMLElement>((_, ref) => {
   const { scrollY, pageHeight } = useSections();
 
-  const opacity = useTransform(scrollY, [0, pageHeight], [1, 0]);
-  const y = useTransform(scrollY, [0, 1], [0, -0.2], {
-    clamp: false,
+  /**
+   * Controll the opacity by scrollY value
+   * if scrollY is 0, opacity is 1
+   * if scrollY is >= pageHeight, opacity is 0
+   */
+  const opacity = useTransform(scrollY, (value) => {
+    const scrollValue = Math.min(value, pageHeight);
+    const percent = scrollValue / pageHeight || 0;
+
+    return 1 - percent;
   });
+
+  const y = useTransform(scrollY, [0, 1], [0, -0.2], { clamp: false });
 
   function handleNextSection(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import { motion } from 'framer-motion';
 
-import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 export const Container = styled(motion.li)`
@@ -14,8 +13,8 @@ export const Container = styled(motion.li)`
   max-width: 325px;
   height: 160px;
 
-  border-left: 2px solid ${primaryColor.active};
-  border-right: 2px solid ${primaryColor.active};
+  border-left: 2px solid ${({ theme }) => theme.primary.active};
+  border-right: 2px solid ${({ theme }) => theme.primary.active};
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
 
   text-align: center;
@@ -54,7 +53,7 @@ export const Container = styled(motion.li)`
       justify-content: space-between;
 
       margin: 16px 24px;
-      color: ${primaryColor.active};
+      color: ${({ theme }) => theme.primary.active};
       font-size: 0.875rem;
 
       li + li {
@@ -65,7 +64,7 @@ export const Container = styled(motion.li)`
 
   span {
     position: absolute;
-    color: ${primaryColor.active};
+    color: ${({ theme }) => theme.primary.active};
 
     top: 50%;
     left: 50%;
@@ -82,7 +81,7 @@ export const Container = styled(motion.li)`
     &::after {
       content: '';
       position: absolute;
-      background-color: ${primaryColor.active};
+      background-color: ${({ theme }) => theme.primary.active};
 
       top: 50%;
       right: calc(100% + 8px);
@@ -130,13 +129,13 @@ export const Container = styled(motion.li)`
       width: 100%;
       height: 100%;
 
-      background-color: ${primaryColor.text};
+      background-color: ${({ theme }) => theme.primary.text};
       opacity: 0.1;
     }
   }
 
   a:focus {
-    outline: 4px solid ${primaryColor.active};
+    outline: 4px solid ${({ theme }) => theme.primary.active};
     outline-offset: 8px;
   }
 

@@ -5,7 +5,6 @@ import styled, {
   Keyframes,
 } from 'styled-components';
 
-import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 import Section from '~/styles/section';
 
@@ -85,7 +84,7 @@ export const Container = styled(Section)<ContainerProps>`
 
   strong {
     display: inline;
-    color: ${primaryColor.active};
+    color: ${({ theme }) => theme.primary.active};
   }
 
   h1,
@@ -124,7 +123,7 @@ export const Container = styled(Section)<ContainerProps>`
     animation: ${showArrows} 3s ease-out;
 
     &:focus {
-      outline: 3px solid ${primaryColor.active};
+      outline: 3px solid ${({ theme }) => theme.primary.active};
       outline-offset: 3px;
     }
 
@@ -148,7 +147,7 @@ export const Container = styled(Section)<ContainerProps>`
     }
 
     &:hover {
-      color: ${primaryColor.active};
+      color: ${({ theme }) => theme.primary.active};
 
       svg polyline {
         &:nth-child(1) {
@@ -241,7 +240,7 @@ export const Container = styled(Section)<ContainerProps>`
 `;
 
 export const Divider = styled.div`
-  background-color: ${primaryColor.active};
+  background-color: ${({ theme }) => theme.primary.active};
 
   height: 1.01px;
   width: 95%;

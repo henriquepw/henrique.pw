@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 export const Container = styled.a`
@@ -17,7 +16,7 @@ export const Container = styled.a`
   }
 
   &:hover {
-    color: ${primaryColor.active};
+    color: ${({ theme }) => theme.primary.active};
     transform: scale(1.25);
   }
 
@@ -27,7 +26,7 @@ export const Container = styled.a`
 
   &:focus {
     svg {
-      outline: 3px solid ${primaryColor.active};
+      outline: 3px solid ${({ theme }) => theme.primary.active};
       outline-offset: 3px;
     }
   }

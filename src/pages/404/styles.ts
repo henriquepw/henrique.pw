@@ -5,7 +5,6 @@ import { Link } from 'gatsby';
 import Layout from '~/components/templates/Layout';
 
 import button from '~/styles/button';
-import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 const slider = (x = '0', y = '0'): Keyframes => keyframes`
@@ -22,8 +21,8 @@ export const Container = styled(Layout)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   position: absolute;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -54,7 +53,7 @@ export const Container = styled(Layout)`
 
     h1 {
       font-size: 20em;
-      color: ${primaryColor.active};
+      color: ${({ theme }) => theme.primary.active};
       animation: _404 1.1s 1 ease-out;
 
       letter-spacing: 10px;

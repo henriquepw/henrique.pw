@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { primaryColor } from '~/styles/colors';
-
 export const Container = styled.h2`
   position: relative;
 
@@ -17,7 +15,7 @@ export const Container = styled.h2`
 
     top: 50%;
     transform: translateY(-50%);
-    background-color: ${primaryColor.active};
+    background-color: ${({ theme }) => theme.primary.active};
 
     width: 32px;
     height: 1px;
