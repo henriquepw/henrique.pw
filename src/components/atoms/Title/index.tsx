@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { useAnimation } from 'framer-motion';
 
-import SectionsContext from '~/context/SectionsContext';
+import { useSections } from '~/hooks/sections';
 
 import { Container } from './styles';
 
@@ -27,7 +27,7 @@ interface Props {
 }
 
 const Title: React.FC<Props> = ({ children, animateDelay }) => {
-  const { selected } = useContext(SectionsContext);
+  const { selected } = useSections();
   const controls = useAnimation();
 
   useEffect(() => {

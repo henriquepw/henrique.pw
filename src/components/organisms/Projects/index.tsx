@@ -1,9 +1,4 @@
-import React, {
-  forwardRef,
-  useContext,
-  useEffect,
-  ForwardRefRenderFunction,
-} from 'react';
+import React, { forwardRef, useEffect, ForwardRefRenderFunction } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 import { useQuery } from '@apollo/client';
@@ -14,7 +9,7 @@ import Title from '~/components/atoms/Title';
 
 import Project from '~/components/molecules/Project';
 
-import SectionsContext from '~/context/SectionsContext';
+import { useSections } from '~/hooks/sections';
 
 import { Container } from './styles';
 
@@ -96,7 +91,7 @@ interface QueryData {
 }
 
 const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
-  const { selected } = useContext(SectionsContext);
+  const { selected } = useSections();
   const { data, loading } = useQuery<QueryData>(QUERY);
 
   const controlAnimaton = useAnimation();

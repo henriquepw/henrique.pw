@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { ApolloProvider } from '@apollo/client';
 
-import { client } from '../src/context/ApolloContext';
-import { SectionsProvider } from '../src/context/SectionsContext';
+import { SectionsProvider } from '../src/hooks/sections';
+import apolloClient from '../src/services/ApolloClient';
 
 interface WrapRootProps {
   element: React.ReactNode;
 }
 
-export const wrapRootElement: FC<WrapRootProps> = ({ element }) => (
+export const wrapRootElement: React.FC<WrapRootProps> = ({ element }) => (
   <SectionsProvider>
-    <ApolloProvider client={client}>{element}</ApolloProvider>
+    <ApolloProvider client={apolloClient}>{element}</ApolloProvider>
   </SectionsProvider>
 );

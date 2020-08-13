@@ -1,7 +1,6 @@
 import React, {
   forwardRef,
   useState,
-  useContext,
   useEffect,
   ForwardRefRenderFunction,
 } from 'react';
@@ -11,7 +10,7 @@ import { motion, useAnimation } from 'framer-motion';
 import SkillItem from '~/components/atoms/SkillItem';
 import Title from '~/components/atoms/Title';
 
-import SectionsContext from '~/context/SectionsContext';
+import { useSections } from '~/hooks/sections';
 
 import arduinoIcon from '~/assets/svgs/arduino.svg';
 import cIcon from '~/assets/svgs/c.svg';
@@ -102,7 +101,7 @@ const listAnimaton = {
 };
 
 const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
-  const { selected } = useContext(SectionsContext);
+  const { selected } = useSections();
   const [inFocus, setInFocus] = useState(-1);
 
   const controlAnimaton = useAnimation();

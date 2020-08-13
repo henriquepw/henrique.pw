@@ -1,4 +1,4 @@
-import React, { useContext, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 import { motion, useTransform } from 'framer-motion';
 
@@ -6,12 +6,12 @@ import Profile from '~/components/atoms/Profile';
 
 import SocialList from '~/components/molecules/SocialList';
 
-import SectionsContext from '~/context/SectionsContext';
+import { useSections } from '~/hooks/sections';
 
 import { Container, Divider } from './styles';
 
 const Home = forwardRef<HTMLElement>((_, ref) => {
-  const { scrollY, pageHeight } = useContext(SectionsContext);
+  const { scrollY, pageHeight } = useSections();
 
   const opacity = useTransform(scrollY, [0, pageHeight], [1, 0]);
   const y = useTransform(scrollY, [0, 1], [0, -0.2], {

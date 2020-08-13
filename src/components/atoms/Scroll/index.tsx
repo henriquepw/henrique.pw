@@ -1,15 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-import SectionsContext from '~/context/SectionsContext';
+import { useSections } from '~/hooks/sections';
 
 interface Props {
   refs: React.RefObject<HTMLElement>[];
 }
 
 const Scroll: React.FC<Props> = ({ refs }) => {
-  const { selected, setSelectedByName, pageHeight } = useContext(
-    SectionsContext,
-  );
+  const { selected, setSelectedByName, pageHeight } = useSections();
 
   useEffect(() => {
     function navCheck(entries: IntersectionObserverEntry[]): void {

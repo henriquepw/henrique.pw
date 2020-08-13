@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useRef, useLayoutEffect } from 'react';
 
 import Scroll from '~/components/atoms/Scroll';
 
@@ -13,12 +13,12 @@ import Skills from '~/components/organisms/Skills';
 
 import Layout from '~/components/templates/Layout';
 
-import SectionsContext from '~/context/SectionsContext';
+import { useSections } from '~/hooks/sections';
 
 import { Content } from './styles';
 
 const Main: React.FC = () => {
-  const { selected, setPageHeight } = useContext(SectionsContext);
+  const { selected, setPageHeight } = useSections();
   const sections = [
     useRef(null),
     useRef(null),
