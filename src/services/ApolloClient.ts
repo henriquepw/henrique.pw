@@ -12,6 +12,9 @@ const httpLink = new HttpLink({
   fetch,
 });
 
+/**
+ * An auth middleware for add the GitHub token on the requests
+ */
 const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
@@ -22,7 +25,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   return forward(operation);
 });
 
-export const client = new ApolloClient({
+export default new ApolloClient({
   link: concat(authMiddleware, httpLink),
   cache: new InMemoryCache(),
 });
