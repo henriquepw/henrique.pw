@@ -6,7 +6,7 @@ const siteMetadata = require('./src/assets/data/metadata.json');
 module.exports = {
   siteMetadata,
   plugins: [
-    'gatsby-plugin-react-helmet-async',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

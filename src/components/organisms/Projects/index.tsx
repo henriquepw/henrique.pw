@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { motion, useAnimation } from 'framer-motion';
 import gql from 'graphql-tag';
 
@@ -97,7 +97,7 @@ interface QueryData {
 
 const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
   const { selected } = useContext(SectionsContext);
-  const { data, loading } = useQuery<QueryData, {}>(QUERY);
+  const { data, loading } = useQuery<QueryData>(QUERY);
 
   const controlAnimaton = useAnimation();
 
@@ -113,7 +113,7 @@ const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
           if (loading) return <span>Loading...</span>;
 
           const repos = [
-            ...data?.viewer.repos.nodes,
+            ...(data?.viewer?.repos.nodes || []),
             data?.viewer.repo1,
             data?.viewer.repo2,
             data?.viewer.repo3,

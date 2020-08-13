@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { ApolloProvider } from 'react-apollo';
 import { HelmetProvider } from 'react-helmet-async';
+
+import { ApolloProvider } from '@apollo/client';
 
 import { client } from '../src/context/ApolloContext';
 import { SectionsProvider } from '../src/context/SectionsContext';
