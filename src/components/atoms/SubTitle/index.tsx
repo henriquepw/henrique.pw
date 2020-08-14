@@ -11,8 +11,4 @@ const SubTitle: React.FC<Props> = ({ children, className }) => (
   <Container className={className}>{children}</Container>
 );
 
-SubTitle.defaultProps = {
-  className: '',
-};
-
 export default SubTitle;

@@ -26,7 +26,7 @@ interface Props {
   children: string;
 }
 
-const Title: React.FC<Props> = ({ children, animateDelay }) => {
+const Title: React.FC<Props> = ({ children, animateDelay = 0.2 }) => {
   const { selected } = useSections();
   const controls = useAnimation();
 
@@ -39,10 +39,6 @@ const Title: React.FC<Props> = ({ children, animateDelay }) => {
       {children}
     </Container>
   );
-};
-
-Title.defaultProps = {
-  animateDelay: 0.2,
 };
 
 export default Title;
