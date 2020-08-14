@@ -25,7 +25,7 @@ const imageAnimetion = {
   },
 };
 
-interface Props {
+interface SkillItemProps {
   description: string;
   isEnabled: boolean;
   src: string;
@@ -34,7 +34,7 @@ interface Props {
   onHoverStart: () => void;
 }
 
-const SkillItem: React.FC<Props> = ({
+const SkillItem: React.FC<SkillItemProps> = ({
   description,
   isEnabled,
   src,

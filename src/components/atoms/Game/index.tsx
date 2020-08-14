@@ -24,13 +24,13 @@ const variants = {
   }),
 };
 
-interface Props {
+interface GameProps {
   name: string;
   description: string;
   fluid: FluidObject;
 }
 
-const Game: React.FC<Props> = ({ name, description, fluid }) => {
+const Game: React.FC<GameProps> = ({ name, description, fluid }) => {
   const controls = useAnimation();
   const ref = useRef<HTMLLIElement>(null);
 

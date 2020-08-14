@@ -5,12 +5,12 @@ import SEO from '~/components/atoms/Seo';
 import { Container } from './styles';
 import GlobalStyle from '~/styles/global';
 
-interface Props {
+interface LayoutProps {
   title?: string;
   className?: string;
 }
 
-const Layout: React.FC<Props> = ({
+const Layout: React.FC<LayoutProps> = ({
   children,
   className,
   title = 'Home | ',

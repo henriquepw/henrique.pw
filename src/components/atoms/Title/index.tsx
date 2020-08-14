@@ -6,7 +6,7 @@ import { useSections } from '~/hooks/sections';
 
 import { Container } from './styles';
 
-const variants = {
+const animationVariants = {
   visible: (delay: number) => ({
     y: 0,
     opacity: 1,
@@ -21,21 +21,27 @@ const variants = {
   },
 };
 
-interface Props {
+interface TitleProps {
   animateDelay?: number;
   children: string;
 }
 
-const Title: React.FC<Props> = ({ children, animateDelay = 0.2 }) => {
+const Title: React.FC<TitleProps> = ({ children, animateDelay = 0.2 }) => {
   const { selected } = useSections();
-  const controls = useAnimation();
+  const animationControl = useAnimation();
 
   useEffect(() => {
-    controls.start(selected === children.toLowerCase() ? 'visible' : 'hidden');
-  }, [controls, selected, children]);
+    animationControl.start(
+      selected === children.toLowerCase() ? 'visible' : 'hidden',
+    );
+  }, [animationControl, selected, children]);
 
   return (
-    <Container custom={animateDelay} animate={controls} variants={variants}>
+    <Container
+      animate={animationControl}
+      custom={animateDelay}
+      variants={animationVariants}
+    >
       {children}
     </Container>
   );

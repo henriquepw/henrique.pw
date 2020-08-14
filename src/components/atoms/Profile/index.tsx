@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { Container } from './styles';
 
-interface Props {
+interface ProfileProps {
   className?: string;
 }
 
@@ -20,7 +20,7 @@ const profileImageQuery = graphql`
   }
 `;
 
-const Profile: React.FC<Props> = ({ className }) => {
+const Profile: React.FC<ProfileProps> = ({ className }) => {
   const { image } = useStaticQuery(profileImageQuery);
 
   return <Container className={className} fluid={image.sharp.fluid} />;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Props {
+interface SpotifyButtonProps {
   onClick: () => void;
   selected: boolean;
   item: {
@@ -8,7 +8,11 @@ interface Props {
   };
 }
 
-const SpotifyButton: React.FC<Props> = ({ item, selected, onClick }) => {
+const SpotifyButton: React.FC<SpotifyButtonProps> = ({
+  item,
+  selected,
+  onClick,
+}) => {
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {

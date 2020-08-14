@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 
 import { useSections } from '~/hooks/sections';
 
-interface Props {
+interface ScrollProps {
   refs: React.RefObject<HTMLElement>[];
 }
 
-const Scroll: React.FC<Props> = ({ refs }) => {
+const Scroll: React.FC<ScrollProps> = ({ refs }) => {
   const { selected, setSelectedByName, pageHeight } = useSections();
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import TimelineItem from '~/components/atoms/TimelineItem';
 
 import { Container } from './styles';
 
-interface Props {
+interface TimelineProps {
   data: {
     year: number;
     title: string;
@@ -12,7 +12,7 @@ interface Props {
   }[];
 }
 
-const Timeline: React.FC<Props> = ({ data }) => (
+const Timeline: React.FC<TimelineProps> = ({ data }) => (
   <Container>
     {data.map((item) => (
       <TimelineItem

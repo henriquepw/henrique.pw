@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-interface Props {
+interface SubTitleProps {
   children: string;
   className?: string;
 }
 
-const SubTitle: React.FC<Props> = ({ children, className }) => (
+const SubTitle: React.FC<SubTitleProps> = ({ children, className }) => (
   <Container className={className}>{children}</Container>
 );
 

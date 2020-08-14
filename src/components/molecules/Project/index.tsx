@@ -15,7 +15,7 @@ const ProjectAnimation = {
   },
 };
 
-interface Props {
+interface ProjectProps {
   data: {
     url: string;
     name: string;
@@ -30,7 +30,7 @@ interface Props {
   };
 }
 
-const Project: React.FC<Props> = ({ data }) => {
+const Project: React.FC<ProjectProps> = ({ data }) => {
   const tags = data.topics.nodes.map((item) =>
     item.topic.name.replace(/-/g, ' '),
   );

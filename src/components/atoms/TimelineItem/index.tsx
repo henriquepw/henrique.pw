@@ -23,13 +23,17 @@ const variants = {
   }),
 };
 
-interface Props {
+interface TimelineItemProps {
   year: number;
   title: string;
   description: string;
 }
 
-const TimelineItem: React.FC<Props> = ({ year, title, description }) => {
+const TimelineItem: React.FC<TimelineItemProps> = ({
+  year,
+  title,
+  description,
+}) => {
   const controls = useAnimation();
   const ref = useRef<HTMLLIElement>(null);
 

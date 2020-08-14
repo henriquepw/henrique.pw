@@ -3,14 +3,14 @@ import { Helmet } from 'react-helmet';
 
 import { useStaticQuery, graphql } from 'gatsby';
 
-interface Props {
+interface SEOProps {
   description?: string;
   title?: string;
   lang?: string;
   meta?: [];
 }
 
-const SEO: React.FC<Props> = ({
+const SEO: React.FC<SEOProps> = ({
   description,
   lang = 'en',
   meta = [],
