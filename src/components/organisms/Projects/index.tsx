@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, ForwardRefRenderFunction } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 import { useQuery } from '@apollo/client';
@@ -71,11 +71,11 @@ type Repository = {
   name: string;
   description: string;
   topics: {
-    nodes: {
+    nodes: Array<{
       topic: {
         name: string;
       };
-    };
+    }>;
   };
 };
 
@@ -90,7 +90,7 @@ interface QueryData {
   };
 }
 
-const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
+const Projects = forwardRef<HTMLElement>((_, ref) => {
   const { selected } = useSections();
   const { data, loading } = useQuery<QueryData>(QUERY);
 
@@ -129,6 +129,6 @@ const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
       </a>
     </Container>
   );
-};
+});
 
-export default React.memo(forwardRef(Projects));
+export default React.memo(Projects);

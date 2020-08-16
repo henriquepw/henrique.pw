@@ -21,11 +21,11 @@ interface ProjectProps {
     name: string;
     description: string;
     topics: {
-      nodes: {
+      nodes: Array<{
         topic: {
           name: string;
         };
-      }[];
+      }>;
     };
   };
 }

@@ -1,9 +1,4 @@
-import React, {
-  forwardRef,
-  useState,
-  useEffect,
-  ForwardRefRenderFunction,
-} from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 
 import { motion, useAnimation } from 'framer-motion';
 
@@ -100,7 +95,7 @@ const listAnimaton = {
   }),
 };
 
-const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
+const Skills = forwardRef<HTMLElement>((_, ref) => {
   const { selected } = useSections();
   const [inFocus, setInFocus] = useState(-1);
 
@@ -161,6 +156,6 @@ const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
       </div>
     </Container>
   );
-};
+});
 
-export default forwardRef(Skills);
+export default React.memo(Skills);
