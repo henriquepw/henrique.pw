@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-import Img from 'gatsby-image';
+import Img, { GatsbyImageProps } from 'gatsby-image';
 import { lighten } from 'polished';
 
 import Media from '~/styles/media';
@@ -23,7 +23,7 @@ const showUp = keyframes`
   }
 `;
 
-export const Container = styled(Img)`
+export const Container = styled(Img)<GatsbyImageProps>`
   width: 160px;
   height: 160px;
 

@@ -17,12 +17,8 @@ const textAnimetion = {
 };
 
 const imageAnimetion = {
-  initial: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1.1,
-  },
+  initial: { scale: 1 },
+  hover: { scale: 1.1 },
 };
 
 interface SkillItemProps {

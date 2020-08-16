@@ -7,6 +7,8 @@ interface SubTitleProps {
   className?: string;
 }
 
+// TODO: animate this components
+
 const SubTitle: React.FC<SubTitleProps> = ({ children, className }) => (
   <Container className={className}>{children}</Container>
 );

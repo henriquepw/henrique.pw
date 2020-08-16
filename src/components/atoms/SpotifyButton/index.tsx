@@ -3,11 +3,10 @@ import React, { useEffect, useRef } from 'react';
 interface SpotifyButtonProps {
   onClick: () => void;
   selected: boolean;
-  item: {
-    [key: string]: string;
-  };
+  item: Record<string, string>;
 }
 
+// TODO: Rename this component for a better name
 const SpotifyButton: React.FC<SpotifyButtonProps> = ({
   item,
   selected,

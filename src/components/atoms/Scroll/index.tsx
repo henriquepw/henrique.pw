@@ -6,9 +6,13 @@ interface ScrollProps {
   refs: React.RefObject<HTMLElement>[];
 }
 
+// TODO: Transform this component in a uncontrolled component
 const Scroll: React.FC<ScrollProps> = ({ refs }) => {
   const { selected, setSelectedByName, pageHeight } = useSections();
 
+  /**
+   * Use an intersection observer for the controller the animations of the sections
+   */
   useEffect(() => {
     function navCheck(entries: IntersectionObserverEntry[]): void {
       entries.forEach((entry) => {

@@ -5,7 +5,7 @@ import { FluidObject } from 'gatsby-image';
 
 import { Container, Image, Description } from './styles';
 
-const variants = {
+const animationVariants = {
   visible: (delay = 0) => ({
     y: 0,
     opacity: 1,
@@ -14,12 +14,12 @@ const variants = {
       delay,
     },
   }),
-  hidden: (delay = 0) => ({
+  hidden: (delay: 0 | 0.3 = 0) => ({
     y: 30,
     opacity: 0,
     transition: {
       duration: 0.5,
-      delay: delay ? 0 : 0.3,
+      delay: 0.3 - delay, // the inverse of the visible delay
     },
   }),
 };
@@ -27,18 +27,19 @@ const variants = {
 interface GameProps {
   name: string;
   description: string;
-  fluid: FluidObject;
+  fluid: FluidObject | FluidObject[];
 }
 
 const Game: React.FC<GameProps> = ({ name, description, fluid }) => {
-  const controls = useAnimation();
+  const animationControls = useAnimation();
   const ref = useRef<HTMLLIElement>(null);
 
+  /**
+   * Controlling the visibility of the element using an intersection observer
+   */
   useEffect(() => {
-    function onVisible([
-      { isIntersecting },
-    ]: IntersectionObserverEntry[]): void {
-      controls.start(isIntersecting ? 'visible' : 'hidden');
+    function onVisible([elem]: IntersectionObserverEntry[]): void {
+      animationControls.start(elem.isIntersecting ? 'visible' : 'hidden');
     }
 
     const observer = new IntersectionObserver(onVisible, {
@@ -50,16 +51,20 @@ const Game: React.FC<GameProps> = ({ name, description, fluid }) => {
     }
 
     return () => observer.disconnect();
-  }, [controls, ref]);
+  }, [animationControls, ref]);
 
   return (
     <Container ref={ref}>
       <Image fluid={fluid} />
       <Description>
-        <motion.h1 animate={controls} variants={variants}>
+        <motion.h1 animate={animationControls} variants={animationVariants}>
           {name}
         </motion.h1>
-        <motion.p custom={0.3} animate={controls} variants={variants}>
+        <motion.p
+          custom={0.3}
+          animate={animationControls}
+          variants={animationVariants}
+        >
           {description}
         </motion.p>
       </Description>

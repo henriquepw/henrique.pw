@@ -18,12 +18,8 @@ type MediaFn = (
   >
 ) => FlattenInterpolation<ThemedStyledProps<unknown, DefaultTheme>>;
 
-interface ObjectOf<T> {
-  [key: string]: T;
-}
-
 // TODO: refactor for fewer sizes
-export const width: ObjectOf<number> = {
+export const width: Record<string, number> = {
   smallPhone: 400,
   phone: 500,
   bigPhone: 620,
@@ -71,5 +67,5 @@ function mediaFactory(size: string): MediaFn {
  */
 export default Object.keys(width).reduce(
   (media, size: string) => ({ ...media, [size]: mediaFactory(size) }),
-  {} as ObjectOf<MediaFn>,
+  {} as Record<string, MediaFn>,
 );

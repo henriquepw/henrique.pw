@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Img from 'gatsby-image';
+import Img, { GatsbyImageProps } from 'gatsby-image';
 
 import Media from '~/styles/media';
 
@@ -79,7 +79,7 @@ export const Container = styled.li`
   `}
 `;
 
-export const Image = styled(Img)`
+export const Image = styled(Img)<GatsbyImageProps>`
   width: 417px;
   height: 200px;
   margin: auto;
