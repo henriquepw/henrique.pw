@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { motion, useTransform } from 'framer-motion';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
 import Profile from '~/components/atoms/Profile';
 
@@ -11,7 +11,8 @@ import { useSections } from '~/hooks/sections';
 import { Container, Divider } from './styles';
 
 const Home = forwardRef<HTMLElement>((_, ref) => {
-  const { scrollY, pageHeight } = useSections();
+  const { pageHeight } = useSections();
+  const { scrollY } = useViewportScroll();
 
   /**
    * Controll the opacity by scrollY value

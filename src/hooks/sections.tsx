@@ -13,10 +13,7 @@ import React, {
   useContext,
 } from 'react';
 
-import { useViewportScroll, MotionValue } from 'framer-motion';
-
 export interface SectionProps {
-  scrollY: MotionValue<number>;
   selected: string;
   pageHeight: number;
   setSelectedByName: Dispatch<SetStateAction<string>>;
@@ -30,12 +27,10 @@ const SectionsContext = createContext<SectionProps>({} as SectionProps);
 const SectionsProvider: React.FC = ({ children }) => {
   const [selected, setSelectedByName] = useState('home');
   const [pageHeight, setPageHeight] = useState(0);
-  const { scrollY } = useViewportScroll();
 
   return (
     <SectionsContext.Provider
       value={{
-        scrollY,
         selected,
         setSelectedByName,
         setPageHeight,
