@@ -2,7 +2,6 @@ import React from 'react';
 
 import SEO from '~/components/atoms/Seo';
 
-import { Container } from './styles';
 import GlobalStyle from '~/styles/global';
 
 interface LayoutProps {
@@ -10,16 +9,12 @@ interface LayoutProps {
   className?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({
-  children,
-  className,
-  title = 'Home | ',
-}) => (
-  <Container className={className}>
+const Layout: React.FC<LayoutProps> = ({ children, title = 'Home | ' }) => (
+  <>
     <GlobalStyle />
     <SEO title={title} />
     {children}
-  </Container>
+  </>
 );
 
 export default Layout;

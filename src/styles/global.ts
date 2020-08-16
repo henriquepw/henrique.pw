@@ -54,12 +54,19 @@ export default createGlobalStyle`
     }
   }
 
-  #gatsby-focus-wrapper {
+  #__gatsby {
     min-height: 100%;
 
     ${Media.hd`
       padding-left: 0px;
     `}
+  }
+
+  #gatsby-focus-wrapper {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
   }
 
   button {
