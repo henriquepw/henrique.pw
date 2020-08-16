@@ -18,7 +18,7 @@ import { useSections } from '~/hooks/sections';
 import { Content } from './styles';
 
 const Main: React.FC = () => {
-  const { selected, setPageHeight } = useSections();
+  const { selected, pageHeight, setPageHeight } = useSections();
   const sections = [
     useRef(null),
     useRef(null),
@@ -66,7 +66,7 @@ const Main: React.FC = () => {
       <Scroll refs={sections} />
       <Menu />
       <Content>
-        <Home ref={sections[0]} />
+        <Home ref={sections[0]} pageHeight={pageHeight} />
         <Education ref={sections[1]} />
         <Skills ref={sections[2]} />
         <Projects ref={sections[3]} />

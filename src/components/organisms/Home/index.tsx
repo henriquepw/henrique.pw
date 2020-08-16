@@ -6,12 +6,13 @@ import Profile from '~/components/atoms/Profile';
 
 import SocialList from '~/components/molecules/SocialList';
 
-import { useSections } from '~/hooks/sections';
-
 import { Container, Divider } from './styles';
 
-const Home = forwardRef<HTMLElement>((_, ref) => {
-  const { pageHeight } = useSections();
+interface HomeProps {
+  pageHeight: number;
+}
+
+const Home = forwardRef<HTMLElement, HomeProps>(({ pageHeight }, ref) => {
   const { scrollY } = useViewportScroll();
 
   /**
