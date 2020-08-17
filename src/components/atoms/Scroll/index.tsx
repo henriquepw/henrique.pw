@@ -6,7 +6,6 @@ interface ScrollProps {
   refs: React.RefObject<HTMLElement>[];
 }
 
-// TODO: Transform this component in a uncontrolled component
 const Scroll: React.FC<ScrollProps> = ({ refs }) => {
   const { selected, setSelectedByName, pageHeight } = useSections();
 
@@ -28,16 +27,19 @@ const Scroll: React.FC<ScrollProps> = ({ refs }) => {
       )}px 0px`,
     });
 
-    const isExist = refs.reduce((prev, ref) => prev && !!ref.current, true);
+    /**
+     * Only observer if all references are valid
+     */
+    const isAnyRefNull = refs.find((ref) => !ref.current) === null;
 
-    if (isExist) {
-      refs.forEach((ref) => ref.current && observer.observe(ref.current));
+    if (!isAnyRefNull) {
+      refs.forEach((ref) => observer.observe(ref.current as HTMLElement));
     }
 
     return () => observer.disconnect();
   }, [pageHeight, refs, selected, setSelectedByName]);
 
-  return <span style={{ position: 'fixed', zIndex: -999 }} />;
+  return null;
 };
 
 export default Scroll;
