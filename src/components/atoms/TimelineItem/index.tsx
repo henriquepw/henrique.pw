@@ -5,7 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { Container } from './styles';
 
 const variants = {
-  visible: (delay = 0.2) => ({
+  show: (delay = 0.2) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -13,12 +13,12 @@ const variants = {
       delay,
     },
   }),
-  hidden: (delay: 0.2 | 0.4 = 0.2) => ({
+  hide: (delay: 0.2 | 0.4 = 0.2) => ({
     y: 30,
     opacity: 0,
     transition: {
       duration: 0.5,
-      delay: 0.6 - delay, // the inverse of the visible delay
+      delay: 0.6 - delay, // the inverse of the show delay
     },
   }),
 };
@@ -42,7 +42,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
    */
   useEffect(() => {
     function onVisible([elem]: IntersectionObserverEntry[]): void {
-      animationControls.start(elem.isIntersecting ? 'visible' : 'hidden');
+      animationControls.start(elem.isIntersecting ? 'show' : 'hide');
     }
 
     const observer = new IntersectionObserver(onVisible, {

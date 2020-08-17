@@ -1,6 +1,6 @@
-import React, { forwardRef, RefObject, useEffect } from 'react';
+import React from 'react';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import SubTitle from '~/components/atoms/SubTitle';
 import Title from '~/components/atoms/Title';
@@ -8,10 +8,12 @@ import Title from '~/components/atoms/Title';
 import GamesList from '~/components/molecules/GamesList';
 import Player from '~/components/molecules/Player';
 
+import useAnimationRef from '~/hooks/useAnimationRef';
+
 import { Container } from './styles';
 
 const animationVariants = {
-  visible: (delay = 0) => ({
+  show: (delay = 0) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -19,7 +21,7 @@ const animationVariants = {
       delay,
     },
   }),
-  hidden: (delay: 0 | 0.3 = 0) => ({
+  hide: (delay: 0 | 0.3 = 0) => ({
     y: 30,
     opacity: 0,
     transition: {
@@ -29,33 +31,17 @@ const animationVariants = {
   }),
 };
 
-const About = forwardRef<HTMLElement>((_, ref) => {
-  const animationControls = useAnimation();
-
-  useEffect(() => {
-    function onVisible([elem]: IntersectionObserverEntry[]): void {
-      animationControls.start(elem.isIntersecting ? 'visible' : 'hidden');
-    }
-
-    const observer = new IntersectionObserver(onVisible, {
-      rootMargin: '0px 0px -50% 0px',
-    });
-
-    const { current } = ref as RefObject<HTMLElement>;
-
-    if (current) {
-      observer.observe(current);
-    }
-
-    return () => observer.disconnect();
-  }, [animationControls, ref]);
+const About: React.FC = () => {
+  const [animationControl, aboutRef] = useAnimationRef({
+    rootMargin: '0px 0px -50% 0px',
+  });
 
   return (
-    <Container id="about" ref={ref}>
-      <Title>About</Title>
+    <Container id="about" ref={aboutRef}>
+      <Title animationControl={animationControl}>About</Title>
       <motion.p
         custom={0.4}
-        animate={animationControls}
+        animate={animationControl}
         variants={animationVariants}
       >
         My name is Henrique, you must have seen my name on the main screen,
@@ -67,7 +53,7 @@ const About = forwardRef<HTMLElement>((_, ref) => {
       </motion.p>
       <motion.p
         custom={0.8}
-        animate={animationControls}
+        animate={animationControl}
         variants={animationVariants}
       >
         Well, I&apos;ll talk about some things that I like for you to get to
@@ -81,6 +67,6 @@ const About = forwardRef<HTMLElement>((_, ref) => {
       <Player />
     </Container>
   );
-});
+};
 
 export default React.memo(About);

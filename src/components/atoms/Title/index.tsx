@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { useAnimation } from 'framer-motion';
-
-import { useSections } from '~/hooks/sections';
+import { AnimationControls } from 'framer-motion';
 
 import { Container } from './styles';
 
 const animationVariants = {
-  visible: (delay: number) => ({
+  show: (delay: number) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -15,7 +13,7 @@ const animationVariants = {
       delay,
     },
   }),
-  hidden: {
+  hide: {
     y: 30,
     opacity: 0,
   },
@@ -23,19 +21,15 @@ const animationVariants = {
 
 interface TitleProps {
   animateDelay?: number;
+  animationControl: AnimationControls;
   children: string;
 }
 
-const Title: React.FC<TitleProps> = ({ children, animateDelay = 0.2 }) => {
-  const { selected } = useSections();
-  const animationControl = useAnimation();
-
-  useEffect(() => {
-    animationControl.start(
-      selected === children.toLowerCase() ? 'visible' : 'hidden',
-    );
-  }, [animationControl, selected, children]);
-
+const Title: React.FC<TitleProps> = ({
+  animateDelay = 0.2,
+  animationControl,
+  children,
+}) => {
   return (
     <Container
       animate={animationControl}

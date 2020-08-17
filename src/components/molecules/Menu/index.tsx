@@ -3,21 +3,9 @@ import { FiMenu } from 'react-icons/fi';
 
 import { motion, useAnimation } from 'framer-motion';
 
-import { sections } from '~/hooks/sections';
-
 import { Container, MenuItem } from './styles';
 
 const listAnimation = {
-  hidden: {
-    x: '100%',
-    transition: {
-      type: 'spring',
-      damping: 15,
-      when: 'afterChildren',
-      staggerChildren: 0.05,
-      staggerDirection: -1,
-    },
-  },
   show: {
     x: 0,
     transition: {
@@ -28,16 +16,16 @@ const listAnimation = {
       staggerChildren: 0.07,
     },
   },
-};
-
-const itemAnimation = {
-  hidden: {
+  hide: {
     y: 40,
     opacity: 0,
     transition: {
       y: { stiffness: 1000 },
     },
   },
+};
+
+const itemAnimation = {
   show: {
     y: 0,
     opacity: 1,
@@ -47,22 +35,26 @@ const itemAnimation = {
       y: { stiffness: 1000, velocity: -100 },
     },
   },
-  hover: {
-    scale: 1.15,
+  hide: {
+    y: 40,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
   },
-  tap: {
-    scale: 0.95,
-  },
+  hover: { scale: 1.15 },
+  tap: { scale: 0.95 },
 };
+
+const sections = ['home', 'education', 'skills', 'projects', 'about'];
 
 const Menu: React.FC = () => {
   const controlAnimation = useAnimation();
 
   const [pressed, setPressed] = useState(false);
-  /* selected,  setSelectedByName */
 
   useEffect(() => {
-    controlAnimation.start(pressed ? 'show' : 'hidden');
+    controlAnimation.start(pressed ? 'show' : 'hide');
   }, [controlAnimation, pressed]);
 
   function handlerSelected(
@@ -71,7 +63,6 @@ const Menu: React.FC = () => {
   ): void {
     event.preventDefault();
 
-    // setSelectedByName(name);
     setPressed(!pressed);
 
     return document.getElementById(name)?.scrollIntoView();
@@ -86,14 +77,14 @@ const Menu: React.FC = () => {
       <FiMenu size={40} onClick={handleBurgerClick} />
 
       <motion.ul
-        initial="hidden"
+        initial="hide"
         variants={listAnimation}
         animate={controlAnimation}
       >
         {sections.map((name: string) => (
           <MenuItem
             key={name}
-            initial="hidden"
+            initial="hide"
             whileHover="hover"
             whileTap="tap"
             variants={itemAnimation}

@@ -1,15 +1,15 @@
-import React, { forwardRef, useEffect } from 'react';
+import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 import { useQuery } from '@apollo/client';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import gql from 'graphql-tag';
 
 import Title from '~/components/atoms/Title';
 
 import Project from '~/components/molecules/Project';
 
-import { useSections } from '~/hooks/sections';
+import useAnimationRef from '~/hooks/useAnimationRef';
 
 import { Container } from './styles';
 
@@ -51,16 +51,16 @@ const QUERY = gql`
 `;
 
 const listAnimaton = {
-  hidden: {
-    transition: {
-      when: 'afterChildren',
-      staggerChildren: 0.05,
-    },
-  },
-  initial: {
+  show: {
     transition: {
       when: 'beforeChildren',
       staggerChildren: 0.1,
+    },
+  },
+  hide: {
+    transition: {
+      when: 'afterChildren',
+      staggerChildren: 0.05,
     },
   },
 };
@@ -90,20 +90,14 @@ interface QueryData {
   };
 }
 
-const Projects = forwardRef<HTMLElement>((_, ref) => {
-  const { selected } = useSections();
+const Projects: React.FC = () => {
   const { data, loading } = useQuery<QueryData>(QUERY);
-
-  const controlAnimaton = useAnimation();
-
-  useEffect(() => {
-    controlAnimaton.start(selected === 'projects' ? 'initial' : 'hidden');
-  }, [controlAnimaton, selected]);
+  const [animationControl, projectRef] = useAnimationRef();
 
   return (
-    <Container id="projects" ref={ref}>
-      <Title>Projects</Title>
-      <motion.ul variants={listAnimaton} animate={controlAnimaton}>
+    <Container id="projects" ref={projectRef}>
+      <Title animationControl={animationControl}>Projects</Title>
+      <motion.ul variants={listAnimaton} animate={animationControl}>
         {(() => {
           if (loading) return <span>Loading...</span>;
 
@@ -129,6 +123,6 @@ const Projects = forwardRef<HTMLElement>((_, ref) => {
       </a>
     </Container>
   );
-});
+};
 
 export default React.memo(Projects);

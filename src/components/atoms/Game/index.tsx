@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
-import { useAnimation, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FluidObject } from 'gatsby-image';
+
+import useAnimationRef from '~/hooks/useAnimationRef';
 
 import { Container, Image, Description } from './styles';
 
 const animationVariants = {
-  visible: (delay = 0) => ({
+  show: (delay = 0) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -14,12 +16,12 @@ const animationVariants = {
       delay,
     },
   }),
-  hidden: (delay: 0 | 0.3 = 0) => ({
+  hide: (delay: 0 | 0.3 = 0) => ({
     y: 30,
     opacity: 0,
     transition: {
       duration: 0.5,
-      delay: 0.3 - delay, // the inverse of the visible delay
+      delay: 0.3 - delay, // the inverse of the show delay
     },
   }),
 };
@@ -30,31 +32,14 @@ interface GameProps {
   fluid: FluidObject | FluidObject[];
 }
 
+// TODO: Check this ref type problem
 const Game: React.FC<GameProps> = ({ name, description, fluid }) => {
-  const animationControls = useAnimation();
-  const ref = useRef<HTMLLIElement>(null);
-
-  /**
-   * Controlling the visibility of the element using an intersection observer
-   */
-  useEffect(() => {
-    function onVisible([elem]: IntersectionObserverEntry[]): void {
-      animationControls.start(elem.isIntersecting ? 'visible' : 'hidden');
-    }
-
-    const observer = new IntersectionObserver(onVisible, {
-      rootMargin: '0px 0px -30% 0px',
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [animationControls, ref]);
+  const [animationControls, gameRef] = useAnimationRef<HTMLLIElement>({
+    rootMargin: '0px 0px -30% 0px',
+  });
 
   return (
-    <Container ref={ref}>
+    <Container ref={gameRef}>
       <Image fluid={fluid} />
       <Description>
         <motion.h1 animate={animationControls} variants={animationVariants}>

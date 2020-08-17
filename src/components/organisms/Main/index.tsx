@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, /* useRef, */ useLayoutEffect } from 'react';
 
-import Scroll from '~/components/atoms/Scroll';
+// import Scroll from '~/components/atoms/Scroll';
 
 import Menu from '~/components/molecules/Menu';
 
@@ -13,34 +13,9 @@ import Skills from '~/components/organisms/Skills';
 
 import Layout from '~/components/templates/Layout';
 
-import { useSections } from '~/hooks/sections';
-
 import { Content } from './styles';
 
 const Main: React.FC = () => {
-  const { selected, pageHeight, setPageHeight } = useSections();
-  const sections = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
-
-  useLayoutEffect(() => {
-    setPageHeight(window.innerHeight);
-
-    function setCurrentHeight(): void {
-      setPageHeight(window.innerHeight);
-    }
-
-    window.addEventListener('resize', setCurrentHeight);
-
-    return () => {
-      window.removeEventListener('resize', setCurrentHeight);
-    };
-  }, [setPageHeight]);
-
   useEffect(() => {
     function addUsingMouse(): void {
       document.body.classList.add('using-mouse');
@@ -60,17 +35,14 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <Layout
-      title={`${selected.replace(/\b\w/g, (l: string) => l.toUpperCase())} | `}
-    >
-      <Scroll refs={sections} />
+    <Layout title={`Home | `}>
       <Menu />
       <Content>
-        <Home ref={sections[0]} pageHeight={pageHeight} />
-        <Education ref={sections[1]} />
-        <Skills ref={sections[2]} />
-        <Projects ref={sections[3]} />
-        <About ref={sections[4]} />
+        <Home />
+        <Education />
+        <Skills />
+        <Projects />
+        <About />
         <Footer />
       </Content>
     </Layout>

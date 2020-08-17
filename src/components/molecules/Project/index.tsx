@@ -3,15 +3,15 @@ import React from 'react';
 import { Container } from './styles';
 
 const ProjectAnimation = {
-  hidden: {
-    y: 50,
-    scale: 0,
-    opacity: 0,
-  },
-  initial: {
+  show: {
     y: 0,
     scale: 1,
     opacity: 1,
+  },
+  hide: {
+    y: 50,
+    scale: 0,
+    opacity: 0,
   },
 };
 

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
@@ -6,14 +6,13 @@ import Profile from '~/components/atoms/Profile';
 
 import SocialList from '~/components/molecules/SocialList';
 
+import { usePageHeight } from '~/hooks/usePageHeight';
+
 import { Container, Divider } from './styles';
 
-interface HomeProps {
-  pageHeight: number;
-}
-
-const Home = forwardRef<HTMLElement, HomeProps>(({ pageHeight }, ref) => {
+const Home: React.FC = () => {
   const { scrollY } = useViewportScroll();
+  const pageHeight = usePageHeight();
 
   /**
    * Controll the opacity by scrollY value
@@ -38,7 +37,7 @@ const Home = forwardRef<HTMLElement, HomeProps>(({ pageHeight }, ref) => {
   }
 
   return (
-    <Container id="home" ref={ref}>
+    <Container id="home">
       <motion.div style={{ opacity, y, width: '100%' }}>
         <Profile />
         <h1>
@@ -74,6 +73,6 @@ const Home = forwardRef<HTMLElement, HomeProps>(({ pageHeight }, ref) => {
       </a>
     </Container>
   );
-});
+};
 
 export default React.memo(Home);

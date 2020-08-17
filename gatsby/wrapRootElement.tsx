@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { ApolloProvider } from '@apollo/client';
 
-import { SectionsProvider } from '../src/hooks/sections';
+import { PageHeightProvider } from '../src/hooks/usePageHeight';
 import apolloClient from '../src/services/ApolloClient';
 import { light } from '../src/styles/themes';
 
@@ -14,9 +14,9 @@ interface WrapRootProps {
  * A wrapper for the pages with all provider needed
  */
 export const wrapRootElement: React.FC<WrapRootProps> = ({ element }) => (
-  <SectionsProvider>
-    <ApolloProvider client={apolloClient}>
-      <ThemeProvider theme={light}>{element}</ThemeProvider>
-    </ApolloProvider>
-  </SectionsProvider>
+  <ApolloProvider client={apolloClient}>
+    <ThemeProvider theme={light}>
+      <PageHeightProvider>{element}</PageHeightProvider>
+    </ThemeProvider>
+  </ApolloProvider>
 );
