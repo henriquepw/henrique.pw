@@ -9,7 +9,7 @@ function useAnimationRef<RefType extends HTMLElement>(
 ): [AnimationControls, RefObject<HTMLElement>] {
   const ref = useRef<RefType>(null);
 
-  const pageHeight = usePageHeight();
+  const { pageHeight } = usePageHeight();
   const animationControls = useAnimation();
 
   /**

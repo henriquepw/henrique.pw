@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -6,7 +6,7 @@ import useAnimationRef from '~/hooks/useAnimationRef';
 
 import { Container } from './styles';
 
-const variants = {
+const animationVariants = {
   show: (delay = 0.2) => ({
     y: 0,
     opacity: 1,
@@ -46,10 +46,14 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       <h2>{year}</h2>
       <span />
       <div>
-        <motion.h1 animate={animationControls} variants={variants}>
+        <motion.h1 animate={animationControls} variants={animationVariants}>
           {title}
         </motion.h1>
-        <motion.p custom={0.4} animate={animationControls} variants={variants}>
+        <motion.p
+          custom={0.4}
+          animate={animationControls}
+          variants={animationVariants}
+        >
           {description}
         </motion.p>
       </div>

@@ -15,8 +15,8 @@ const SpotifyButton: React.FC<SpotifyButtonProps> = ({
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (ref.current && selected) {
-      ref.current.focus();
+    if (selected) {
+      ref.current?.focus();
     }
   }, [selected]);
 

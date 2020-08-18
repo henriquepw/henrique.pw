@@ -2,36 +2,28 @@ import React, {
   createContext,
   useState,
   useContext,
-  useLayoutEffect,
+  Dispatch,
+  SetStateAction,
 } from 'react';
 
-const PageHeightContext = createContext<number>(0);
+type PageHeightState = {
+  pageHeight: number;
+  setPageHeight: Dispatch<SetStateAction<number>>;
+};
+
+const PageHeightContext = createContext<PageHeightState>({} as PageHeightState);
 
 const PageHeightProvider: React.FC = ({ children }) => {
   const [pageHeight, setPageHeight] = useState(0);
 
-  useLayoutEffect(() => {
-    setPageHeight(window.innerHeight);
-
-    function setCurrentHeight(): void {
-      setPageHeight(window.innerHeight);
-    }
-
-    window.addEventListener('resize', setCurrentHeight);
-
-    return () => {
-      window.removeEventListener('resize', setCurrentHeight);
-    };
-  }, [setPageHeight]);
-
   return (
-    <PageHeightContext.Provider value={pageHeight}>
+    <PageHeightContext.Provider value={{ pageHeight, setPageHeight }}>
       {children}
     </PageHeightContext.Provider>
   );
 };
 
-function usePageHeight(): number {
+function usePageHeight(): PageHeightState {
   const context = useContext(PageHeightContext);
 
   return context;

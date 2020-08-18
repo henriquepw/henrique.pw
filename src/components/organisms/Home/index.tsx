@@ -12,7 +12,7 @@ import { Container, Divider } from './styles';
 
 const Home: React.FC = () => {
   const { scrollY } = useViewportScroll();
-  const pageHeight = usePageHeight();
+  const { pageHeight } = usePageHeight();
 
   /**
    * Controll the opacity by scrollY value
