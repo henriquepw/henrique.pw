@@ -34,12 +34,12 @@ interface GameProps {
 
 // TODO: Check this ref type problem
 const Game: React.FC<GameProps> = ({ name, description, fluid }) => {
-  const [animationControls, gameRef] = useAnimationRef<HTMLLIElement>({
+  const [animationControls, ref] = useAnimationRef<HTMLLIElement>({
     rootMargin: '0px 0px -30% 0px',
   });
 
   return (
-    <Container ref={gameRef}>
+    <Container ref={ref}>
       <Image fluid={fluid} />
       <Description>
         <motion.h1 animate={animationControls} variants={animationVariants}>

@@ -11,11 +11,11 @@ import data from '~/assets/data/education.json';
 import Section from '~/styles/section';
 
 const Education: React.FC = () => {
-  const [animationControl, educationRef] = useAnimationRef();
+  const [animationControls, ref] = useAnimationRef();
 
   return (
-    <Section id="education" ref={educationRef}>
-      <Title animationControl={animationControl} animateDelay={0}>
+    <Section id="education" ref={ref}>
+      <Title animationControls={animationControls} animateDelay={0}>
         Education
       </Title>
       <Timeline data={data} />

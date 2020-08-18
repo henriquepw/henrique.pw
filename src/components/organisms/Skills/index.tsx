@@ -98,7 +98,7 @@ const listAnimaton = {
 const Skills: React.FC = () => {
   const [inFocus, setInFocus] = useState(-1);
 
-  const [animationControl, skillsRef] = useAnimationRef();
+  const [animationControls, ref] = useAnimationRef();
 
   function handleTap(index: number): void {
     setInFocus(inFocus === index ? -1 : index);
@@ -113,11 +113,11 @@ const Skills: React.FC = () => {
   }
 
   return (
-    <Container id="skills" ref={skillsRef}>
-      <Title animationControl={animationControl}>Skills</Title>
+    <Container id="skills" ref={ref}>
+      <Title animationControls={animationControls}>Skills</Title>
       <div>
         <SubTitle>My Focus</SubTitle>
-        <motion.ul variants={listAnimaton} animate={animationControl}>
+        <motion.ul variants={listAnimaton} animate={animationControls}>
           {focus.map((item, index) => (
             <SkillItem
               src={item.icon}
@@ -134,7 +134,7 @@ const Skills: React.FC = () => {
         <motion.ul
           custom={0.6}
           variants={listAnimaton}
-          animate={animationControl}
+          animate={animationControls}
         >
           {others.map((item, index) => (
             <SkillItem

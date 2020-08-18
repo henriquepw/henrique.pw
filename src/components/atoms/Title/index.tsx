@@ -21,18 +21,18 @@ const animationVariants = {
 
 interface TitleProps {
   animateDelay?: number;
-  animationControl: AnimationControls;
+  animationControls: AnimationControls;
   children: string;
 }
 
 const Title: React.FC<TitleProps> = ({
   animateDelay = 0.2,
-  animationControl,
+  animationControls,
   children,
 }) => {
   return (
     <Container
-      animate={animationControl}
+      animate={animationControls}
       custom={animateDelay}
       variants={animationVariants}
     >

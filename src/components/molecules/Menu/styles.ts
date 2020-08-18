@@ -13,7 +13,7 @@ interface MenuItemProps {
 }
 
 export const Container = styled.nav<ContainerProps>`
-  z-index: 5;
+  z-index: 1000;
 
   top: 0;
   right: 0;

@@ -32,7 +32,7 @@ function useAnimationRef<RefType extends HTMLElement>(
       observer.observe(ref.current);
     }
 
-    return () => observer.disconnect();
+    return observer.disconnect;
   }, [animationControls, observerOptions, pageHeight, ref]);
 
   return [animationControls, ref];

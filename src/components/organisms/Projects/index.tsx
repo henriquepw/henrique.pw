@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 import { useQuery } from '@apollo/client';
@@ -90,28 +90,43 @@ interface QueryData {
   };
 }
 
-const Projects: React.FC = () => {
+const ProjectList: React.FC = () => {
   const { data, loading } = useQuery<QueryData>(QUERY);
-  const [animationControl, projectRef] = useAnimationRef();
+
+  const dataSerialized = useMemo(() => {
+    const repo = [
+      ...(data?.viewer?.repos.nodes || []),
+      data?.viewer.repo1,
+      data?.viewer.repo2,
+      data?.viewer.repo3,
+    ];
+
+    return repo.filter((r) => !!r) as Repository[];
+  }, [data]);
+
+  if (loading) return <span>Loading...</span>;
 
   return (
-    <Container id="projects" ref={projectRef}>
-      <Title animationControl={animationControl}>Projects</Title>
-      <motion.ul variants={listAnimaton} animate={animationControl}>
-        {(() => {
-          if (loading) return <span>Loading...</span>;
+    <>
+      {dataSerialized.map((item) => (
+        <Project key={item.id} data={item} />
+      ))}
+    </>
+  );
+};
 
-          const repos = [
-            ...(data?.viewer?.repos.nodes || []),
-            data?.viewer.repo1,
-            data?.viewer.repo2,
-            data?.viewer.repo3,
-          ];
+const Projects: React.FC = () => {
+  const [animationControls, ref] = useAnimationRef();
 
-          return repos.map(
-            (repo) => repo && <Project key={repo.id} data={repo} />,
-          );
-        })()}
+  return (
+    <Container id="projects" ref={ref}>
+      <Title animationControls={animationControls}>Projects</Title>
+      <motion.ul
+        initial="hide"
+        variants={listAnimaton}
+        animate={animationControls}
+      >
+        <ProjectList />
       </motion.ul>
       <a
         href="https://github.com/henry-ns"

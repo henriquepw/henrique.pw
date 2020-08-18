@@ -5,7 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 
 import { Container, MenuItem } from './styles';
 
-const listAnimation = {
+const listAnimationVariants = {
   show: {
     x: 0,
     transition: {
@@ -17,15 +17,18 @@ const listAnimation = {
     },
   },
   hide: {
-    y: 40,
-    opacity: 0,
+    x: '100%',
     transition: {
-      y: { stiffness: 1000 },
+      type: 'spring',
+      damping: 15,
+      when: 'afterChildren',
+      staggerChildren: 0.05,
+      staggerDirection: -1,
     },
   },
 };
 
-const itemAnimation = {
+const ListItemAnimationVariants = {
   show: {
     y: 0,
     opacity: 1,
@@ -49,13 +52,13 @@ const itemAnimation = {
 const sections = ['home', 'education', 'skills', 'projects', 'about'];
 
 const Menu: React.FC = () => {
-  const controlAnimation = useAnimation();
+  const animationControls = useAnimation();
 
   const [pressed, setPressed] = useState(false);
 
   useEffect(() => {
-    controlAnimation.start(pressed ? 'show' : 'hide');
-  }, [controlAnimation, pressed]);
+    animationControls.start(pressed ? 'show' : 'hide');
+  }, [animationControls, pressed]);
 
   function handlerSelected(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -78,8 +81,8 @@ const Menu: React.FC = () => {
 
       <motion.ul
         initial="hide"
-        variants={listAnimation}
-        animate={controlAnimation}
+        variants={listAnimationVariants}
+        animate={animationControls}
       >
         {sections.map((name: string) => (
           <MenuItem
@@ -87,12 +90,12 @@ const Menu: React.FC = () => {
             initial="hide"
             whileHover="hover"
             whileTap="tap"
-            variants={itemAnimation}
+            variants={ListItemAnimationVariants}
             // selected={selected === name}
           >
             <motion.a
               href={`#${name}`}
-              onClick={(e) => handlerSelected(e, name)}
+              onClick={(event) => handlerSelected(event, name)}
             >
               {name}
             </motion.a>

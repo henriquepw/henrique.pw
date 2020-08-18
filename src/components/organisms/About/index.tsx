@@ -32,16 +32,16 @@ const animationVariants = {
 };
 
 const About: React.FC = () => {
-  const [animationControl, aboutRef] = useAnimationRef({
+  const [animationControls, ref] = useAnimationRef({
     rootMargin: '0px 0px -50% 0px',
   });
 
   return (
-    <Container id="about" ref={aboutRef}>
-      <Title animationControl={animationControl}>About</Title>
+    <Container id="about" ref={ref}>
+      <Title animationControls={animationControls}>About</Title>
       <motion.p
         custom={0.4}
-        animate={animationControl}
+        animate={animationControls}
         variants={animationVariants}
       >
         My name is Henrique, you must have seen my name on the main screen,
@@ -53,7 +53,7 @@ const About: React.FC = () => {
       </motion.p>
       <motion.p
         custom={0.8}
-        animate={animationControl}
+        animate={animationControls}
         variants={animationVariants}
       >
         Well, I&apos;ll talk about some things that I like for you to get to

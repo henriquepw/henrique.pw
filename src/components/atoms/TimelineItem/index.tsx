@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
+
+import useAnimationRef from '~/hooks/useAnimationRef';
 
 import { Container } from './styles';
 
@@ -34,28 +36,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   title,
   description,
 }) => {
-  const animationControls = useAnimation();
-  const ref = useRef<HTMLLIElement>(null);
-
-  /**
-   * Controlling the visibility of the element using an intersection observer
-   */
-  useEffect(() => {
-    function onVisible([elem]: IntersectionObserverEntry[]): void {
-      animationControls.start(elem.isIntersecting ? 'show' : 'hide');
-    }
-
-    const observer = new IntersectionObserver(onVisible, {
-      rootMargin: '10% 0px -5% 0px',
-      threshold: 1,
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [animationControls]);
+  const [animationControls, ref] = useAnimationRef({
+    rootMargin: '10% 0px -5% 0px',
+    threshold: 1,
+  });
 
   return (
     <Container ref={ref}>
