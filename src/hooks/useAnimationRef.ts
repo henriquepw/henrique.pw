@@ -2,15 +2,11 @@ import { useEffect, useRef, RefObject } from 'react';
 
 import { useAnimation, AnimationControls } from 'framer-motion';
 
-import { usePageHeight } from './usePageHeight';
-
-function useAnimationRef<RefType extends HTMLElement>(
+function useAnimationRef<RefType extends HTMLElement = HTMLElement>(
   observerOptions?: IntersectionObserverInit,
 ): [AnimationControls, RefObject<HTMLElement>] {
-  const ref = useRef<RefType>(null);
-
-  const { pageHeight } = usePageHeight();
   const animationControls = useAnimation();
+  const ref = useRef<RefType>(null);
 
   /**
    * Use an intersection observer for know when the ref is visible
@@ -21,9 +17,7 @@ function useAnimationRef<RefType extends HTMLElement>(
     }
 
     const options = observerOptions || {
-      rootMargin: `${-(pageHeight * 0.65 - 1)}px 0px ${-(
-        pageHeight * 0.35
-      )}px 0px`,
+      rootMargin: `-65% 0px -34% 0px`,
     };
 
     const observer = new IntersectionObserver(handleIntercession, options);
@@ -33,7 +27,7 @@ function useAnimationRef<RefType extends HTMLElement>(
     }
 
     return observer.disconnect;
-  }, [animationControls, observerOptions, pageHeight, ref]);
+  }, [animationControls, observerOptions, ref]);
 
   return [animationControls, ref];
 }

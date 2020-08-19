@@ -1,32 +1,25 @@
-import React, {
-  createContext,
-  useState,
-  useContext,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import { useState, useEffect } from 'react';
 
-type PageHeightState = {
-  pageHeight: number;
-  setPageHeight: Dispatch<SetStateAction<number>>;
-};
+import debounce from 'lodash.debounce';
 
-const PageHeightContext = createContext<PageHeightState>({} as PageHeightState);
+function usePageHeight(): number {
+  const [pageHeight, setPageHeight] = useState(window.innerHeight);
 
-const PageHeightProvider: React.FC = ({ children }) => {
-  const [pageHeight, setPageHeight] = useState(0);
+  /**
+   * Set the page height when the window is resized.
+   */
+  useEffect(() => {
+    const setCurrentHeight = debounce(
+      () => setPageHeight(window.innerHeight),
+      500,
+    );
 
-  return (
-    <PageHeightContext.Provider value={{ pageHeight, setPageHeight }}>
-      {children}
-    </PageHeightContext.Provider>
-  );
-};
+    window.addEventListener('resize', setCurrentHeight);
 
-function usePageHeight(): PageHeightState {
-  const context = useContext(PageHeightContext);
+    return () => window.removeEventListener('resize', setCurrentHeight);
+  }, []);
 
-  return context;
+  return pageHeight;
 }
 
-export { PageHeightProvider, usePageHeight };
+export default usePageHeight;
