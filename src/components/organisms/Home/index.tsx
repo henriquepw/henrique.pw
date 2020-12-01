@@ -28,6 +28,9 @@ const Home: React.FC = () => {
 
   const y = useTransform(scrollY, [0, 1], [0, -0.2], { clamp: false });
 
+  /**
+   * Smooth scroll to the next section.
+   */
   function handleNextSection(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ): void {
