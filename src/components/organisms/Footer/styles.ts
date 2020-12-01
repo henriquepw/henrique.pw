@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { primaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 export const Container = styled.footer`
@@ -9,7 +8,7 @@ export const Container = styled.footer`
   justify-content: space-between;
 
   width: 100%;
-  border-top: 1px solid ${primaryColor.active};
+  border-top: 1px solid ${({ theme }) => theme.primary.active};
   padding: 40px 80px;
 
   a {
@@ -35,17 +34,17 @@ export const Container = styled.footer`
 
         height: 1px;
         width: 0%;
-        background-color: ${primaryColor.active};
+        background-color: ${({ theme }) => theme.primary.active};
         transition: width 0.3s ease-out;
       }
 
       &:focus {
-        outline: 3px solid ${primaryColor.active};
+        outline: 3px solid ${({ theme }) => theme.primary.active};
         outline-offset: 4px;
       }
 
       &:hover {
-        color: ${primaryColor.active};
+        color: ${({ theme }) => theme.primary.active};
 
         &::after {
           width: calc(100% - 8px);

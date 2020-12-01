@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { primaryColor } from '~/styles/colors';
-
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -14,12 +12,12 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background-color: ${primaryColor.bg};
+  background-color: ${({ theme }) => theme.primary.background};
 
   svg {
     margin: auto;
     animation: spinning 4s infinite linear;
-    color: ${primaryColor.active};
+    color: ${({ theme }) => theme.primary.active};
     opacity: 0.7;
   }
 

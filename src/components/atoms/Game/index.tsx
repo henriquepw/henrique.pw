@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
-import { useAnimation, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FluidObject } from 'gatsby-image';
+
+import useAnimationRef from '~/hooks/useAnimationRef';
 
 import { Container, Image, Description } from './styles';
 
-const variants = {
-  visible: (delay = 0) => ({
+const animationVariants = {
+  show: (delay = 0) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -14,52 +16,40 @@ const variants = {
       delay,
     },
   }),
-  hidden: (delay = 0) => ({
+  hide: (delay: 0 | 0.3 = 0) => ({
     y: 30,
     opacity: 0,
     transition: {
       duration: 0.5,
-      delay: delay ? 0 : 0.3,
+      delay: 0.3 - delay, // the inverse of the show delay
     },
   }),
 };
 
-interface Props {
+interface GameProps {
   name: string;
   description: string;
-  fluid: FluidObject;
+  fluid: FluidObject | FluidObject[];
 }
 
-const Game: React.FC<Props> = ({ name, description, fluid }) => {
-  const controls = useAnimation();
-  const ref = useRef<HTMLLIElement>(null);
-
-  useEffect(() => {
-    function onVisible([
-      { isIntersecting },
-    ]: IntersectionObserverEntry[]): void {
-      controls.start(isIntersecting ? 'visible' : 'hidden');
-    }
-
-    const observer = new IntersectionObserver(onVisible, {
-      rootMargin: '0px 0px -30% 0px',
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [controls, ref]);
+// TODO: Check this ref type problem
+const Game: React.FC<GameProps> = ({ name, description, fluid }) => {
+  const [animationControls, ref] = useAnimationRef<HTMLLIElement>({
+    rootMargin: '0px 0px -30% 0px',
+  });
 
   return (
     <Container ref={ref}>
       <Image fluid={fluid} />
       <Description>
-        <motion.h1 animate={controls} variants={variants}>
+        <motion.h1 animate={animationControls} variants={animationVariants}>
           {name}
         </motion.h1>
-        <motion.p custom={0.3} animate={controls} variants={variants}>
+        <motion.p
+          custom={0.3}
+          animate={animationControls}
+          variants={animationVariants}
+        >
           {description}
         </motion.p>
       </Description>

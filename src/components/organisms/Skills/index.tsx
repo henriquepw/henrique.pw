@@ -1,17 +1,11 @@
-import React, {
-  forwardRef,
-  useState,
-  useContext,
-  useEffect,
-  ForwardRefRenderFunction,
-} from 'react';
+import React, { useState } from 'react';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import SkillItem from '~/components/atoms/SkillItem';
 import Title from '~/components/atoms/Title';
 
-import SectionsContext from '~/context/SectionsContext';
+import useAnimationRef from '~/hooks/useAnimationRef';
 
 import arduinoIcon from '~/assets/svgs/arduino.svg';
 import cIcon from '~/assets/svgs/c.svg';
@@ -83,15 +77,7 @@ const others = [
 ];
 
 const listAnimaton = {
-  hidden: (delay = 0.4) => ({
-    y: 50,
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-      delay,
-    },
-  }),
-  initial: (delay = 0.4) => ({
+  show: (delay = 0.4) => ({
     y: 0,
     opacity: 1,
     transition: {
@@ -99,17 +85,20 @@ const listAnimaton = {
       delay,
     },
   }),
+  hide: (delay = 0.4) => ({
+    y: 50,
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      delay,
+    },
+  }),
 };
 
-const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
-  const { selected } = useContext(SectionsContext);
+const Skills: React.FC = () => {
   const [inFocus, setInFocus] = useState(-1);
 
-  const controlAnimaton = useAnimation();
-
-  useEffect(() => {
-    controlAnimaton.start(selected === 'skills' ? 'initial' : 'hidden');
-  }, [controlAnimaton, selected]);
+  const [animationControls, ref] = useAnimationRef();
 
   function handleTap(index: number): void {
     setInFocus(inFocus === index ? -1 : index);
@@ -125,10 +114,10 @@ const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
 
   return (
     <Container id="skills" ref={ref}>
-      <Title>Skills</Title>
+      <Title animationControls={animationControls}>Skills</Title>
       <div>
         <SubTitle>My Focus</SubTitle>
-        <motion.ul variants={listAnimaton} animate={controlAnimaton}>
+        <motion.ul variants={listAnimaton} animate={animationControls}>
           {focus.map((item, index) => (
             <SkillItem
               src={item.icon}
@@ -145,7 +134,7 @@ const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
         <motion.ul
           custom={0.6}
           variants={listAnimaton}
-          animate={controlAnimaton}
+          animate={animationControls}
         >
           {others.map((item, index) => (
             <SkillItem
@@ -164,4 +153,4 @@ const Skills: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
   );
 };
 
-export default forwardRef(Skills);
+export default React.memo(Skills);

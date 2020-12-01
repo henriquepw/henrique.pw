@@ -1,14 +1,10 @@
 import 'styled-components';
 
+import { light } from '~/styles/themes';
+
 declare module 'styled-components' {
   export interface DefaultTheme {
-    colors: {
-      active: string;
-      background: string;
-      primaryText: string;
-      primaryBackground: string;
-      secondaryText: string;
-      secondaryBackground: string;
-    };
+    primary: typeof light.primary;
+    secondary: typeof light.secondary;
   }
 }

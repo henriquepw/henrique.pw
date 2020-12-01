@@ -75,7 +75,7 @@
           "/^~/components/molecules/",
           "/^~/components/organisms/",
           "/^~/components/templates/",
-          "/^~/context/",
+          "/^~/hooks/",
           ["parent", "sibling", "index"],
           "/^~/(assets|res)/",
           "/^(~/|./)styles/"

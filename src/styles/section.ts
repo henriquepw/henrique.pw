@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { secundaryColor } from '~/styles/colors';
-
 export default styled.section`
   display: flex;
   flex-direction: column;
@@ -15,6 +13,6 @@ export default styled.section`
   padding-right: 20px;
 
   &:nth-child(even) {
-    background-color: ${secundaryColor.bg};
+    background-color: ${({ theme }) => theme.secondary.background};
   }
 `;

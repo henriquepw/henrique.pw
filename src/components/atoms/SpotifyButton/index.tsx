@@ -1,19 +1,22 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Props {
+interface SpotifyButtonProps {
   onClick: () => void;
   selected: boolean;
-  item: {
-    [key: string]: string;
-  };
+  item: Record<string, string>;
 }
 
-const SpotifyButton: React.FC<Props> = ({ item, selected, onClick }) => {
+// TODO: Rename this component for a better name
+const SpotifyButton: React.FC<SpotifyButtonProps> = ({
+  item,
+  selected,
+  onClick,
+}) => {
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (ref.current && selected) {
-      ref.current.focus();
+    if (selected) {
+      ref.current?.focus();
     }
   }, [selected]);
 

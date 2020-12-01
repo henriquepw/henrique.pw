@@ -4,28 +4,26 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { Container } from './styles';
 
-interface Props {
+interface ProfileProps {
   className?: string;
 }
 
-const Profile: React.FC<Props> = ({ className }) => {
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "profile.jpg" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 140, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+const profileImageQuery = graphql`
+  query {
+    image: file(relativePath: { eq: "profile.jpg" }) {
+      sharp: childImageSharp {
+        fluid(maxWidth: 140, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
-  `);
+  }
+`;
+
+const Profile: React.FC<ProfileProps> = ({ className }) => {
+  const { image } = useStaticQuery(profileImageQuery);
 
   return <Container className={className} fluid={image.sharp.fluid} />;
-};
-
-Profile.defaultProps = {
-  className: '',
 };
 
 export default Profile;

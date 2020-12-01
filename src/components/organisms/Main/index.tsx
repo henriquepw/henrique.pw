@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useRef, useLayoutEffect } from 'react';
-
-import Scroll from '~/components/atoms/Scroll';
+import React, { useEffect, useLayoutEffect } from 'react';
 
 import Menu from '~/components/molecules/Menu';
 
@@ -13,34 +11,13 @@ import Skills from '~/components/organisms/Skills';
 
 import Layout from '~/components/templates/Layout';
 
-import SectionsContext from '~/context/SectionsContext';
-
 import { Content } from './styles';
 
 const Main: React.FC = () => {
-  const { selected, setPageHeight } = useContext(SectionsContext);
-  const sections = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
-
-  useLayoutEffect(() => {
-    setPageHeight(window.innerHeight);
-
-    function setCurrentHeight(): void {
-      setPageHeight(window.innerHeight);
-    }
-
-    window.addEventListener('resize', setCurrentHeight);
-
-    return () => {
-      window.removeEventListener('resize', setCurrentHeight);
-    };
-  }, [setPageHeight]);
-
+  /**
+   * Add event listeners to know when the user uses a mouse.
+   * This is use for accessibility.
+   */
   useEffect(() => {
     function addUsingMouse(): void {
       document.body.classList.add('using-mouse');
@@ -60,17 +37,14 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <Layout
-      title={`${selected.replace(/\b\w/g, (l: string) => l.toUpperCase())} | `}
-    >
-      <Scroll refs={sections} />
+    <Layout title={`Home | `}>
       <Menu />
       <Content>
-        <Home ref={sections[0]} />
-        <Education ref={sections[1]} />
-        <Skills ref={sections[2]} />
-        <Projects ref={sections[3]} />
-        <About ref={sections[4]} />
+        <Home />
+        <Education />
+        <Skills />
+        <Projects />
+        <About />
         <Footer />
       </Content>
     </Layout>

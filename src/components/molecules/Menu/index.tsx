@@ -3,21 +3,9 @@ import { FiMenu } from 'react-icons/fi';
 
 import { motion, useAnimation } from 'framer-motion';
 
-import { sections } from '~/context/SectionsContext';
-
 import { Container, MenuItem } from './styles';
 
-const listAnimation = {
-  hidden: {
-    x: '100%',
-    transition: {
-      type: 'spring',
-      damping: 15,
-      when: 'afterChildren',
-      staggerChildren: 0.05,
-      staggerDirection: -1,
-    },
-  },
+const listAnimationVariants = {
   show: {
     x: 0,
     transition: {
@@ -28,16 +16,19 @@ const listAnimation = {
       staggerChildren: 0.07,
     },
   },
-};
-
-const itemAnimation = {
-  hidden: {
-    y: 40,
-    opacity: 0,
+  hide: {
+    x: '100%',
     transition: {
-      y: { stiffness: 1000 },
+      type: 'spring',
+      damping: 15,
+      when: 'afterChildren',
+      staggerChildren: 0.05,
+      staggerDirection: -1,
     },
   },
+};
+
+const ListItemAnimationVariants = {
   show: {
     y: 0,
     opacity: 1,
@@ -47,23 +38,27 @@ const itemAnimation = {
       y: { stiffness: 1000, velocity: -100 },
     },
   },
-  hover: {
-    scale: 1.15,
+  hide: {
+    y: 40,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
   },
-  tap: {
-    scale: 0.95,
-  },
+  hover: { scale: 1.15 },
+  tap: { scale: 0.95 },
 };
 
+const sections = ['home', 'education', 'skills', 'projects', 'about'];
+
 const Menu: React.FC = () => {
-  const controlAnimation = useAnimation();
+  const animationControls = useAnimation();
 
   const [pressed, setPressed] = useState(false);
-  /* selected,  setSelectedByName */
 
   useEffect(() => {
-    controlAnimation.start(pressed ? 'show' : 'hidden');
-  }, [controlAnimation, pressed]);
+    animationControls.start(pressed ? 'show' : 'hide');
+  }, [animationControls, pressed]);
 
   function handlerSelected(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -71,7 +66,6 @@ const Menu: React.FC = () => {
   ): void {
     event.preventDefault();
 
-    // setSelectedByName(name);
     setPressed(!pressed);
 
     return document.getElementById(name)?.scrollIntoView();
@@ -86,22 +80,22 @@ const Menu: React.FC = () => {
       <FiMenu size={40} onClick={handleBurgerClick} />
 
       <motion.ul
-        initial="hidden"
-        variants={listAnimation}
-        animate={controlAnimation}
+        initial="hide"
+        variants={listAnimationVariants}
+        animate={animationControls}
       >
         {sections.map((name: string) => (
           <MenuItem
             key={name}
-            initial="hidden"
+            initial="hide"
             whileHover="hover"
             whileTap="tap"
-            variants={itemAnimation}
+            variants={ListItemAnimationVariants}
             // selected={selected === name}
           >
             <motion.a
               href={`#${name}`}
-              onClick={(e) => handlerSelected(e, name)}
+              onClick={(event) => handlerSelected(event, name)}
             >
               {name}
             </motion.a>

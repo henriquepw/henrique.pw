@@ -1,18 +1,19 @@
-import React, { FC } from 'react';
-import { ApolloProvider } from 'react-apollo';
-import { HelmetProvider } from 'react-helmet-async';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import { client } from '../src/context/ApolloContext';
-import { SectionsProvider } from '../src/context/SectionsContext';
+import { ApolloProvider } from '@apollo/client';
 
-interface Props {
+import apolloClient from '../src/services/ApolloClient';
+import { light } from '../src/styles/themes';
+
+interface WrapRootProps {
   element: React.ReactNode;
 }
-
-export const wrapRootElement: FC<Props> = ({ element }) => (
-  <HelmetProvider>
-    <SectionsProvider>
-      <ApolloProvider client={client}>{element}</ApolloProvider>
-    </SectionsProvider>
-  </HelmetProvider>
+/**
+ * A wrapper for the pages with all provider needed
+ */
+export const wrapRootElement: React.FC<WrapRootProps> = ({ element }) => (
+  <ApolloProvider client={apolloClient}>
+    <ThemeProvider theme={light}>{element}</ThemeProvider>
+  </ApolloProvider>
 );

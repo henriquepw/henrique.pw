@@ -44,12 +44,15 @@ const data = [
   },
 ];
 
-interface Props {
+interface SocialListProps {
   isAnimated?: boolean;
   excluded?: string[];
 }
 
-const SocialList: React.FC<Props> = ({ excluded = [], isAnimated = true }) => {
+const SocialList: React.FC<SocialListProps> = ({
+  excluded = [],
+  isAnimated = true,
+}) => {
   const dataFiltered = useMemo(
     () => data.filter((item) => !excluded.includes(item.name)),
     [excluded],

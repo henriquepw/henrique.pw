@@ -1,13 +1,12 @@
 require('dotenv').config();
 
 const path = require('path');
-
-const siteMetadata = require('./config/metadata');
+const siteMetadata = require('./src/assets/data/metadata.json');
 
 module.exports = {
   siteMetadata,
   plugins: [
-    'gatsby-plugin-react-helmet-async',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -39,7 +38,7 @@ module.exports = {
         fieldName: 'github',
         url: 'https://api.github.com/graphql',
         headers: {
-          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+          Authorization: `token ${process.env.GATSBY_GITHUB_TOKEN}`,
         },
       },
     },

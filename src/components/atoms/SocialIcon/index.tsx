@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-interface Props {
+interface SocialIconProps {
   link: string;
   alt: string;
 }
 
-const SocialIcon: React.FC<Props> = ({ link, children, alt }) => (
+const SocialIcon: React.FC<SocialIconProps> = ({ link, children, alt }) => (
   <Container
     href={link}
     aria-label={alt}

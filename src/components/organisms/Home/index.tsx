@@ -1,23 +1,36 @@
-import React, { useContext, forwardRef } from 'react';
+import React from 'react';
 
-import { motion, useTransform } from 'framer-motion';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
 import Profile from '~/components/atoms/Profile';
 
 import SocialList from '~/components/molecules/SocialList';
 
-import SectionsContext from '~/context/SectionsContext';
+import usePageHeight from '~/hooks/usePageHeight';
 
 import { Container, Divider } from './styles';
 
-const Home = forwardRef<HTMLElement>((_, ref) => {
-  const { scrollY, pageHeight } = useContext(SectionsContext);
+const Home: React.FC = () => {
+  const { scrollY } = useViewportScroll();
+  const pageHeight = usePageHeight();
 
-  const opacity = useTransform(scrollY, [0, pageHeight], [1, 0]);
-  const y = useTransform(scrollY, [0, 1], [0, -0.2], {
-    clamp: false,
+  /**
+   * Controll the opacity by scrollY value
+   * if scrollY is 0, opacity is 1
+   * if scrollY is >= pageHeight, opacity is 0
+   */
+  const opacity = useTransform(scrollY, (value) => {
+    const scrollValue = Math.min(value, pageHeight);
+    const percent = scrollValue / pageHeight || 0;
+
+    return 1 - percent;
   });
 
+  const y = useTransform(scrollY, [0, 1], [0, -0.2], { clamp: false });
+
+  /**
+   * Smooth scroll to the next section.
+   */
   function handleNextSection(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ): void {
@@ -27,7 +40,7 @@ const Home = forwardRef<HTMLElement>((_, ref) => {
   }
 
   return (
-    <Container id="home" ref={ref}>
+    <Container id="home">
       <motion.div style={{ opacity, y, width: '100%' }}>
         <Profile />
         <h1>
@@ -63,6 +76,6 @@ const Home = forwardRef<HTMLElement>((_, ref) => {
       </a>
     </Container>
   );
-});
+};
 
 export default React.memo(Home);

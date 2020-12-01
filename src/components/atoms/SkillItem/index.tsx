@@ -17,15 +17,11 @@ const textAnimetion = {
 };
 
 const imageAnimetion = {
-  initial: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1.1,
-  },
+  initial: { scale: 1 },
+  hover: { scale: 1.1 },
 };
 
-interface Props {
+interface SkillItemProps {
   description: string;
   isEnabled: boolean;
   src: string;
@@ -34,7 +30,7 @@ interface Props {
   onHoverStart: () => void;
 }
 
-const SkillItem: React.FC<Props> = ({
+const SkillItem: React.FC<SkillItemProps> = ({
   description,
   isEnabled,
   src,

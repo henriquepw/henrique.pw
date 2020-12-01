@@ -1,20 +1,15 @@
-import React, {
-  forwardRef,
-  useContext,
-  useEffect,
-  ForwardRefRenderFunction,
-} from 'react';
+import React, { useMemo } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
-import { useQuery } from '@apollo/react-hooks';
-import { motion, useAnimation } from 'framer-motion';
+import { useQuery } from '@apollo/client';
+import { motion } from 'framer-motion';
 import gql from 'graphql-tag';
 
 import Title from '~/components/atoms/Title';
 
 import Project from '~/components/molecules/Project';
 
-import SectionsContext from '~/context/SectionsContext';
+import useAnimationRef from '~/hooks/useAnimationRef';
 
 import { Container } from './styles';
 
@@ -56,16 +51,16 @@ const QUERY = gql`
 `;
 
 const listAnimaton = {
-  hidden: {
-    transition: {
-      when: 'afterChildren',
-      staggerChildren: 0.05,
-    },
-  },
-  initial: {
+  show: {
     transition: {
       when: 'beforeChildren',
       staggerChildren: 0.1,
+    },
+  },
+  hide: {
+    transition: {
+      when: 'afterChildren',
+      staggerChildren: 0.05,
     },
   },
 };
@@ -76,11 +71,11 @@ type Repository = {
   name: string;
   description: string;
   topics: {
-    nodes: {
+    nodes: Array<{
       topic: {
         name: string;
       };
-    };
+    }>;
   };
 };
 
@@ -95,34 +90,43 @@ interface QueryData {
   };
 }
 
-const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
-  const { selected } = useContext(SectionsContext);
-  const { data, loading } = useQuery<QueryData, {}>(QUERY);
+const ProjectList: React.FC = () => {
+  const { data, loading } = useQuery<QueryData>(QUERY);
 
-  const controlAnimaton = useAnimation();
+  const dataSerialized = useMemo(() => {
+    const repo = [
+      ...(data?.viewer?.repos.nodes || []),
+      data?.viewer.repo1,
+      data?.viewer.repo2,
+      data?.viewer.repo3,
+    ];
 
-  useEffect(() => {
-    controlAnimaton.start(selected === 'projects' ? 'initial' : 'hidden');
-  }, [controlAnimaton, selected]);
+    return repo.filter((r) => !!r) as Repository[];
+  }, [data]);
+
+  if (loading) return <span>Loading...</span>;
+
+  return (
+    <>
+      {dataSerialized.map((item) => (
+        <Project key={item.id} data={item} />
+      ))}
+    </>
+  );
+};
+
+const Projects: React.FC = () => {
+  const [animationControls, ref] = useAnimationRef();
 
   return (
     <Container id="projects" ref={ref}>
-      <Title>Projects</Title>
-      <motion.ul variants={listAnimaton} animate={controlAnimaton}>
-        {(() => {
-          if (loading) return <span>Loading...</span>;
-
-          const repos = [
-            ...data?.viewer.repos.nodes,
-            data?.viewer.repo1,
-            data?.viewer.repo2,
-            data?.viewer.repo3,
-          ];
-
-          return repos.map(
-            (repo) => repo && <Project key={repo.id} data={repo} />,
-          );
-        })()}
+      <Title animationControls={animationControls}>Projects</Title>
+      <motion.ul
+        initial="hide"
+        variants={listAnimaton}
+        animate={animationControls}
+      >
+        <ProjectList />
       </motion.ul>
       <a
         href="https://github.com/henry-ns"
@@ -136,4 +140,4 @@ const Projects: ForwardRefRenderFunction<HTMLElement> = (_, ref) => {
   );
 };
 
-export default React.memo(forwardRef(Projects));
+export default React.memo(Projects);

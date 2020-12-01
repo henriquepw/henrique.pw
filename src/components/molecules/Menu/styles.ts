@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 import { motion } from 'framer-motion';
 
-import { primaryColor, secundaryColor } from '~/styles/colors';
 import Media from '~/styles/media';
 
 interface ContainerProps {
@@ -14,7 +13,7 @@ interface MenuItemProps {
 }
 
 export const Container = styled.nav<ContainerProps>`
-  z-index: 5;
+  z-index: 1000;
 
   top: 0;
   right: 0;
@@ -25,7 +24,7 @@ export const Container = styled.nav<ContainerProps>`
   background-color: transparent;
 
   *::selection {
-    background-color: ${primaryColor.text};
+    background-color: ${({ theme }) => theme.primary.text};
   }
 
   svg {
@@ -45,7 +44,7 @@ export const Container = styled.nav<ContainerProps>`
 
     &:hover {
       line {
-        color: ${primaryColor.active};
+        color: ${({ theme }) => theme.primary.active};
       }
     }
   }
@@ -57,7 +56,7 @@ export const Container = styled.nav<ContainerProps>`
     align-items: center;
 
     position: absolute;
-    background-color: ${primaryColor.active};
+    background-color: ${({ theme }) => theme.primary.active};
     height: 100%;
     width: 320px;
 
@@ -78,12 +77,12 @@ export const Container = styled.nav<ContainerProps>`
         transform: rotate(180deg);
 
         line {
-          color: ${secundaryColor.text};
+          color: ${({ theme }) => theme.secondary.text};
         }
 
         &:hover {
           line {
-            color: ${secundaryColor.text};
+            color: ${({ theme }) => theme.secondary.text};
           }
         }
 
@@ -119,7 +118,7 @@ export const MenuItem = styled(motion.li)<MenuItemProps>`
   a {
     display: block;
     text-transform: capitalize;
-    color: ${secundaryColor.text};
+    color: ${({ theme }) => theme.secondary.text};
 
     font-size: 1.75rem;
     opacity: 0.7;

@@ -9,17 +9,17 @@ const icon = keyframes`
   }
 `;
 
-interface Props {
+interface ContainerProps {
   isAnimated?: boolean;
 }
 
-export const Container = styled.ul<Props>`
+export const Container = styled.ul<ContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  ${(props) =>
-    props.isAnimated &&
+  ${({ isAnimated }) =>
+    isAnimated &&
     css`
       animation: ${icon} 2.5s 1 ease-out;
     `}

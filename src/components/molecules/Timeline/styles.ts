@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { primaryColor } from '~/styles/colors';
-
 export const Container = styled.ol`
   position: relative;
   margin-bottom: 80px;
@@ -25,6 +23,6 @@ export const Container = styled.ol`
     width: 1px;
     height: 100%;
 
-    background-color: ${primaryColor.active};
+    background-color: ${({ theme }) => theme.primary.active};
   }
 `;
