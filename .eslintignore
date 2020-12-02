@@ -1,6 +1,0 @@
-**/*.js
-
-.cache
-config
-node_modules
-public

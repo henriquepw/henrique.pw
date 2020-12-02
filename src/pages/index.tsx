@@ -1,10 +1,13 @@
-import Loadable from 'react-loadable';
+import React from 'react';
 
-import loading from '~/components/atoms/Loading';
+import { Title } from '../styles/pages/Home';
 
-const LoadableMain = Loadable({
-  loader: () => import('../components/organisms/Main'),
-  loading,
-});
+const Home: React.FC = () => {
+  return (
+    <main>
+      <Title>Hello</Title>
+    </main>
+  );
+};
 
-export default LoadableMain;
+export default Home;

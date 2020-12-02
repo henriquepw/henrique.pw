@@ -1,8 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
-    "jest": true
+    "es2021": true,
+    "node": true
   },
   "extends": [
     "plugin:react/recommended",
@@ -11,16 +11,12 @@
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2020,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "plugins": [
@@ -32,12 +28,13 @@
   ],
   "rules": {
     "prettier/prettier": "error",
+    
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
 
-    "@typescript-eslint/explicit-function-return-type": [
+    "@typescript-eslint/no-unused-vars": [
       "error",
-      {
-        "allowExpressions": true
-      }
+      { "argsIgnorePattern": "_" }
     ],
 
     "react-hooks/rules-of-hooks": "error",
@@ -52,9 +49,7 @@
       }
     ],
 
-    "no-unused-expressions": "off",
     "import/prefer-default-export": "off",
-    "import/no-duplicates": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -71,14 +66,16 @@
         "groups": [
           "/^(react|styled-components)/",
           "module",
-          "/^~/components/atoms/",
-          "/^~/components/molecules/",
-          "/^~/components/organisms/",
-          "/^~/components/templates/",
-          "/^~/hooks/",
+          "/^.*atoms/",
+          "/^.*molecules/",
+          "/^.*organisms/",
+          "/^.*templates/",
+          "/^.*pages/",
+          "/^.*hooks/",
+          "/^.*utils/",
           ["parent", "sibling", "index"],
-          "/^~/(assets|res)/",
-          "/^(~/|./)styles/"
+          "/^.*assets/",
+          "/^.*styles/"
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
