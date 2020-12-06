@@ -6,7 +6,7 @@ import { useTheme } from 'styled-components';
 
 export interface SEOProps {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
   shouldExcludeTitleSuffix?: boolean;
   shouldIndexPage?: boolean;
@@ -33,8 +33,7 @@ const SEO: React.FC<SEOProps> = ({
     <Head>
       <title>{pageTitle}</title>
 
-      <meta name="description" content={description} />
-
+      {description && <meta name="description" content={description} />}
       {pageImage && <meta name="image" content={pageImage} />}
       {!shouldIndexPage && <meta name="robots" content="noindex,nofollow" />}
 

@@ -14,9 +14,26 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
+  html,
+  body,
+  #__next {
+    width: 100%;
+    height: 100%;
+  }
+
   body {
+    width: 100%;
+    height: 100%;
+
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.background};
+  }
+
+  #__next {
+    width: 100%;
+    height: 100%;
+
+    padding: 32px 64px;
   }
 
   a,
