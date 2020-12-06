@@ -64,7 +64,8 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          "/^(react|styled-components)/",
+          "/^react/",
+          "/^next/",
           "module",
           "/^.*atoms/",
           "/^.*molecules/",

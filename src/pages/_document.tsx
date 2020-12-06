@@ -1,7 +1,8 @@
 import React from 'react';
-import { ServerStyleSheet } from 'styled-components';
 
 import Document, { DocumentContext } from 'next/document';
+
+import { ServerStyleSheet } from 'styled-components';
 
 interface Data {
   styles: JSX.Element;
