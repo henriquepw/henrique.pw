@@ -6,18 +6,15 @@ import Document, {
   Head,
   Main,
   NextScript,
+  DocumentInitialProps,
 } from 'next/document';
 
 import { ServerStyleSheet } from 'styled-components';
 
-interface Data {
-  html: string;
-  styles: JSX.Element;
-  head?: JSX.Element[];
-}
-
 class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<Data> {
+  static async getInitialProps(
+    ctx: DocumentContext,
+  ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 

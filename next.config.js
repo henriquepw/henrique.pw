@@ -3,4 +3,8 @@ module.exports = {
     locales: ['en-US', 'pt-BR', 'pt', 'en'],
     defaultLocale: 'en-US',
   },
+
+  images: {
+    domains: ['images.ctfassets.net']
+  }
 };

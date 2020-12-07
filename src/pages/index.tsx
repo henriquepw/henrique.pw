@@ -1,8 +1,11 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
+import Image from 'next/image';
 
 import contentfulClient from '@/services/contentful';
+import { Asset } from 'contentful';
 
 import { SEOProps } from '@/components/atoms/SEO';
 
@@ -13,7 +16,7 @@ import { formatLocation } from '@/utils/location';
 interface HomeProps {
   title: string;
   subTitle: string;
-  data: any;
+  heroImage: Asset;
 }
 
 const SEO: SEOProps = {
@@ -22,28 +25,35 @@ const SEO: SEOProps = {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const data = await contentfulClient.getEntries({
-    content_type: 'games',
+  const { fields } = await contentfulClient.getEntry('2wkBThk2SvuvNLP8wxgjo0', {
     locale: formatLocation(context.locale),
   });
 
+  const { title, subTitle, heroImage } = fields as HomeProps;
+
   return {
     props: {
-      title: 'Henrique Miranda',
-      subTitle: 'Telematcs student, Full Stack Developer & Designer',
-      socialList: [{ name: 'github', link: 'https://github.com/henry-ns' }],
-      data,
+      title,
+      subTitle,
+      heroImage,
     },
   };
 };
 
-const Home: React.FC<HomeProps> = ({ title, subTitle, data }) => {
-  console.log(data);
+const Home: React.FC<HomeProps> = ({ title, subTitle, heroImage }) => {
+  const imageFile = heroImage.fields.file;
 
   return (
     <Layout seo={SEO}>
-      <h1>{title}</h1>
-      <h2>{subTitle}</h2>
+      <div>
+        <ReactMarkdown>{title}</ReactMarkdown>
+        <ReactMarkdown>{subTitle}</ReactMarkdown>
+      </div>
+      <Image
+        src={`https:${imageFile.url}`}
+        width={imageFile.details.image.width}
+        height={imageFile.details.image.height}
+      />
     </Layout>
   );
 };
