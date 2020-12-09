@@ -8,5 +8,8 @@ declare module 'styled-components' {
       secondaryBackground: string;
       text: string;
     };
+    fonts: {
+      sizes: Record<string, unknown>;
+    };
   }
 }

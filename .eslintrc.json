@@ -28,7 +28,7 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    
+
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
 
@@ -67,11 +67,9 @@
           "/^react/",
           "/^next/",
           "module",
-          "/^.*atoms/",
-          "/^.*molecules/",
-          "/^.*organisms/",
-          "/^.*templates/",
+          "/^.*components/",
           "/^.*pages/",
+          "/^.*services/",
           "/^.*hooks/",
           "/^.*utils/",
           ["parent", "sibling", "index"],

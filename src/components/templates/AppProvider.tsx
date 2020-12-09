@@ -2,10 +2,10 @@ import React from 'react';
 
 import { ThemeProvider } from 'styled-components';
 
-import darkTheme from '@/styles/themes/dark';
+import { light as defaultTheme } from '@/styles/themes';
 
 const AppProvider: React.FC = ({ children }) => {
-  return <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>;
 };
 
 export default AppProvider;

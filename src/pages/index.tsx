@@ -4,14 +4,15 @@ import ReactMarkdown from 'react-markdown';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
-import contentfulClient from '@/services/contentful';
 import { Asset } from 'contentful';
 
 import { SEOProps } from '@/components/atoms/SEO';
-
 import Layout from '@/components/templates/Layout';
 
+import contentfulClient from '@/services/contentful';
+
 import { formatLocation } from '@/utils/location';
+import { SECTIONS_IDS } from '@/utils/sections';
 
 interface HomeProps {
   title: string;
@@ -25,7 +26,7 @@ const SEO: SEOProps = {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { fields } = await contentfulClient.getEntry('2wkBThk2SvuvNLP8wxgjo0', {
+  const { fields } = await contentfulClient.getEntry(SECTIONS_IDS.home, {
     locale: formatLocation(context.locale),
   });
 
@@ -41,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const Home: React.FC<HomeProps> = ({ title, subTitle, heroImage }) => {
-  const imageFile = heroImage.fields.file;
+  const { file } = heroImage.fields;
 
   return (
     <Layout seo={SEO}>
@@ -50,9 +51,9 @@ const Home: React.FC<HomeProps> = ({ title, subTitle, heroImage }) => {
         <ReactMarkdown>{subTitle}</ReactMarkdown>
       </div>
       <Image
-        src={`https:${imageFile.url}`}
-        width={imageFile.details.image.width}
-        height={imageFile.details.image.height}
+        src={`https:${file.url}`}
+        width={file.details.image.width}
+        height={file.details.image.height}
       />
     </Layout>
   );

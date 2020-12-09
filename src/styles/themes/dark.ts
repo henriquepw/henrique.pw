@@ -1,4 +1,6 @@
-export default {
+import { DefaultTheme } from 'styled-components';
+
+const dark: DefaultTheme = {
   colors: {
     active: '#14A5C9',
     background: '#121212',
@@ -9,3 +11,5 @@ export default {
     sizes: {},
   },
 };
+
+export default dark;
