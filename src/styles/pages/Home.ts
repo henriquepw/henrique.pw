@@ -7,6 +7,8 @@ export const Container = styled(Layout)`
   align-items: center;
   justify-content: center;
 
+  padding: 32px;
+
   div:first-of-type {
     text-align: right;
     padding-right: 32px;
@@ -19,7 +21,9 @@ export const Container = styled(Layout)`
   }
 
   div:last-of-type {
-    height: 480px;
-    width: 480px;
+    width: 100%;
+
+    max-height: 480px;
+    max-width: 480px;
   }
 `;
