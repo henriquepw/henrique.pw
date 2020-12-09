@@ -67,14 +67,14 @@
           "/^react/",
           "/^next/",
           "module",
-          "/^.*components/",
-          "/^.*pages/",
-          "/^.*services/",
-          "/^.*hooks/",
-          "/^.*utils/",
+          "/^@/components/",
+          "/^@/pages/",
+          "/^@/services/",
+          "/^@/hooks/",
+          "/^@/utils/",
           ["parent", "sibling", "index"],
-          "/^.*assets/",
-          "/^.*styles/"
+          "/^@/assets/",
+          "/^@/styles/"
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }

@@ -7,12 +7,13 @@ import Image from 'next/image';
 import { Asset } from 'contentful';
 
 import { SEOProps } from '@/components/atoms/SEO';
-import Layout from '@/components/templates/Layout';
 
 import contentfulClient from '@/services/contentful';
 
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
+
+import { Container } from '@/styles/pages/Home';
 
 interface HomeProps {
   title: string;
@@ -45,17 +46,19 @@ const Home: React.FC<HomeProps> = ({ title, subTitle, heroImage }) => {
   const { file } = heroImage.fields;
 
   return (
-    <Layout seo={SEO}>
+    <Container seo={SEO}>
       <div>
         <ReactMarkdown>{title}</ReactMarkdown>
         <ReactMarkdown>{subTitle}</ReactMarkdown>
       </div>
-      <Image
-        src={`https:${file.url}`}
-        width={file.details.image.width}
-        height={file.details.image.height}
-      />
-    </Layout>
+      <div>
+        <Image
+          src={`https:${file.url}`}
+          width={file.details.image.width}
+          height={file.details.image.height}
+        />
+      </div>
+    </Container>
   );
 };
 
