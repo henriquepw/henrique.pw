@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 const vaporwave: DefaultTheme = {
+  name: 'vaporwave',
   colors: {
     active: '#14A5C9',
     background: '#FFDBD8',

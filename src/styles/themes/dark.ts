@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 const dark: DefaultTheme = {
+  name: 'dark',
   colors: {
     active: '#14A5C9',
     background: '#121212',

@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 import { Asset, Entry } from 'contentful';
 
+import Button from '@/components/atoms/Button';
 import { SEOProps } from '@/components/atoms/SEO';
 import SocialList from '@/components/molecules/SocialList';
 
@@ -72,6 +73,7 @@ const Home: React.FC<HomeProps> = ({
         <ReactMarkdown>{title}</ReactMarkdown>
         <ReactMarkdown>{subTitle}</ReactMarkdown>
         <SocialList items={socialData} />
+        <Button>My works</Button>
       </div>
       <div>
         <Image

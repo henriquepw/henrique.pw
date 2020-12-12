@@ -5,6 +5,13 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+
+    transition: color 0.2s, background 0.3s, border-color 0.3s;
+
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 
     &::selection {
       background-color: ${({ theme }) => theme.colors.active};
@@ -14,9 +21,6 @@ export default createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
   }
 
   html,
@@ -69,5 +73,21 @@ export default createGlobalStyle`
 
   li {
     list-style-type: none;
+  }
+
+  button {
+    width: auto;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+
+    background: transparent;
+    border-color: transparent;
+
+    color: inherit;
+    font: inherit;
+
+    line-height: normal;
+    -webkit-appearance: none;
   }
 `;

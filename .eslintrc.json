@@ -74,7 +74,8 @@
           "/^@/utils/",
           ["parent", "sibling", "index"],
           "/^@/assets/",
-          "/^@/styles/"
+          "/^@/styles/",
+          "/^./styles/"
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }

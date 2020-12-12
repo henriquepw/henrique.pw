@@ -9,18 +9,45 @@ export const Container = styled(Layout)`
 
   padding: 32px;
 
-  div:first-of-type {
+  > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
     text-align: right;
-    padding-right: 32px;
-    margin-right: 32px;
+
+    padding-right: 40px;
+    margin-right: 40px;
+
+    height: 100%;
+    max-height: 480px;
 
     h2 {
       margin: 32px 0;
       max-width: 490px;
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+
+      width: 1px;
+      height: calc(100% + 80px);
+      background: ${({ theme }) => theme.colors.text};
+    }
+
+    button {
+      margin-left: auto;
+      margin-top: 48px;
+    }
   }
 
-  div:last-of-type {
+  > div:last-of-type {
     width: 100%;
 
     max-height: 480px;

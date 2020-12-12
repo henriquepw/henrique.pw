@@ -14,11 +14,11 @@ import ExternalLink from '@/components/atoms/ExternalLink';
 import { Container } from './styles';
 
 const ICONS = {
-  email: <FiMail size={24} />,
-  github: <FiGithub size={24} />,
-  instagram: <FiInstagram size={24} />,
-  linkedin: <FiLinkedin size={24} />,
-  twitter: <FiTwitter size={24} />,
+  email: <FiMail size={28} />,
+  github: <FiGithub size={28} />,
+  instagram: <FiInstagram size={28} />,
+  linkedin: <FiLinkedin size={28} />,
+  twitter: <FiTwitter size={28} />,
 };
 
 export type SocialMedia = Entry<{
