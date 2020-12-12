@@ -2,12 +2,15 @@ import React, { useMemo } from 'react';
 
 import { useRouter } from 'next/router';
 
+import { useTheme } from '@/hooks/useTheme';
+
 import { SECTIONS } from '@/utils/sections';
 
 import { Container, ExtraConfigs, Navigator, NavigateButton } from './styles';
 
 const Menu: React.FC = () => {
   const router = useRouter();
+  const theme = useTheme();
 
   const currentLocale = useMemo(
     () => router.locale.toLowerCase().split('-')[0],
@@ -25,7 +28,7 @@ const Menu: React.FC = () => {
   return (
     <Container>
       <ExtraConfigs>
-        <NavigateButton>
+        <NavigateButton onClick={theme.nextTheme}>
           <span>theme</span>
         </NavigateButton>
 

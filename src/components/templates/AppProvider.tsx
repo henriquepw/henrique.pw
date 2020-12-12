@@ -1,11 +1,9 @@
 import React from 'react';
 
-import { ThemeProvider } from 'styled-components';
-
-import { dark as defaultTheme } from '@/styles/themes';
+import { ThemeProvider } from '@/hooks/useTheme';
 
 const AppProvider: React.FC = ({ children }) => {
-  return <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>;
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 export default AppProvider;

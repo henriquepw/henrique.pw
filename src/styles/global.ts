@@ -7,7 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     outline: none;
 
-    transition: color 0.2s, background 0.3s, border-color 0.3s;
+    transition: color 0.1s, background 0.4s, border-color 0.4s;
 
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
