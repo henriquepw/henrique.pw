@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { useTheme } from '@/hooks/useTheme';
@@ -18,11 +19,11 @@ const Menu: React.FC = () => {
   );
 
   function changeLocaleToEn(): void {
-    router.push('', '', { locale: 'en' });
+    router.push(router.pathname, undefined, { locale: 'en' });
   }
 
   function changeLocaleToPt(): void {
-    router.push('', '', { locale: 'pt' });
+    router.push(router.pathname, undefined, { locale: 'pt' });
   }
 
   return (
@@ -55,7 +56,9 @@ const Menu: React.FC = () => {
       <Navigator>
         {SECTIONS.map((section) => (
           <li key={section.id}>
-            <a href="/">{section.name}</a>
+            <Link href={`/${section.slug}`}>
+              <a>{section.name}</a>
+            </Link>
           </li>
         ))}
       </Navigator>

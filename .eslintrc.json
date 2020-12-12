@@ -29,6 +29,15 @@
   "rules": {
     "prettier/prettier": "error",
 
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
 
