@@ -1,13 +1,12 @@
 import React from 'react';
+import { FiArrowRight } from 'react-icons/fi';
 import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Asset, Entry } from 'contentful';
 
-import Button from '@/components/atoms/Button';
 import { SEOProps } from '@/components/atoms/SEO';
 import SocialList from '@/components/molecules/SocialList';
 
@@ -16,7 +15,7 @@ import contentfulClient from '@/services/contentful';
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
 
-import { Container } from '@/styles/pages/Home';
+import { Container, Button } from '@/styles/pages/home';
 
 interface HomeProps {
   title: string;
@@ -74,10 +73,12 @@ const Home: React.FC<HomeProps> = ({
         <ReactMarkdown>{title}</ReactMarkdown>
         <ReactMarkdown>{subTitle}</ReactMarkdown>
         <SocialList items={socialData} />
-        <Link href="/works">
-          <a>My works</a>
-        </Link>
-        <Button>My works</Button>
+        <Button href="/works">
+          <a>
+            My works
+            <FiArrowRight size={24} />
+          </a>
+        </Button>
       </div>
       <div>
         <Image

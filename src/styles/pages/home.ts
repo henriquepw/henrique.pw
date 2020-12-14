@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import Layout from '@/components/templates/Layout';
 
+import buttonStyle from '../components/button';
+
 export const Container = styled(Layout)`
   display: flex;
   align-items: center;
@@ -52,5 +54,22 @@ export const Container = styled(Layout)`
 
     max-height: 480px;
     max-width: 480px;
+  }
+`;
+
+export const Button = styled.a`
+  display: flex;
+  margin-left: auto;
+  margin-top: 48px;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    ${buttonStyle}
+
+    svg {
+      margin-left: 24px;
+    }
   }
 `;

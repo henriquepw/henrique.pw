@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import { css } from 'styled-components';
 
-export const Container = styled.button`
+export default css`
   height: 48px;
   line-height: 48px;
   padding: 0 24px;
