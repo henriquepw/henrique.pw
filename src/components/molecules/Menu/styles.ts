@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-interface NavigateButtonProps {
+interface NavigateProps {
   isSelected?: boolean;
 }
 
@@ -56,9 +56,19 @@ export const Navigator = styled.ul`
   }
 `;
 
+export const NavigateItem = styled.li<NavigateProps>`
+  ${({ isSelected, theme }) =>
+    isSelected &&
+    css`
+      a {
+        color: ${theme.colors.active};
+      }
+    `}
+`;
+
 export const NavigateButton = styled.button.attrs({
   type: 'button',
-})<NavigateButtonProps>`
+})<NavigateProps>`
   position: relative;
 
   span {

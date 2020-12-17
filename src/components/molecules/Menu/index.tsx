@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,11 +7,19 @@ import { useTheme } from '@/hooks/useTheme';
 
 import { SECTIONS } from '@/utils/sections';
 
-import { Container, ExtraConfigs, Navigator, NavigateButton } from './styles';
+import {
+  Container,
+  ExtraConfigs,
+  Navigator,
+  NavigateButton,
+  NavigateItem,
+} from './styles';
 
 const Menu: React.FC = () => {
   const router = useRouter();
   const theme = useTheme();
+
+  const [currentSection, setCurrentSection] = useState(SECTIONS[0].slug);
 
   const currentLocale = useMemo(
     () => router.locale.toLowerCase().split('-')[0],
@@ -25,6 +33,10 @@ const Menu: React.FC = () => {
   function changeLocaleToPt(): void {
     router.push(router.pathname, undefined, { locale: 'pt' });
   }
+
+  useEffect(() => {
+    setCurrentSection(router.pathname);
+  }, [router.pathname]);
 
   return (
     <Container>
@@ -55,11 +67,14 @@ const Menu: React.FC = () => {
 
       <Navigator>
         {SECTIONS.map((section) => (
-          <li key={section.id}>
-            <Link href={`/${section.slug}`}>
+          <NavigateItem
+            key={section.id}
+            isSelected={section.slug === currentSection}
+          >
+            <Link href={section.slug}>
               <a>{section.name}</a>
             </Link>
-          </li>
+          </NavigateItem>
         ))}
       </Navigator>
     </Container>
