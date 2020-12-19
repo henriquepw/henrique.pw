@@ -21,6 +21,10 @@ export default createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   html,

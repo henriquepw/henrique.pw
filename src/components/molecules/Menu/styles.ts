@@ -29,6 +29,7 @@ export const Container = styled.nav`
     height: 32px;
     width: 100%;
 
+    transition: background 0.4s;
     background: ${({ theme }) => theme.colors.background};
   }
 

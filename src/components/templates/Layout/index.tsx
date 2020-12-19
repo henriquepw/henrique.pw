@@ -1,17 +1,18 @@
 import React from 'react';
 
-import Menu from '@/components/molecules/Menu';
+import SEO, { SEOProps } from '@/components/atoms/SEO';
 
 import { Container } from './styles';
 
 interface LayoutProps {
+  seo: SEOProps;
   className?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, className }) => {
+const Layout: React.FC<LayoutProps> = ({ children, className, seo }) => {
   return (
     <Container className={className}>
-      <Menu />
+      <SEO {...seo} />
       {children}
     </Container>
   );

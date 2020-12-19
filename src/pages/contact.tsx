@@ -1,6 +1,7 @@
 import React from 'react';
 
-import SEO, { SEOProps } from '@/components/atoms/SEO';
+import { SEOProps } from '@/components/atoms/SEO';
+import Layout from '@/components/templates/Layout';
 
 const seoData: SEOProps = {
   title: 'Contact',
@@ -8,10 +9,9 @@ const seoData: SEOProps = {
 
 const Contact: React.FC = () => {
   return (
-    <>
-      <SEO {...seoData} />
+    <Layout seo={seoData}>
       <h1>Contact</h1>
-    </>
+    </Layout>
   );
 };
 

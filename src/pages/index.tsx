@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 import { Asset, Entry } from 'contentful';
 
-import SEO, { SEOProps } from '@/components/atoms/SEO';
+import { SEOProps } from '@/components/atoms/SEO';
 import SocialList from '@/components/molecules/SocialList';
 
 import contentfulClient from '@/services/contentful';
@@ -21,6 +21,7 @@ import { Container, Button } from '@/styles/pages/home';
 interface HomeProps {
   title: string;
   subTitle: string;
+  actionText: string;
   heroImage: Asset;
   socialData: Entry<{
     name: string;
@@ -48,7 +49,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     socialPromise,
   ]);
 
-  const { title, subTitle, heroImage } = fields as HomeProps;
+  type Fields = HomeProps & { description: string };
+
+  const { title, subTitle, heroImage, description } = fields as Fields;
 
   return {
     props: {
@@ -56,6 +59,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       subTitle,
       heroImage,
       socialData: socialData.items,
+      actionText: description,
     },
   };
 };
@@ -64,20 +68,20 @@ const Home: React.FC<HomeProps> = ({
   title,
   subTitle,
   heroImage,
+  actionText,
   socialData,
 }) => {
   const { file } = heroImage.fields;
 
   return (
-    <Container>
-      <SEO {...seoData} />
+    <Container seo={seoData}>
       <div>
         <ReactMarkdown>{title}</ReactMarkdown>
         <ReactMarkdown>{subTitle}</ReactMarkdown>
         <SocialList items={socialData} />
         <Link href="/works">
           <Button>
-            My works
+            {actionText}
             <FiArrowRight size={24} />
           </Button>
         </Link>

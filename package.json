@@ -7,7 +7,7 @@
     "name": "Henrique Miranda"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start"
   },
