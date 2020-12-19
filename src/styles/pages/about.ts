@@ -2,13 +2,17 @@ import styled from 'styled-components';
 
 import Layout from '@/components/templates/Layout';
 
-export const Container = styled(Layout)``;
+export const Container = styled(Layout)`
+  flex-direction: column;
+`;
 
 export const MainSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
+
+  min-height: 100vh;
 
   > div:first-of-type {
     max-width: 575px;

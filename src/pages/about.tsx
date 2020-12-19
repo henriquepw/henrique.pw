@@ -6,6 +6,9 @@ import Image from 'next/image';
 
 import { Asset, Entry } from 'contentful';
 
+import { GameData } from '@/components/molecules/Game';
+import Games from '@/components/organisms/Games';
+
 import contentfulClient from '@/services/contentful';
 
 import { formatLocation } from '@/utils/location';
@@ -20,14 +23,8 @@ interface AboutData {
   heroImage: Asset;
 }
 
-interface Game {
-  title: string;
-  description: string;
-  image: Asset;
-}
-
 interface AboutProps extends AboutData {
-  games?: Entry<Game>[];
+  games?: Entry<GameData>[];
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -63,6 +60,7 @@ const About: React.FC<AboutProps> = ({
   title,
   description,
   heroImage,
+  games,
 }) => {
   const { file } = heroImage.fields;
 
@@ -82,6 +80,8 @@ const About: React.FC<AboutProps> = ({
           height={file.details.image.height}
         />
       </MainSection>
+
+      <Games items={games} />
     </Container>
   );
 };
