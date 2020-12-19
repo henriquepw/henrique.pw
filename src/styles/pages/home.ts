@@ -59,17 +59,14 @@ export const Container = styled(Layout)`
 
 export const Button = styled.a`
   display: flex;
+  align-items: center;
+
   margin-left: auto;
   margin-top: 48px;
 
-  a {
-    display: flex;
-    align-items: center;
+  ${buttonStyle}
 
-    ${buttonStyle}
-
-    svg {
-      margin-left: 24px;
-    }
+  svg {
+    margin-left: 24px;
   }
 `;

@@ -17,6 +17,8 @@ export const Container = styled.nav`
   width: 100%;
 
   padding: 32px 0;
+  z-index: 10;
+  pointer-events: none;
 `;
 
 export const ExtraConfigs = styled.aside`
@@ -24,6 +26,9 @@ export const ExtraConfigs = styled.aside`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  background: ${({ theme }) => theme.colors.background};
+  pointer-events: all;
 
   width: 64px;
   height: 100%;
@@ -45,6 +50,9 @@ export const Navigator = styled.ul`
   justify-content: center;
   align-items: center;
 
+  background: ${({ theme }) => theme.colors.background};
+  pointer-events: all;
+
   writing-mode: vertical-rl;
   text-orientation: mixed;
 
@@ -54,16 +62,6 @@ export const Navigator = styled.ul`
   li + li {
     margin-top: 64px;
   }
-`;
-
-export const NavigateItem = styled.li<NavigateProps>`
-  ${({ isSelected, theme }) =>
-    isSelected &&
-    css`
-      a {
-        color: ${theme.colors.active};
-      }
-    `}
 `;
 
 export const NavigateButton = styled.button.attrs({

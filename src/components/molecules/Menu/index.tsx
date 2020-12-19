@@ -1,19 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import MenuItem from '@/components/atoms/MenuItem';
 
 import { useTheme } from '@/hooks/useTheme';
 
 import { SECTIONS } from '@/utils/sections';
 
-import {
-  Container,
-  ExtraConfigs,
-  Navigator,
-  NavigateButton,
-  NavigateItem,
-} from './styles';
+import { Container, ExtraConfigs, Navigator, NavigateButton } from './styles';
 
 const Menu: React.FC = () => {
   const router = useRouter();
@@ -67,14 +62,13 @@ const Menu: React.FC = () => {
 
       <Navigator>
         {SECTIONS.map((section) => (
-          <NavigateItem
+          <MenuItem
             key={section.id}
+            slug={section.slug}
             isSelected={section.slug === currentSection}
           >
-            <Link href={section.slug}>
-              <a>{section.name}</a>
-            </Link>
-          </NavigateItem>
+            {section.name}
+          </MenuItem>
         ))}
       </Navigator>
     </Container>

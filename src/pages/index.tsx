@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Asset, Entry } from 'contentful';
 
@@ -73,12 +74,12 @@ const Home: React.FC<HomeProps> = ({
         <ReactMarkdown>{title}</ReactMarkdown>
         <ReactMarkdown>{subTitle}</ReactMarkdown>
         <SocialList items={socialData} />
-        <Button href="/works">
-          <a>
+        <Link href="/works">
+          <Button>
             My works
             <FiArrowRight size={24} />
-          </a>
-        </Button>
+          </Button>
+        </Link>
       </div>
       <div>
         <Image
