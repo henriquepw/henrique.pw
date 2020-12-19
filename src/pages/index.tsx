@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 import { Asset, Entry } from 'contentful';
 
-import { SEOProps } from '@/components/atoms/SEO';
+import SEO, { SEOProps } from '@/components/atoms/SEO';
 import SocialList from '@/components/molecules/SocialList';
 
 import contentfulClient from '@/services/contentful';
@@ -28,7 +28,7 @@ interface HomeProps {
   }>[];
 }
 
-const SEO: SEOProps = {
+const seoData: SEOProps = {
   title: 'Henrique Miranda',
   shouldExcludeTitleSuffix: true,
 };
@@ -69,7 +69,8 @@ const Home: React.FC<HomeProps> = ({
   const { file } = heroImage.fields;
 
   return (
-    <Container seo={SEO}>
+    <Container>
+      <SEO {...seoData} />
       <div>
         <ReactMarkdown>{title}</ReactMarkdown>
         <ReactMarkdown>{subTitle}</ReactMarkdown>

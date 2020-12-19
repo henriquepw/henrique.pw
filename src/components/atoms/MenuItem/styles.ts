@@ -16,8 +16,8 @@ export const Container = styled.li<ContainerProps>`
     transform: translate3d(-50%, -50%, 0) scaleY(0);
     transition: transform 0.3s ease-in;
 
-    height: calc(100% + 8px);
-    width: 2px;
+    height: calc(100% + 32px);
+    width: 1px;
 
     background: ${({ theme }) => theme.colors.active};
   }

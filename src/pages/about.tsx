@@ -1,17 +1,18 @@
 import React from 'react';
 
-import { SEOProps } from '@/components/atoms/SEO';
-import Layout from '@/components/templates/Layout';
+import SEO, { SEOProps } from '@/components/atoms/SEO';
+// import Layout from '@/components/templates/Layout';
 
-const SEO: SEOProps = {
+const seoData: SEOProps = {
   title: 'About',
 };
 
 const About: React.FC = () => {
   return (
-    <Layout seo={SEO}>
+    <>
+      <SEO {...seoData} />
       <h1>About</h1>
-    </Layout>
+    </>
   );
 };
 

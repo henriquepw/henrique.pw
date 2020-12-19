@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import Layout from '@/components/templates/Layout';
+// import Layout from '@/components/templates/Layout';
 
 import buttonStyle from '../components/button';
 
-export const Container = styled(Layout)`
+export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
