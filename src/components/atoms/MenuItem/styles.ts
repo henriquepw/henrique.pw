@@ -15,6 +15,7 @@ export const Container = styled.li<ContainerProps>`
     left: 45%;
     transform: translate3d(-50%, -50%, 0) scaleY(0);
     transition: transform 0.3s ease-in;
+    pointer-events: none;
 
     height: calc(100% + 32px);
     width: 1px;

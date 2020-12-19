@@ -19,6 +19,38 @@ export const Container = styled.nav`
   padding: 32px 0;
   z-index: 10;
   pointer-events: none;
+
+  &::before,
+  &::after {
+    content: '';
+    position: fixed;
+    left: 0;
+
+    height: 32px;
+    width: 100%;
+
+    background: ${({ theme }) => theme.colors.background};
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+`;
+
+export const Frame = styled.div`
+  position: fixed;
+  pointer-events: none;
+
+  top: 32px;
+  left: 64px;
+  width: calc(100% - 128px);
+  height: calc(100% - 64px);
+  border: 1px solid ${({ theme }) => theme.colors.active};
+  z-index: 10;
 `;
 
 export const ExtraConfigs = styled.aside`

@@ -8,7 +8,13 @@ import { useTheme } from '@/hooks/useTheme';
 
 import { SECTIONS } from '@/utils/sections';
 
-import { Container, ExtraConfigs, Navigator, NavigateButton } from './styles';
+import {
+  Container,
+  ExtraConfigs,
+  Navigator,
+  NavigateButton,
+  Frame,
+} from './styles';
 
 const Menu: React.FC = () => {
   const router = useRouter();
@@ -35,6 +41,8 @@ const Menu: React.FC = () => {
 
   return (
     <Container>
+      <Frame />
+
       <ExtraConfigs>
         <NavigateButton onClick={theme.nextTheme}>
           <span>theme</span>

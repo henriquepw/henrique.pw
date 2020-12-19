@@ -1,7 +1,6 @@
 import React from 'react';
 
 import SEO, { SEOProps } from '@/components/atoms/SEO';
-// import Layout from '@/components/templates/Layout';
 
 const seoData: SEOProps = {
   title: 'Works',
