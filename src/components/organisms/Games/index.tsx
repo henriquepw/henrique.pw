@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Entry } from 'contentful';
 
+import SectionTitle from '@/components/atoms/SectionTitle';
 import Game, { GameData } from '@/components/molecules/Game';
 
 import { Container } from './styles';
@@ -13,7 +14,7 @@ interface GamesProps {
 const Games: React.FC<GamesProps> = ({ items }) => {
   return (
     <Container>
-      <h2>GAMES</h2>
+      <SectionTitle isRight>GAMES</SectionTitle>
 
       <ul>
         {items.map((game) => (

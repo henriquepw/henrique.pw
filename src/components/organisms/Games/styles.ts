@@ -7,7 +7,10 @@ export const Container = styled.section`
   padding-bottom: 80px;
 
   h2 {
-    margin-left: auto;
+    display: inline-block;
+    width: 100%;
+    max-width: 1176px;
+    text-align: right;
   }
 
   ul {
