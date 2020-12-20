@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { Asset } from 'contentful';
 
-import { Container } from './styles';
+import { Container, Content, ImageContainer } from './styles';
 
 export interface GameData {
   title: string;
@@ -21,15 +21,18 @@ const Game: React.FC<GameProps> = ({ item }) => {
 
   return (
     <Container>
-      <div>
+      <Content>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
-      </div>
-      <Image
-        src={`https:${file.url}`}
-        width={file.details.image.width}
-        height={file.details.image.height}
-      />
+      </Content>
+
+      <ImageContainer>
+        <Image
+          src={`https:${file.url}`}
+          width={file.details.image.width}
+          height={file.details.image.height}
+        />
+      </ImageContainer>
     </Container>
   );
 };
