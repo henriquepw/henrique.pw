@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
@@ -27,13 +21,13 @@ const ThemeProvider: React.FC = ({ children }) => {
     return parseInt(themeIndex, 10) || 0;
   });
 
-  const theme = useMemo(() => themeList[currrentTheme], [currrentTheme]);
+  const theme = themeList[currrentTheme];
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('@thehenry.dev/themeIndex', String(currrentTheme));
     }
-  });
+  }, [currrentTheme]);
 
   function nextTheme(): void {
     setCurrentTheme(() => (currrentTheme + 1) % themeList.length);

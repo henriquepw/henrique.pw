@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "axios": "^0.21.0",
     "contentful": "^8.1.4",
+    "framer-motion": "^3.1.1",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -22,6 +24,7 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
     "@types/styled-components": "^5.1.7",

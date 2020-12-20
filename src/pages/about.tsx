@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
@@ -8,8 +8,10 @@ import { Asset, Entry } from 'contentful';
 
 import { GameData } from '@/components/molecules/Game';
 import Games from '@/components/organisms/Games';
+import Playlist from '@/components/organisms/Playlist';
 
 import contentfulClient from '@/services/contentful';
+import { getSpotifyToken, spotifyApi } from '@/services/spotify';
 
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
@@ -21,6 +23,7 @@ interface AboutData {
   title: string;
   description: string;
   heroImage: Asset;
+  acessToken: string;
 }
 
 interface AboutProps extends AboutData {
@@ -37,9 +40,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     content_type: 'games',
   });
 
-  const [aboutData, gamesData] = await Promise.all([
+  const [aboutData, gamesData, acessToken] = await Promise.all([
     aboutPromise,
     gamesPromise,
+    getSpotifyToken(),
   ]);
 
   const { name, title, description, heroImage } = aboutData.fields as AboutData;
@@ -51,6 +55,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       description,
       heroImage,
       games: gamesData.items,
+      acessToken,
     },
   };
 };
@@ -61,8 +66,19 @@ const About: React.FC<AboutProps> = ({
   description,
   heroImage,
   games,
+  acessToken,
 }) => {
   const { file } = heroImage.fields;
+
+  useEffect(() => {
+    async function getPlaylist() {
+      spotifyApi.defaults.headers.Authorization = acessToken;
+      const response = await spotifyApi.get('playlists/37i9dQZF1DZ06evO2T8209');
+      console.log(response.data);
+    }
+
+    getPlaylist();
+  }, []);
 
   return (
     <Container seo={{ title: name }}>
@@ -82,6 +98,7 @@ const About: React.FC<AboutProps> = ({
       </MainSection>
 
       <Games items={games} />
+      <Playlist />
     </Container>
   );
 };
