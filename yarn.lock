@@ -133,7 +133,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@7.12.5", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2":
+"@babel/runtime@7.12.5", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -865,6 +865,13 @@ axobject-query@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
   integrity sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==
+
+babel-plugin-polished@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-polished/-/babel-plugin-polished-1.1.0.tgz#7f6902ab8e9c20fc14cb53d596dd858880e357d3"
+  integrity sha1-f2kCq46cIPwUy1PVlt2FiIDjV9M=
+  dependencies:
+    polished "^1.0.0"
 
 "babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.12.0:
   version "1.12.0"
@@ -4178,6 +4185,18 @@ pnp-webpack-plugin@1.6.4:
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
   dependencies:
     ts-pnp "^1.1.6"
+
+polished@^1.0.0:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-1.9.3.tgz#d61b8a0c4624efe31e2583ff24a358932b6b75e1"
+  integrity sha512-4NmSD7fMFlM8roNxs7YXPv7UFRbYzb0gufR5zBxJLRzY54+zFsavxBo6zsQzP9ep6Hh3pC2pTyrpSTBEaB6IkQ==
+
+polished@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.0.5.tgz#3f91873c8f72dec1723b3f892f57fbb22645b23d"
+  integrity sha512-BY2+LVtOHQWBQpGN4GPAKpCdsBePOdSdHTpZegRDRCrvGPkRPTx1DEC+vGjIDPhXS7W2qiBxschnwRWTFdMZag==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 popmotion@^9.0.2:
   version "9.0.2"

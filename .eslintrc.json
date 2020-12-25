@@ -81,6 +81,7 @@
           "/^@/services/",
           "/^@/hooks/",
           "/^@/utils/",
+          "/^@/interfaces/",
           ["parent", "sibling", "index"],
           "/^@/assets/",
           "/^@/styles/",

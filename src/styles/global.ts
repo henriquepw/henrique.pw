@@ -60,8 +60,8 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.colors.active};
   }
 
-  p {
-    font-family: 'Space Mono';
+  dd, p {
+    font-family: 'Space Mono', monospace;
   }
 
   h1 {

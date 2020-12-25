@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
@@ -15,6 +15,9 @@ import { getSpotifyToken, spotifyApi } from '@/services/spotify';
 
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
+import tryGet from '@/utils/tryGet';
+
+import { Track } from '@/interfaces/track';
 
 import { Container, MainSection, Title } from '@/styles/pages/about';
 
@@ -23,11 +26,35 @@ interface AboutData {
   title: string;
   description: string;
   heroImage: Asset;
-  acessToken: string;
+  playlist: Track[];
 }
 
 interface AboutProps extends AboutData {
   games?: Entry<GameData>[];
+}
+
+async function getSpotifyPlaylist(): Promise<Track[]> {
+  await getSpotifyToken();
+
+  const [response, error] = await tryGet(
+    spotifyApi.get(`playlists/${process.env.NEXT_SPOTIFY_PLAYLIST_ID}`),
+  );
+
+  if (error) return [];
+
+  const tracks: Track[] = response.data.tracks.items.map(({ track }) => ({
+    id: track.id,
+    name: track.name,
+    previewUrl: track.preview_url,
+    externalUrl: track.external_urls.spotify,
+    album: {
+      image: track.album.images[0],
+      externalUrl: track.album.external_urls.spotify,
+    },
+    artists: track.artists,
+  }));
+
+  return tracks.filter((track) => track.previewUrl);
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -40,10 +67,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     content_type: 'games',
   });
 
-  const [aboutData, gamesData, acessToken] = await Promise.all([
+  const [aboutData, gamesData, playlist] = await Promise.all([
     aboutPromise,
     gamesPromise,
-    getSpotifyToken(),
+    getSpotifyPlaylist(),
   ]);
 
   const { name, title, description, heroImage } = aboutData.fields as AboutData;
@@ -55,7 +82,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       description,
       heroImage,
       games: gamesData.items,
-      acessToken,
+      playlist,
     },
   };
 };
@@ -66,19 +93,9 @@ const About: React.FC<AboutProps> = ({
   description,
   heroImage,
   games,
-  acessToken,
+  playlist,
 }) => {
   const { file } = heroImage.fields;
-
-  useEffect(() => {
-    async function getPlaylist() {
-      spotifyApi.defaults.headers.Authorization = acessToken;
-      const response = await spotifyApi.get('playlists/37i9dQZF1DZ06evO2T8209');
-      console.log(response.data);
-    }
-
-    getPlaylist();
-  }, []);
 
   return (
     <Container seo={{ title: name }}>
@@ -98,7 +115,7 @@ const About: React.FC<AboutProps> = ({
       </MainSection>
 
       <Games items={games} />
-      <Playlist />
+      <Playlist items={playlist} />
     </Container>
   );
 };

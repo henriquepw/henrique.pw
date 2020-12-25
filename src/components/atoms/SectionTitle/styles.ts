@@ -11,7 +11,7 @@ export const Container = styled.h2<ContainerProps>`
   font-size: 3.375rem;
   letter-spacing: 0.1em;
 
-  margin-bottom: 90px;
+  margin-bottom: 101px;
 
   &::before,
   &::after {
@@ -31,7 +31,7 @@ export const Container = styled.h2<ContainerProps>`
 
   &::after {
     bottom: -16px;
-    left: 0;
+    left: 24px;
 
     height: 1px;
     width: 48px;

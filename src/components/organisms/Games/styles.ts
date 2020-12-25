@@ -4,7 +4,7 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 
   h2 {
     display: inline-block;
@@ -15,7 +15,7 @@ export const Container = styled.section`
 
   ul {
     li + li {
-      margin-top: 72px;
+      margin-top: 104px;
     }
 
     li:nth-of-type(odd) {

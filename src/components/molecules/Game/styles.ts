@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.li`
   display: flex;
   align-items: center;
+
+  margin: 24px;
 `;
 
 export const Content = styled.div`
