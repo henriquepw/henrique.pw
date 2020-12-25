@@ -1,3 +1,4 @@
+import { opacify } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.section`
@@ -10,7 +11,7 @@ export const Container = styled.section`
 
     > div {
       position: relative;
-      margin-top: 24px;
+      margin-top: 96px;
 
       &::before {
         content: '';
@@ -36,16 +37,35 @@ export const Container = styled.section`
 export const TrackList = styled.dl`
   flex: 1;
   background: ${({ theme }) => theme.colors.secondaryBackground};
+  text-shadow: 0 0 ${({ theme }) => theme.colors.text};
+  color: rgba(0, 0, 0, 0);
+  transition: color 0.2s ease-in;
 
   width: 100%;
   height: 100%;
   max-width: 560px;
   max-height: 576px;
   overflow-y: scroll;
-  padding: 16px;
+  padding: 16px 4px 16px 24px;
+
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-thumb {
+    width: 20px;
+    background-clip: padding-box;
+    border: 8px solid transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 10px;
+  }
+
+  &:hover {
+    color: ${({ theme }) => opacify(-0.5, theme.colors.active)};
+  }
 
   div {
     padding: 16px;
+    color: ${({ theme }) => theme.colors.text};
   }
 
   div + div {

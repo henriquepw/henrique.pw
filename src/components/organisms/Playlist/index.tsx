@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FiChevronLeft, FiChevronRight, FiPlay } from 'react-icons/fi';
 
 import Image from 'next/image';
@@ -10,11 +10,31 @@ import { Track } from '@/interfaces/track';
 import { Container, TrackList, TrackControls } from './styles';
 
 interface PlaylistProps {
-  items: Track[];
+  tracks: Track[];
 }
 
-const Playlist: React.FC<PlaylistProps> = ({ items }) => {
-  const [selectedTrack] = useState(items[0]);
+const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
+  const [trackIndex, setTrackIndex] = useState(0);
+
+  const play = useRef(false);
+  const player = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    player.current = new Audio(tracks[0]?.previewUrl);
+    player.current.volume = 0.35;
+  }, [tracks]);
+
+  function togglePlay(
+    _: React.MouseEvent,
+    value = !play.current,
+    index = trackIndex,
+  ): void {
+    if (index === -1) setTrackIndex(0);
+    play.current = value;
+
+    if (value) player.current.play();
+    else player.current.pause();
+  }
 
   return (
     <Container>
@@ -23,7 +43,7 @@ const Playlist: React.FC<PlaylistProps> = ({ items }) => {
       <div>
         <div>
           <TrackList>
-            {items.map((track) => (
+            {tracks.map((track) => (
               <div key={track.id}>
                 <dt>{track.name}</dt>
                 <dd>{track.artists.map((artist) => artist.name).join(', ')}</dd>
@@ -33,17 +53,17 @@ const Playlist: React.FC<PlaylistProps> = ({ items }) => {
         </div>
 
         <aside>
-          {selectedTrack && (
+          {tracks[trackIndex] && (
             <Image
-              src={selectedTrack.album.image.url}
-              height={selectedTrack.album.image.height}
-              width={selectedTrack.album.image.width}
+              src={tracks[trackIndex].album.image.url}
+              height={tracks[trackIndex].album.image.height}
+              width={tracks[trackIndex].album.image.width}
             />
           )}
 
           <TrackControls>
             <FiChevronLeft size={48} />
-            <FiPlay size={56} />
+            <FiPlay size={56} onClick={togglePlay} />
             <FiChevronRight size={48} />
           </TrackControls>
         </aside>

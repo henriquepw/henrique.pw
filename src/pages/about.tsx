@@ -115,7 +115,7 @@ const About: React.FC<AboutProps> = ({
       </MainSection>
 
       <Games items={games} />
-      <Playlist items={playlist} />
+      <Playlist tracks={playlist} />
     </Container>
   );
 };
