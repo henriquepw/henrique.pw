@@ -44,3 +44,21 @@ export const Container = styled.section`
     }
   }
 `;
+
+export const TextContainer = styled.div`
+  width: 100%;
+  max-width: 1176px;
+  margin-bottom: 90px;
+
+  p {
+    width: 100%;
+    max-width: 560px;
+
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    letter-spacing: 0.03em;
+
+    text-align: right;
+    margin-left: auto;
+  }
+`;

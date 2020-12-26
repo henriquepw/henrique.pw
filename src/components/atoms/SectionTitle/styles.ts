@@ -11,7 +11,8 @@ export const Container = styled.h2<ContainerProps>`
   font-size: 3.375rem;
   letter-spacing: 0.1em;
 
-  margin-bottom: 101px;
+  margin-bottom: 135px;
+  text-transform: uppercase;
 
   &::before,
   &::after {

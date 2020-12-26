@@ -15,22 +15,36 @@ export const Container = styled.section`
 
     > div {
       position: relative;
-      margin-top: 96px;
+
+      p {
+        max-width: 560px;
+        margin-left: 24px;
+
+        font-size: 1.5rem;
+        line-height: 1.5em;
+        letter-spacing: 0.03em;
+      }
 
       &::before {
         content: '';
         position: absolute;
 
-        top: -24px;
-        right: -24px;
+        bottom: 24px;
+        left: 24px;
 
         width: 100%;
         height: 100%;
+        max-width: 560px;
+        max-height: 576px;
 
         border: 1px solid ${({ theme }) => theme.colors.active};
         z-index: -1;
       }
     }
+  }
+
+  aside {
+    margin-top: 64px;
   }
 
   img {
@@ -44,12 +58,14 @@ export const TrackList = styled.dl`
   text-shadow: 0 0 ${({ theme }) => theme.colors.text};
   color: rgba(0, 0, 0, 0);
   transition: color 0.2s ease-in;
+  overflow-y: scroll;
 
   width: 100%;
   height: 100%;
   max-width: 560px;
   max-height: 576px;
-  overflow-y: scroll;
+
+  margin-top: 88px;
   padding: 16px 4px 16px 24px;
 
   &::-webkit-scrollbar,

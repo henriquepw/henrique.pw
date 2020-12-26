@@ -9,15 +9,17 @@ import TrackControls, {
 
 import { mod } from '@/utils/math';
 
+import { SectionData } from '@/interfaces/section';
 import { Track } from '@/interfaces/track';
 
 import { Container, TrackList, TrackItem } from './styles';
 
 interface PlaylistProps {
   tracks: Track[];
+  sectionData: SectionData;
 }
 
-const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
+const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
   const [trackIndex, setTrackIndex] = useState(0);
 
   const trackControlsRef = useRef<TrackControlRef>(null);
@@ -42,10 +44,12 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
 
   return (
     <Container>
-      <SectionTitle>Musics</SectionTitle>
+      <SectionTitle>{sectionData.title}</SectionTitle>
 
       <div>
         <div>
+          <p>{sectionData.description}</p>
+
           <TrackList>
             {tracks.map((track, index) => (
               <TrackItem

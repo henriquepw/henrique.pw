@@ -5,16 +5,22 @@ import { Entry } from 'contentful';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import Game, { GameData } from '@/components/molecules/Game';
 
-import { Container } from './styles';
+import { SectionData } from '@/interfaces/section';
+
+import { Container, TextContainer } from './styles';
 
 interface GamesProps {
   items: Entry<GameData>[];
+  sectionData: SectionData;
 }
 
-const Games: React.FC<GamesProps> = ({ items }) => {
+const Games: React.FC<GamesProps> = ({ items, sectionData }) => {
   return (
     <Container>
-      <SectionTitle isRight>GAMES</SectionTitle>
+      <SectionTitle isRight>{sectionData.title}</SectionTitle>
+      <TextContainer>
+        <p>{sectionData.description}</p>
+      </TextContainer>
 
       <ul>
         {items.map((game) => (

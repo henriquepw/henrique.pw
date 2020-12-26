@@ -17,6 +17,7 @@ import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
 import tryGet from '@/utils/tryGet';
 
+import { SectionData } from '@/interfaces/section';
 import { Track } from '@/interfaces/track';
 
 import { Container, MainSection, Title } from '@/styles/pages/about';
@@ -30,7 +31,8 @@ interface AboutData {
 }
 
 interface AboutProps extends AboutData {
-  games?: Entry<GameData>[];
+  games: Entry<GameData>[];
+  sections: Record<string, SectionData>;
 }
 
 async function getSpotifyPlaylist(): Promise<Track[]> {
@@ -58,22 +60,37 @@ async function getSpotifyPlaylist(): Promise<Track[]> {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const aboutPromise = contentfulClient.getEntry(SECTIONS_IDS.about, {
+  const aboutPromise = contentfulClient.getEntry<AboutData>(
+    SECTIONS_IDS.about,
+    { locale: formatLocation(context.locale) },
+  );
+
+  const sectionsPromise = contentfulClient.getEntries<SectionData>({
     locale: formatLocation(context.locale),
+    content_type: 'sections',
   });
 
-  const gamesPromise = contentfulClient.getEntries({
+  const gamesPromise = contentfulClient.getEntries<GameData>({
     locale: formatLocation(context.locale),
     content_type: 'games',
   });
 
-  const [aboutData, gamesData, playlist] = await Promise.all([
+  const [aboutData, gamesData, sectionsData, playlist] = await Promise.all([
     aboutPromise,
     gamesPromise,
+    sectionsPromise,
     getSpotifyPlaylist(),
   ]);
 
-  const { name, title, description, heroImage } = aboutData.fields as AboutData;
+  const { name, title, description, heroImage } = aboutData.fields;
+
+  const sections = sectionsData.items.reduce(
+    (result, current) => ({
+      ...result,
+      [current.fields.slug]: current.fields,
+    }),
+    {} as Record<string, SectionData>,
+  );
 
   return {
     props: {
@@ -81,8 +98,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
       title,
       description,
       heroImage,
-      games: gamesData.items,
       playlist,
+      sections,
+      games: gamesData.items,
     },
   };
 };
@@ -94,8 +112,11 @@ const About: React.FC<AboutProps> = ({
   heroImage,
   games,
   playlist,
+  sections,
 }) => {
   const { file } = heroImage.fields;
+
+  console.log(sections);
 
   return (
     <Container seo={{ title: name }}>
@@ -114,8 +135,8 @@ const About: React.FC<AboutProps> = ({
         />
       </MainSection>
 
-      <Games items={games} />
-      <Playlist tracks={playlist} />
+      <Games items={games} sectionData={sections.games} />
+      <Playlist tracks={playlist} sectionData={sections.musics} />
     </Container>
   );
 };
