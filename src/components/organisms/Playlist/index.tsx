@@ -1,13 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FiChevronLeft, FiChevronRight, FiPlay } from 'react-icons/fi';
+import React, { useRef, useState } from 'react';
 
 import Image from 'next/image';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
+import TrackControls, {
+  TrackControlRef,
+} from '@/components/molecules/TrackControls';
+
+import { mod } from '@/utils/math';
 
 import { Track } from '@/interfaces/track';
 
-import { Container, TrackList, TrackControls } from './styles';
+import { Container, TrackList, TrackItem } from './styles';
 
 interface PlaylistProps {
   tracks: Track[];
@@ -16,24 +20,24 @@ interface PlaylistProps {
 const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
   const [trackIndex, setTrackIndex] = useState(0);
 
-  const play = useRef(false);
-  const player = useRef<HTMLAudioElement>(null);
+  const trackControlsRef = useRef<TrackControlRef>(null);
 
-  useEffect(() => {
-    player.current = new Audio(tracks[0]?.previewUrl);
-    player.current.volume = 0.35;
-  }, [tracks]);
+  function handlePlay(index: number): void {
+    if (index === trackIndex) {
+      trackControlsRef.current.togglePlay();
+      return;
+    }
 
-  function togglePlay(
-    _: React.MouseEvent,
-    value = !play.current,
-    index = trackIndex,
-  ): void {
-    if (index === -1) setTrackIndex(0);
-    play.current = value;
+    setTrackIndex(index);
+    trackControlsRef.current.changeTrack(tracks[index].previewUrl);
+  }
 
-    if (value) player.current.play();
-    else player.current.pause();
+  function handleNext(): void {
+    handlePlay((trackIndex + 1) % tracks.length);
+  }
+
+  function handlePrevious(): void {
+    handlePlay(mod(trackIndex - 1, tracks.length));
   }
 
   return (
@@ -43,11 +47,15 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
       <div>
         <div>
           <TrackList>
-            {tracks.map((track) => (
-              <div key={track.id}>
+            {tracks.map((track, index) => (
+              <TrackItem
+                key={track.id}
+                isSelected={trackIndex === index}
+                onClick={() => handlePlay(index)}
+              >
                 <dt>{track.name}</dt>
                 <dd>{track.artists.map((artist) => artist.name).join(', ')}</dd>
-              </div>
+              </TrackItem>
             ))}
           </TrackList>
         </div>
@@ -61,11 +69,12 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
             />
           )}
 
-          <TrackControls>
-            <FiChevronLeft size={48} />
-            <FiPlay size={56} onClick={togglePlay} />
-            <FiChevronRight size={48} />
-          </TrackControls>
+          <TrackControls
+            ref={trackControlsRef}
+            initialTrack={tracks[0]?.previewUrl}
+            onPrevious={handlePrevious}
+            onNext={handleNext}
+          />
         </aside>
       </div>
     </Container>

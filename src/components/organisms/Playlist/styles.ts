@@ -1,5 +1,9 @@
 import { opacify } from 'polished';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface TrackItemProps {
+  isSelected: boolean;
+}
 
 export const Container = styled.section`
   padding-bottom: 100px;
@@ -62,52 +66,38 @@ export const TrackList = styled.dl`
   &:hover {
     color: ${({ theme }) => opacify(-0.5, theme.colors.active)};
   }
+`;
 
-  div {
-    padding: 16px;
-    color: ${({ theme }) => theme.colors.text};
-  }
+export const TrackItem = styled.div<TrackItemProps>`
+  padding: 16px;
+  color: ${({ theme }) => theme.colors.text};
+  cursor: pointer;
 
-  div + div {
+  & + div {
     border-top: 1px solid ${({ theme }) => theme.colors.text};
   }
 
   dt {
     font-size: 1.5rem;
+    transition: color 0.2s ease-out;
   }
 
   dd {
     color: ${({ theme }) => theme.colors.text};
-    opacity: 0.8;
-  }
-`;
-
-export const TrackControls = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-
-  background: ${({ theme }) => theme.colors.secondaryBackground};
-  padding: 24px 40px;
-  margin: 48px 0 0 16px;
-
-  svg {
-    cursor: pointer;
-    stroke-width: 1px;
+    opacity: 0.6;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-
-    top: 16px;
-    left: -16px;
-
-    width: 100%;
-    height: 100%;
-
-    border: 1px solid ${({ theme }) => theme.colors.active};
-    z-index: -1;
+  &:hover {
+    dt {
+      color: ${({ theme }) => theme.colors.active};
+    }
   }
+
+  ${({ isSelected, theme }) =>
+    isSelected &&
+    css`
+      dt {
+        color: ${theme.colors.active};
+      }
+    `}
 `;

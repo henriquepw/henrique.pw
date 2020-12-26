@@ -47,11 +47,11 @@ async function getSpotifyPlaylist(): Promise<Track[]> {
     name: track.name,
     previewUrl: track.preview_url,
     externalUrl: track.external_urls.spotify,
+    artists: track.artists,
     album: {
       image: track.album.images[0],
       externalUrl: track.album.external_urls.spotify,
     },
-    artists: track.artists,
   }));
 
   return tracks.filter((track) => track.previewUrl);
