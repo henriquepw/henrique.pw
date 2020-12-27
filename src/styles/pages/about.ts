@@ -35,6 +35,18 @@ export const MainSection = styled.section`
       z-index: -1;
     }
 
+    svg {
+      display: block;
+      position: absolute;
+      cursor: pointer;
+
+      bottom: -8px;
+      left: -8px;
+      transform: translateX(-100%);
+      color: ${({ theme }) => theme.colors.active};
+      stroke-width: 1px;
+    }
+
     p {
       margin: 0 64px 40px;
 

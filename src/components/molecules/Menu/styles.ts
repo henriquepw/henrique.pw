@@ -80,7 +80,7 @@ export const ExtraConfigs = styled.aside`
 `;
 
 export const ScrollBar = styled(motion.div)`
-  width: 2px;
+  width: 1px;
   height: 100%;
   margin: 24px 0;
 

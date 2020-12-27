@@ -16,7 +16,7 @@ interface GamesProps {
 
 const Games: React.FC<GamesProps> = ({ items, sectionData }) => {
   return (
-    <Container>
+    <Container id="games">
       <SectionTitle isRight>{sectionData.title}</SectionTitle>
       <TextContainer>
         <p>{sectionData.description}</p>

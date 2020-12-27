@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { FiArrowDown } from 'react-icons/fi';
 import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
 import { Asset, Entry } from 'contentful';
-import { useTransform, useViewportScroll } from 'framer-motion';
 
 import { GameData } from '@/components/molecules/Game';
 import Games from '@/components/organisms/Games';
@@ -13,8 +13,6 @@ import Playlist from '@/components/organisms/Playlist';
 
 import contentfulClient from '@/services/contentful';
 import { getSpotifyToken, spotifyApi } from '@/services/spotify';
-
-import { useScrollbar } from '@/hooks/useScrollBar';
 
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
@@ -119,10 +117,18 @@ const About: React.FC<AboutProps> = ({
 }) => {
   const { file } = heroImage.fields;
 
+  function goToNextSection(): void {
+    if (typeof window === 'undefined') return;
+
+    const gamesRef = document.getElementById('games');
+    gamesRef?.scrollIntoView();
+  }
+
   return (
     <Container seo={{ title: name }}>
       <MainSection>
         <div>
+          <FiArrowDown size={40} onClick={goToNextSection} />
           <Title>{title}</Title>
           <div>
             <ReactMarkdown>{description}</ReactMarkdown>
