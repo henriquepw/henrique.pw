@@ -116,8 +116,6 @@ const About: React.FC<AboutProps> = ({
 }) => {
   const { file } = heroImage.fields;
 
-  console.log(sections);
-
   return (
     <Container seo={{ title: name }}>
       <MainSection>

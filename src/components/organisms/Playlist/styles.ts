@@ -47,6 +47,11 @@ export const Container = styled.section`
     margin-top: 64px;
   }
 
+  a {
+    display: block;
+    cursor: pointer;
+  }
+
   img {
     max-height: 416px;
   }

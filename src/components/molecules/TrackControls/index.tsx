@@ -6,6 +6,8 @@ import React, {
 } from 'react';
 import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
 
+import PlayButton from '@/components/atoms/PlayButton';
+
 import { Container } from './styles';
 
 interface TrackControlProps {
@@ -65,15 +67,21 @@ const TrackControl: React.ForwardRefRenderFunction<
 
   return (
     <Container>
-      <FiChevronLeft size={48} onClick={onPrevious} />
+      <PlayButton>
+        <FiChevronLeft size={48} onClick={onPrevious} />
+      </PlayButton>
 
-      {isPlaying ? (
-        <FiPause size={56} onClick={handleTogglePlay} />
-      ) : (
-        <FiPlay size={56} onClick={handleTogglePlay} />
-      )}
+      <PlayButton>
+        {isPlaying ? (
+          <FiPause size={56} onClick={handleTogglePlay} />
+        ) : (
+          <FiPlay size={56} onClick={handleTogglePlay} />
+        )}
+      </PlayButton>
 
-      <FiChevronRight size={48} onClick={onNext} />
+      <PlayButton>
+        <FiChevronRight size={48} onClick={onNext} />
+      </PlayButton>
     </Container>
   );
 };

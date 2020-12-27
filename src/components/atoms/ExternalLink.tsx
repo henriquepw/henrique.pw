@@ -1,6 +1,9 @@
 import React from 'react';
 
-type ExternalLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+import { motion, MotionProps } from 'framer-motion';
+
+type ExternalLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  MotionProps;
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({
   href,
@@ -8,9 +11,9 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({
   ...rest
 }) => {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+    <motion.a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
       {children}
-    </a>
+    </motion.a>
   );
 };
 

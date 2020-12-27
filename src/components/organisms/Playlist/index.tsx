@@ -2,6 +2,9 @@ import React, { useRef, useState } from 'react';
 
 import Image from 'next/image';
 
+import { Variants } from 'framer-motion';
+
+import ExternalLink from '@/components/atoms/ExternalLink';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import TrackControls, {
   TrackControlRef,
@@ -18,6 +21,11 @@ interface PlaylistProps {
   tracks: Track[];
   sectionData: SectionData;
 }
+
+const imageAnimationVariants: Variants = {
+  hover: { scale: 1.05 },
+  tap: { scale: 0.95 },
+};
 
 const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
   const [trackIndex, setTrackIndex] = useState(0);
@@ -66,11 +74,18 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
 
         <aside>
           {tracks[trackIndex] && (
-            <Image
-              src={tracks[trackIndex].album.image.url}
-              height={tracks[trackIndex].album.image.height}
-              width={tracks[trackIndex].album.image.width}
-            />
+            <ExternalLink
+              variants={imageAnimationVariants}
+              whileHover="hover"
+              whileTap="tap"
+              href={tracks[trackIndex].externalUrl}
+            >
+              <Image
+                src={tracks[trackIndex].album.image.url}
+                height={tracks[trackIndex].album.image.height}
+                width={tracks[trackIndex].album.image.width}
+              />
+            </ExternalLink>
           )}
 
           <TrackControls
