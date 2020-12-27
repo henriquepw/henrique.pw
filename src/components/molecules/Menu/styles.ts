@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 interface NavigateProps {
@@ -76,6 +77,14 @@ export const ExtraConfigs = styled.aside`
       margin-top: 32px;
     }
   }
+`;
+
+export const ScrollBar = styled(motion.div)`
+  width: 2px;
+  height: 100%;
+  margin: 24px 0;
+
+  background: ${({ theme }) => theme.colors.active};
 `;
 
 export const Navigator = styled.ul`

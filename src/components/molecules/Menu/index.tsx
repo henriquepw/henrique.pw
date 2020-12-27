@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
+import { useViewportScroll } from 'framer-motion';
+
 import MenuItem from '@/components/atoms/MenuItem';
 
 import { useTheme } from '@/hooks/useTheme';
@@ -14,11 +16,13 @@ import {
   Navigator,
   NavigateButton,
   Frame,
+  ScrollBar,
 } from './styles';
 
 const Menu: React.FC = () => {
   const router = useRouter();
   const theme = useTheme();
+  const { scrollYProgress } = useViewportScroll();
 
   const [currentSection, setCurrentSection] = useState(SECTIONS[0].slug);
 
@@ -47,6 +51,12 @@ const Menu: React.FC = () => {
         <NavigateButton onClick={theme.nextTheme}>
           <span>theme</span>
         </NavigateButton>
+
+        <ScrollBar
+          style={{
+            scaleY: scrollYProgress,
+          }}
+        />
 
         <ul>
           <li>

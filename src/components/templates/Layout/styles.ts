@@ -7,6 +7,7 @@ export const Container = styled.main`
   width: 100%;
   height: 100%;
   padding: 56px 88px;
+  margin: auto 0;
 
   &::after {
     content: '';

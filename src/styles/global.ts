@@ -30,23 +30,20 @@ export default createGlobalStyle`
   html,
   body,
   #__next {
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  #__next {
+    display: flex;
+    min-height: 100vh;
   }
 
   body {
-    width: 100%;
-    height: 100%;
-
     font-family: 'Raleway', sans-serif;
 
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.background};
-  }
-
-  #__next {
-    width: 100%;
-    height: 100%;
   }
 
   a,
