@@ -26,6 +26,7 @@ export const Container = styled.li<ContainerProps>`
   div {
     overflow: hidden;
     transition: transform 0.3s ease-in;
+    user-select: none;
 
     width: 0.55rem;
     font-size: 1rem;

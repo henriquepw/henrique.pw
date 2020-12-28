@@ -125,7 +125,7 @@ const About: React.FC<AboutProps> = ({
   }
 
   return (
-    <Container seo={{ title: name }}>
+    <Container seo={{ title: name }} id="about">
       <MainSection>
         <div>
           <FiArrowDown size={40} onClick={goToNextSection} />

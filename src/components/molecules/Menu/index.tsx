@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { FiArrowUp } from 'react-icons/fi';
 
 import { useRouter } from 'next/router';
 
-import { useViewportScroll } from 'framer-motion';
+import { useAnimation, useViewportScroll, Variants } from 'framer-motion';
 
 import MenuItem from '@/components/atoms/MenuItem';
 
@@ -17,12 +18,20 @@ import {
   NavigateButton,
   Frame,
   ScrollBar,
+  UpButton,
 } from './styles';
+
+const ArrowUpVariants: Variants = {
+  hidden: { opacity: 0, pointerEvents: 'none' },
+  visible: { opacity: 1, pointerEvents: 'all' },
+};
 
 const Menu: React.FC = () => {
   const router = useRouter();
   const theme = useTheme();
+
   const { scrollYProgress } = useViewportScroll();
+  const arrowUpControl = useAnimation();
 
   const [currentSection, setCurrentSection] = useState(SECTIONS[0].slug);
 
@@ -30,6 +39,14 @@ const Menu: React.FC = () => {
     () => router.locale.toLowerCase().split('-')[0],
     [router.locale],
   );
+
+  useEffect(() => {
+    const unsub = scrollYProgress.onChange((value) => {
+      arrowUpControl.start(value > 0.4 ? 'visible' : 'hidden');
+    });
+
+    return unsub;
+  }, [scrollYProgress, arrowUpControl]);
 
   function changeLocaleToEn(): void {
     router.push(router.pathname, undefined, { locale: 'en' });
@@ -39,6 +56,10 @@ const Menu: React.FC = () => {
     router.push(router.pathname, undefined, { locale: 'pt' });
   }
 
+  function goToTop(): void {
+    window?.scrollTo(0, 0);
+  }
+
   useEffect(() => {
     setCurrentSection(router.pathname);
   }, [router.pathname]);
@@ -46,6 +67,15 @@ const Menu: React.FC = () => {
   return (
     <Container>
       <Frame />
+
+      <UpButton
+        onClick={goToTop}
+        variants={ArrowUpVariants}
+        animate={arrowUpControl}
+        initial="hidden"
+      >
+        <FiArrowUp size={40} />
+      </UpButton>
 
       <ExtraConfigs>
         <NavigateButton onClick={theme.nextTheme}>

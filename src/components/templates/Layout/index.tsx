@@ -7,11 +7,12 @@ import { Container } from './styles';
 interface LayoutProps {
   seo: SEOProps;
   className?: string;
+  id?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, className, seo }) => {
+const Layout: React.FC<LayoutProps> = ({ children, className, id, seo }) => {
   return (
-    <Container className={className}>
+    <Container className={className} id={id}>
       <SEO {...seo} />
       {children}
     </Container>

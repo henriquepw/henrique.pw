@@ -87,6 +87,25 @@ export const ScrollBar = styled(motion.div)`
   background: ${({ theme }) => theme.colors.active};
 `;
 
+export const UpButton = styled(motion.button)`
+  position: absolute;
+  cursor: pointer;
+  pointer-events: all;
+
+  bottom: 32px;
+  right: 32px;
+  transform: translateX(50%);
+  z-index: 10;
+
+  svg {
+    stroke-width: 1px;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.active};
+  }
+`;
+
 export const Navigator = styled.ul`
   display: flex;
   justify-content: center;
