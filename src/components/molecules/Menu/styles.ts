@@ -97,10 +97,6 @@ export const UpButton = styled(motion.button)`
   transform: translateX(50%);
   z-index: 10;
 
-  svg {
-    stroke-width: 1px;
-  }
-
   &:hover {
     color: ${({ theme }) => theme.colors.active};
   }

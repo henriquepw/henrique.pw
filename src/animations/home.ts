@@ -10,7 +10,7 @@ export const imageVariants: Variants = {
     opacity: 1,
     transition: {
       delay: 1,
-      duration: 0.6,
+      duration: 0.8,
     },
   },
 };

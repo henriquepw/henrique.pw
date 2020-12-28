@@ -74,6 +74,10 @@ export default createGlobalStyle`
     list-style-type: none;
   }
 
+  svg {
+    stroke-width: 1px;
+  }
+
   button {
     width: auto;
     border: none;

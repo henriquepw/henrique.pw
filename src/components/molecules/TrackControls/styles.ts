@@ -12,7 +12,6 @@ export const Container = styled.div`
 
   svg {
     cursor: pointer;
-    stroke-width: 1px;
   }
 
   &::before {

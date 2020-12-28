@@ -4,7 +4,7 @@ export const stagger: Variants = {
   animate: {
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 1,
+      delayChildren: 0.9,
     },
   },
 };
@@ -26,4 +26,9 @@ export const fadeInUp: Variants = {
       duration: 0.8,
     },
   },
+};
+
+export const buttonEffect: Variants = {
+  hover: { scale: 1.2 },
+  tap: { scale: 0.95 },
 };

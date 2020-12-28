@@ -8,10 +8,11 @@ import {
 } from 'react-icons/fi';
 
 import { Entry } from 'contentful';
+import { motion } from 'framer-motion';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 
-import { fadeInUp } from '@/animations/global';
+import { buttonEffect, fadeInUp } from '@/animations/global';
 
 import { Container } from './styles';
 
@@ -36,11 +37,16 @@ const SocialList: React.FC<SocialListProps> = ({ items }) => {
   return (
     <Container variants={fadeInUp}>
       {items.map((item) => (
-        <li key={item.sys.id}>
+        <motion.li
+          key={item.sys.id}
+          variants={buttonEffect}
+          whileHover="hover"
+          whileTap="tap"
+        >
           <ExternalLink href={item.fields.url}>
             {ICONS[item.fields.name.toLowerCase()]}
           </ExternalLink>
-        </li>
+        </motion.li>
       ))}
     </Container>
   );

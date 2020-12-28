@@ -19,7 +19,7 @@ const transitionVariants: Variants = {
   animate: {
     x: '100%',
     transition: {
-      delay: 0.2,
+      delay: 0.15,
       duration: 0.5,
     },
   },

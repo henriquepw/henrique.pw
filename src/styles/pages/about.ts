@@ -44,7 +44,6 @@ export const MainSection = styled.section`
       left: -8px;
       transform: translateX(-100%);
       color: ${({ theme }) => theme.colors.active};
-      stroke-width: 1px;
     }
 
     p {
