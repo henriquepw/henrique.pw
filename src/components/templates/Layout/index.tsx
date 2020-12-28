@@ -18,6 +18,10 @@ const transitionVariants: Variants = {
   },
   animate: {
     x: '100%',
+    transition: {
+      delay: 0.2,
+      duration: 0.5,
+    },
   },
   exit: {
     x: ['-100%', '0%'],
@@ -28,10 +32,6 @@ const transitionVariants: Variants = {
   },
 };
 
-const exitAnimation = {
-  transition: { staggerChildren: 0 },
-};
-
 const transition: Transition = {
   duration: 0.5,
   ease: 'easeInOut',
@@ -39,7 +39,7 @@ const transition: Transition = {
 
 const Layout: React.FC<LayoutProps> = ({ children, seo, ...rest }) => {
   return (
-    <Container {...rest} exit={exitAnimation}>
+    <Container {...rest}>
       <TransitionFrame
         variants={transitionVariants}
         transition={transition}

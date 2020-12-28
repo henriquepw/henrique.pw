@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled.ul`
+export const Container = styled(motion.ul)`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;

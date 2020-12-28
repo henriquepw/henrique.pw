@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import Layout from '@/components/templates/Layout';
@@ -6,9 +7,9 @@ import buttonStyle from '../components/button';
 
 export const Container = styled(Layout)`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-
+  position: relative;
   padding: 32px;
 
   > div:first-of-type {
@@ -19,28 +20,17 @@ export const Container = styled(Layout)`
     position: relative;
     text-align: right;
 
-    padding-right: 40px;
-    margin-right: 40px;
-
     height: 100%;
     max-height: 480px;
+    margin: auto 0;
+
+    div {
+      overflow: hidden;
+    }
 
     h2 {
       margin: 32px 0;
       max-width: 490px;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-
-      width: 1px;
-      height: calc(100% + 80px);
-      background: ${({ theme }) => theme.colors.text};
     }
 
     button {
@@ -57,7 +47,13 @@ export const Container = styled(Layout)`
   }
 `;
 
-export const Button = styled.a`
+export const Divider = styled(motion.div)`
+  width: 1px;
+  margin: 40px;
+  background: ${({ theme }) => theme.colors.text};
+`;
+
+export const Button = styled(motion.a)`
   display: flex;
   align-items: center;
 

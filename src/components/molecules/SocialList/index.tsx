@@ -11,6 +11,8 @@ import { Entry } from 'contentful';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 
+import { fadeInUp } from '@/animations/global';
+
 import { Container } from './styles';
 
 const ICONS = {
@@ -32,7 +34,7 @@ interface SocialListProps {
 
 const SocialList: React.FC<SocialListProps> = ({ items }) => {
   return (
-    <Container>
+    <Container variants={fadeInUp}>
       {items.map((item) => (
         <li key={item.sys.id}>
           <ExternalLink href={item.fields.url}>

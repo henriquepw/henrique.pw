@@ -14,7 +14,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
     <AppProvider>
       <GlobalStyle />
       <Menu />
-      <AnimatePresence initial={false} exitBeforeEnter>
+      <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </AppProvider>

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Asset, Entry } from 'contentful';
+import { motion } from 'framer-motion';
 
 import { SEOProps } from '@/components/atoms/SEO';
 import SocialList from '@/components/molecules/SocialList';
@@ -16,7 +17,10 @@ import contentfulClient from '@/services/contentful';
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
 
-import { Container, Button } from '@/styles/pages/home';
+import { fadeInUp, scaleYInOut, stagger } from '@/animations/global';
+import { dividerTransition, imageVariants } from '@/animations/home';
+
+import { Container, Button, Divider } from '@/styles/pages/home';
 
 interface HomeProps {
   title: string;
@@ -32,6 +36,70 @@ interface HomeProps {
 const seoData: SEOProps = {
   title: 'Henrique Miranda',
   shouldExcludeTitleSuffix: true,
+};
+
+const Home: React.FC<HomeProps> = ({
+  title,
+  subTitle,
+  heroImage,
+  actionText,
+  socialData,
+}) => {
+  const { file } = heroImage.fields;
+
+  return (
+    <Container seo={seoData}>
+      <motion.div variants={stagger} initial="initial" animate="animate">
+        <div>
+          <ReactMarkdown
+            renderers={{
+              heading: ({ children }) => (
+                <motion.h1 variants={fadeInUp}>{children}</motion.h1>
+              ),
+            }}
+          >
+            {title}
+          </ReactMarkdown>
+        </div>
+
+        <div>
+          <ReactMarkdown
+            renderers={{
+              heading: ({ children }) => (
+                <motion.h2 variants={fadeInUp}>{children}</motion.h2>
+              ),
+            }}
+          >
+            {subTitle}
+          </ReactMarkdown>
+        </div>
+
+        <SocialList items={socialData} />
+
+        <Link href="/works">
+          <Button variants={fadeInUp}>
+            {actionText}
+            <FiArrowRight size={24} />
+          </Button>
+        </Link>
+      </motion.div>
+
+      <Divider
+        variants={scaleYInOut}
+        transition={dividerTransition}
+        initial="initial"
+        animate="animate"
+      />
+
+      <motion.div variants={imageVariants} initial="initial" animate="animate">
+        <Image
+          src={`https:${file.url}`}
+          width={file.details.image.width}
+          height={file.details.image.height}
+        />
+      </motion.div>
+    </Container>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -62,39 +130,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       actionText: description,
     },
   };
-};
-
-const Home: React.FC<HomeProps> = ({
-  title,
-  subTitle,
-  heroImage,
-  actionText,
-  socialData,
-}) => {
-  const { file } = heroImage.fields;
-
-  return (
-    <Container seo={seoData}>
-      <div>
-        <ReactMarkdown>{title}</ReactMarkdown>
-        <ReactMarkdown>{subTitle}</ReactMarkdown>
-        <SocialList items={socialData} />
-        <Link href="/works">
-          <Button>
-            {actionText}
-            <FiArrowRight size={24} />
-          </Button>
-        </Link>
-      </div>
-      <div>
-        <Image
-          src={`https:${file.url}`}
-          width={file.details.image.width}
-          height={file.details.image.height}
-        />
-      </div>
-    </Container>
-  );
 };
 
 export default Home;

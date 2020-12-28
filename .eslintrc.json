@@ -84,6 +84,7 @@
           "/^@/interfaces/",
           ["parent", "sibling", "index"],
           "/^@/assets/",
+          "/^@/animations/",
           "/^@/styles/",
           "/^./styles/"
         ],
