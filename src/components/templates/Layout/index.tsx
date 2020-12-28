@@ -1,18 +1,52 @@
 import React from 'react';
 
+import { Variants, Transition } from 'framer-motion';
+
 import SEO, { SEOProps } from '@/components/atoms/SEO';
 
-import { Container } from './styles';
+import { Container, TransitionFrame } from './styles';
 
 interface LayoutProps {
-  seo: SEOProps;
-  className?: string;
   id?: string;
+  className?: string;
+  seo: SEOProps;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, className, id, seo }) => {
+const transitionVariants: Variants = {
+  initial: {
+    x: '0%',
+  },
+  animate: {
+    x: '100%',
+  },
+  exit: {
+    x: ['-100%', '0%'],
+    transition: {
+      duration: 0.5,
+      times: [0, 1],
+    },
+  },
+};
+
+const exitAnimation = {
+  transition: { staggerChildren: 0 },
+};
+
+const transition: Transition = {
+  duration: 0.5,
+  ease: 'easeInOut',
+};
+
+const Layout: React.FC<LayoutProps> = ({ children, seo, ...rest }) => {
   return (
-    <Container className={className} id={id}>
+    <Container {...rest} exit={exitAnimation}>
+      <TransitionFrame
+        variants={transitionVariants}
+        transition={transition}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      />
       <SEO {...seo} />
       {children}
     </Container>
