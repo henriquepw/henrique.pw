@@ -1,11 +1,12 @@
 export const SECTIONS_IDS = {
   home: '2wkBThk2SvuvNLP8wxgjo0',
   about: '3VFICVTXkWdWm4o575D70f',
+  contact: '3MKf7Xj6N9I5hNjrOsi05i',
 };
 
 export const SECTIONS = [
   { name: 'Home', slug: '/', id: SECTIONS_IDS.home },
   { name: 'Works', slug: '/works', id: 'works' },
   { name: 'About', slug: '/about', id: SECTIONS_IDS.about },
-  { name: 'contact', slug: '/contact', id: 'contact' },
+  { name: 'contact', slug: '/contact', id: SECTIONS_IDS.contact },
 ];

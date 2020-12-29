@@ -31,11 +31,12 @@ export type SocialMedia = Entry<{
 
 interface SocialListProps {
   items: SocialMedia[];
+  isSecondary?: boolean;
 }
 
-const SocialList: React.FC<SocialListProps> = ({ items }) => {
+const SocialList: React.FC<SocialListProps> = ({ items, isSecondary }) => {
   return (
-    <Container variants={fadeInUp}>
+    <Container variants={fadeInUp} isSecondary={isSecondary}>
       {items.map((item) => (
         <motion.li
           key={item.sys.id}

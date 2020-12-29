@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled(motion.ul)`
+interface ContainerProps {
+  isSecondary?: boolean;
+}
+
+export const Container = styled(motion.ul)<ContainerProps>`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -11,6 +15,11 @@ export const Container = styled(motion.ul)`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.active};
+    color: ${({ isSecondary, theme }) =>
+      isSecondary ? theme.colors.text : theme.colors.active};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.active};
+    }
   }
 `;

@@ -7,16 +7,16 @@ import Image from 'next/image';
 
 import { Asset, Entry } from 'contentful';
 
+import { SEOProps } from '@/components/atoms/SEO';
 import { GameData } from '@/components/molecules/Game';
 import Games from '@/components/organisms/Games';
 import Playlist from '@/components/organisms/Playlist';
 
-import contentfulClient from '@/services/contentful';
-import { getSpotifyToken, spotifyApi } from '@/services/spotify';
+import contentfulApi from '@/services/contentful';
+import { getSpotifyPlaylist } from '@/services/spotify';
 
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
-import tryGet from '@/utils/tryGet';
 
 import { SectionData } from '@/interfaces/section';
 import { Track } from '@/interfaces/track';
@@ -31,47 +31,65 @@ interface AboutData {
   playlist: Track[];
 }
 
-interface AboutProps extends AboutData {
+interface AboutProps extends Omit<AboutData, 'name'> {
   games: Entry<GameData>[];
   sections: Record<string, SectionData>;
+  SEO: SEOProps;
 }
 
-async function getSpotifyPlaylist(): Promise<Track[]> {
-  await getSpotifyToken();
+const About: React.FC<AboutProps> = ({
+  SEO,
+  title,
+  description,
+  heroImage,
+  games,
+  playlist,
+  sections,
+}) => {
+  const { file } = heroImage.fields;
 
-  const [response, error] = await tryGet(
-    spotifyApi.get(`playlists/${process.env.NEXT_SPOTIFY_PLAYLIST_ID}`),
+  function goToNextSection(): void {
+    if (typeof window === 'undefined') return;
+
+    const gamesRef = document.getElementById('games');
+    gamesRef?.scrollIntoView();
+  }
+
+  return (
+    <Container seo={SEO} id="about">
+      <MainSection>
+        <div>
+          <FiArrowDown size={40} onClick={goToNextSection} />
+          <Title>{title}</Title>
+          <div>
+            <ReactMarkdown>{description}</ReactMarkdown>
+          </div>
+        </div>
+
+        <Image
+          src={`https:${file.url}`}
+          width={file.details.image.width}
+          height={file.details.image.height}
+        />
+      </MainSection>
+
+      <Games items={games} sectionData={sections.games} />
+      <Playlist tracks={playlist} sectionData={sections.musics} />
+    </Container>
   );
-
-  if (error) return [];
-
-  const tracks: Track[] = response.data.tracks.items.map(({ track }) => ({
-    id: track.id,
-    name: track.name,
-    previewUrl: track.preview_url,
-    externalUrl: track.external_urls.spotify,
-    artists: track.artists,
-    album: {
-      image: track.album.images[0],
-      externalUrl: track.album.external_urls.spotify,
-    },
-  }));
-
-  return tracks.filter((track) => track.previewUrl);
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const aboutPromise = contentfulClient.getEntry<AboutData>(
-    SECTIONS_IDS.about,
-    { locale: formatLocation(context.locale) },
-  );
+  const aboutPromise = contentfulApi.getEntry<AboutData>(SECTIONS_IDS.about, {
+    locale: formatLocation(context.locale),
+  });
 
-  const sectionsPromise = contentfulClient.getEntries<SectionData>({
+  const sectionsPromise = contentfulApi.getEntries<SectionData>({
     locale: formatLocation(context.locale),
     content_type: 'sections',
   });
 
-  const gamesPromise = contentfulClient.getEntries<GameData>({
+  const gamesPromise = contentfulApi.getEntries<GameData>({
     locale: formatLocation(context.locale),
     content_type: 'games',
   });
@@ -93,9 +111,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     {} as Record<string, SectionData>,
   );
 
+  const SEO: SEOProps = {
+    title: name,
+  };
+
   return {
     props: {
-      name,
+      SEO,
       title,
       description,
       heroImage,
@@ -104,48 +126,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       games: gamesData.items,
     },
   };
-};
-
-const About: React.FC<AboutProps> = ({
-  name,
-  title,
-  description,
-  heroImage,
-  games,
-  playlist,
-  sections,
-}) => {
-  const { file } = heroImage.fields;
-
-  function goToNextSection(): void {
-    if (typeof window === 'undefined') return;
-
-    const gamesRef = document.getElementById('games');
-    gamesRef?.scrollIntoView();
-  }
-
-  return (
-    <Container seo={{ title: name }} id="about">
-      <MainSection>
-        <div>
-          <FiArrowDown size={40} onClick={goToNextSection} />
-          <Title>{title}</Title>
-          <div>
-            <ReactMarkdown>{description}</ReactMarkdown>
-          </div>
-        </div>
-
-        <Image
-          src={`https:${file.url}`}
-          width={file.details.image.width}
-          height={file.details.image.height}
-        />
-      </MainSection>
-
-      <Games items={games} sectionData={sections.games} />
-      <Playlist tracks={playlist} sectionData={sections.musics} />
-    </Container>
-  );
 };
 
 export default About;

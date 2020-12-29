@@ -6,13 +6,13 @@ import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Asset, Entry } from 'contentful';
+import { Asset } from 'contentful';
 import { motion } from 'framer-motion';
 
 import { SEOProps } from '@/components/atoms/SEO';
-import SocialList from '@/components/molecules/SocialList';
+import SocialList, { SocialMedia } from '@/components/molecules/SocialList';
 
-import contentfulClient from '@/services/contentful';
+import contentfulApi from '@/services/contentful';
 
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
@@ -27,10 +27,7 @@ interface HomeProps {
   subTitle: string;
   actionText: string;
   heroImage: Asset;
-  socialData: Entry<{
-    name: string;
-    url: string;
-  }>[];
+  socialData: SocialMedia[];
 }
 
 const seoData: SEOProps = {
@@ -103,11 +100,11 @@ const Home: React.FC<HomeProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const homePromise = contentfulClient.getEntry(SECTIONS_IDS.home, {
+  const homePromise = contentfulApi.getEntry(SECTIONS_IDS.home, {
     locale: formatLocation(context.locale),
   });
 
-  const socialPromise = contentfulClient.getEntries({
+  const socialPromise = contentfulApi.getEntries({
     locale: formatLocation(context.locale),
     content_type: 'socialMedia',
   });
