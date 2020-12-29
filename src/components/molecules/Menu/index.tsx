@@ -9,7 +9,7 @@ import MenuItem from '@/components/atoms/MenuItem';
 
 import { useTheme } from '@/hooks/useTheme';
 
-import { SECTIONS } from '@/utils/sections';
+import { SECTIONS_PT, SECTIONS_EN, Section } from '@/utils/sections';
 
 import {
   Container,
@@ -21,24 +21,38 @@ import {
   UpButton,
 } from './styles';
 
+interface MenuProps {
+  sections: Section[];
+}
+
+const SECTIONS = {
+  pt: SECTIONS_PT,
+  en: SECTIONS_EN,
+};
+
 const ArrowUpVariants: Variants = {
   hidden: { opacity: 0, pointerEvents: 'none' },
   visible: { opacity: 1, pointerEvents: 'all' },
 };
 
-const Menu: React.FC = () => {
+const Menu: React.FC<MenuProps> = () => {
   const router = useRouter();
   const theme = useTheme();
 
   const { scrollYProgress } = useViewportScroll();
   const arrowUpControl = useAnimation();
 
-  const [currentSection, setCurrentSection] = useState(SECTIONS[0].slug);
-
   const currentLocale = useMemo(
     () => router.locale.toLowerCase().split('-')[0],
     [router.locale],
   );
+
+  const sections = useMemo<Section[]>(
+    () => SECTIONS[currentLocale] || SECTIONS.en,
+    [currentLocale],
+  );
+
+  const [currentSection, setCurrentSection] = useState(sections[0].slug);
 
   useEffect(() => {
     const unsub = scrollYProgress.onChange((value) => {
@@ -109,7 +123,7 @@ const Menu: React.FC = () => {
       </ExtraConfigs>
 
       <Navigator>
-        {SECTIONS.map((section) => (
+        {sections?.map((section) => (
           <MenuItem
             key={section.id}
             slug={section.slug}
