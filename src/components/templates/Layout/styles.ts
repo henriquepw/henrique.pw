@@ -7,7 +7,7 @@ export const Container = styled(motion.main)`
 
   width: 100%;
   height: 100%;
-  padding: 56px 88px;
+  padding: 56px 128px;
   margin: auto 0;
 `;
 
@@ -20,7 +20,6 @@ export const TransitionFrame = styled(motion.span)`
 
   height: 100%;
   width: 100%;
-  /* transform: translateX(-100%); */
 
   background: ${({ theme }) => theme.colors.active};
 `;

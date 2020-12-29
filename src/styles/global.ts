@@ -53,6 +53,10 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  textarea {
+    resize: vertical;
+  }
+
   strong {
     color: ${({ theme }) => theme.colors.active};
   }
