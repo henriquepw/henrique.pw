@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next';
 
 import DynamicInput from '@/components/atoms/DynamicInput';
 import { SEOProps } from '@/components/atoms/SEO';
+import ContactForm from '@/components/molecules/ContactForm';
 import SocialList, { SocialMedia } from '@/components/molecules/SocialList';
 
 import contentfulApi from '@/services/contentful';
@@ -25,6 +26,7 @@ interface FormData {
   submitText: string;
   inputs: Array<{
     id: string;
+    slug: string;
     title: string;
     type: 'text' | 'textarea';
   }>;
@@ -52,13 +54,7 @@ const Contact: React.FC<ContactProps> = ({
       <ReactMarkdown>{title}</ReactMarkdown>
 
       <section>
-        <form>
-          {form.inputs.map((input) => (
-            <DynamicInput key={input.id} type={input.type} />
-          ))}
-
-          <button type="submit">{form.submitText}</button>
-        </form>
+        <ContactForm submitText={form.submitText} inputs={form.inputs} />
 
         <aside>
           <ReactMarkdown>{description}</ReactMarkdown>
