@@ -10,6 +10,7 @@ export const Container = styled.div`
     position: absolute;
     font-size: 1.125rem;
     letter-spacing: 0.1em;
+    cursor: pointer;
   }
 
   input,

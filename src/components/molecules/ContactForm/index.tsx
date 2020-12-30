@@ -40,7 +40,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
       {} as Record<string, string>,
     );
 
-    await axios.post('/api/sendEmail', data);
+    try {
+      const response = await axios.post('/api/sendEmail', data);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

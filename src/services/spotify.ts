@@ -4,8 +4,8 @@ import tryGet from '@/utils/tryGet';
 
 import { Track } from '@/interfaces/track';
 
-const clientId = process.env.NEXT_SPOTIFY_CLIENT_ID;
-const clientSecret = process.env.NEXT_SPOTIFY_CLIENT_SECRET;
+const clientId = process.env.SPOTIFY_CLIENT_ID;
+const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 
 export const spotifyApi = axios.create({
   baseURL: 'https://api.spotify.com/v1/',
@@ -35,7 +35,7 @@ export async function getSpotifyPlaylist(): Promise<Track[]> {
   await tryGet(getSpotifyToken());
 
   const [response, error] = await tryGet(
-    spotifyApi.get(`playlists/${process.env.NEXT_SPOTIFY_PLAYLIST_ID}`),
+    spotifyApi.get(`playlists/${process.env.SPOTIFY_PLAYLIST_ID}`),
   );
 
   if (error) return [];

@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 import Layout from '@/components/templates/Layout';
 
-import button from '../components/button';
-
 export const Container = styled(Layout)`
   display: flex;
   flex-direction: column;
@@ -33,19 +31,6 @@ export const Container = styled(Layout)`
     }
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    margin: 88px 96px 0 120px;
-    flex: 1;
-
-    input,
-    textarea {
-      margin-right: 124px;
-      margin-bottom: 40px;
-    }
-  }
-
   aside {
     h3,
     li {
@@ -59,12 +44,5 @@ export const Container = styled(Layout)`
     h3 {
       margin-bottom: 24px;
     }
-  }
-
-  button {
-    ${button}
-
-    margin-left: auto;
-    margin-top: 94px;
   }
 `;

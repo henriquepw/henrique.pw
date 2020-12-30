@@ -1,8 +1,6 @@
 import { NowRequest, NowResponse } from '@vercel/node';
 import axios from 'axios';
 
-import tryGet from '@/utils/tryGet';
-
 export default async (
   request: NowRequest,
   response: NowResponse,
@@ -14,13 +12,14 @@ export default async (
     template_params: request.body,
   };
 
-  const [result, error] = await tryGet(
-    axios.post('https://api.emailjs.com/api/v1.0/email/send', emailData),
-  );
+  try {
+    const result = await axios.post(
+      'https://api.emailjs.com/api/v1.0/email/send',
+      emailData,
+    );
 
-  if (error) {
+    return response.json(result);
+  } catch (error) {
     return response.status(500).json({ messagem: error });
   }
-
-  return response.json(result);
 };

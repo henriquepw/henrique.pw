@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@vercel/node": "^1.8.5",
     "axios": "^0.21.1",
     "babel-plugin-polished": "^1.1.0",
     "contentful": "^8.1.5",
@@ -30,8 +31,8 @@
     "@types/node": "^14.14.16",
     "@types/react": "^17.0.0",
     "@types/styled-components": "^5.1.7",
-    "@typescript-eslint/eslint-plugin": "^4.11.0",
-    "@typescript-eslint/parser": "^4.11.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -41,7 +42,7 @@
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.0",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
