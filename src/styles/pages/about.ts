@@ -61,10 +61,10 @@ export const Title = styled.h1`
   position: absolute;
 
   height: 100%;
-  margin: calc(-3.375rem - 32px) 0 48px 16px;
+  margin: calc(-${({ theme }) => theme.fonts.sizes.h1} - 32px) 0 48px 16px;
 
   font-weight: 400;
-  font-size: 3.375rem;
+  font-size: ${({ theme }) => theme.fonts.sizes.h1};
   letter-spacing: 0.1em;
   text-transform: uppercase;
   pointer-events: none;

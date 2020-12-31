@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
 
-import DynamicInput from '@/components/atoms/DynamicInput';
 import { SEOProps } from '@/components/atoms/SEO';
 import ContactForm from '@/components/molecules/ContactForm';
 import SocialList, { SocialMedia } from '@/components/molecules/SocialList';
@@ -12,6 +11,8 @@ import contentfulApi from '@/services/contentful';
 
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
+
+import { InputData } from '@/interfaces/input';
 
 import { Container } from '@/styles/pages/contact';
 
@@ -24,12 +25,7 @@ interface ContactData {
 interface FormData {
   title: string;
   submitText: string;
-  inputs: Array<{
-    id: string;
-    slug: string;
-    title: string;
-    type: 'text' | 'textarea';
-  }>;
+  inputs: InputData[];
 }
 
 interface ContactProps {

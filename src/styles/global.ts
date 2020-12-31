@@ -40,7 +40,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Raleway', sans-serif;
+    font-family: ${({ theme }) => theme.fonts.family.heading};
 
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.background};
@@ -62,15 +62,15 @@ export default createGlobalStyle`
   }
 
   dd, p {
-    font-family: 'Space Mono', monospace;
+    font-family: ${({ theme }) => theme.fonts.family.paragraph};
   }
 
   h1 {
-    font-size: 3.375rem;
+    font-size: ${({ theme }) => theme.fonts.sizes.h1};
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fonts.sizes.h2};
     font-weight: 400;
   }
 

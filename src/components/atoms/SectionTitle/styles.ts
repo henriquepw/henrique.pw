@@ -8,7 +8,7 @@ export const Container = styled.h2<ContainerProps>`
   position: relative;
 
   font-weight: normal;
-  font-size: 3.375rem;
+  font-size: ${({ theme }) => theme.fonts.sizes.h1};
   letter-spacing: 0.1em;
 
   margin-bottom: 135px;

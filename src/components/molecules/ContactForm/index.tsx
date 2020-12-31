@@ -1,19 +1,19 @@
 import React from 'react';
+import { FiArrowRight } from 'react-icons/fi';
 
 import axios from 'axios';
 
 import DynamicInput from '@/components/atoms/DynamicInput';
 
+import tryGet from '@/utils/tryGet';
+
+import { InputData } from '@/interfaces/input';
+
 import { Container } from './styles';
 
 interface ContactFormProps {
   submitText: string;
-  inputs: Array<{
-    id: string;
-    slug: string;
-    title: string;
-    type: 'text' | 'textarea';
-  }>;
+  inputs: InputData[];
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
@@ -40,12 +40,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
       {} as Record<string, string>,
     );
 
-    try {
-      const response = await axios.post('/api/sendEmail', data);
+    const [, error] = await tryGet(axios.post('/api/sendEmail', data));
 
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+    if (error) {
+      console.warn(error);
     }
   }
 
@@ -57,7 +55,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
         </DynamicInput>
       ))}
 
-      <button type="submit">{submitText}</button>
+      <button type="submit">
+        {submitText}
+        <FiArrowRight size={24} />
+      </button>
     </Container>
   );
 };

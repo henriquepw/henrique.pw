@@ -1,16 +1,15 @@
 import 'styled-components';
 
+import { ThemeData } from '../styles/themes';
+
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    name: string;
-    colors: {
-      active: string;
-      background: string;
-      secondaryBackground: string;
-      text: string;
-    };
+  export interface DefaultTheme extends ThemeData {
     fonts: {
-      sizes: Record<string, unknown>;
+      family: {
+        heading: string;
+        paragraph: string;
+      };
+      sizes: Record<string, string>;
     };
   }
 }
