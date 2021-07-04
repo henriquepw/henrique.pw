@@ -3,5 +3,10 @@
   "plugins": [
     ["styled-components", { "ssr": true }],
     "polished"
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  }
 }

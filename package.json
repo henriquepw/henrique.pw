@@ -35,6 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "babel-plugin-styled-components": "^1.12.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "^11.0.1",
