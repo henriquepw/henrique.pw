@@ -1,5 +1,5 @@
-import React from 'react';
-import { FiArrowRight } from 'react-icons/fi';
+import React, { useState } from 'react';
+import { FiArrowRight, FiLoader } from 'react-icons/fi';
 
 import axios from 'axios';
 
@@ -9,7 +9,9 @@ import tryGet from '@/utils/tryGet';
 
 import { InputData } from '@/interfaces/input';
 
-import { Container } from './styles';
+import { loaderAnimate, loaderTransition } from './animations';
+
+import { Container, LoaderIndicator } from './styles';
 
 interface ContactFormProps {
   submitText: string;
@@ -17,10 +19,13 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
+  const [isLoading, setLoading] = useState(false);
+
   async function handleSendEmail(
     event: React.FormEvent<HTMLFormElement>,
   ): Promise<void> {
     event.preventDefault();
+    setLoading(true);
 
     const formInputs = Array.from(
       event.currentTarget.getElementsByTagName('input'),
@@ -45,6 +50,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
     if (error) {
       console.warn(error.message);
     }
+
+    setLoading(false);
   }
 
   return (
@@ -56,8 +63,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
       ))}
 
       <button type="submit">
-        {submitText}
-        <FiArrowRight size={24} />
+        <span>{submitText}</span>
+        {isLoading ? (
+          <LoaderIndicator
+            animate={loaderAnimate}
+            transition={loaderTransition}
+          >
+            <FiLoader size={24} />
+          </LoaderIndicator>
+        ) : (
+          <FiArrowRight size={24} />
+        )}
       </button>
     </Container>
   );

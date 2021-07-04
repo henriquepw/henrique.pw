@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import button from '@/styles/components/button';
@@ -23,8 +24,14 @@ export const Container = styled.form`
     margin-left: auto;
     margin-top: 94px;
 
-    svg {
-      margin-left: 24px;
+    span {
+      margin-right: 24px;
     }
   }
+`;
+
+export const LoaderIndicator = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
