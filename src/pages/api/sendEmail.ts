@@ -9,6 +9,7 @@ export default async (
     service_id: process.env.EMAILJS_SERVICE_ID,
     template_id: process.env.EMAILJS_TEMPLATE_ID,
     user_id: process.env.EMAILJS_USER_ID,
+    accessToken: process.env.EMAILJS_ACCESS_TOKEN,
     template_params: request.body,
   };
 
@@ -18,8 +19,10 @@ export default async (
       emailData,
     );
 
-    return response.json(result);
+    return response.json(result.data);
   } catch (error) {
-    return response.status(500).json({ messagem: error });
+    return response
+      .status(error.response?.status || 500)
+      .json({ messagem: error });
   }
 };

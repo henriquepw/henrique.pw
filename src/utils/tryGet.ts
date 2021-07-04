@@ -1,6 +1,6 @@
 async function tryGet<Data>(
   promise: Promise<Data>,
-): Promise<[Data | null, Error | null]> {
+): Promise<[Data, null] | [null, Error]> {
   try {
     const data = await promise;
 

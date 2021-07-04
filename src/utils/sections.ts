@@ -23,3 +23,8 @@ export const SECTIONS_EN: Section[] = [
   { name: 'About', slug: '/about', id: SECTIONS_IDS.about },
   { name: 'contact', slug: '/contact', id: SECTIONS_IDS.contact },
 ];
+
+export const SECTIONS = {
+  pt: SECTIONS_PT,
+  en: SECTIONS_EN,
+};

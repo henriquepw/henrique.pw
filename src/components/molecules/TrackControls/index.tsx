@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useImperativeHandle,
-  useCallback,
-  useEffect,
-} from 'react';
+import React, { useState, useImperativeHandle, useEffect, useRef } from 'react';
 import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
 
 import PlayButton from '@/components/atoms/PlayButton';
@@ -27,38 +22,45 @@ const TrackControl: React.ForwardRefRenderFunction<
 > = ({ onPrevious, onNext, initialTrack }, ref) => {
   const [isPlaying, setPlaying] = useState(false);
 
-  const [player] = useState(() => {
-    if (typeof window === 'undefined') return undefined;
-    return new Audio(initialTrack);
-  });
+  const player = useRef<HTMLAudioElement>(null);
 
-  const togglePlay = useCallback(
-    (value?: boolean) => {
-      const newState = value ?? !isPlaying;
+  function togglePlay(value?: boolean): void {
+    const newState = value ?? !isPlaying;
 
-      setPlaying(newState);
+    setPlaying(newState);
 
-      if (newState) player.play();
-      else player.pause();
-    },
-    [isPlaying, player],
-  );
+    if (newState) {
+      player.current?.play();
+      return;
+    }
+
+    player.current?.pause();
+  }
 
   function handleTogglePlay(): void {
     togglePlay();
   }
 
   function changeTrack(newTrack: string): void {
-    player.src = newTrack;
+    player.current.src = newTrack;
     togglePlay(true);
   }
 
   useEffect(() => {
-    player.volume = 0.3;
-    player.addEventListener('ended', onNext);
+    if (typeof window !== 'undefined') {
+      player.current = new Audio(initialTrack);
+      player.current.volume = 0.3;
+    }
+  }, [initialTrack]);
 
-    return () => player.removeEventListener('ended', onNext);
-  }, [onNext, player]);
+  useEffect(() => {
+    const { current } = player;
+    current?.addEventListener('ended', onNext);
+
+    return () => {
+      current?.removeEventListener('ended', onNext);
+    };
+  }, [onNext]);
 
   useImperativeHandle(ref, () => ({
     togglePlay,

@@ -26,7 +26,7 @@ export async function getSpotifyToken(): Promise<string> {
   const accessToken: string = response.data.access_token;
   const tokenType: string = response.data.token_type;
 
-  axios.defaults.headers.Authorization = `${tokenType} ${accessToken}`;
+  spotifyApi.defaults.headers.Authorization = `${tokenType} ${accessToken}`;
 
   return `${tokenType} ${accessToken}`;
 }
@@ -38,7 +38,10 @@ export async function getSpotifyPlaylist(): Promise<Track[]> {
     spotifyApi.get(`playlists/${process.env.SPOTIFY_PLAYLIST_ID}`),
   );
 
-  if (error) return [];
+  if (error) {
+    console.warn(error);
+    return [];
+  }
 
   const tracks: Track[] = response.data.tracks.items.map(({ track }) => ({
     id: track.id,

@@ -43,7 +43,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
     const [, error] = await tryGet(axios.post('/api/sendEmail', data));
 
     if (error) {
-      console.warn(error);
+      console.warn(error.message);
     }
   }
 

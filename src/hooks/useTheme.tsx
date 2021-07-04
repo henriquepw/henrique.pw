@@ -23,15 +23,15 @@ const ThemeProvider: React.FC = ({ children }) => {
 
   const theme = themeList[currrentTheme];
 
+  function nextTheme(): void {
+    setCurrentTheme(() => (currrentTheme + 1) % themeList.length);
+  }
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('@thehenry.dev/themeIndex', String(currrentTheme));
     }
   }, [currrentTheme]);
-
-  function nextTheme(): void {
-    setCurrentTheme(() => (currrentTheme + 1) % themeList.length);
-  }
 
   return (
     <ThemeContext.Provider value={{ nextTheme }}>

@@ -9,7 +9,7 @@ import MenuItem from '@/components/atoms/MenuItem';
 
 import { useTheme } from '@/hooks/useTheme';
 
-import { SECTIONS_PT, SECTIONS_EN, Section } from '@/utils/sections';
+import { Section, SECTIONS } from '@/utils/sections';
 
 import {
   Container,
@@ -24,11 +24,6 @@ import {
 interface MenuProps {
   sections: Section[];
 }
-
-const SECTIONS = {
-  pt: SECTIONS_PT,
-  en: SECTIONS_EN,
-};
 
 const ArrowUpVariants: Variants = {
   hidden: { opacity: 0, pointerEvents: 'none' },
@@ -54,14 +49,6 @@ const Menu: React.FC<MenuProps> = () => {
 
   const [currentSection, setCurrentSection] = useState(sections[0].slug);
 
-  useEffect(() => {
-    const unsub = scrollYProgress.onChange((value) => {
-      arrowUpControl.start(value > 0.4 ? 'visible' : 'hidden');
-    });
-
-    return unsub;
-  }, [scrollYProgress, arrowUpControl]);
-
   function changeLocaleToEn(): void {
     router.push(router.pathname, undefined, { locale: 'en' });
   }
@@ -73,6 +60,14 @@ const Menu: React.FC<MenuProps> = () => {
   function goToTop(): void {
     window?.scrollTo(0, 0);
   }
+
+  useEffect(() => {
+    const unsub = scrollYProgress.onChange((value) => {
+      arrowUpControl.start(value > 0.4 ? 'visible' : 'hidden');
+    });
+
+    return unsub;
+  }, [scrollYProgress, arrowUpControl]);
 
   useEffect(() => {
     setCurrentSection(router.pathname);
