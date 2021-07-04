@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 
 import { AnimatePresence } from 'framer-motion';
 
+import Toast from '@/components/atoms/Toast';
 import Menu from '@/components/molecules/Menu';
 import AppProvider from '@/components/templates/AppProvider';
 
@@ -17,6 +18,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
+      <Toast />
     </AppProvider>
   );
 };

@@ -5,6 +5,8 @@ import axios from 'axios';
 
 import DynamicInput from '@/components/atoms/DynamicInput';
 
+import { useToast } from '@/hooks/useToast';
+
 import tryGet from '@/utils/tryGet';
 
 import { InputData } from '@/interfaces/input';
@@ -19,6 +21,7 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
+  const { displayToast } = useToast();
   const [isLoading, setLoading] = useState(false);
 
   async function handleSendEmail(
@@ -49,9 +52,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
 
     if (error) {
       console.warn(error.message);
+      displayToast((messages) => messages.email.error);
+      setLoading(false);
+      return;
     }
 
     setLoading(false);
+    displayToast((messages) => messages.email.success);
   }
 
   return (

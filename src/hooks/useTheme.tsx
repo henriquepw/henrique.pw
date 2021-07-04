@@ -42,7 +42,6 @@ const ThemeProvider: React.FC = ({ children }) => {
 
 function useTheme(): ThemeData {
   const context = useContext(ThemeContext);
-
   return context;
 }
 
