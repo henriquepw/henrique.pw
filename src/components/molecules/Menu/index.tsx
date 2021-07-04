@@ -21,16 +21,12 @@ import {
   UpButton,
 } from './styles';
 
-interface MenuProps {
-  sections: Section[];
-}
-
 const ArrowUpVariants: Variants = {
   hidden: { opacity: 0, pointerEvents: 'none' },
   visible: { opacity: 1, pointerEvents: 'all' },
 };
 
-const Menu: React.FC<MenuProps> = () => {
+const Menu: React.FC = () => {
   const router = useRouter();
   const theme = useTheme();
 
