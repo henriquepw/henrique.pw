@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled(motion.main)`
-  display: flex;
-  position: relative;
+  ${({ theme }) => css`
+    display: flex;
+    position: relative;
 
-  width: 100%;
-  height: 100%;
-  padding: 56px 128px;
-  margin: auto 0;
+    width: 100%;
+    height: 100%;
+    padding: ${theme.baseSpace * 14}rem ${theme.baseSpace * 32}rem;
+    margin: auto 0;
+  `}
 `;
 
 export const TransitionFrame = styled(motion.span)`

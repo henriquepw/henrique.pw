@@ -6,119 +6,125 @@ interface TrackItemProps {
 }
 
 export const Container = styled.section`
-  padding-bottom: 100px;
-
-  > div {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
+  ${({ theme }) => css`
+    padding-bottom: ${theme.baseSpace * 24}rem;
 
     > div {
-      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
 
-      p {
-        max-width: 560px;
-        margin-left: 24px;
+      > div {
+        position: relative;
 
-        font-size: 1.5rem;
-        line-height: 1.5em;
-        letter-spacing: 0.03em;
-      }
+        p {
+          max-width: 560px;
+          margin-left: ${theme.baseSpace * 6}rem;
 
-      &::before {
-        content: '';
-        position: absolute;
+          font-size: 1.5rem;
+          line-height: 1.5em;
+          letter-spacing: 0.03em;
+        }
 
-        bottom: 24px;
-        left: 24px;
+        &::before {
+          content: '';
+          position: absolute;
 
-        width: 100%;
-        height: 100%;
-        max-width: 560px;
-        max-height: 576px;
+          bottom: ${theme.baseSpace * 6}rem;
+          left: ${theme.baseSpace * 6}rem;
 
-        border: 1px solid ${({ theme }) => theme.colors.active};
-        z-index: -1;
+          width: 100%;
+          height: 100%;
+          max-width: 560px;
+          max-height: 576px;
+
+          border: 1px solid ${theme.colors.active};
+          z-index: -1;
+        }
       }
     }
-  }
 
-  aside {
-    margin-top: 64px;
-  }
+    aside {
+      margin-top: ${theme.baseSpace * 16}rem;
+    }
 
-  a {
-    display: block;
-    cursor: pointer;
-  }
+    a {
+      display: block;
+      cursor: pointer;
+    }
 
-  img {
-    max-height: 416px;
-  }
+    img {
+      max-height: 416px;
+    }
+  `}
 `;
 
 export const TrackList = styled.dl`
-  flex: 1;
-  background: ${({ theme }) => theme.colors.secondaryBackground};
-  text-shadow: 0 0 ${({ theme }) => theme.colors.text};
-  color: rgba(0, 0, 0, 0);
-  transition: color 0.2s ease-in;
-  overflow-y: scroll;
+  ${({ theme }) => css`
+    flex: 1;
+    background: ${theme.colors.secondaryBackground};
+    text-shadow: 0 0 ${theme.colors.text};
+    color: rgba(0, 0, 0, 0);
+    transition: color 0.2s ease-in;
+    overflow-y: scroll;
 
-  width: 100%;
-  height: 100%;
-  max-width: 560px;
-  max-height: 576px;
+    width: 100%;
+    height: 100%;
+    max-width: 560px;
+    max-height: 576px;
 
-  margin-top: 88px;
-  padding: 16px 4px 16px 24px;
+    margin-top: ${theme.baseSpace * 22}rem;
+    padding: ${theme.baseSpace * 4}rem ${theme.baseSpace}rem
+      ${theme.baseSpace * 4}rem ${theme.baseSpace * 6}rem;
 
-  &::-webkit-scrollbar,
-  &::-webkit-scrollbar-thumb {
-    width: 20px;
-    background-clip: padding-box;
-    border: 8px solid transparent;
-  }
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-thumb {
+      width: 20px;
+      background-clip: padding-box;
+      border: ${theme.baseSpace * 2}rem solid transparent;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 0 10px;
-  }
+    &::-webkit-scrollbar-thumb {
+      box-shadow: inset 0 0 0 10px;
+    }
 
-  &:hover {
-    color: ${({ theme }) => opacify(-0.5, theme.colors.active)};
-  }
+    &:hover {
+      color: ${opacify(-0.5, theme.colors.active)};
+    }
+  `}
 `;
 
 export const TrackItem = styled.div<TrackItemProps>`
-  padding: 16px;
-  color: ${({ theme }) => theme.colors.text};
-  cursor: pointer;
+  ${({ theme, isSelected }) => css`
+    padding: ${theme.baseSpace * 4}rem;
+    color: ${theme.colors.text};
+    cursor: pointer;
 
-  & + div {
-    border-top: 1px solid ${({ theme }) => theme.colors.text};
-  }
-
-  dt {
-    font-size: 1.5rem;
-    transition: color 0.2s ease-out;
-  }
-
-  dd {
-    color: ${({ theme }) => theme.colors.text};
-    opacity: 0.6;
-  }
-
-  &:hover {
-    dt {
-      color: ${({ theme }) => theme.colors.active};
+    & + div {
+      border-top: 1px solid ${theme.colors.text};
     }
-  }
 
-  ${({ isSelected, theme }) =>
-    isSelected &&
+    dt {
+      font-size: 1.5rem;
+      transition: color 0.2s ease-out;
+    }
+
+    dd {
+      color: ${theme.colors.text};
+      opacity: 0.6;
+    }
+
+    &:hover {
+      dt {
+        color: ${theme.colors.active};
+      }
+    }
+
+    ${isSelected &&
     css`
       dt {
         color: ${theme.colors.active};
       }
     `}
+  `}
 `;

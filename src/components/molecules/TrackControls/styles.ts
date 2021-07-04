@@ -1,30 +1,32 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 
-  background: ${({ theme }) => theme.colors.secondaryBackground};
-  padding: 24px 40px;
-  margin: 48px 0 0 16px;
+    background: ${theme.colors.secondaryBackground};
+    padding: ${theme.baseSpace * 6}rem ${theme.baseSpace * 10}rem;
+    margin: ${theme.baseSpace * 12}rem 0 0 ${theme.baseSpace * 4}rem;
 
-  svg {
-    cursor: pointer;
-  }
+    svg {
+      cursor: pointer;
+    }
 
-  &::before {
-    content: '';
-    position: absolute;
+    &::before {
+      content: '';
+      position: absolute;
 
-    top: 16px;
-    left: -16px;
+      top: ${theme.baseSpace * 4}rem;
+      left: -${theme.baseSpace * 4}rem;
 
-    width: 100%;
-    height: 100%;
+      width: 100%;
+      height: 100%;
 
-    border: 1px solid ${({ theme }) => theme.colors.active};
-    z-index: -1;
-  }
+      border: 1px solid ${theme.colors.active};
+      z-index: -1;
+    }
+  `}
 `;

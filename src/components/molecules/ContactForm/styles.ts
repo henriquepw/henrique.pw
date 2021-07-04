@@ -1,33 +1,36 @@
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import button from '@/styles/components/button';
 
 export const Container = styled.form`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin: 88px 96px 0 120px;
-
-  > div {
-    margin-right: 124px;
-    margin-bottom: 40px;
-  }
-
-  button {
-    ${button}
-
+  ${({ theme }) => css`
+    flex: 1;
     display: flex;
-    align-items: center;
-    text-transform: capitalize;
+    flex-direction: column;
+    margin: ${theme.baseSpace * 22}rem ${theme.baseSpace * 24}rem 0
+      ${theme.baseSpace * 30}rem;
 
-    margin-left: auto;
-    margin-top: 94px;
-
-    span {
-      margin-right: 24px;
+    > div {
+      margin-right: ${theme.baseSpace * 30}rem;
+      margin-bottom: ${theme.baseSpace * 10}rem;
     }
-  }
+
+    button {
+      ${button}
+
+      display: flex;
+      align-items: center;
+      text-transform: capitalize;
+
+      margin-left: auto;
+      margin-top: ${theme.baseSpace * 24}rem;
+
+      span {
+        margin-right: ${theme.baseSpace * 6}rem;
+      }
+    }
+  `}
 `;
 
 export const LoaderIndicator = styled(motion.div)`

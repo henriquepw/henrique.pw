@@ -11,5 +11,6 @@ declare module 'styled-components' {
       };
       sizes: Record<string, string>;
     };
+    baseSpace: number;
   }
 }

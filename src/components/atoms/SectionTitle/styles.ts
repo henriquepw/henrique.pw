@@ -5,43 +5,43 @@ interface ContainerProps {
 }
 
 export const Container = styled.h2<ContainerProps>`
-  position: relative;
+  ${({ theme, isRight }) => css`
+    position: relative;
 
-  font-weight: normal;
-  font-size: ${({ theme }) => theme.fonts.sizes.h1};
-  letter-spacing: 0.1em;
+    font-weight: normal;
+    font-size: ${theme.fonts.sizes.h1};
+    letter-spacing: 0.1em;
 
-  margin-bottom: 135px;
-  text-transform: uppercase;
+    margin-bottom: ${theme.baseSpace * 34}rem;
+    text-transform: uppercase;
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-  }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
 
-  &::before {
-    height: 200%;
-    width: 48px;
+    &::before {
+      height: 200%;
+      width: ${theme.baseSpace * 12}rem;
 
-    top: -16px;
+      top: -${theme.baseSpace * 4}rem;
 
-    background: ${({ theme }) => theme.colors.secondaryBackground};
-    z-index: -1;
-  }
+      background: ${theme.colors.secondaryBackground};
+      z-index: -1;
+    }
 
-  &::after {
-    bottom: -16px;
-    left: 24px;
+    &::after {
+      bottom: -${theme.baseSpace * 4}rem;
+      left: ${theme.baseSpace * 6}rem;
 
-    height: 1px;
-    width: 48px;
-    background: ${({ theme }) => theme.colors.active};
-    z-index: 0;
-  }
+      height: 1px;
+      width: ${theme.baseSpace * 12}rem;
+      background: ${theme.colors.active};
+      z-index: 0;
+    }
 
-  ${({ isRight }) =>
-    isRight &&
+    ${isRight &&
     css`
       &::before {
         right: 0;
@@ -49,7 +49,8 @@ export const Container = styled.h2<ContainerProps>`
 
       &::after {
         left: auto;
-        right: 24px;
+        right: ${theme.baseSpace * 6}rem;
       }
     `}
+  `}
 `;

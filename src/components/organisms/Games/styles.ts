@@ -1,64 +1,68 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 80px 0 100px;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: ${theme.baseSpace * 20}rem 0 ${theme.baseSpace * 24}rem;
 
-  h2 {
-    display: inline-block;
-    width: 100%;
-    max-width: 1176px;
-    text-align: right;
-  }
-
-  ul {
-    li + li {
-      margin-top: 104px;
-    }
-
-    li:nth-of-type(odd) {
-      padding-right: 224px;
-    }
-
-    li:nth-of-type(even) {
-      flex-direction: row-reverse;
+    h2 {
+      display: inline-block;
+      width: 100%;
+      max-width: 1176px;
       text-align: right;
-      padding-left: 224px;
+    }
 
-      > div:first-of-type {
-        padding-right: 32px;
-        padding-left: 112px;
+    ul {
+      li + li {
+        margin-top: ${theme.baseSpace * 26}rem;
+      }
 
-        p {
-          margin-right: 0;
-          margin-left: 40px;
+      li:nth-of-type(odd) {
+        padding-right: ${theme.baseSpace * 56}rem;
+      }
+
+      li:nth-of-type(even) {
+        flex-direction: row-reverse;
+        text-align: right;
+        padding-left: ${theme.baseSpace * 56}rem;
+
+        > div:first-of-type {
+          padding-right: ${theme.baseSpace * 8}rem;
+          padding-left: ${theme.baseSpace * 28}rem;
+
+          p {
+            margin-right: 0;
+            margin-left: ${theme.baseSpace * 10}rem;
+          }
+        }
+
+        > div:last-of-type {
+          margin-left: 0;
+          margin-right: -${theme.baseSpace * 28}rem;
         }
       }
-
-      > div:last-of-type {
-        margin-left: 0;
-        margin-right: -112px;
-      }
     }
-  }
+  `}
 `;
 
 export const TextContainer = styled.div`
-  width: 100%;
-  max-width: 1176px;
-  margin-bottom: 90px;
-
-  p {
+  ${({ theme }) => css`
     width: 100%;
-    max-width: 560px;
+    max-width: 1176px;
+    margin-bottom: ${theme.baseSpace * 14}rem;
 
-    font-size: 1.5rem;
-    line-height: 1.5em;
-    letter-spacing: 0.03em;
+    p {
+      width: 100%;
+      max-width: 560px;
 
-    text-align: right;
-    margin-left: auto;
-  }
+      font-size: 1.5rem;
+      line-height: 1.5em;
+      letter-spacing: 0.03em;
+
+      text-align: right;
+      margin-left: auto;
+    }
+  `}
 `;

@@ -32,6 +32,7 @@ function themeFactory({ name, colors }: ThemeData): DefaultTheme {
         p: '1rem',
       },
     },
+    baseSpace: 0.25, // 0.24rem = 4px
   };
 }
 
