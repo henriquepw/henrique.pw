@@ -10,7 +10,6 @@ import TrackControls, {
   TrackControlRef,
 } from '@/components/molecules/TrackControls';
 
-import { blurImage } from '@/utils/blurImage';
 import { mod } from '@/utils/math';
 
 import { SectionData } from '@/interfaces/section';
@@ -83,7 +82,7 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
             >
               <Image
                 placeholder="blur"
-                blurDataURL={blurImage}
+                blurDataURL={tracks[trackIndex].album.blurImage.url}
                 src={tracks[trackIndex].album.image.url}
                 height={tracks[trackIndex].album.image.height}
                 width={tracks[trackIndex].album.image.width}

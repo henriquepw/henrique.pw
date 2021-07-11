@@ -51,6 +51,7 @@ export async function getSpotifyPlaylist(): Promise<Track[]> {
     artists: track.artists,
     album: {
       image: track.album.images[0],
+      blurImage: track.album.images[track.album.images.length - 1] || '',
       externalUrl: track.album.external_urls.spotify,
     },
   }));

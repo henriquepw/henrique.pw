@@ -68,7 +68,6 @@ const About: React.FC<AboutProps> = ({
 
         <Image
           placeholder="blur"
-          layout="responsive"
           src={`https:${file.url}`}
           blurDataURL={`https:${file.url}?q=2`}
           width={file.details.image.width}

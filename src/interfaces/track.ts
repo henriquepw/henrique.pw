@@ -17,6 +17,7 @@ export interface Track {
   artists: Artist[];
   album: {
     image: Image;
+    blurImage: Image;
     externalUrl: string;
   };
 }

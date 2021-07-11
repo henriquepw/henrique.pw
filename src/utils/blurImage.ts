@@ -1,2 +1,0 @@
-export const blurImage =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcuXFjPQAGogKM0b10+QAAAABJRU5ErkJggg==';

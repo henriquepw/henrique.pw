@@ -15,7 +15,7 @@ export const MainSection = styled.section`
     min-height: 100vh;
 
     > div:first-of-type {
-      max-width: 575px;
+      max-width: 504px;
       position: relative;
 
       padding: ${theme.baseSpace * 8}rem;
