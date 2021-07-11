@@ -9,7 +9,7 @@ import MenuItem from '@/components/atoms/MenuItem';
 
 import { useTheme } from '@/hooks/useTheme';
 
-import { Section, SECTIONS } from '@/utils/sections';
+import { SECTIONS } from '@/utils/sections';
 
 import {
   Container,
@@ -38,18 +38,19 @@ const Menu: React.FC = () => {
     [router.locale],
   );
 
-  const sections = useMemo<Section[]>(
-    () => SECTIONS[currentLocale] || SECTIONS.en,
-    [currentLocale],
-  );
+  const sections = SECTIONS[currentLocale] || SECTIONS.en;
 
   const [currentSection, setCurrentSection] = useState(sections[0].slug);
 
   function changeLocaleToEn(): void {
+    if (router.locale === 'en') return;
+
     router.push(router.pathname, undefined, { locale: 'en' });
   }
 
   function changeLocaleToPt(): void {
+    if (router.locale === 'pt') return;
+
     router.push(router.pathname, undefined, { locale: 'pt' });
   }
 
