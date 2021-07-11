@@ -30,6 +30,7 @@ function themeFactory({ name, colors }: ThemeData): DefaultTheme {
         h4: '1.777rem',
         h5: '1.333rem',
         p: '1rem',
+        sm: '0.75rem',
       },
     },
     baseSpace: 0.25, // 0.24rem = 4px

@@ -50,7 +50,6 @@ export const MainSection = styled.section`
       p {
         margin: 0 ${theme.baseSpace * 16}rem ${theme.baseSpace * 10}rem;
 
-        font-size: 1.125rem;
         line-height: 1.5em;
         letter-spacing: 0.03em;
       }
@@ -68,7 +67,6 @@ export const Title = styled.h1`
       ${theme.baseSpace * 22}rem ${theme.baseSpace * 4}rem;
 
     font-weight: 400;
-    font-size: ${theme.fonts.sizes.h1};
     letter-spacing: 0.1em;
     text-transform: uppercase;
     pointer-events: none;

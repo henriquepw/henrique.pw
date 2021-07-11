@@ -32,6 +32,7 @@ export const Container = styled(Layout)`
       h2 {
         margin: ${theme.baseSpace * 8}rem 0;
         max-width: 490px;
+        margin-left: auto;
       }
 
       button {

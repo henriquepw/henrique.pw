@@ -21,7 +21,7 @@ export const Container = styled.section`
           max-width: 560px;
           margin-left: ${theme.baseSpace * 6}rem;
 
-          font-size: 1.5rem;
+          font-size: ${theme.fonts.sizes.h5};
           line-height: 1.5em;
           letter-spacing: 0.03em;
         }
@@ -105,7 +105,7 @@ export const TrackItem = styled.div<TrackItemProps>`
     }
 
     dt {
-      font-size: 1.5rem;
+      font-size: ${theme.fonts.sizes.h5};
       transition: color 0.2s ease-out;
     }
 

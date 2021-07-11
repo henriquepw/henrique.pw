@@ -9,7 +9,7 @@ export const Container = styled.div`
 
     label {
       position: absolute;
-      font-size: 1.125rem;
+      font-size: ${theme.fonts.sizes.h5};
       letter-spacing: 0.1em;
       cursor: pointer;
     }
@@ -21,7 +21,7 @@ export const Container = styled.div`
       background: transparent;
 
       color: ${theme.colors.text};
-      font-size: 1.125rem;
+      font-size: ${theme.fonts.sizes.h5};
       min-height: ${theme.baseSpace * 12}rem;
 
       &:focus {

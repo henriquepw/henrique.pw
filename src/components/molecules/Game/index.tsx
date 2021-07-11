@@ -22,7 +22,7 @@ const Game: React.FC<GameProps> = ({ item }) => {
   return (
     <Container>
       <Content>
-        <h3>{item.title}</h3>
+        <h4>{item.title}</h4>
         <p>{item.description}</p>
       </Content>
 

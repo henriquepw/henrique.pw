@@ -1,6 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export default createGlobalStyle`
+${({ theme }) => css`
   * {
     margin: 0;
     padding: 0;
@@ -14,8 +15,8 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
 
     &::selection {
-      background-color: ${({ theme }) => theme.colors.active};
-      color: ${({ theme }) => theme.colors.text};
+      background-color: ${theme.colors.active};
+      color: ${theme.colors.text};
     }
   }
 
@@ -40,15 +41,15 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: ${({ theme }) => theme.fonts.family.heading};
+    font-family: ${theme.fonts.family.heading};
 
-    color: ${({ theme }) => theme.colors.text};
-    background: ${({ theme }) => theme.colors.background};
+    color: ${theme.colors.text};
+    background: ${theme.colors.background};
   }
 
   a,
   button {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${theme.colors.text};
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
   }
@@ -58,20 +59,34 @@ export default createGlobalStyle`
   }
 
   strong {
-    color: ${({ theme }) => theme.colors.active};
+    color: ${theme.colors.active};
   }
 
-  dd, p {
-    font-family: ${({ theme }) => theme.fonts.family.paragraph};
+  dd,
+  p {
+    font-family: ${theme.fonts.family.paragraph};
+    font-size: ${theme.fonts.sizes.p};
   }
 
   h1 {
-    font-size: ${({ theme }) => theme.fonts.sizes.h1};
+    font-size: ${theme.fonts.sizes.h1};
   }
 
   h2 {
-    font-size: ${({ theme }) => theme.fonts.sizes.h2};
+    font-size: ${theme.fonts.sizes.h2};
     font-weight: 400;
+  }
+
+  h3 {
+    font-size: ${theme.fonts.sizes.h3};
+  }
+
+  h4 {
+    font-size: ${theme.fonts.sizes.h4};
+  }
+
+  h5 {
+    font-size: ${theme.fonts.sizes.h5};
   }
 
   li {
@@ -97,4 +112,5 @@ export default createGlobalStyle`
     line-height: normal;
     -webkit-appearance: none;
   }
+`}
 `;

@@ -30,7 +30,7 @@ export const Container = styled.li<ContainerProps>`
       user-select: none;
 
       width: 0.55rem;
-      font-size: 1rem;
+      font-size: ${theme.fonts.sizes.p};
       left: 49%;
 
       span {

@@ -57,7 +57,7 @@ export const TextContainer = styled.div`
       width: 100%;
       max-width: 560px;
 
-      font-size: 1.5rem;
+      font-size: ${theme.fonts.sizes.h5};
       line-height: 1.5em;
       letter-spacing: 0.03em;
 

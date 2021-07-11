@@ -17,14 +17,12 @@ export const Content = styled.div`
     min-height: ${theme.baseSpace * 70}rem;
     padding-right: ${theme.baseSpace * 28}rem;
 
-    h3 {
-      font-size: 1.5rem;
+    h4 {
       letter-spacing: 0.03em;
       margin-bottom: ${theme.baseSpace * 4}rem;
     }
 
     p {
-      line-height: 1.75em;
       letter-spacing: 0.03em;
       margin-right: ${theme.baseSpace * 10}rem;
     }

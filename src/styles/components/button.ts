@@ -7,7 +7,7 @@ export default css`
 
   background: transparent;
   border: 1px solid ${({ theme }) => theme.colors.text};
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.fonts.sizes.h5};
   cursor: pointer;
 
   &:hover {

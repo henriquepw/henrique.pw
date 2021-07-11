@@ -35,11 +35,11 @@ export const Container = styled(Layout)`
     aside {
       h3,
       li {
-        font-size: 1.125rem;
+        font-size: ${theme.fonts.sizes.h5};
       }
 
       li {
-        margin-bottom: ${theme.baseSpace * 16}rem;
+        margin-bottom: ${theme.baseSpace * 14}rem;
       }
 
       h3 {
