@@ -90,7 +90,10 @@ const Home: React.FC<HomeProps> = ({
 
       <motion.div variants={imageVariants} initial="initial" animate="animate">
         <Image
+          placeholder="blur"
+          layout="responsive"
           src={`https:${file.url}`}
+          blurDataURL={`https:${file.url}?q=2`}
           width={file.details.image.width}
           height={file.details.image.height}
         />

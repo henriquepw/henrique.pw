@@ -45,12 +45,14 @@ export const Content = styled.div`
 
 export const ImageContainer = styled.div`
   ${({ theme }) => css`
-    margin-left: -${theme.baseSpace * 28}rem;
-    height: ${theme.baseSpace * 50}rem;
+    display: flex;
 
-    img {
-      height: ${theme.baseSpace * 50}rem;
-      width: ${theme.baseSpace * 102}rem;
+    margin-left: -${theme.baseSpace * 28}rem;
+    /* height: ${theme.baseSpace * 50}rem; */
+    width: ${theme.baseSpace * 102}rem;
+
+    div {
+      flex: 1;
     }
   `}
 `;
