@@ -15,7 +15,7 @@ export const Container = styled(motion.main)`
 
 export const TransitionFrame = styled(motion.span)`
   position: fixed;
-  z-index: 5;
+  z-index: 500;
 
   top: 0;
   left: 0;

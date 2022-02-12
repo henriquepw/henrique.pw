@@ -8,6 +8,7 @@ export const SECTIONS_IDS = {
   home: '2wkBThk2SvuvNLP8wxgjo0',
   about: '3VFICVTXkWdWm4o575D70f',
   contact: '3MKf7Xj6N9I5hNjrOsi05i',
+  works: '2f5AFb2RXWqMbP3SHolZ1U',
 };
 
 export const SECTIONS_PT: Section[] = [

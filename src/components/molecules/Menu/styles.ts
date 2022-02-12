@@ -19,7 +19,7 @@ export const Container = styled.nav`
     width: 100%;
 
     padding: ${theme.baseSpace * 8}rem 0;
-    z-index: 10;
+    z-index: 1000;
     pointer-events: none;
 
     &::before,
