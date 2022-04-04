@@ -10,6 +10,8 @@ import TrackControls, {
   TrackControlRef,
 } from '@/components/molecules/TrackControls';
 
+import { useTheme } from '@/hooks/useTheme';
+
 import { mod } from '@/utils/math';
 
 import { SectionData } from '@/interfaces/section';
@@ -28,9 +30,54 @@ const imageAnimationVariants: Variants = {
 };
 
 const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
+  const { setActiveColor } = useTheme();
+
   const [trackIndex, setTrackIndex] = useState(0);
 
   const trackControlsRef = useRef<TrackControlRef>(null);
+
+  async function getAverageColor(track: Track = tracks[trackIndex]) {
+    if (!track) return;
+
+    const averageColorRGB = [0, 0, 0];
+
+    const { url, height, width } = track.album.blurImage;
+
+    const image = new window.Image();
+    image.src = url;
+    image.crossOrigin = 'anonymous';
+
+    const canvas = document.createElement('canvas');
+
+    canvas.width = +width;
+    canvas.height = +height;
+
+    const context = canvas.getContext('2d');
+
+    await new Promise((resolve) => {
+      image.onload = resolve;
+    });
+
+    context.drawImage(image, 0, 0);
+
+    for (let x = 0; x < +width; x += 1) {
+      for (let y = 0; y < +height; y += 1) {
+        const pixel = context.getImageData(x, y, 1, 1).data;
+
+        for (let c = 0; c < 3; c += 1) {
+          averageColorRGB[c] += pixel[c];
+        }
+      }
+    }
+
+    for (let c = 0; c < 3; c += 1) {
+      averageColorRGB[c] = Math.floor(averageColorRGB[c] / (+width * +height));
+    }
+
+    const averageColor = `rgb(${averageColorRGB[0]}, ${averageColorRGB[1]},${averageColorRGB[2]})`;
+
+    setActiveColor(averageColor);
+  }
 
   function handlePlay(index: number): void {
     if (index === trackIndex) {
@@ -40,6 +87,8 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
 
     setTrackIndex(index);
     trackControlsRef.current.changeTrack(tracks[index].previewUrl);
+
+    getAverageColor(tracks[index]);
   }
 
   function handleNext(): void {
@@ -48,6 +97,10 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
 
   function handlePrevious(): void {
     handlePlay(mod(trackIndex - 1, tracks.length));
+  }
+
+  function handlePause() {
+    setActiveColor();
   }
 
   return (
@@ -95,6 +148,8 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
             initialTrack={tracks[0]?.previewUrl}
             onPrevious={handlePrevious}
             onNext={handleNext}
+            onPlay={getAverageColor}
+            onPause={handlePause}
           />
         </aside>
       </div>

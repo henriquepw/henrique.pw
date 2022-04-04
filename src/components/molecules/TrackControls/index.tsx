@@ -6,6 +6,8 @@ import PlayButton from '@/components/atoms/PlayButton';
 import { Container } from './styles';
 
 interface TrackControlProps {
+  onPlay(): void;
+  onPause(): void;
   onPrevious(): void;
   onNext(): void;
   initialTrack: string;
@@ -19,7 +21,7 @@ export interface TrackControlRef {
 const TrackControl: React.ForwardRefRenderFunction<
   TrackControlRef,
   TrackControlProps
-> = ({ onPrevious, onNext, initialTrack }, ref) => {
+> = ({ onPrevious, onNext, onPlay, onPause, initialTrack }, ref) => {
   const [isPlaying, setPlaying] = useState(false);
 
   const player = useRef<HTMLAudioElement>(null);
@@ -30,10 +32,12 @@ const TrackControl: React.ForwardRefRenderFunction<
     setPlaying(newState);
 
     if (newState) {
+      onPlay();
       player.current?.play();
       return;
     }
 
+    onPause();
     player.current?.pause();
   }
 
