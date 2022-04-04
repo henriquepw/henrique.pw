@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import Image from 'next/image';
 
 import { Variants } from 'framer-motion';
+import remarkGfm from 'remark-gfm';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
 import SectionTitle from '@/components/atoms/SectionTitle';
@@ -109,7 +111,9 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
 
       <div>
         <div>
-          <p>{sectionData.description}</p>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {sectionData.description}
+          </ReactMarkdown>
 
           <TrackList>
             {tracks.map((track, index) => (

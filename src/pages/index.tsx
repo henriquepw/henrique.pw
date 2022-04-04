@@ -49,8 +49,8 @@ const Home: React.FC<HomeProps> = ({
       <motion.div variants={stagger} initial="initial" animate="animate">
         <div>
           <ReactMarkdown
-            renderers={{
-              heading: ({ children }) => (
+            components={{
+              h1: ({ children }) => (
                 <motion.h1 variants={fadeInUp}>{children}</motion.h1>
               ),
             }}
@@ -61,8 +61,8 @@ const Home: React.FC<HomeProps> = ({
 
         <div>
           <ReactMarkdown
-            renderers={{
-              heading: ({ children }) => (
+            components={{
+              h2: ({ children }) => (
                 <motion.h2 variants={fadeInUp}>{children}</motion.h2>
               ),
             }}

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { Entry } from 'contentful';
 
@@ -19,7 +20,7 @@ const Games: React.FC<GamesProps> = ({ items, sectionData }) => {
     <Container id="games">
       <SectionTitle isRight>{sectionData.title}</SectionTitle>
       <TextContainer>
-        <p>{sectionData.description}</p>
+        <ReactMarkdown>{sectionData.description}</ReactMarkdown>
       </TextContainer>
 
       <ul>
