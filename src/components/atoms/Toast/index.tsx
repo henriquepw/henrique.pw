@@ -1,7 +1,6 @@
-import React from 'react';
 import { FiX } from 'react-icons/fi';
 
-import { Variants } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
 import { useToast } from '@/hooks/useToast';
 
@@ -16,10 +15,10 @@ const variants: Variants = {
   },
 };
 
-const Toast: React.FC = () => {
+function Toast() {
   const { message, animationControls } = useToast();
 
-  function handleCloseToast(): void {
+  function handleCloseToast() {
     animationControls.start('hide');
   }
 
@@ -31,6 +30,6 @@ const Toast: React.FC = () => {
       </Content>
     </Container>
   );
-};
+}
 
 export default Toast;

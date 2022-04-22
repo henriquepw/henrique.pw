@@ -1,9 +1,8 @@
-import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
 
-import { SEOProps } from '@/components/atoms/SEO';
+import type { SEOProps } from '@/components/atoms/SEO';
 import ContactForm from '@/components/molecules/ContactForm';
 import SocialList, { SocialMedia } from '@/components/molecules/SocialList';
 
@@ -12,7 +11,7 @@ import contentfulApi from '@/services/contentful';
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
 
-import { InputData } from '@/interfaces/input';
+import type { InputData } from '@/interfaces/input';
 
 import { Container } from '@/styles/pages/contact';
 
@@ -38,13 +37,7 @@ interface ContactProps {
 
 const formId = '6nqPg4eBYSDo4jE9SeQU8y';
 
-const Contact: React.FC<ContactProps> = ({
-  SEO,
-  title,
-  description,
-  socialData,
-  form,
-}) => {
+function Contact({ SEO, title, description, socialData, form }: ContactProps) {
   return (
     <Container seo={SEO}>
       <ReactMarkdown>{title}</ReactMarkdown>
@@ -59,9 +52,9 @@ const Contact: React.FC<ContactProps> = ({
       </section>
     </Container>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async context => {
   const contactPromise = contentfulApi.getEntry<ContactData>(
     SECTIONS_IDS.contact,
     { locale: formatLocation(context.locale) },

@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { Variants, Transition } from 'framer-motion';
+import type { Variants, Transition } from 'framer-motion';
 
 import SEO, { SEOProps } from '@/components/atoms/SEO';
 
@@ -10,6 +8,7 @@ interface LayoutProps {
   id?: string;
   className?: string;
   seo: SEOProps;
+  children: React.ReactNode;
 }
 
 const transitionVariants: Variants = {
@@ -37,7 +36,7 @@ const transition: Transition = {
   ease: 'easeInOut',
 };
 
-const Layout: React.FC<LayoutProps> = ({ children, seo, ...rest }) => {
+function Layout({ children, seo, ...rest }: LayoutProps) {
   return (
     <Container {...rest}>
       <TransitionFrame
@@ -51,6 +50,6 @@ const Layout: React.FC<LayoutProps> = ({ children, seo, ...rest }) => {
       {children}
     </Container>
   );
-};
+}
 
 export default Layout;

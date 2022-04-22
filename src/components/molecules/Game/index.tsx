@@ -1,8 +1,6 @@
-import React from 'react';
-
 import Image from 'next/image';
 
-import { Asset } from 'contentful';
+import type { Asset } from 'contentful';
 
 import { Container, Content, ImageContainer } from './styles';
 
@@ -16,7 +14,7 @@ interface GameProps {
   item: GameData;
 }
 
-const Game: React.FC<GameProps> = ({ item }) => {
+function Game({ item }: GameProps) {
   const { file } = item.image.fields;
 
   return (
@@ -28,16 +26,17 @@ const Game: React.FC<GameProps> = ({ item }) => {
 
       <ImageContainer>
         <Image
+          alt={item.title}
           placeholder="blur"
           layout="responsive"
           src={`https:${file.url}`}
           blurDataURL={`https:${file.url}?q=2`}
-          width={file.details.image.width}
-          height={file.details.image.height}
+          width={file.details.image?.width}
+          height={file.details.image?.height}
         />
       </ImageContainer>
     </Container>
   );
-};
+}
 
 export default Game;

@@ -1,13 +1,12 @@
-import React from 'react';
-
 import { Container } from './styles';
 
 interface SectionTitleProps {
   isRight?: boolean;
+  children: React.ReactNode;
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ children, isRight }) => {
+function SectionTitle({ children, isRight }: SectionTitleProps) {
   return <Container isRight={isRight}>{children}</Container>;
-};
+}
 
 export default SectionTitle;

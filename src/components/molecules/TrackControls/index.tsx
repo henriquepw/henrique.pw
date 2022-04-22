@@ -1,4 +1,10 @@
-import React, { useState, useImperativeHandle, useEffect, useRef } from 'react';
+import {
+  useState,
+  useImperativeHandle,
+  useEffect,
+  useRef,
+  forwardRef,
+} from 'react';
 import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
 
 import PlayButton from '@/components/atoms/PlayButton';
@@ -24,9 +30,9 @@ const TrackControl: React.ForwardRefRenderFunction<
 > = ({ onPrevious, onNext, onPlay, onPause, initialTrack }, ref) => {
   const [isPlaying, setPlaying] = useState(false);
 
-  const player = useRef<HTMLAudioElement>(null);
+  const player = useRef<HTMLAudioElement | null>(null);
 
-  function togglePlay(value?: boolean): void {
+  function togglePlay(value?: boolean) {
     const newState = value ?? !isPlaying;
 
     setPlaying(newState);
@@ -41,13 +47,18 @@ const TrackControl: React.ForwardRefRenderFunction<
     player.current?.pause();
   }
 
-  function handleTogglePlay(): void {
-    togglePlay();
+  function changeTrack(newTrack: string) {
+    if (player.current) {
+      player.current.src = newTrack;
+    } else if (typeof window !== 'undefined') {
+      player.current = new Audio(newTrack);
+    }
+
+    togglePlay(true);
   }
 
-  function changeTrack(newTrack: string): void {
-    player.current.src = newTrack;
-    togglePlay(true);
+  function handleTogglePlay() {
+    togglePlay();
   }
 
   useEffect(() => {
@@ -92,4 +103,4 @@ const TrackControl: React.ForwardRefRenderFunction<
   );
 };
 
-export default React.forwardRef(TrackControl);
+export default forwardRef(TrackControl);

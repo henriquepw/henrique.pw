@@ -1,12 +1,12 @@
-async function tryGet<Data>(
+async function tryGet<Data, E = unknown>(
   promise: Promise<Data>,
-): Promise<[Data, null] | [null, Error]> {
+): Promise<[Data, null] | [null, E]> {
   try {
     const data = await promise;
 
     return [data, null];
   } catch (error) {
-    return [null, error];
+    return [null, error as E];
   }
 }
 

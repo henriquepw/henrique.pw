@@ -1,4 +1,4 @@
-import { ThemeData } from './index';
+import type { ThemeData } from './index';
 
 const dark: ThemeData = {
   name: 'dark',

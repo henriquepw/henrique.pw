@@ -1,4 +1,4 @@
-import { Asset } from 'contentful';
+import type { Asset } from 'contentful';
 
 export interface Work {
   name: string;

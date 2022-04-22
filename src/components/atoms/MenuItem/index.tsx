@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Link from 'next/link';
 
 import { Container } from './styles';
@@ -10,7 +8,7 @@ interface MenuItemProps {
   isSelected: boolean;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ slug, children, isSelected }) => {
+function MenuItem({ slug, children, isSelected }: MenuItemProps) {
   return (
     <Container isSelected={isSelected}>
       <Link href={slug}>
@@ -25,6 +23,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ slug, children, isSelected }) => {
       </Link>
     </Container>
   );
-};
+}
 
 export default MenuItem;

@@ -1,14 +1,13 @@
-import React from 'react';
 import { FiArrowDown } from 'react-icons/fi';
 import ReactMarkdown from 'react-markdown';
 
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
-import { Asset, Entry } from 'contentful';
+import type { Asset, Entry } from 'contentful';
 
-import { SEOProps } from '@/components/atoms/SEO';
-import { GameData } from '@/components/molecules/Game';
+import type { SEOProps } from '@/components/atoms/SEO';
+import type { GameData } from '@/components/molecules/Game';
 import Games from '@/components/organisms/Games';
 import Playlist from '@/components/organisms/Playlist';
 
@@ -18,8 +17,8 @@ import { getSpotifyPlaylist } from '@/services/spotify';
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
 
-import { SectionData } from '@/interfaces/section';
-import { Track } from '@/interfaces/track';
+import type { SectionData } from '@/interfaces/section';
+import type { Track } from '@/interfaces/track';
 
 import { Container, MainSection, Title } from '@/styles/pages/about';
 
@@ -37,7 +36,7 @@ interface AboutProps extends Omit<AboutData, 'name'> {
   SEO: SEOProps;
 }
 
-const About: React.FC<AboutProps> = ({
+function About({
   SEO,
   title,
   description,
@@ -45,7 +44,7 @@ const About: React.FC<AboutProps> = ({
   games,
   playlist,
   sections,
-}) => {
+}: AboutProps) {
   const { file } = heroImage.fields;
 
   function goToNextSection(): void {
@@ -68,10 +67,11 @@ const About: React.FC<AboutProps> = ({
 
         <Image
           placeholder="blur"
+          alt={file.fileName}
           src={`https:${file.url}`}
           blurDataURL={`https:${file.url}?q=2`}
-          width={file.details.image.width}
-          height={file.details.image.height}
+          width={file.details.image?.width}
+          height={file.details.image?.height}
         />
       </MainSection>
 
@@ -79,9 +79,9 @@ const About: React.FC<AboutProps> = ({
       <Playlist tracks={playlist} sectionData={sections.musics} />
     </Container>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async context => {
   const aboutPromise = contentfulApi.getEntry<AboutData>(SECTIONS_IDS.about, {
     locale: formatLocation(context.locale),
   });

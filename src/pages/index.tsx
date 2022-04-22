@@ -1,15 +1,14 @@
-import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import ReactMarkdown from 'react-markdown';
 
-import { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Asset } from 'contentful';
+import type { Asset } from 'contentful';
 import { motion } from 'framer-motion';
 
-import { SEOProps } from '@/components/atoms/SEO';
+import type { SEOProps } from '@/components/atoms/SEO';
 import SocialList, { SocialMedia } from '@/components/molecules/SocialList';
 
 import contentfulApi from '@/services/contentful';
@@ -17,9 +16,8 @@ import contentfulApi from '@/services/contentful';
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
 
-import { fadeInUp, scaleYInOut, stagger } from '@/animations/global';
-import { dividerTransition, imageVariants } from '@/animations/home';
-
+import { fadeInUp, scaleYInOut, stagger } from '@/styles/animations/global';
+import { dividerTransition, imageVariants } from '@/styles/animations/home';
 import { Container, Button, Divider } from '@/styles/pages/home';
 
 interface HomeProps {
@@ -35,13 +33,13 @@ const seoData: SEOProps = {
   shouldExcludeTitleSuffix: true,
 };
 
-const Home: React.FC<HomeProps> = ({
+function Home({
   title,
   subTitle,
   heroImage,
   actionText,
   socialData,
-}) => {
+}: HomeProps) {
   const { file } = heroImage.fields;
 
   return (
@@ -73,7 +71,7 @@ const Home: React.FC<HomeProps> = ({
 
         <SocialList items={socialData} />
 
-        <Link href="/works">
+        <Link href="/works" passHref>
           <Button variants={fadeInUp}>
             {actionText}
             <FiArrowRight size={24} />
@@ -90,19 +88,20 @@ const Home: React.FC<HomeProps> = ({
 
       <motion.div variants={imageVariants} initial="initial" animate="animate">
         <Image
+          alt={seoData.title}
           placeholder="blur"
           layout="responsive"
           src={`https:${file.url}`}
           blurDataURL={`https:${file.url}?q=2`}
-          width={file.details.image.width}
-          height={file.details.image.height}
+          width={file.details.image?.width}
+          height={file.details.image?.height}
         />
       </motion.div>
     </Container>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async context => {
   const homePromise = contentfulApi.getEntry(SECTIONS_IDS.home, {
     locale: formatLocation(context.locale),
   });

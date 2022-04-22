@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 import { MotionValue, useMotionValue } from 'framer-motion';
 
@@ -8,14 +8,18 @@ interface ScrollbarData {
   setScrollbarVisibility(visibility: boolean): void;
 }
 
+interface ScrollbarProviderProps {
+  children: React.ReactNode;
+}
+
 const ScrollbarContext = createContext({} as ScrollbarData);
 
-const ScrollbarProvider: React.FC = ({ children }) => {
+function ScrollbarProvider({ children }: ScrollbarProviderProps) {
   const [showScrollbar, setShowScrollbar] = useState(true);
 
   const scrollYProgress = useMotionValue(0);
 
-  function setScrollbarVisibility(visibility: boolean): void {
+  function setScrollbarVisibility(visibility: boolean) {
     setShowScrollbar(visibility);
   }
 
@@ -30,7 +34,7 @@ const ScrollbarProvider: React.FC = ({ children }) => {
       {children}
     </ScrollbarContext.Provider>
   );
-};
+}
 
 function useScrollbar(): ScrollbarData {
   const context = useContext(ScrollbarContext);

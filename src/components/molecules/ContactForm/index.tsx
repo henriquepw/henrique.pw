@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FiArrowRight, FiLoader } from 'react-icons/fi';
 
 import axios from 'axios';
@@ -20,7 +20,7 @@ interface ContactFormProps {
   inputs: InputData[];
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
+function ContactForm({ inputs, submitText }: ContactFormProps) {
   const { displayToast } = useToast();
   const [isLoading, setLoading] = useState(false);
 
@@ -51,19 +51,18 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
     const [, error] = await tryGet(axios.post('/api/sendEmail', data));
 
     if (error) {
-      console.warn(error.message);
-      displayToast((messages) => messages.email.error);
+      displayToast(messages => messages.email.error);
       setLoading(false);
       return;
     }
 
     setLoading(false);
-    displayToast((messages) => messages.email.success);
+    displayToast(messages => messages.email.success);
   }
 
   return (
     <Container onSubmit={handleSendEmail}>
-      {inputs.map((input) => (
+      {inputs.map(input => (
         <DynamicInput key={input.id} type={input.type} name={input.slug}>
           {input.title}
         </DynamicInput>
@@ -84,6 +83,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ inputs, submitText }) => {
       </button>
     </Container>
   );
-};
+}
 
 export default ContactForm;

@@ -1,11 +1,9 @@
-import React from 'react';
+import type { GetStaticProps } from 'next';
 
-import { GetStaticProps } from 'next';
-
-import { Entry } from 'contentful';
+import type { Entry } from 'contentful';
 
 import SectionTitle from '@/components/atoms/SectionTitle';
-import { SEOProps } from '@/components/atoms/SEO';
+import type { SEOProps } from '@/components/atoms/SEO';
 import WorkCard from '@/components/atoms/WorkCard';
 import Layout from '@/components/templates/Layout';
 
@@ -14,7 +12,7 @@ import contentfulApi from '@/services/contentful';
 import { formatLocation } from '@/utils/location';
 import { SECTIONS_IDS } from '@/utils/sections';
 
-import { Work } from '@/interfaces/work';
+import type { Work } from '@/interfaces/work';
 
 import { Section } from '@/styles/pages/works';
 
@@ -29,21 +27,21 @@ interface WorksProps {
   works: Entry<Work>[];
 }
 
-const Works: React.FC<WorksProps> = ({ SEO, title, works }) => {
+function Works({ SEO, title, works }: WorksProps) {
   return (
     <Layout seo={SEO}>
       <Section>
         <SectionTitle>{title}</SectionTitle>
 
-        {works?.map((work) => (
+        {works?.map(work => (
           <WorkCard key={work.fields.name} work={work} />
         ))}
       </Section>
     </Layout>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async context => {
   const worksLayoutPromise = contentfulApi.getEntry<WorksData>(
     SECTIONS_IDS.works,
     {

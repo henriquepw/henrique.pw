@@ -1,10 +1,11 @@
-import { NowRequest, NowResponse } from '@vercel/node';
-import axios from 'axios';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (
-  request: NowRequest,
-  response: NowResponse,
-): Promise<NowResponse> => {
+import axios, { AxiosError } from 'axios';
+
+export default async function handler(
+  request: NextApiRequest,
+  response: NextApiResponse,
+) {
   const emailData = {
     service_id: process.env.EMAILJS_SERVICE_ID,
     template_id: process.env.EMAILJS_TEMPLATE_ID,
@@ -22,7 +23,7 @@ export default async (
     return response.json(result.data);
   } catch (error) {
     return response
-      .status(error.response?.status || 500)
-      .json({ messagem: error });
+      .status((error as AxiosError).response?.status || 500)
+      .json({ message: error });
   }
-};
+}

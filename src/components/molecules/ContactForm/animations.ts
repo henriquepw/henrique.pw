@@ -1,4 +1,4 @@
-import { TargetAndTransition, Transition } from 'framer-motion';
+import type { TargetAndTransition, Transition } from 'framer-motion';
 
 export const loaderAnimate: TargetAndTransition = { rotate: 360 };
 

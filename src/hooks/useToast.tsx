@@ -1,24 +1,28 @@
-import React, { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
 import { AnimationControls, useAnimation } from 'framer-motion';
 
-import { TOAST_MESSAGE } from '@/utils/location';
+import { TOAST_MESSAGES } from '@/utils/location';
 
 interface ToastData {
   message: string;
   animationControls: AnimationControls;
-  displayToast(selector: (messages: toastMessages) => string): void;
+  displayToast(selector: (messages: ToastMessages) => string): void;
+}
+
+interface ToastProviderProps {
+  children: React.ReactNode;
 }
 
 const ToastContext = createContext({} as ToastData);
 
-type toastMessages = typeof TOAST_MESSAGE.pt;
+type ToastMessages = typeof TOAST_MESSAGES.pt;
 
-type Selector = (messages: toastMessages) => string;
+type Selector = (messages: ToastMessages) => string;
 
-const ToastProvider: React.FC = ({ children }) => {
+function ToastProvider({ children }: ToastProviderProps) {
   const router = useRouter();
 
   const [selector, setSelector] = useState<Selector>(() => () => '');
@@ -26,17 +30,17 @@ const ToastProvider: React.FC = ({ children }) => {
   const animationControls = useAnimation();
 
   const currentToastMessage = useMemo(() => {
-    const currentLocate = router.locale
+    const currentLocate = (router.locale || '')
       .toLowerCase()
       .split('-')[0]
       .toLowerCase();
 
-    return TOAST_MESSAGE[currentLocate];
+    return TOAST_MESSAGES[currentLocate] || TOAST_MESSAGES.en;
   }, [router.locale]);
 
   const message = selector(currentToastMessage);
 
-  function displayToast(extractor: Selector): void {
+  function displayToast(extractor: Selector) {
     setSelector(() => extractor);
     animationControls.start('show');
   }
@@ -46,7 +50,7 @@ const ToastProvider: React.FC = ({ children }) => {
       {children}
     </ToastContext.Provider>
   );
-};
+}
 
 function useToast(): ToastData {
   const context = useContext(ToastContext);

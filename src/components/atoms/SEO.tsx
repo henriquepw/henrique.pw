@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Head from 'next/head';
 
 import { useTheme } from 'styled-components';
@@ -12,13 +10,13 @@ export interface SEOProps {
   shouldIndexPage?: boolean;
 }
 
-const SEO: React.FC<SEOProps> = ({
+function SEO({
   title,
   description,
   image,
   shouldExcludeTitleSuffix = false,
   shouldIndexPage = true,
-}) => {
+}: SEOProps) {
   const theme = useTheme();
 
   const pageTitle = `${title}${
@@ -50,24 +48,28 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={pageTitle} />
-      <meta property="og:image" content={pageImage} />
-      <meta property="og:image:secure_url" content={pageImage} />
-      <meta property="og:image:alt" content="Thumbnail" />
+
+      {pageImage && (
+        <>
+          <meta property="og:image" content={pageImage} />
+          <meta property="og:image:secure_url" content={pageImage} />
+          <meta name="twitter:image" content={pageImage} />
+          <meta name="twitter:image:src" content={pageImage} />w
+        </>
+      )}
+
       <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
 
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@rocketseat" />
-      <meta name="twitter:creator" content="@rocketseat" />
-      <meta name="twitter:image" content={pageImage} />
-      <meta name="twitter:image:src" content={pageImage} />
+
       <meta name="twitter:image:alt" content="Thumbnail" />
       <meta name="twitter:image:width" content="1200" />
       <meta name="twitter:image:height" content="620" />
     </Head>
   );
-};
+}
 
 export default SEO;

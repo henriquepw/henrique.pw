@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { FiArrowUp } from 'react-icons/fi';
 
 import { useRouter } from 'next/router';
@@ -26,7 +26,7 @@ const ArrowUpVariants: Variants = {
   visible: { opacity: 1, pointerEvents: 'all' },
 };
 
-const Menu: React.FC = () => {
+function Menu() {
   const router = useRouter();
   const theme = useTheme();
 
@@ -34,7 +34,7 @@ const Menu: React.FC = () => {
   const arrowUpControl = useAnimation();
 
   const currentLocale = useMemo(
-    () => router.locale.toLowerCase().split('-')[0],
+    () => (router.locale || '').toLowerCase().split('-')[0],
     [router.locale],
   );
 
@@ -42,28 +42,28 @@ const Menu: React.FC = () => {
 
   const [currentSection, setCurrentSection] = useState(sections[0].slug);
 
-  function changeLocaleToEn(): void {
+  function changeLocaleToEn() {
     if (router.locale === 'en') return;
 
     router.push(router.pathname, undefined, { locale: 'en' });
   }
 
-  function changeLocaleToPt(): void {
+  function changeLocaleToPt() {
     if (router.locale === 'pt') return;
 
     router.push(router.pathname, undefined, { locale: 'pt' });
   }
 
-  function goToTop(): void {
+  function goToTop() {
     window?.scrollTo(0, 0);
   }
 
   useEffect(() => {
-    const unsub = scrollYProgress.onChange((value) => {
+    const unsubscribe = scrollYProgress.onChange(value => {
       arrowUpControl.start(value > 0.4 ? 'visible' : 'hidden');
     });
 
-    return unsub;
+    return unsubscribe;
   }, [scrollYProgress, arrowUpControl]);
 
   useEffect(() => {
@@ -115,7 +115,7 @@ const Menu: React.FC = () => {
       </ExtraConfigs>
 
       <Navigator>
-        {sections?.map((section) => (
+        {sections?.map(section => (
           <MenuItem
             key={section.id}
             slug={section.slug}
@@ -127,6 +127,6 @@ const Menu: React.FC = () => {
       </Navigator>
     </Container>
   );
-};
+}
 
 export default Menu;

@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 import { motion, useAnimation, Variants } from 'framer-motion';
 
-import { InputRef } from '@/interfaces/input';
+import type { InputRef } from '@/interfaces/input';
 
 import Input from '../Input';
 import TextArea from '../TextArea';
@@ -16,7 +16,7 @@ interface InputProps {
 }
 
 const goUp: Variants = {
-  stantard: {
+  standard: {
     top: '50%',
     y: '-50%',
     fontSize: '1.125rem',
@@ -37,17 +37,18 @@ const inputs = {
 
 const DynamicInput: React.FC<InputProps> = ({ type, name, children }) => {
   const CurrentInput = inputs[type];
+
   const inputRef = useRef<InputRef>(null);
 
   const animationControl = useAnimation();
 
-  function handleFocus(): void {
+  function handleFocus() {
     animationControl.start('focus');
   }
 
-  function handleBlur(): void {
+  function handleBlur() {
     if (!inputRef.current?.getValue()) {
-      animationControl.start('stantard');
+      animationControl.start('standard');
     }
   }
 
@@ -56,7 +57,7 @@ const DynamicInput: React.FC<InputProps> = ({ type, name, children }) => {
       <motion.label
         variants={goUp}
         animate={animationControl}
-        initial="stantard"
+        initial="standard"
         htmlFor={`input-${children}`}
       >
         {children}

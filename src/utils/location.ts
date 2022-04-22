@@ -1,9 +1,16 @@
-const LOCATE_PATHS = {
+const LOCATE_PATHS: Record<string, string> = {
   pt: 'pt-BR',
   en: 'en-US',
 };
 
-export const TOAST_MESSAGE = {
+interface ToastMessage {
+  email: {
+    error: string;
+    success: string;
+  };
+}
+
+export const TOAST_MESSAGES: Record<string, ToastMessage> = {
   pt: {
     email: {
       error: 'Houve um erro ao enviar seu e-mail, tente novamente.',
@@ -18,6 +25,6 @@ export const TOAST_MESSAGE = {
   },
 };
 
-export function formatLocation(locate: string): string {
+export function formatLocation(locate = ''): string {
   return LOCATE_PATHS[locate] || locate;
 }

@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import Image from 'next/image';
 
-import { Variants } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import remarkGfm from 'remark-gfm';
 
 import ExternalLink from '@/components/atoms/ExternalLink';
@@ -16,8 +16,8 @@ import { useTheme } from '@/hooks/useTheme';
 
 import { mod } from '@/utils/math';
 
-import { SectionData } from '@/interfaces/section';
-import { Track } from '@/interfaces/track';
+import type { SectionData } from '@/interfaces/section';
+import type { Track } from '@/interfaces/track';
 
 import { Container, TrackList, TrackItem } from './styles';
 
@@ -31,12 +31,12 @@ const imageAnimationVariants: Variants = {
   tap: { scale: 0.95 },
 };
 
-const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
+function Playlist({ tracks, sectionData }: PlaylistProps) {
   const { setActiveColor } = useTheme();
 
   const [trackIndex, setTrackIndex] = useState(0);
 
-  const trackControlsRef = useRef<TrackControlRef>(null);
+  const trackControlsRef = useRef<TrackControlRef | null>(null);
 
   async function getAverageColor(track: Track = tracks[trackIndex]) {
     if (!track) return;
@@ -56,9 +56,11 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
 
     const context = canvas.getContext('2d');
 
-    await new Promise((resolve) => {
+    await new Promise(resolve => {
       image.onload = resolve;
     });
+
+    if (!context) return;
 
     context.drawImage(image, 0, 0);
 
@@ -81,23 +83,23 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
     setActiveColor(averageColor);
   }
 
-  function handlePlay(index: number): void {
+  function handlePlay(index: number) {
     if (index === trackIndex) {
-      trackControlsRef.current.togglePlay();
+      trackControlsRef.current?.togglePlay();
       return;
     }
 
     setTrackIndex(index);
-    trackControlsRef.current.changeTrack(tracks[index].previewUrl);
+    trackControlsRef.current?.changeTrack(tracks[index].previewUrl);
 
     getAverageColor(tracks[index]);
   }
 
-  function handleNext(): void {
+  function handleNext() {
     handlePlay((trackIndex + 1) % tracks.length);
   }
 
-  function handlePrevious(): void {
+  function handlePrevious() {
     handlePlay(mod(trackIndex - 1, tracks.length));
   }
 
@@ -123,7 +125,7 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
                 onClick={() => handlePlay(index)}
               >
                 <dt>{track.name}</dt>
-                <dd>{track.artists.map((artist) => artist.name).join(', ')}</dd>
+                <dd>{track.artists.map(artist => artist.name).join(', ')}</dd>
               </TrackItem>
             ))}
           </TrackList>
@@ -138,6 +140,7 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
               href={tracks[trackIndex].externalUrl}
             >
               <Image
+                alt="Album"
                 placeholder="blur"
                 blurDataURL={tracks[trackIndex].album.blurImage.url}
                 src={tracks[trackIndex].album.image.url}
@@ -159,6 +162,6 @@ const Playlist: React.FC<PlaylistProps> = ({ tracks, sectionData }) => {
       </div>
     </Container>
   );
-};
+}
 
 export default Playlist;

@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useContext,
   useEffect,
@@ -15,19 +15,23 @@ interface ThemeData {
   setActiveColor(color?: string): void;
 }
 
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+
 const ThemeContext = createContext<ThemeData>({} as ThemeData);
 
 const themeList = Object.values(themes);
 
 const THEME_INDEX_KEY = '@henrique.pw/themeIndex';
 
-const ThemeProvider: React.FC = ({ children }) => {
+function ThemeProvider({ children }: ThemeProviderProps) {
   const [currentTheme, setCurrentTheme] = useState(() => {
     if (typeof window === 'undefined') return 0;
 
     const themeIndex = localStorage.getItem(THEME_INDEX_KEY);
 
-    return parseInt(themeIndex, 10) || 0;
+    return parseInt(themeIndex || '0', 10) || 0;
   });
 
   const [theme, setTheme] = useState(themeList[currentTheme]);
@@ -38,7 +42,7 @@ const ThemeProvider: React.FC = ({ children }) => {
 
   const setActiveColor = useCallback(
     (color?: string) => {
-      setTheme((state) => ({
+      setTheme(state => ({
         ...state,
         colors: {
           ...state.colors,
@@ -60,7 +64,7 @@ const ThemeProvider: React.FC = ({ children }) => {
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
-};
+}
 
 function useTheme(): ThemeData {
   const context = useContext(ThemeContext);

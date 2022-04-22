@@ -25,7 +25,7 @@ export const SECTIONS_EN: Section[] = [
   { name: 'contact', slug: '/contact', id: SECTIONS_IDS.contact },
 ];
 
-export const SECTIONS = {
+export const SECTIONS: Record<string, Section[]> = {
   pt: SECTIONS_PT,
   en: SECTIONS_EN,
 };

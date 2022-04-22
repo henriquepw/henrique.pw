@@ -1,4 +1,4 @@
-import { Variants, Transition } from 'framer-motion';
+import type { Variants, Transition } from 'framer-motion';
 
 export const imageVariants: Variants = {
   initial: {
