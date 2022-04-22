@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "analyze": "cross-env ANALYZE=true yarn build",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev --hostname 0.0.0.0",
+    "start": "next start --hostname 0.0.0.0",
     "lint": "next lint"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@next/bundle-analyzer": "^12.1.5",
     "axios": "^0.26.1",
     "contentful": "^9.1.24",
     "framer-motion": "^6.3.0",
@@ -28,6 +30,7 @@
     "@types/react": "18.0.5",
     "@types/react-dom": "18.0.1",
     "@types/styled-components": "^5.1.25",
+    "cross-env": "^7.0.3",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "^8.5.0",
