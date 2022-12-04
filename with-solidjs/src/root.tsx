@@ -1,7 +1,6 @@
 // @refresh reload
 import { Suspense } from "solid-js";
 import {
-  A,
   Body,
   ErrorBoundary,
   FileRoutes,
@@ -12,7 +11,8 @@ import {
   Scripts,
   Title,
 } from "solid-start";
-import "./root.css";
+
+import "./styles/global.css";
 
 export default function Root() {
   return (
@@ -23,7 +23,7 @@ export default function Root() {
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Body>
+      <Body class="theme-dark">
         <Suspense>
           <ErrorBoundary>
             <Routes>

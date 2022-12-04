@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+
+  "plugins": ["import-helpers"],
+
+  "rules": {
+    "prettier/prettier": "error",
+
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^react/",
+          "/^next/",
+          "module",
+          "/^@/components/",
+          "/^@/pages/",
+          "/^@/services/",
+          "/^@/hooks/",
+          "/^@/utils/",
+          "/^@/interfaces/",
+          ["parent", "sibling", "index"],
+          "/^@/assets/",
+          "/^@/animations/",
+          "/^@/styles/",
+          "/^./styles/"
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
+  }
+}

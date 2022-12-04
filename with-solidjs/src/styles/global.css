@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .theme-dark {
+    --color-primary-500: #ff0000;
+   
+    --color-text-500: #ffffff;
+
+    --color-shape-500: #222222;
+  }
+  
+  .theme-light {
+    --color-primary-500: #00ff00;
+  }
+
+  .theme-vapowave {
+    --color-primary-500: #0000ff;
+  }
+}

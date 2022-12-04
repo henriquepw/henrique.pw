@@ -1,0 +1,45 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "analyze": "cross-env ANALYZE=true yarn build",
+    "build": "next build",
+    "dev": "next dev --hostname 0.0.0.0",
+    "start": "next start --hostname 0.0.0.0",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@next/bundle-analyzer": "^12.1.5",
+    "axios": "^0.26.1",
+    "contentful": "^9.1.24",
+    "framer-motion": "^6.3.0",
+    "next": "12.1.5",
+    "polished": "^4.2.2",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-icons": "^4.3.1",
+    "react-markdown": "^8.0.3",
+    "remark-gfm": "^3.0.1",
+    "snarkdown": "^2.0.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.25",
+    "@types/react": "18.0.5",
+    "@types/react-dom": "18.0.1",
+    "@types/styled-components": "^5.1.25",
+    "cross-env": "^7.0.3",
+    "eslint": "8.13.0",
+    "eslint-config-next": "12.1.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "typescript": "4.6.3"
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  }
+}
