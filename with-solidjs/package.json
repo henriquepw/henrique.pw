@@ -8,8 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import-helpers": "^1.3.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-solid": "^0.9.1",
     "postcss": "^8.4.19",
+    "prettier": "^2.8.0",
     "solid-start-node": "^0.2.6",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.9.3",
@@ -18,6 +25,7 @@
   "dependencies": {
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.5.1",
+    "ky": "^0.32.2",
     "solid-js": "^1.6.2",
     "solid-start": "^0.2.6",
     "undici": "^5.13.0"
