@@ -1,5 +1,6 @@
 import type { Track } from '~/types/track';
-import ky from 'ky';
+
+import { spotifyApi } from './spotify-api';
 
 type PlaylistsResponse = {
   tracks: {
@@ -8,10 +9,6 @@ type PlaylistsResponse = {
     }>;
   };
 };
-
-const spotifyApi = ky.create({
-  prefixUrl: 'https://api.spotify.com/v1/',
-});
 
 export async function getSpotifyPlaylist(token: string): Promise<Track[]> {
   const response = await spotifyApi

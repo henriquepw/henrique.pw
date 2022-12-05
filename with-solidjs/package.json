@@ -25,6 +25,7 @@
   "dependencies": {
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.5.1",
+    "contentful": "^9.2.14",
     "ky": "^0.32.2",
     "solid-js": "^1.6.2",
     "solid-start": "^0.2.6",
