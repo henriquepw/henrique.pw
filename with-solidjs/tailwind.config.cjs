@@ -15,12 +15,24 @@ function colorFactory(color) {
 }
 
 module.exports = {
-  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
     colors: {
-      primary: colorFactory("primary"),
-      text: colorFactory("text"),
-      shape: colorFactory("shape"),
+      primary: colorFactory('primary'),
+      secondary: colorFactory('secondary'),
+    },
+    textColor: {
+      skin: {
+        base: 'var(--color-text)',
+      },
+    },
+    backgroundColor: {
+      skin: {
+        base: 'var(--color-background)',
+        shape: 'var(--color-shape)',
+      },
+      primary: colorFactory('primary'),
+      secondary: colorFactory('secondary'),
     },
   },
   plugins: [],

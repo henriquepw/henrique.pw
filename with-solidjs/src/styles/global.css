@@ -3,19 +3,44 @@
 @tailwind utilities;
 
 @layer base {
-  .theme-dark {
-    --color-primary-500: #ff0000;
-   
-    --color-text-500: #ffffff;
-
-    --color-shape-500: #222222;
+  * {
+    color: var(--color-text);
+    background: var(--color-background);
   }
   
-  .theme-light {
-    --color-primary-500: #00ff00;
+  strong {
+    color: var(--color-primary-500);
   }
 
-  .theme-vapowave {
-    --color-primary-500: #0000ff;
+  .profile {
+    filter: url(#duotone);
+  }
+  
+  .theme-dark {
+    --color-primary-50: #dafcff;
+    --color-primary-100: #b1edfb;
+    --color-primary-200: #86e0f5;
+    --color-primary-300: #59d2f0;
+    --color-primary-400: #2ec5ea;
+    --color-primary-500: #15abd1;
+    --color-primary-600: #0285a3;
+    --color-primary-700: #005f76;
+    --color-primary-800: #003a49;
+    --color-primary-900: #00151c;
+
+    --color-secondary-50: #ffe5ff;
+    --color-secondary-100: #fab9f0;
+    --color-secondary-200: #f38ce2;
+    --color-secondary-300: #ed5ed7;
+    --color-secondary-400: #e732ca;
+    --color-secondary-500: #cd18b0;
+    --color-secondary-600: #a1108a;
+    --color-secondary-700: #730a63;
+    --color-secondary-800: #46033d;
+    --color-secondary-900: #1c0018;
+
+    --color-text: #ffffff;
+    --color-shape: #2C2C2C;
+    --color-background: #121212;
   }
 }
