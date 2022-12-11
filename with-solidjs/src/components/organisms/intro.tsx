@@ -1,3 +1,5 @@
+import { SocialIcon } from '../atoms/social-icon';
+
 export function IntroSection() {
   return (
     <section class="flex flex-row items-center">
@@ -17,16 +19,34 @@ export function IntroSection() {
         </svg>
       </div>
 
-      <div class="flex flex-col items-end">
-        <h1 class="text-6xl font-thin uppercase">
-          Henrique <strong class="color-primary-500">Miranda</strong>
+      <div class="flex flex-col items-end font-heading whitespace-nowrap mr-8">
+        <h1 class="text-7xl font-thin uppercase mb-2">
+          Henrique <strong>Miranda</strong>
         </h1>
-        <h2>
-          Full Stack Developer <strong class="color-primary-500">&</strong>{' '}
-          Designer
+        <h2 class="text-3xl tracking-wide">
+          Full Stack Developer <strong>&</strong> Designer
         </h2>
+
+        <ul class="flex space-x-4 mt-6">
+          <li>
+            <SocialIcon name="github" />
+          </li>
+          <li>
+            <SocialIcon name="linkedin" />
+          </li>
+          <li>
+            <SocialIcon name="instagram" />
+          </li>
+          <li>
+            <SocialIcon name="twitter" />
+          </li>
+          <li>
+            <SocialIcon name="email" />
+          </li>
+        </ul>
       </div>
-      <div class="relative">
+
+      <div class="relative ml-8">
         <div class="p-6">
           <img
             class="relative z-10 profile hover:filter-none"

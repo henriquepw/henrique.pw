@@ -17,23 +17,30 @@ function colorFactory(color) {
 module.exports = {
   content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
-    colors: {
-      primary: colorFactory('primary'),
-      secondary: colorFactory('secondary'),
-    },
-    textColor: {
-      skin: {
-        base: 'var(--color-text)',
+    extend: {
+      fontFamily: {
+        heading: ['Barlow Condensed', 'sans-serif'],
+        body: ['Space Mono', 'monospace'],
       },
-    },
-    backgroundColor: {
-      skin: {
-        base: 'var(--color-background)',
-        shape: 'var(--color-shape)',
+      colors: {
+        primary: colorFactory('primary'),
+        secondary: colorFactory('secondary'),
       },
-      primary: colorFactory('primary'),
-      secondary: colorFactory('secondary'),
+      textColor: {
+        skin: {
+          base: 'var(--color-text)',
+        },
+      },
+      backgroundColor: {
+        skin: {
+          base: 'var(--color-background)',
+          shape: 'var(--color-shape)',
+        },
+        primary: colorFactory('primary'),
+        secondary: colorFactory('secondary'),
+      },
     },
   },
+
   plugins: [],
 };

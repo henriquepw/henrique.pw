@@ -2,6 +2,7 @@ import { hexToRgb } from '~/utils/colors/hex-to-rgb';
 
 type Props = {
   id: string;
+  matrix?: string;
   light: string;
   dark: string;
 };
@@ -24,14 +25,14 @@ export function DuotoneFilter(props: Props) {
     <div class="hidden">
       <svg xmlns="http://www.w3.org/2000/svg">
         <filter id={props.id}>
-          <feColorMatrix
-            type="matrix"
-            result="grayscale"
-            values="1 0 0 0 0
-                      1 0 0 0 0
-                      1 0 0 0 0
-                      0 0 0 1 0"
-          />
+          {props.matrix && (
+            <feColorMatrix
+              type="matrix"
+              result="grayscale"
+              values={props.matrix}
+            />
+          )}
+
           <feComponentTransfer
             color-interpolation-filters="sRGB"
             result={props.id}

@@ -8,6 +8,10 @@
     background: var(--color-background);
   }
   
+  html {
+    font-family: 'Space Mono', monospace;
+  }
+
   strong {
     color: var(--color-primary-500);
   }
