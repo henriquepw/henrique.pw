@@ -1,3 +1,4 @@
+import { Motion } from '@motionone/solid';
 import {
   FiMail,
   FiGithub,
@@ -6,37 +7,42 @@ import {
   FiTwitter,
   FiAlertCircle,
 } from 'solid-icons/fi';
-import { JSX } from 'solid-js';
 
-const ICONS: Record<string, JSX.Element> = {
-  email: <FiMail size={32} class="stroke-secondary-500" />,
-  github: <FiGithub size={32} class="stroke-secondary-500" />,
-  instagram: <FiInstagram size={32} class="stroke-secondary-500" />,
-  linkedin: <FiLinkedin size={32} class="stroke-secondary-500" />,
-  twitter: <FiTwitter size={32} class="stroke-secondary-500" />,
-  default: <FiAlertCircle size={32} class="stroke-secondary-500" />,
-};
+const ICONS = {
+  email: FiMail,
+  github: FiGithub,
+  instagram: FiInstagram,
+  linkedin: FiLinkedin,
+  twitter: FiTwitter,
+  default: FiAlertCircle,
+} as const;
 
 const LINKS: Record<string, string> = {
-  email: 'https://henrique.pw/',
-  github: 'https://henrique.pw/',
-  instagram: 'https://henrique.pw/',
-  linkedin: 'https://henrique.pw/',
-  twitter: 'https://henrique.pw/',
+  email: 'mailto:hey@henrique.pw',
+  github: 'https://github.com/henry-ns',
+  instagram: 'https://www.instagram.com/_henry_ns/',
+  linkedin: 'https://www.linkedin.com/in/henry-ns/',
   default: 'https://henrique.pw/',
 };
 
 type Props = {
-  name?: 'email' | 'github' | 'instagram' | 'linkedin' | 'twitter' | '';
+  name?: 'email' | 'github' | 'instagram' | 'linkedin';
 };
 
 export function SocialIcon(props: Props) {
-  const icon = () => ICONS[props.name || 'default'];
   const link = () => LINKS[props.name || 'default'];
 
+  const icon = () => {
+    const Icon = ICONS[props.name || 'default'];
+
+    return <Icon size={32} class="stroke-secondary-500 stroke-1" />;
+  };
+
   return (
-    <a href={link()} target="_blank" rel="noopener noreferrer">
-      {icon()}
-    </a>
+    <Motion.li hover={{ scale: 1.2 }} press={{ scale: 0.9 }}>
+      <a href={link()} target="_blank" rel="noopener noreferrer">
+        {icon()}
+      </a>
+    </Motion.li>
   );
 }

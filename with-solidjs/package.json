@@ -23,12 +23,14 @@
     "vite": "^3.2.4"
   },
   "dependencies": {
+    "@motionone/solid": "^10.15.4",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.5.1",
     "contentful": "^9.2.14",
     "ky": "^0.32.2",
     "solid-icons": "^1.0.4",
     "solid-js": "^1.6.2",
+    "solid-markdown": "^1.2.0",
     "solid-start": "^0.2.7",
     "undici": "^5.13.0"
   },

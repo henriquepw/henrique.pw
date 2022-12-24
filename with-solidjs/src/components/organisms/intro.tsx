@@ -28,21 +28,10 @@ export function IntroSection() {
         </h2>
 
         <ul class="flex space-x-4 mt-6">
-          <li>
-            <SocialIcon name="github" />
-          </li>
-          <li>
-            <SocialIcon name="linkedin" />
-          </li>
-          <li>
-            <SocialIcon name="instagram" />
-          </li>
-          <li>
-            <SocialIcon name="twitter" />
-          </li>
-          <li>
-            <SocialIcon name="email" />
-          </li>
+          <SocialIcon name="github" />
+          <SocialIcon name="linkedin" />
+          <SocialIcon name="instagram" />
+          <SocialIcon name="email" />
         </ul>
       </div>
 
