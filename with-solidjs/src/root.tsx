@@ -37,7 +37,7 @@ export default function Root() {
         />
       </Head>
 
-      <Body class="theme-dark">
+      <Body class="theme-dark overflow-hidden">
         <Suspense>
           <ErrorBoundary>
             <Routes>

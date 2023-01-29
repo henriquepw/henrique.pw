@@ -1,6 +1,5 @@
 import { Asset } from 'contentful';
 import { Show } from 'solid-js';
-import { isServer } from 'solid-js/web';
 import { createRouteData, useRouteData } from 'solid-start';
 
 import { IntroSection } from '~/components/organisms/intro';
@@ -47,7 +46,7 @@ export default function Home() {
   return (
     <Show when={data.home()} fallback={<div>loading...</div>}>
       <main class="bg-shape-500 text-center mx-auto h-screen p-4 text-text-500 flex justify-center items-center">
-        <IntroSection />
+        <IntroSection heroURL={data.home()!.heroImage.fields.file.url} />
       </main>
     </Show>
   );

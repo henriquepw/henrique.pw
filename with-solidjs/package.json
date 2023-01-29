@@ -28,6 +28,7 @@
     "@solidjs/router": "^0.5.1",
     "contentful": "^9.2.14",
     "ky": "^0.32.2",
+    "motion": "^10.15.5",
     "solid-icons": "^1.0.4",
     "solid-js": "^1.6.2",
     "solid-markdown": "^1.2.0",

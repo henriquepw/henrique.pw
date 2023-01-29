@@ -35,11 +35,11 @@ export function SocialIcon(props: Props) {
   const icon = () => {
     const Icon = ICONS[props.name || 'default'];
 
-    return <Icon size={32} class="stroke-secondary-500 stroke-1" />;
+    return <Icon size={36} class="stroke-secondary-500 stroke-1" />;
   };
 
   return (
-    <Motion.li hover={{ scale: 1.2 }} press={{ scale: 0.9 }}>
+    <Motion.li hover={{ scale: 1.3 }} press={{ scale: 0.9 }}>
       <a href={link()} target="_blank" rel="noopener noreferrer">
         {icon()}
       </a>
